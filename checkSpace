@@ -1,0 +1,3 @@
+#!/bin/sh
+
+romusage obj/vwf_screen_turns_off_example.noi -gA -nA -nB -sC

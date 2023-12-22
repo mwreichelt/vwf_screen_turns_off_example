@@ -1,0 +1,57 @@
+;!FILE obj/src/rom0/GraphicsLoader_FullScreen.asm
+XL3
+H A areas 22 global symbols
+M GraphicsLoader_FullScreen
+O -msm83
+S .__.ABS. Def000000
+S ___bank_TitleSalvageFrontier_tiles_bank Ref000000
+S _Title_SalvageFrontierPLN0 Ref000000
+S _set_banked_data Ref000000
+S _TitleSalvageFrontier Ref000000
+S _set_banked_tiles Ref000000
+S ___bank_TitleSalvageFrontier_map_bank Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_0 size 20 flags 0 addr 0
+S A$GraphicsLoader_FullScreen$60 Def000004
+S A$GraphicsLoader_FullScreen$70 Def000011
+S A$GraphicsLoader_FullScreen$61 Def000007
+S A$GraphicsLoader_FullScreen$71 Def000012
+S A$GraphicsLoader_FullScreen$62 Def000008
+S A$GraphicsLoader_FullScreen$72 Def000015
+S A$GraphicsLoader_FullScreen$63 Def00000A
+S A$GraphicsLoader_FullScreen$73 Def000016
+S A$GraphicsLoader_FullScreen$64 Def00000B
+S A$GraphicsLoader_FullScreen$74 Def000019
+S A$GraphicsLoader_FullScreen$75 Def00001A
+S A$GraphicsLoader_FullScreen$57 Def000000
+S A$GraphicsLoader_FullScreen$76 Def00001B
+S A$GraphicsLoader_FullScreen$58 Def000002
+S A$GraphicsLoader_FullScreen$77 Def00001C
+S A$GraphicsLoader_FullScreen$68 Def00000E
+S A$GraphicsLoader_FullScreen$59 Def000003
+S A$GraphicsLoader_FullScreen$69 Def000010
+S A$GraphicsLoader_FullScreen$88 Def00001F
+S G$loadFullScreenGraphics$0$0 Def000000
+S _loadFullScreenGraphics Def000000
+S XG$loadFullScreenGraphics$0$0 Def00001F
+S C$GraphicsLoader_FullScreen.c$22$2_0$127 Def000000
+S C$GraphicsLoader_FullScreen.c$25$1_0$126 Def00001F
+S C$GraphicsLoader_FullScreen.c$23$2_0$127 Def00000E
+S C$GraphicsLoader_FullScreen.c$26$1_0$126 Def00001F
+S C$GraphicsLoader_FullScreen.c$18$0_0$126 Def000000
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 06 00 00 00 C5 33 11 00 00 D5 1E 8F AF
+R 00 00 07 00 0B 04 01 00 02 0A 04 00
+T 0B 00 00 CD 00 00 06 00 00 00 C5 33 11 00 00 D5
+R 00 00 07 00 02 04 03 00 0B 07 06 00 02 0D 02 00
+T 16 00 00 21 14 12 E5 AF 5F CD 00 00 C9
+R 00 00 07 00 02 0A 05 00

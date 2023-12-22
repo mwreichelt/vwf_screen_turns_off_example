@@ -1,0 +1,673 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module main
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _main
+                                     12 	.globl _TMAInterruptHandler
+                                     13 	.globl _VBlankHandler
+                                     14 	.globl _drawdebug_fontsScene
+                                     15 	.globl _handledebug_fontsUpdate
+                                     16 	.globl _initializedebug_fontsScene
+                                     17 	.globl _debug_fontsTeardown
+                                     18 	.globl _drawDebugMusicScene
+                                     19 	.globl _handleDebugMusicUpdate
+                                     20 	.globl _initializeDebugMusicScene
+                                     21 	.globl _debugMusicTeardown
+                                     22 	.globl _drawDebugScene
+                                     23 	.globl _handleDebugUpdate
+                                     24 	.globl _initializeDebugScene
+                                     25 	.globl _debugSceneTeardown
+                                     26 	.globl _music_play_isr
+                                     27 	.globl _sfx_play_isr
+                                     28 	.globl _vwf_activate_font
+                                     29 	.globl _vwf_load_font
+                                     30 	.globl _vwf_set_destination
+                                     31 	.globl _mainmenuSceneTeardown
+                                     32 	.globl _drawMainmenuScene
+                                     33 	.globl _handleMainmenuUpdate
+                                     34 	.globl _initializeMainmenuScene
+                                     35 	.globl _handleTitlescreenUpdate
+                                     36 	.globl _drawTitlescreen
+                                     37 	.globl _loadTitlescreenGraphics
+                                     38 	.globl _initarand
+                                     39 	.globl _display_off
+                                     40 	.globl _wait_vbl_done
+                                     41 	.globl _set_interrupts
+                                     42 	.globl _joypad
+                                     43 	.globl _add_low_priority_TIM
+                                     44 	.globl _add_VBL
+                                     45 ;--------------------------------------------------------
+                                     46 ; special function registers
+                                     47 ;--------------------------------------------------------
+                                     48 ;--------------------------------------------------------
+                                     49 ; ram data
+                                     50 ;--------------------------------------------------------
+                                     51 	.area _DATA
+                                     52 ;--------------------------------------------------------
+                                     53 ; ram data
+                                     54 ;--------------------------------------------------------
+                                     55 	.area _INITIALIZED
+                                     56 ;--------------------------------------------------------
+                                     57 ; absolute external ram data
+                                     58 ;--------------------------------------------------------
+                                     59 	.area _DABS (ABS)
+                                     60 ;--------------------------------------------------------
+                                     61 ; global & static initialisations
+                                     62 ;--------------------------------------------------------
+                                     63 	.area _HOME
+                                     64 	.area _GSINIT
+                                     65 	.area _GSFINAL
+                                     66 	.area _GSINIT
+                                     67 ;--------------------------------------------------------
+                                     68 ; Home
+                                     69 ;--------------------------------------------------------
+                                     70 	.area _HOME
+                                     71 	.area _HOME
+                                     72 ;--------------------------------------------------------
+                                     73 ; code
+                                     74 ;--------------------------------------------------------
+                                     75 	.area _CODE_0
+                           000000    76 	G$VBlankHandler$0$0	= .
+                                     77 	.globl	G$VBlankHandler$0$0
+                           000000    78 	C$main.c$55$0_0$227	= .
+                                     79 	.globl	C$main.c$55$0_0$227
+                                     80 ;src/main.c:55: void VBlankHandler() {
+                                     81 ;	---------------------------------
+                                     82 ; Function VBlankHandler
+                                     83 ; ---------------------------------
+      000000                         84 _VBlankHandler::
+                           000000    85 	C$main.c$57$1_0$227	= .
+                                     86 	.globl	C$main.c$57$1_0$227
+                                     87 ;src/main.c:57: if(MUSIC_TOGGLE > 0) {
+      000000 FAr00r00         [16]   88 	ld	a, (#_MUSIC_TOGGLE)
+      000003 B7               [ 4]   89 	or	a, a
+      000004 28 03            [12]   90 	jr	Z, 00102$
+                           000006    91 	C$main.c$58$2_0$228	= .
+                                     92 	.globl	C$main.c$58$2_0$228
+                                     93 ;src/main.c:58: music_play_isr();
+      000006 CDr00r00         [24]   94 	call	_music_play_isr
+      000009                         95 00102$:
+                           000009    96 	C$main.c$65$1_0$227	= .
+                                     97 	.globl	C$main.c$65$1_0$227
+                                     98 ;src/main.c:65: FRAME_COUNTER++;
+      000009 21r00r00         [12]   99 	ld	hl, #_FRAME_COUNTER
+      00000C 34               [12]  100 	inc	(hl)
+                           00000D   101 	C$main.c$66$1_0$227	= .
+                                    102 	.globl	C$main.c$66$1_0$227
+                                    103 ;src/main.c:66: if(FRAME_COUNTER == ANIMATION_TICK_SPEED) { //Set up our "animation ticks"
+      00000D 7E               [ 8]  104 	ld	a, (hl)
+      00000E 21r00r00         [12]  105 	ld	hl, #_ANIMATION_TICK_SPEED
+      000011 96               [ 8]  106 	sub	a, (hl)
+      000012 C0               [20]  107 	ret	NZ
+                           000013   108 	C$main.c$67$2_0$229	= .
+                                    109 	.globl	C$main.c$67$2_0$229
+                                    110 ;src/main.c:67: FRAME_COUNTER = 0u;
+      000013 21r00r00         [12]  111 	ld	hl, #_FRAME_COUNTER
+      000016 36 00            [12]  112 	ld	(hl), #0x00
+                           000018   113 	C$main.c$68$2_0$229	= .
+                                    114 	.globl	C$main.c$68$2_0$229
+                                    115 ;src/main.c:68: ANIMATION_TICK++;
+      000018 21r00r00         [12]  116 	ld	hl, #_ANIMATION_TICK
+      00001B 34               [12]  117 	inc	(hl)
+                           00001C   118 	C$main.c$70$1_0$227	= .
+                                    119 	.globl	C$main.c$70$1_0$227
+                                    120 ;src/main.c:70: }
+                           00001C   121 	C$main.c$70$1_0$227	= .
+                                    122 	.globl	C$main.c$70$1_0$227
+                           00001C   123 	XG$VBlankHandler$0$0	= .
+                                    124 	.globl	XG$VBlankHandler$0$0
+      00001C C9               [16]  125 	ret
+                           00001D   126 	G$TMAInterruptHandler$0$0	= .
+                                    127 	.globl	G$TMAInterruptHandler$0$0
+                           00001D   128 	C$main.c$72$1_0$230	= .
+                                    129 	.globl	C$main.c$72$1_0$230
+                                    130 ;src/main.c:72: void TMAInterruptHandler() {
+                                    131 ;	---------------------------------
+                                    132 ; Function TMAInterruptHandler
+                                    133 ; ---------------------------------
+      00001D                        134 _TMAInterruptHandler::
+                           00001D   135 	C$main.c$73$1_0$230	= .
+                                    136 	.globl	C$main.c$73$1_0$230
+                                    137 ;src/main.c:73: sfx_play_isr();
+                           00001D   138 	C$main.c$74$1_0$230	= .
+                                    139 	.globl	C$main.c$74$1_0$230
+                                    140 ;src/main.c:74: }
+                           00001D   141 	C$main.c$74$1_0$230	= .
+                                    142 	.globl	C$main.c$74$1_0$230
+                           00001D   143 	XG$TMAInterruptHandler$0$0	= .
+                                    144 	.globl	XG$TMAInterruptHandler$0$0
+      00001D C3r00r00         [16]  145 	jp	_sfx_play_isr
+                           000020   146 	G$main$0$0	= .
+                                    147 	.globl	G$main$0$0
+                           000020   148 	C$main.c$78$1_0$231	= .
+                                    149 	.globl	C$main.c$78$1_0$231
+                                    150 ;src/main.c:78: void main()
+                                    151 ;	---------------------------------
+                                    152 ; Function main
+                                    153 ; ---------------------------------
+      000020                        154 _main::
+                           000020   155 	C$main.c$80$1_0$231	= .
+                                    156 	.globl	C$main.c$80$1_0$231
+                                    157 ;src/main.c:80: LCDC_REG|=LCDCF_BG8800;
+                           000020   158 	C$main.c$81$1_0$231	= .
+                                    159 	.globl	C$main.c$81$1_0$231
+                                    160 ;src/main.c:81: PREVIOUS_GAME_STATE = 255u;
+      000020 21r00r00         [12]  161 	ld	hl, #_PREVIOUS_GAME_STATE
+      000023 36 FF            [12]  162 	ld	(hl), #0xff
+                           000025   163 	C$main.c$82$1_0$231	= .
+                                    164 	.globl	C$main.c$82$1_0$231
+                                    165 ;src/main.c:82: GAME_STATE = STATE_TITLESCREEN;
+      000025 21r00r00         [12]  166 	ld	hl, #_GAME_STATE
+      000028 36 00            [12]  167 	ld	(hl), #0x00
+                           00002A   168 	C$main.c$85$1_0$231	= .
+                                    169 	.globl	C$main.c$85$1_0$231
+                                    170 ;src/main.c:85: SHOW_BKG;
+      00002A F0r00            [12]  171 	ldh	a, (_LCDC_REG + 0)
+      00002C F6 01            [ 8]  172 	or	a, #0x01
+      00002E E0r00            [12]  173 	ldh	(_LCDC_REG + 0), a
+                                    174 ;include/musicmanager.h:26: music_current_track_bank = MUSIC_STOP_BANK;
+      000030 21r00r00         [12]  175 	ld	hl, #_music_current_track_bank
+      000033 36 FF            [12]  176 	ld	(hl), #0xff
+                                    177 ;include/sfxplayer.h:18: NR52_REG = SFX_CH_ENABLE, NR51_REG = 0xFF, NR50_REG = 0x77;  // enable sound
+      000035 3E 80            [ 8]  178 	ld	a, #0x80
+      000037 E0r00            [12]  179 	ldh	(_NR52_REG + 0), a
+      000039 3E FF            [ 8]  180 	ld	a, #0xff
+      00003B E0r00            [12]  181 	ldh	(_NR51_REG + 0), a
+      00003D 3E 77            [ 8]  182 	ld	a, #0x77
+      00003F E0r00            [12]  183 	ldh	(_NR50_REG + 0), a
+                                    184 ;include/sfxplayer.h:41: sfx_play_bank = SFX_STOP_BANK, sfx_play_sample = NULL;
+      000041 21r00r00         [12]  185 	ld	hl, #_sfx_play_bank
+      000044 36 FF            [12]  186 	ld	(hl), #0xff
+      000046 AF               [ 4]  187 	xor	a, a
+      000047 21r00r00         [12]  188 	ld	hl, #_sfx_play_sample
+      00004A 22               [ 8]  189 	ld	(hl+), a
+      00004B 77               [ 8]  190 	ld	(hl), a
+                                    191 ;include/sfxplayer.h:22: NR12_REG = NR22_REG = NR32_REG = NR42_REG = 0;
+      00004C AF               [ 4]  192 	xor	a, a
+      00004D E0r00            [12]  193 	ldh	(_NR42_REG + 0), a
+      00004F AF               [ 4]  194 	xor	a, a
+      000050 E0r00            [12]  195 	ldh	(_NR32_REG + 0), a
+      000052 AF               [ 4]  196 	xor	a, a
+      000053 E0r00            [12]  197 	ldh	(_NR22_REG + 0), a
+      000055 AF               [ 4]  198 	xor	a, a
+      000056 E0r00            [12]  199 	ldh	(_NR12_REG + 0), a
+                                    200 ;include/sfxplayer.h:23: NR14_REG = NR24_REG = NR44_REG = SFX_CH_RETRIGGER;
+      000058 3E C0            [ 8]  201 	ld	a, #0xc0
+      00005A E0r00            [12]  202 	ldh	(_NR44_REG + 0), a
+      00005C 3E C0            [ 8]  203 	ld	a, #0xc0
+      00005E E0r00            [12]  204 	ldh	(_NR24_REG + 0), a
+      000060 3E C0            [ 8]  205 	ld	a, #0xc0
+      000062 E0r00            [12]  206 	ldh	(_NR14_REG + 0), a
+                                    207 ;include/sfxplayer.h:24: NR51_REG = 0xFF;
+      000064 3E FF            [ 8]  208 	ld	a, #0xff
+      000066 E0r00            [12]  209 	ldh	(_NR51_REG + 0), a
+                           000068   210 	C$main.c$104$1_0$231	= .
+                                    211 	.globl	C$main.c$104$1_0$231
+                                    212 ;src/main.c:104: };
+      000068 F3               [ 4]  213 	di
+                           000069   214 	C$main.c$97$2_0$232	= .
+                                    215 	.globl	C$main.c$97$2_0$232
+                                    216 ;src/main.c:97: add_VBL(VBlankHandler);
+      000069 11r00r00         [12]  217 	ld	de, #_VBlankHandler
+      00006C D5               [16]  218 	push	de
+      00006D CDr00r00         [24]  219 	call	_add_VBL
+      000070 E1               [12]  220 	pop	hl
+                                    221 ;include/musicmanager.h:21: TMA_REG = ((_cpu == CGB_TYPE) && (*(UBYTE *)0x0143 & 0x80)) ? 0x80u : 0xC0u;
+      000071 FAr00r00         [16]  222 	ld	a, (#__cpu)
+      000074 D6 11            [ 8]  223 	sub	a, #0x11
+      000076 20 0B            [12]  224 	jr	NZ, 00134$
+      000078 FA 43 01         [16]  225 	ld	a, (#0x0143)
+      00007B 07               [ 4]  226 	rlca
+      00007C 30 05            [12]  227 	jr	NC, 00134$
+      00007E 01 80 00         [12]  228 	ld	bc, #0x0080
+      000081 18 03            [12]  229 	jr	00135$
+      000083                        230 00134$:
+      000083 01 C0 00         [12]  231 	ld	bc, #0x00c0
+      000086                        232 00135$:
+      000086 79               [ 4]  233 	ld	a, c
+      000087 E0r00            [12]  234 	ldh	(_TMA_REG + 0), a
+                                    235 ;include/musicmanager.h:22: TAC_REG = 0x07u;
+      000089 3E 07            [ 8]  236 	ld	a, #0x07
+      00008B E0r00            [12]  237 	ldh	(_TAC_REG + 0), a
+                           00008D   238 	C$main.c$101$2_0$232	= .
+                                    239 	.globl	C$main.c$101$2_0$232
+                                    240 ;src/main.c:101: add_low_priority_TIM(TMAInterruptHandler);
+      00008D 11r1Dr00         [12]  241 	ld	de, #_TMAInterruptHandler
+      000090 D5               [16]  242 	push	de
+      000091 CDr00r00         [24]  243 	call	_add_low_priority_TIM
+      000094 E1               [12]  244 	pop	hl
+                           000095   245 	C$main.c$102$2_0$232	= .
+                                    246 	.globl	C$main.c$102$2_0$232
+                                    247 ;src/main.c:102: set_interrupts(IE_REG | TIM_IFLAG);
+      000095 F0r00            [12]  248 	ldh	a, (_IE_REG + 0)
+      000097 CB D7            [ 8]  249 	set	2, a
+      000099 F5               [16]  250 	push	af
+      00009A 33               [ 8]  251 	inc	sp
+      00009B CDr00r00         [24]  252 	call	_set_interrupts
+      00009E 33               [ 8]  253 	inc	sp
+      00009F FB               [ 4]  254 	ei
+                           0000A0   255 	C$main.c$116$1_0$231	= .
+                                    256 	.globl	C$main.c$116$1_0$231
+                                    257 ;src/main.c:116: vwf_set_destination(VWF_RENDER_BKG);
+      0000A0 AF               [ 4]  258 	xor	a, a
+      0000A1 CDr00r00         [24]  259 	call	_vwf_set_destination
+                           0000A4   260 	C$main.c$118$1_0$231	= .
+                                    261 	.globl	C$main.c$118$1_0$231
+                                    262 ;src/main.c:118: vwf_load_font(FONT_VWF_PARAGRAPH, Font_CoCa_GB, BANK(Font_CoCa_GB));
+      0000A4 06r00            [ 8]  263 	ld	b, #<(___bank_Font_CoCa_GB)
+      0000A6 C5               [16]  264 	push	bc
+      0000A7 33               [ 8]  265 	inc	sp
+      0000A8 11r00r00         [12]  266 	ld	de, #_Font_CoCa_GB
+      0000AB AF               [ 4]  267 	xor	a, a
+      0000AC CDr00r00         [24]  268 	call	_vwf_load_font
+                           0000AF   269 	C$main.c$119$1_0$231	= .
+                                    270 	.globl	C$main.c$119$1_0$231
+                                    271 ;src/main.c:119: vwf_load_font(FONT_VWF_CONDENSED, Font_condensed, BANK(Font_condensed));
+      0000AF 06r00            [ 8]  272 	ld	b, #<(___bank_Font_condensed)
+      0000B1 C5               [16]  273 	push	bc
+      0000B2 33               [ 8]  274 	inc	sp
+      0000B3 11r00r00         [12]  275 	ld	de, #_Font_condensed
+      0000B6 3E 01            [ 8]  276 	ld	a, #0x01
+      0000B8 CDr00r00         [24]  277 	call	_vwf_load_font
+                           0000BB   278 	C$main.c$120$1_0$231	= .
+                                    279 	.globl	C$main.c$120$1_0$231
+                                    280 ;src/main.c:120: vwf_load_font(FONT_VWF_MINIMAL_S, Font_Minimal3x5, BANK(Font_Minimal3x5));
+      0000BB 06r00            [ 8]  281 	ld	b, #<(___bank_Font_Minimal3x5)
+      0000BD C5               [16]  282 	push	bc
+      0000BE 33               [ 8]  283 	inc	sp
+      0000BF 11r00r00         [12]  284 	ld	de, #_Font_Minimal3x5
+      0000C2 3E 02            [ 8]  285 	ld	a, #0x02
+      0000C4 CDr00r00         [24]  286 	call	_vwf_load_font
+                           0000C7   287 	C$main.c$121$1_0$231	= .
+                                    288 	.globl	C$main.c$121$1_0$231
+                                    289 ;src/main.c:121: vwf_load_font(FONT_VWF_MINIMAL_L, Font_Minimal5x7, BANK(Font_Minimal5x7));
+      0000C7 06r00            [ 8]  290 	ld	b, #<(___bank_Font_Minimal5x7)
+      0000C9 C5               [16]  291 	push	bc
+      0000CA 33               [ 8]  292 	inc	sp
+      0000CB 11r00r00         [12]  293 	ld	de, #_Font_Minimal5x7
+      0000CE 3E 03            [ 8]  294 	ld	a, #0x03
+      0000D0 CDr00r00         [24]  295 	call	_vwf_load_font
+                           0000D3   296 	C$main.c$122$1_0$231	= .
+                                    297 	.globl	C$main.c$122$1_0$231
+                                    298 ;src/main.c:122: vwf_activate_font(0);
+      0000D3 AF               [ 4]  299 	xor	a, a
+      0000D4 CDr00r00         [24]  300 	call	_vwf_activate_font
+                           0000D7   301 	C$main.c$125$1_0$231	= .
+                                    302 	.globl	C$main.c$125$1_0$231
+                                    303 ;src/main.c:125: while(1) {
+      0000D7                        304 00125$:
+                           0000D7   305 	C$main.c$127$2_0$233	= .
+                                    306 	.globl	C$main.c$127$2_0$233
+                                    307 ;src/main.c:127: JOYPAD_PREVIOUS = JOYPAD_CURRENT;
+      0000D7 FAr00r00         [16]  308 	ld	a, (#_JOYPAD_CURRENT)
+      0000DA EAr00r00         [16]  309 	ld	(#_JOYPAD_PREVIOUS),a
+                           0000DD   310 	C$main.c$128$2_0$233	= .
+                                    311 	.globl	C$main.c$128$2_0$233
+                                    312 ;src/main.c:128: JOYPAD_CURRENT = joypad();
+      0000DD CDr00r00         [24]  313 	call	_joypad
+      0000E0 EAr00r00         [16]  314 	ld	(#_JOYPAD_CURRENT),a
+                           0000E3   315 	C$main.c$130$2_0$233	= .
+                                    316 	.globl	C$main.c$130$2_0$233
+                                    317 ;src/main.c:130: if(PREVIOUS_GAME_STATE != GAME_STATE) {
+      0000E3 FAr00r00         [16]  318 	ld	a, (#_PREVIOUS_GAME_STATE)
+      0000E6 21r00r00         [12]  319 	ld	hl, #_GAME_STATE
+      0000E9 96               [ 8]  320 	sub	a, (hl)
+      0000EA CArBDr01         [16]  321 	jp	Z,00116$
+                           0000ED   322 	C$main.c$132$3_0$234	= .
+                                    323 	.globl	C$main.c$132$3_0$234
+                                    324 ;src/main.c:132: DISPLAY_OFF;
+      0000ED CDr00r00         [24]  325 	call	_display_off
+                           0000F0   326 	C$main.c$135$3_0$234	= .
+                                    327 	.globl	C$main.c$135$3_0$234
+                                    328 ;src/main.c:135: SCENE_SUBMODE = SUBMODE_DEFAULT;
+      0000F0 21r00r00         [12]  329 	ld	hl, #_SCENE_SUBMODE
+      0000F3 36 00            [12]  330 	ld	(hl), #0x00
+                           0000F5   331 	C$main.c$137$3_0$234	= .
+                                    332 	.globl	C$main.c$137$3_0$234
+                                    333 ;src/main.c:137: switch(PREVIOUS_GAME_STATE) {
+      0000F5 FAr00r00         [16]  334 	ld	a, (#_PREVIOUS_GAME_STATE)
+      0000F8 B7               [ 4]  335 	or	a, a
+      0000F9 28 37            [12]  336 	jr	Z, 00102$
+      0000FB FAr00r00         [16]  337 	ld	a, (#_PREVIOUS_GAME_STATE)
+      0000FE D6 08            [ 8]  338 	sub	a, #0x08
+      000100 28 17            [12]  339 	jr	Z, 00101$
+      000102 FAr00r00         [16]  340 	ld	a, (#_PREVIOUS_GAME_STATE)
+      000105 D6 09            [ 8]  341 	sub	a, #0x09
+      000107 28 33            [12]  342 	jr	Z, 00103$
+      000109 FAr00r00         [16]  343 	ld	a, (#_PREVIOUS_GAME_STATE)
+      00010C D6 0A            [ 8]  344 	sub	a, #0x0a
+      00010E 28 31            [12]  345 	jr	Z, 00104$
+      000110 FAr00r00         [16]  346 	ld	a, (#_PREVIOUS_GAME_STATE)
+      000113 D6 14            [ 8]  347 	sub	a, #0x14
+      000115 28 2F            [12]  348 	jr	Z, 00105$
+      000117 18 30            [12]  349 	jr	00107$
+                           000119   350 	C$main.c$138$4_0$235	= .
+                                    351 	.globl	C$main.c$138$4_0$235
+                                    352 ;src/main.c:138: case STATE_MAINMENU:
+      000119                        353 00101$:
+                           000119   354 	C$main.c$140$4_0$235	= .
+                                    355 	.globl	C$main.c$140$4_0$235
+                                    356 ;src/main.c:140: RNG_SEED |= (uint16_t)DIV_REG << 8;
+      000119 F0r00            [12]  357 	ldh	a, (_DIV_REG + 0)
+      00011B 4F               [ 4]  358 	ld	c, a
+      00011C AF               [ 4]  359 	xor	a, a
+      00011D 21r00r00         [12]  360 	ld	hl, #_RNG_SEED
+      000120 B6               [ 8]  361 	or	a, (hl)
+      000121 22               [ 8]  362 	ld	(hl+), a
+      000122 79               [ 4]  363 	ld	a, c
+      000123 B6               [ 8]  364 	or	a, (hl)
+                           000124   365 	C$main.c$141$4_0$235	= .
+                                    366 	.globl	C$main.c$141$4_0$235
+                                    367 ;src/main.c:141: initarand(RNG_SEED);
+      000124 32               [ 8]  368 	ld	(hl-), a
+      000125 2A               [ 8]  369 	ld	a, (hl+)
+      000126 5F               [ 4]  370 	ld	e, a
+      000127 56               [ 8]  371 	ld	d, (hl)
+      000128 D5               [16]  372 	push	de
+      000129 CDr00r00         [24]  373 	call	_initarand
+      00012C E1               [12]  374 	pop	hl
+                           00012D   375 	C$main.c$142$4_0$235	= .
+                                    376 	.globl	C$main.c$142$4_0$235
+                                    377 ;src/main.c:142: mainmenuSceneTeardown();
+      00012D CDr00r00         [24]  378 	call	_mainmenuSceneTeardown
+                           000130   379 	C$main.c$143$4_0$235	= .
+                                    380 	.globl	C$main.c$143$4_0$235
+                                    381 ;src/main.c:143: break;
+      000130 18 17            [12]  382 	jr	00107$
+                           000132   383 	C$main.c$144$4_0$235	= .
+                                    384 	.globl	C$main.c$144$4_0$235
+                                    385 ;src/main.c:144: case STATE_TITLESCREEN:
+      000132                        386 00102$:
+                           000132   387 	C$main.c$146$4_0$235	= .
+                                    388 	.globl	C$main.c$146$4_0$235
+                                    389 ;src/main.c:146: RNG_SEED = DIV_REG;
+      000132 F0r00            [12]  390 	ldh	a, (_DIV_REG + 0)
+      000134 21r00r00         [12]  391 	ld	hl, #_RNG_SEED
+      000137 22               [ 8]  392 	ld	(hl+), a
+      000138 36 00            [12]  393 	ld	(hl), #0x00
+                           00013A   394 	C$main.c$147$4_0$235	= .
+                                    395 	.globl	C$main.c$147$4_0$235
+                                    396 ;src/main.c:147: break;
+      00013A 18 0D            [12]  397 	jr	00107$
+                           00013C   398 	C$main.c$148$4_0$235	= .
+                                    399 	.globl	C$main.c$148$4_0$235
+                                    400 ;src/main.c:148: case STATE_DEBUGROOM:
+      00013C                        401 00103$:
+                           00013C   402 	C$main.c$149$4_0$235	= .
+                                    403 	.globl	C$main.c$149$4_0$235
+                                    404 ;src/main.c:149: debugSceneTeardown();
+      00013C CDr00r00         [24]  405 	call	_debugSceneTeardown
+                           00013F   406 	C$main.c$150$4_0$235	= .
+                                    407 	.globl	C$main.c$150$4_0$235
+                                    408 ;src/main.c:150: break;
+      00013F 18 08            [12]  409 	jr	00107$
+                           000141   410 	C$main.c$151$4_0$235	= .
+                                    411 	.globl	C$main.c$151$4_0$235
+                                    412 ;src/main.c:151: case STATE_DEBUG_MUSIC:
+      000141                        413 00104$:
+                           000141   414 	C$main.c$152$4_0$235	= .
+                                    415 	.globl	C$main.c$152$4_0$235
+                                    416 ;src/main.c:152: debugMusicTeardown();
+      000141 CDr00r00         [24]  417 	call	_debugMusicTeardown
+                           000144   418 	C$main.c$153$4_0$235	= .
+                                    419 	.globl	C$main.c$153$4_0$235
+                                    420 ;src/main.c:153: break;
+      000144 18 03            [12]  421 	jr	00107$
+                           000146   422 	C$main.c$154$4_0$235	= .
+                                    423 	.globl	C$main.c$154$4_0$235
+                                    424 ;src/main.c:154: case STATE_DEBUG_TEXT:
+      000146                        425 00105$:
+                           000146   426 	C$main.c$155$4_0$235	= .
+                                    427 	.globl	C$main.c$155$4_0$235
+                                    428 ;src/main.c:155: debug_fontsTeardown();
+      000146 CDr00r00         [24]  429 	call	_debug_fontsTeardown
+                           000149   430 	C$main.c$159$3_0$234	= .
+                                    431 	.globl	C$main.c$159$3_0$234
+                                    432 ;src/main.c:159: }
+      000149                        433 00107$:
+                           000149   434 	C$main.c$162$3_0$234	= .
+                                    435 	.globl	C$main.c$162$3_0$234
+                                    436 ;src/main.c:162: switch(GAME_STATE) {
+      000149 FAr00r00         [16]  437 	ld	a, (#_GAME_STATE)
+      00014C B7               [ 4]  438 	or	a, a
+      00014D 28 1E            [12]  439 	jr	Z, 00108$
+      00014F FAr00r00         [16]  440 	ld	a, (#_GAME_STATE)
+      000152 D6 08            [ 8]  441 	sub	a, #0x08
+      000154 28 25            [12]  442 	jr	Z, 00109$
+      000156 FAr00r00         [16]  443 	ld	a, (#_GAME_STATE)
+      000159 D6 09            [ 8]  444 	sub	a, #0x09
+      00015B 28 2C            [12]  445 	jr	Z, 00110$
+      00015D FAr00r00         [16]  446 	ld	a, (#_GAME_STATE)
+      000160 D6 0A            [ 8]  447 	sub	a, #0x0a
+      000162 28 33            [12]  448 	jr	Z, 00111$
+      000164 FAr00r00         [16]  449 	ld	a, (#_GAME_STATE)
+      000167 D6 14            [ 8]  450 	sub	a, #0x14
+      000169 28 3A            [12]  451 	jr	Z, 00112$
+      00016B 18 44            [12]  452 	jr	00114$
+                           00016D   453 	C$main.c$163$4_0$236	= .
+                                    454 	.globl	C$main.c$163$4_0$236
+                                    455 ;src/main.c:163: case STATE_TITLESCREEN:
+      00016D                        456 00108$:
+                           00016D   457 	C$main.c$164$4_0$236	= .
+                                    458 	.globl	C$main.c$164$4_0$236
+                                    459 ;src/main.c:164: SWITCH_ROM(BANK(titlescreen_scene_bank));
+      00016D 3Er00            [ 8]  460 	ld	a, #<(___bank_titlescreen_scene_bank)
+      00016F E0r00            [12]  461 	ldh	(__current_bank + 0), a
+      000171 3Er00            [ 8]  462 	ld	a, #<(___bank_titlescreen_scene_bank)
+      000173 EA 00 20         [16]  463 	ld	(#0x2000),a
+                           000176   464 	C$main.c$165$4_0$236	= .
+                                    465 	.globl	C$main.c$165$4_0$236
+                                    466 ;src/main.c:165: loadTitlescreenGraphics();
+      000176 CDr00r00         [24]  467 	call	_loadTitlescreenGraphics
+                           000179   468 	C$main.c$166$4_0$236	= .
+                                    469 	.globl	C$main.c$166$4_0$236
+                                    470 ;src/main.c:166: break;
+      000179 18 36            [12]  471 	jr	00114$
+                           00017B   472 	C$main.c$167$4_0$236	= .
+                                    473 	.globl	C$main.c$167$4_0$236
+                                    474 ;src/main.c:167: case STATE_MAINMENU:
+      00017B                        475 00109$:
+                           00017B   476 	C$main.c$168$4_0$236	= .
+                                    477 	.globl	C$main.c$168$4_0$236
+                                    478 ;src/main.c:168: SWITCH_ROM(BANK(mainmenu_scene_bank));
+      00017B 3Er00            [ 8]  479 	ld	a, #<(___bank_mainmenu_scene_bank)
+      00017D E0r00            [12]  480 	ldh	(__current_bank + 0), a
+      00017F 3Er00            [ 8]  481 	ld	a, #<(___bank_mainmenu_scene_bank)
+      000181 EA 00 20         [16]  482 	ld	(#0x2000),a
+                           000184   483 	C$main.c$169$4_0$236	= .
+                                    484 	.globl	C$main.c$169$4_0$236
+                                    485 ;src/main.c:169: initializeMainmenuScene();
+      000184 CDr00r00         [24]  486 	call	_initializeMainmenuScene
+                           000187   487 	C$main.c$170$4_0$236	= .
+                                    488 	.globl	C$main.c$170$4_0$236
+                                    489 ;src/main.c:170: break;
+      000187 18 28            [12]  490 	jr	00114$
+                           000189   491 	C$main.c$171$4_0$236	= .
+                                    492 	.globl	C$main.c$171$4_0$236
+                                    493 ;src/main.c:171: case STATE_DEBUGROOM:
+      000189                        494 00110$:
+                           000189   495 	C$main.c$172$4_0$236	= .
+                                    496 	.globl	C$main.c$172$4_0$236
+                                    497 ;src/main.c:172: SWITCH_ROM(BANK(debug_scene_bank));
+      000189 3Er00            [ 8]  498 	ld	a, #<(___bank_debug_scene_bank)
+      00018B E0r00            [12]  499 	ldh	(__current_bank + 0), a
+      00018D 3Er00            [ 8]  500 	ld	a, #<(___bank_debug_scene_bank)
+      00018F EA 00 20         [16]  501 	ld	(#0x2000),a
+                           000192   502 	C$main.c$173$4_0$236	= .
+                                    503 	.globl	C$main.c$173$4_0$236
+                                    504 ;src/main.c:173: initializeDebugScene();
+      000192 CDr00r00         [24]  505 	call	_initializeDebugScene
+                           000195   506 	C$main.c$174$4_0$236	= .
+                                    507 	.globl	C$main.c$174$4_0$236
+                                    508 ;src/main.c:174: break;
+      000195 18 1A            [12]  509 	jr	00114$
+                           000197   510 	C$main.c$175$4_0$236	= .
+                                    511 	.globl	C$main.c$175$4_0$236
+                                    512 ;src/main.c:175: case STATE_DEBUG_MUSIC:
+      000197                        513 00111$:
+                           000197   514 	C$main.c$176$4_0$236	= .
+                                    515 	.globl	C$main.c$176$4_0$236
+                                    516 ;src/main.c:176: SWITCH_ROM(BANK(debugmusic_scene_bank));
+      000197 3Er00            [ 8]  517 	ld	a, #<(___bank_debugmusic_scene_bank)
+      000199 E0r00            [12]  518 	ldh	(__current_bank + 0), a
+      00019B 3Er00            [ 8]  519 	ld	a, #<(___bank_debugmusic_scene_bank)
+      00019D EA 00 20         [16]  520 	ld	(#0x2000),a
+                           0001A0   521 	C$main.c$177$4_0$236	= .
+                                    522 	.globl	C$main.c$177$4_0$236
+                                    523 ;src/main.c:177: initializeDebugMusicScene();
+      0001A0 CDr00r00         [24]  524 	call	_initializeDebugMusicScene
+                           0001A3   525 	C$main.c$178$4_0$236	= .
+                                    526 	.globl	C$main.c$178$4_0$236
+                                    527 ;src/main.c:178: break;
+      0001A3 18 0C            [12]  528 	jr	00114$
+                           0001A5   529 	C$main.c$179$4_0$236	= .
+                                    530 	.globl	C$main.c$179$4_0$236
+                                    531 ;src/main.c:179: case STATE_DEBUG_TEXT:
+      0001A5                        532 00112$:
+                           0001A5   533 	C$main.c$180$4_0$236	= .
+                                    534 	.globl	C$main.c$180$4_0$236
+                                    535 ;src/main.c:180: SWITCH_ROM(BANK(debug_fonts_scene_bank));
+      0001A5 3Er00            [ 8]  536 	ld	a, #<(___bank_debug_fonts_scene_bank)
+      0001A7 E0r00            [12]  537 	ldh	(__current_bank + 0), a
+      0001A9 3Er00            [ 8]  538 	ld	a, #<(___bank_debug_fonts_scene_bank)
+      0001AB EA 00 20         [16]  539 	ld	(#0x2000),a
+                           0001AE   540 	C$main.c$181$4_0$236	= .
+                                    541 	.globl	C$main.c$181$4_0$236
+                                    542 ;src/main.c:181: initializedebug_fontsScene();
+      0001AE CDr00r00         [24]  543 	call	_initializedebug_fontsScene
+                           0001B1   544 	C$main.c$185$3_0$234	= .
+                                    545 	.globl	C$main.c$185$3_0$234
+                                    546 ;src/main.c:185: }
+      0001B1                        547 00114$:
+                           0001B1   548 	C$main.c$186$3_0$234	= .
+                                    549 	.globl	C$main.c$186$3_0$234
+                                    550 ;src/main.c:186: DISPLAY_ON;
+      0001B1 F0r00            [12]  551 	ldh	a, (_LCDC_REG + 0)
+      0001B3 F6 80            [ 8]  552 	or	a, #0x80
+      0001B5 E0r00            [12]  553 	ldh	(_LCDC_REG + 0), a
+                           0001B7   554 	C$main.c$188$3_0$234	= .
+                                    555 	.globl	C$main.c$188$3_0$234
+                                    556 ;src/main.c:188: PREVIOUS_GAME_STATE = GAME_STATE;
+      0001B7 FAr00r00         [16]  557 	ld	a, (#_GAME_STATE)
+      0001BA EAr00r00         [16]  558 	ld	(#_PREVIOUS_GAME_STATE),a
+      0001BD                        559 00116$:
+                           0001BD   560 	C$main.c$192$2_0$233	= .
+                                    561 	.globl	C$main.c$192$2_0$233
+                                    562 ;src/main.c:192: switch(GAME_STATE) {
+      0001BD FAr00r00         [16]  563 	ld	a, (#_GAME_STATE)
+      0001C0 B7               [ 4]  564 	or	a, a
+      0001C1 28 1E            [12]  565 	jr	Z, 00117$
+      0001C3 FAr00r00         [16]  566 	ld	a, (#_GAME_STATE)
+      0001C6 D6 08            [ 8]  567 	sub	a, #0x08
+      0001C8 28 1F            [12]  568 	jr	Z, 00118$
+      0001CA FAr00r00         [16]  569 	ld	a, (#_GAME_STATE)
+      0001CD D6 09            [ 8]  570 	sub	a, #0x09
+      0001CF 28 20            [12]  571 	jr	Z, 00119$
+      0001D1 FAr00r00         [16]  572 	ld	a, (#_GAME_STATE)
+      0001D4 D6 0A            [ 8]  573 	sub	a, #0x0a
+      0001D6 28 21            [12]  574 	jr	Z, 00120$
+      0001D8 FAr00r00         [16]  575 	ld	a, (#_GAME_STATE)
+      0001DB D6 14            [ 8]  576 	sub	a, #0x14
+      0001DD 28 22            [12]  577 	jr	Z, 00121$
+      0001DF 18 26            [12]  578 	jr	00123$
+                           0001E1   579 	C$main.c$193$3_0$237	= .
+                                    580 	.globl	C$main.c$193$3_0$237
+                                    581 ;src/main.c:193: case STATE_TITLESCREEN:
+      0001E1                        582 00117$:
+                           0001E1   583 	C$main.c$194$3_0$237	= .
+                                    584 	.globl	C$main.c$194$3_0$237
+                                    585 ;src/main.c:194: handleTitlescreenUpdate();
+      0001E1 CDr00r00         [24]  586 	call	_handleTitlescreenUpdate
+                           0001E4   587 	C$main.c$195$3_0$237	= .
+                                    588 	.globl	C$main.c$195$3_0$237
+                                    589 ;src/main.c:195: drawTitlescreen();
+      0001E4 CDr00r00         [24]  590 	call	_drawTitlescreen
+                           0001E7   591 	C$main.c$196$3_0$237	= .
+                                    592 	.globl	C$main.c$196$3_0$237
+                                    593 ;src/main.c:196: break;
+      0001E7 18 1E            [12]  594 	jr	00123$
+                           0001E9   595 	C$main.c$197$3_0$237	= .
+                                    596 	.globl	C$main.c$197$3_0$237
+                                    597 ;src/main.c:197: case STATE_MAINMENU:
+      0001E9                        598 00118$:
+                           0001E9   599 	C$main.c$198$3_0$237	= .
+                                    600 	.globl	C$main.c$198$3_0$237
+                                    601 ;src/main.c:198: handleMainmenuUpdate();
+      0001E9 CDr00r00         [24]  602 	call	_handleMainmenuUpdate
+                           0001EC   603 	C$main.c$199$3_0$237	= .
+                                    604 	.globl	C$main.c$199$3_0$237
+                                    605 ;src/main.c:199: drawMainmenuScene();
+      0001EC CDr00r00         [24]  606 	call	_drawMainmenuScene
+                           0001EF   607 	C$main.c$200$3_0$237	= .
+                                    608 	.globl	C$main.c$200$3_0$237
+                                    609 ;src/main.c:200: break;
+      0001EF 18 16            [12]  610 	jr	00123$
+                           0001F1   611 	C$main.c$201$3_0$237	= .
+                                    612 	.globl	C$main.c$201$3_0$237
+                                    613 ;src/main.c:201: case STATE_DEBUGROOM:
+      0001F1                        614 00119$:
+                           0001F1   615 	C$main.c$202$3_0$237	= .
+                                    616 	.globl	C$main.c$202$3_0$237
+                                    617 ;src/main.c:202: handleDebugUpdate();
+      0001F1 CDr00r00         [24]  618 	call	_handleDebugUpdate
+                           0001F4   619 	C$main.c$203$3_0$237	= .
+                                    620 	.globl	C$main.c$203$3_0$237
+                                    621 ;src/main.c:203: drawDebugScene();
+      0001F4 CDr00r00         [24]  622 	call	_drawDebugScene
+                           0001F7   623 	C$main.c$204$3_0$237	= .
+                                    624 	.globl	C$main.c$204$3_0$237
+                                    625 ;src/main.c:204: break;
+      0001F7 18 0E            [12]  626 	jr	00123$
+                           0001F9   627 	C$main.c$205$3_0$237	= .
+                                    628 	.globl	C$main.c$205$3_0$237
+                                    629 ;src/main.c:205: case STATE_DEBUG_MUSIC:
+      0001F9                        630 00120$:
+                           0001F9   631 	C$main.c$206$3_0$237	= .
+                                    632 	.globl	C$main.c$206$3_0$237
+                                    633 ;src/main.c:206: handleDebugMusicUpdate();
+      0001F9 CDr00r00         [24]  634 	call	_handleDebugMusicUpdate
+                           0001FC   635 	C$main.c$207$3_0$237	= .
+                                    636 	.globl	C$main.c$207$3_0$237
+                                    637 ;src/main.c:207: drawDebugMusicScene();
+      0001FC CDr00r00         [24]  638 	call	_drawDebugMusicScene
+                           0001FF   639 	C$main.c$208$3_0$237	= .
+                                    640 	.globl	C$main.c$208$3_0$237
+                                    641 ;src/main.c:208: break;
+      0001FF 18 06            [12]  642 	jr	00123$
+                           000201   643 	C$main.c$209$3_0$237	= .
+                                    644 	.globl	C$main.c$209$3_0$237
+                                    645 ;src/main.c:209: case STATE_DEBUG_TEXT:
+      000201                        646 00121$:
+                           000201   647 	C$main.c$210$3_0$237	= .
+                                    648 	.globl	C$main.c$210$3_0$237
+                                    649 ;src/main.c:210: handledebug_fontsUpdate();
+      000201 CDr00r00         [24]  650 	call	_handledebug_fontsUpdate
+                           000204   651 	C$main.c$211$3_0$237	= .
+                                    652 	.globl	C$main.c$211$3_0$237
+                                    653 ;src/main.c:211: drawdebug_fontsScene();
+      000204 CDr00r00         [24]  654 	call	_drawdebug_fontsScene
+                           000207   655 	C$main.c$215$2_0$233	= .
+                                    656 	.globl	C$main.c$215$2_0$233
+                                    657 ;src/main.c:215: }
+      000207                        658 00123$:
+                           000207   659 	C$main.c$218$2_0$233	= .
+                                    660 	.globl	C$main.c$218$2_0$233
+                                    661 ;src/main.c:218: wait_vbl_done();
+      000207 CDr00r00         [24]  662 	call	_wait_vbl_done
+                           00020A   663 	C$main.c$220$1_0$231	= .
+                                    664 	.globl	C$main.c$220$1_0$231
+                                    665 ;src/main.c:220: }
+                           00020A   666 	C$main.c$220$1_0$231	= .
+                                    667 	.globl	C$main.c$220$1_0$231
+                           00020A   668 	XG$main$0$0	= .
+                                    669 	.globl	XG$main$0$0
+      00020A C3rD7r00         [16]  670 	jp	00125$
+                                    671 	.area _CODE_0
+                                    672 	.area _INITIALIZER
+                                    673 	.area _CABS (ABS)

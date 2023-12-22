@@ -1,0 +1,895 @@
+;!FILE obj/src/scenes/debugmusic_scene.asm
+XL3
+H A areas 26E global symbols
+M debugmusic_scene
+O -msm83
+S _sfx_play_bank Ref000000
+S _MUSIC_TOGGLE Ref000000
+S _TEMP_VAR_E Ref000000
+S _uitoa Ref000000
+S _JOYPAD_PREVIOUS Ref000000
+S _TEMP_VAR_F Ref000000
+S _ITOA_STRING Ref000000
+S _RENDER_TARGET Ref000000
+S _drawTextBkg Ref000000
+S _TEMP_STRING Ref000000
+S _loadUIGraphics Ref000000
+S _music_sfx_priority Ref000000
+S _VAR_SFX_DATA Ref000000
+S _music_current_track_bank Ref000000
+S _music_next_track Ref000000
+S _CURSOR_INDEX Ref000000
+S _GAME_STATE Ref000000
+S _set_bkg_tile_xy Ref000000
+S ___bank_Data_SFX_bank Ref000000
+S .__.ABS. Def000000
+S _NR12_REG Ref000000
+S _NR22_REG Ref000000
+S _NR14_REG Ref000000
+S _NR32_REG Ref000000
+S _VAR_MUSIC_DATA Ref000000
+S _NR51_REG Ref000000
+S _NR24_REG Ref000000
+S _NR42_REG Ref000000
+S _BLANK_SCREEN_MAP Ref000000
+S _NR44_REG Ref000000
+S _music_mute_mask Ref000000
+S _sfx_play_sample Ref000000
+S _JOYPAD_CURRENT Ref000000
+S ___bank_debugmusic_scene_bank Def000001
+S _cpy_banked_data Ref000000
+S _Data_SFX Ref000000
+S ___bank_Data_Music_bank Ref000000
+S _sfx_frame_skip Ref000000
+S _CURSOR_INDEX_PREV Ref000000
+S _LCDC_REG Ref000000
+S _Data_Music Ref000000
+S _TEMP_VAR_A Ref000000
+S _music_pause Ref000000
+S _TEMP_VAR_B Ref000000
+S _set_bkg_tiles Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_1 size 3F3 flags 0 addr 0
+S A$debugmusic_scene$891 Def0003E2
+S A$debugmusic_scene$846 Def0003C2
+S A$debugmusic_scene$837 Def0003B0
+S A$debugmusic_scene$828 Def0003A5
+S A$debugmusic_scene$819 Def000399
+S A$debugmusic_scene$792 Def000374
+S A$debugmusic_scene$783 Def000367
+S A$debugmusic_scene$774 Def000359
+S A$debugmusic_scene$765 Def00034B
+S A$debugmusic_scene$756 Def000340
+S A$debugmusic_scene$747 Def000333
+S A$debugmusic_scene$738 Def000327
+S A$debugmusic_scene$729 Def00031D
+S A$debugmusic_scene$693 Def0002F9
+S A$debugmusic_scene$657 Def0002D6
+S A$debugmusic_scene$648 Def0002C7
+S A$debugmusic_scene$594 Def00027D
+S A$debugmusic_scene$585 Def000270
+S A$debugmusic_scene$567 Def00025E
+S A$debugmusic_scene$396 Def00015C
+S A$debugmusic_scene$387 Def00014F
+S A$debugmusic_scene$378 Def000145
+S A$debugmusic_scene$288 Def0000D7
+S A$debugmusic_scene$198 Def000072
+S C$debugmusic_scene.c$60$1_0$197 Def00011E
+S C$debugmusic_scene.c$51$1_0$197 Def0000F1
+S C$debugmusic_scene.c$34$1_0$196 Def00006E
+S C$debugmusic_scene.c$18$1_0$194 Def000000
+S A$debugmusic_scene$892 Def0003E3
+S A$debugmusic_scene$865 Def0003D5
+S A$debugmusic_scene$856 Def0003C7
+S A$debugmusic_scene$847 Def0003C3
+S A$debugmusic_scene$829 Def0003A7
+S A$debugmusic_scene$793 Def000377
+S A$debugmusic_scene$784 Def000368
+S A$debugmusic_scene$766 Def00034C
+S A$debugmusic_scene$757 Def000341
+S A$debugmusic_scene$739 Def000329
+S A$debugmusic_scene$694 Def0002FB
+S A$debugmusic_scene$676 Def0002E6
+S A$debugmusic_scene$649 Def0002C9
+S A$debugmusic_scene$595 Def00027E
+S A$debugmusic_scene$586 Def000272
+S A$debugmusic_scene$568 Def000260
+S A$debugmusic_scene$559 Def000255
+S A$debugmusic_scene$388 Def000152
+S A$debugmusic_scene$289 Def0000DA
+S A$debugmusic_scene$199 Def000073
+S C$debugmusic_scene.c$98$3_0$203 Def00024E
+S C$debugmusic_scene.c$70$1_0$197 Def000154
+S C$debugmusic_scene.c$35$1_0$196 Def00006F
+S C$debugmusic_scene.c$27$1_0$195 Def00001D
+S A$debugmusic_scene$866 Def0003D8
+S A$debugmusic_scene$857 Def0003CA
+S A$debugmusic_scene$848 Def0003C6
+S A$debugmusic_scene$839 Def0003B3
+S A$debugmusic_scene$785 Def00036B
+S A$debugmusic_scene$776 Def00035C
+S A$debugmusic_scene$767 Def00034D
+S A$debugmusic_scene$758 Def000342
+S A$debugmusic_scene$686 Def0002F2
+S A$debugmusic_scene$677 Def0002E8
+S A$debugmusic_scene$668 Def0002DC
+S A$debugmusic_scene$659 Def0002D8
+S A$debugmusic_scene$596 Def00027F
+S A$debugmusic_scene$587 Def000275
+S A$debugmusic_scene$578 Def000268
+S C$debugmusic_scene.c$80$1_0$197 Def000195
+S C$debugmusic_scene.c$62$1_0$197 Def000129
+S C$debugmusic_scene.c$44$1_0$197 Def0000D2
+S C$debugmusic_scene.c$28$1_0$195 Def000031
+S A$debugmusic_scene$876 Def0003DB
+S A$debugmusic_scene$858 Def0003CC
+S A$debugmusic_scene$795 Def000379
+S A$debugmusic_scene$777 Def00035F
+S A$debugmusic_scene$768 Def00034F
+S A$debugmusic_scene$759 Def000343
+S A$debugmusic_scene$687 Def0002F5
+S A$debugmusic_scene$678 Def0002EA
+S A$debugmusic_scene$669 Def0002DF
+S A$debugmusic_scene$597 Def000282
+S A$debugmusic_scene$588 Def000276
+S A$debugmusic_scene$579 Def00026B
+S A$debugmusic_scene$498 Def000213
+S C$debugmusic_scene.c$81$1_0$197 Def00019B
+S C$debugmusic_scene.c$54$1_0$197 Def0000F4
+S C$debugmusic_scene.c$37$1_0$196 Def000080
+S C$debugmusic_scene.c$29$1_0$195 Def00003C
+S _drawTrackName Def00000B
+S A$debugmusic_scene$859 Def0003CE
+S A$debugmusic_scene$796 Def00037C
+S A$debugmusic_scene$787 Def00036C
+S A$debugmusic_scene$778 Def000361
+S A$debugmusic_scene$769 Def000350
+S A$debugmusic_scene$688 Def0002F6
+S A$debugmusic_scene$679 Def0002EB
+S A$debugmusic_scene$598 Def000283
+S A$debugmusic_scene$589 Def000278
+S A$debugmusic_scene$499 Def000216
+S C$debugmusic_scene.c$90$1_0$198 Def0002DC
+S C$debugmusic_scene.c$73$1_0$197 Def00015F
+S C$debugmusic_scene.c$64$1_0$197 Def00012C
+S C$debugmusic_scene.c$55$1_0$197 Def0000F9
+S C$debugmusic_scene.c$46$1_0$197 Def0000D2
+S C$debugmusic_scene.c$38$1_0$196 Def000094
+S A$debugmusic_scene$896 Def0003E5
+S A$debugmusic_scene$788 Def00036E
+S A$debugmusic_scene$689 Def0002F7
+S A$debugmusic_scene$599 Def000284
+S C$debugmusic_scene.c$74$1_0$197 Def00016A
+S C$debugmusic_scene.c$47$1_0$197 Def0000D7
+S C$debugmusic_scene.c$39$1_0$196 Def00009F
+S A$debugmusic_scene$798 Def00037E
+S A$debugmusic_scene$789 Def000371
+S A$debugmusic_scene$699 Def0002FD
+S C$debugmusic_scene.c$83$1_0$198 Def000212
+S C$debugmusic_scene.c$75$1_0$197 Def000177
+S C$debugmusic_scene.c$57$1_0$197 Def0000FE
+S A$debugmusic_scene$889 Def0003DC
+S C$debugmusic_scene.c$91$2_0$199 Def00022F
+S C$debugmusic_scene.c$76$1_0$197 Def000184
+S C$debugmusic_scene.c$67$1_0$197 Def00012F
+S C$debugmusic_scene.c$58$1_0$197 Def000108
+S C$debugmusic_scene.c$49$1_0$197 Def0000E7
+S A$debugmusic_scene$82 Def000000
+S C$debugmusic_scene.c$85$1_0$198 Def000213
+S C$debugmusic_scene.c$68$1_0$197 Def00013A
+S C$debugmusic_scene.c$59$1_0$197 Def000113
+S A$debugmusic_scene$83 Def000003
+S C$debugmusic_scene.c$69$1_0$197 Def000147
+S C$debugmusic_scene.c$96$1_0$198 Def000240
+S C$debugmusic_scene.c$87$1_0$198 Def000219
+S G$handleDebugMusicUpdate$0$0 Def000212
+S C$debugmusic_scene.c$79$1_0$197 Def00018F
+S XG$drawSfxName$0$0 Def0000D1
+S A$debugmusic_scene$96 Def00000A
+S A$debugmusic_scene$87 Def000005
+S A$debugmusic_scene$88 Def000008
+S XG$drawTrackName$0$0 Def00006D
+S _handleDebugMusicUpdate Def000212
+S G$drawDebugMusicScene$0$0 Def0003DC
+S G$initializeDebugMusicScene$0$0 Def0000D2
+S Fdebugmusic_scene$__str_0$0_0$0 Def00019C
+S Fdebugmusic_scene$__str_1$0_0$0 Def0001A7
+S Fdebugmusic_scene$__str_2$0_0$0 Def0001B0
+S Fdebugmusic_scene$__str_3$0_0$0 Def0001BB
+S G$debugMusicTeardown$0$0 Def000000
+S Fdebugmusic_scene$__str_4$0_0$0 Def0001C4
+S Fdebugmusic_scene$__str_5$0_0$0 Def0001D8
+S XG$handleDebugMusicUpdate$0$0 Def0003DB
+S C$debugmusic_scene.c$100$3_0$204 Def000255
+S Fdebugmusic_scene$__str_6$0_0$0 Def0001F0
+S Fdebugmusic_scene$__str_7$0_0$0 Def000202
+S _drawDebugMusicScene Def0003DC
+S C$debugmusic_scene.c$141$3_0$211 Def0002FD
+S _initializeDebugMusicScene Def0000D2
+S C$debugmusic_scene.c$144$2_0$212 Def00030F
+S C$debugmusic_scene.c$106$2_0$205 Def000262
+S C$debugmusic_scene.c$113$4_0$207 Def0002AB
+S C$debugmusic_scene.c$170$2_0$243 Def0003E5
+S C$debugmusic_scene.c$153$2_0$215 Def00032F
+S C$debugmusic_scene.c$145$3_0$213 Def000316
+S C$debugmusic_scene.c$139$3_0$210 Def0002F9
+S C$debugmusic_scene.c$107$3_0$206 Def000268
+S _debugMusicTeardown Def000000
+S C$debugmusic_scene.c$123$4_0$208 Def0002B6
+S C$debugmusic_scene.c$115$4_0$207 Def0002AF
+S G$__func_debugmusic_scene_bank$0$0 Def000000
+S C$debugmusic_scene.c$174$1_0$242 Def0003E8
+S C$debugmusic_scene.c$163$2_0$217 Def0003D5
+S C$debugmusic_scene.c$154$3_0$216 Def000336
+S C$debugmusic_scene.c$147$3_0$214 Def00031D
+S C$debugmusic_scene.c$108$4_0$207 Def00026E
+S XG$drawDebugMusicScene$0$0 Def0003F2
+S C$debugmusic_scene.c$167$1_0$242 Def0003DC
+S A$debugmusic_scene$200 Def000076
+S A$debugmusic_scene$110 Def00000C
+S A$debugmusic_scene$300 Def0000E7
+S A$debugmusic_scene$210 Def000086
+S A$debugmusic_scene$201 Def000077
+S A$debugmusic_scene$111 Def00000F
+S C$debugmusic_scene.c$178$1_0$242 Def0003F2
+S C$debugmusic_scene.c$175$2_0$244 Def0003EF
+S C$debugmusic_scene.c$169$1_0$242 Def0003DC
+S C$debugmusic_scene.c$138$2_0$209 Def0002F2
+S C$debugmusic_scene.c$105$1_0$198 Def000259
+S A$debugmusic_scene$400 Def00015F
+S A$debugmusic_scene$310 Def0000F1
+S A$debugmusic_scene$301 Def0000EA
+S A$debugmusic_scene$211 Def000087
+S A$debugmusic_scene$202 Def00007A
+S A$debugmusic_scene$130 Def00002C
+S A$debugmusic_scene$121 Def00001D
+S A$debugmusic_scene$112 Def000010
+S A$debugmusic_scene$410 Def00016E
+S A$debugmusic_scene$401 Def000162
+S A$debugmusic_scene$320 Def0000FC
+S A$debugmusic_scene$230 Def00009F
+S A$debugmusic_scene$212 Def000089
+S A$debugmusic_scene$203 Def00007B
+S A$debugmusic_scene$131 Def00002F
+S A$debugmusic_scene$122 Def000020
+S A$debugmusic_scene$113 Def000013
+S C$debugmusic_scene.c$152$1_0$198 Def000321
+S C$debugmusic_scene.c$143$1_0$198 Def000303
+S C$debugmusic_scene.c$125$1_0$198 Def0002DC
+S XG$initializeDebugMusicScene$0$0 Def00019B
+S G$drawSfxName$0$0 Def00006E
+S A$debugmusic_scene$600 Def000285
+S A$debugmusic_scene$510 Def000223
+S A$debugmusic_scene$420 Def00017B
+S A$debugmusic_scene$411 Def000170
+S A$debugmusic_scene$402 Def000163
+S A$debugmusic_scene$240 Def0000AE
+S A$debugmusic_scene$231 Def0000A1
+S A$debugmusic_scene$222 Def000094
+S A$debugmusic_scene$213 Def00008B
+S A$debugmusic_scene$204 Def00007E
+S A$debugmusic_scene$150 Def000048
+S A$debugmusic_scene$123 Def000023
+S A$debugmusic_scene$114 Def000014
+S C$debugmusic_scene.c$162$1_0$198 Def0003C7
+S A$debugmusic_scene$700 Def000300
+S A$debugmusic_scene$610 Def000297
+S A$debugmusic_scene$601 Def000287
+S A$debugmusic_scene$520 Def000232
+S A$debugmusic_scene$511 Def000226
+S A$debugmusic_scene$430 Def000188
+S A$debugmusic_scene$421 Def00017D
+S A$debugmusic_scene$412 Def000171
+S A$debugmusic_scene$403 Def000165
+S A$debugmusic_scene$340 Def000113
+S A$debugmusic_scene$250 Def0000BB
+S A$debugmusic_scene$241 Def0000AF
+S A$debugmusic_scene$232 Def0000A3
+S A$debugmusic_scene$223 Def000097
+S A$debugmusic_scene$214 Def00008C
+S A$debugmusic_scene$160 Def000055
+S A$debugmusic_scene$151 Def000049
+S A$debugmusic_scene$124 Def000024
+S A$debugmusic_scene$115 Def000017
+S A$debugmusic_scene$106 Def00000B
+S A$debugmusic_scene$800 Def000381
+S A$debugmusic_scene$710 Def00030A
+S A$debugmusic_scene$701 Def000301
+S A$debugmusic_scene$620 Def0002A7
+S A$debugmusic_scene$611 Def000298
+S A$debugmusic_scene$602 Def000288
+S A$debugmusic_scene$521 Def000233
+S A$debugmusic_scene$512 Def000227
+S A$debugmusic_scene$503 Def000219
+S A$debugmusic_scene$431 Def00018A
+S A$debugmusic_scene$422 Def00017E
+S A$debugmusic_scene$413 Def000172
+S A$debugmusic_scene$404 Def000167
+S A$debugmusic_scene$350 Def000122
+S A$debugmusic_scene$341 Def000116
+S A$debugmusic_scene$332 Def000108
+S A$debugmusic_scene$314 Def0000F4
+S A$debugmusic_scene$305 Def0000EC
+S A$debugmusic_scene$260 Def0000CB
+S A$debugmusic_scene$251 Def0000BE
+S A$debugmusic_scene$242 Def0000B0
+S A$debugmusic_scene$233 Def0000A6
+S A$debugmusic_scene$224 Def000098
+S A$debugmusic_scene$215 Def00008D
+S A$debugmusic_scene$170 Def000062
+S A$debugmusic_scene$161 Def000056
+S A$debugmusic_scene$152 Def00004A
+S A$debugmusic_scene$143 Def00003C
+S A$debugmusic_scene$125 Def000026
+S A$debugmusic_scene$116 Def000018
+S C$debugmusic_scene.c$137$1_0$198 Def0002E6
+S A$debugmusic_scene$810 Def00038C
+S A$debugmusic_scene$711 Def00030C
+S A$debugmusic_scene$630 Def0002AF
+S A$debugmusic_scene$621 Def0002A8
+S A$debugmusic_scene$612 Def000299
+S A$debugmusic_scene$603 Def000289
+S A$debugmusic_scene$540 Def000242
+S A$debugmusic_scene$522 Def000234
+S A$debugmusic_scene$513 Def000229
+S A$debugmusic_scene$504 Def00021C
+S A$debugmusic_scene$432 Def00018C
+S A$debugmusic_scene$423 Def00017F
+S A$debugmusic_scene$414 Def000175
+S A$debugmusic_scene$360 Def00012C
+S A$debugmusic_scene$351 Def000124
+S A$debugmusic_scene$342 Def000117
+S A$debugmusic_scene$333 Def00010B
+S A$debugmusic_scene$324 Def0000FE
+S A$debugmusic_scene$315 Def0000F7
+S A$debugmusic_scene$306 Def0000EF
+S A$debugmusic_scene$270 Def0000D1
+S A$debugmusic_scene$261 Def0000CD
+S A$debugmusic_scene$252 Def0000BF
+S A$debugmusic_scene$243 Def0000B3
+S A$debugmusic_scene$234 Def0000A7
+S A$debugmusic_scene$225 Def00009A
+S A$debugmusic_scene$216 Def00008E
+S A$debugmusic_scene$171 Def000065
+S A$debugmusic_scene$162 Def000057
+S A$debugmusic_scene$153 Def00004B
+S A$debugmusic_scene$144 Def00003E
+S A$debugmusic_scene$135 Def000031
+S A$debugmusic_scene$126 Def000028
+S A$debugmusic_scene$117 Def00001B
+S C$debugmusic_scene.c$165$1_0$198 Def0003DB
+S C$debugmusic_scene.c$156$1_0$198 Def0003C7
+S G$drawTrackName$0$0 Def00000B
+S XG$debugMusicTeardown$0$0 Def00000A
+S A$debugmusic_scene$901 Def0003E8
+S A$debugmusic_scene$820 Def00039B
+S A$debugmusic_scene$811 Def00038E
+S A$debugmusic_scene$802 Def000382
+S A$debugmusic_scene$730 Def000320
+S A$debugmusic_scene$712 Def00030D
+S A$debugmusic_scene$640 Def0002BB
+S A$debugmusic_scene$631 Def0002B2
+S A$debugmusic_scene$613 Def00029A
+S A$debugmusic_scene$604 Def00028A
+S A$debugmusic_scene$541 Def000244
+S A$debugmusic_scene$532 Def00023A
+S A$debugmusic_scene$514 Def00022B
+S A$debugmusic_scene$442 Def000195
+S A$debugmusic_scene$424 Def000182
+S A$debugmusic_scene$352 Def000126
+S A$debugmusic_scene$343 Def000119
+S A$debugmusic_scene$334 Def00010C
+S A$debugmusic_scene$325 Def000101
+S A$debugmusic_scene$253 Def0000C2
+S A$debugmusic_scene$244 Def0000B4
+S A$debugmusic_scene$235 Def0000A9
+S A$debugmusic_scene$226 Def00009C
+S A$debugmusic_scene$217 Def00008F
+S A$debugmusic_scene$208 Def000080
+S A$debugmusic_scene$172 Def000066
+S A$debugmusic_scene$163 Def000058
+S A$debugmusic_scene$154 Def00004C
+S A$debugmusic_scene$145 Def000040
+S A$debugmusic_scene$136 Def000034
+S A$debugmusic_scene$127 Def000029
+S C$debugmusic_scene.c$92$3_0$200 Def000236
+S ___func_debugmusic_scene_bank Def000000
+S A$debugmusic_scene$902 Def0003EB
+S A$debugmusic_scene$821 Def00039C
+S A$debugmusic_scene$812 Def000390
+S A$debugmusic_scene$803 Def000383
+S A$debugmusic_scene$740 Def00032B
+S A$debugmusic_scene$722 Def000316
+S A$debugmusic_scene$650 Def0002CA
+S A$debugmusic_scene$641 Def0002BE
+S A$debugmusic_scene$632 Def0002B4
+S A$debugmusic_scene$605 Def00028D
+S A$debugmusic_scene$560 Def000258
+S A$debugmusic_scene$542 Def000246
+S A$debugmusic_scene$533 Def00023D
+S A$debugmusic_scene$515 Def00022D
+S A$debugmusic_scene$452 Def00019B
+S A$debugmusic_scene$443 Def000197
+S A$debugmusic_scene$344 Def00011B
+S A$debugmusic_scene$335 Def00010E
+S A$debugmusic_scene$326 Def000102
+S A$debugmusic_scene$290 Def0000DB
+S A$debugmusic_scene$245 Def0000B5
+S A$debugmusic_scene$236 Def0000AA
+S A$debugmusic_scene$218 Def000092
+S A$debugmusic_scene$209 Def000083
+S A$debugmusic_scene$173 Def000068
+S A$debugmusic_scene$164 Def00005B
+S A$debugmusic_scene$155 Def00004D
+S A$debugmusic_scene$146 Def000043
+S A$debugmusic_scene$137 Def000035
+S A$debugmusic_scene$128 Def00002A
+S C$debugmusic_scene.c$20$1_0$194 Def000000
+S C$debugmusic_scene.c$13$0_0$193 Def000000
+S A$debugmusic_scene$903 Def0003EE
+S A$debugmusic_scene$840 Def0003B6
+S A$debugmusic_scene$813 Def000391
+S A$debugmusic_scene$804 Def000385
+S A$debugmusic_scene$741 Def00032C
+S A$debugmusic_scene$723 Def000319
+S A$debugmusic_scene$660 Def0002DA
+S A$debugmusic_scene$615 Def00029D
+S A$debugmusic_scene$606 Def00028E
+S A$debugmusic_scene$552 Def00024E
+S A$debugmusic_scene$534 Def00023E
+S A$debugmusic_scene$444 Def000199
+S A$debugmusic_scene$408 Def00016A
+S A$debugmusic_scene$372 Def00013A
+S A$debugmusic_scene$336 Def000110
+S A$debugmusic_scene$327 Def000104
+S A$debugmusic_scene$291 Def0000DE
+S A$debugmusic_scene$246 Def0000B6
+S A$debugmusic_scene$237 Def0000AB
+S A$debugmusic_scene$183 Def00006D
+S A$debugmusic_scene$174 Def000069
+S A$debugmusic_scene$165 Def00005C
+S A$debugmusic_scene$156 Def000050
+S A$debugmusic_scene$147 Def000044
+S A$debugmusic_scene$138 Def000037
+S A$debugmusic_scene$129 Def00002B
+S C$debugmusic_scene.c$21$1_0$194 Def000005
+S A$debugmusic_scene$841 Def0003B8
+S A$debugmusic_scene$832 Def0003A9
+S A$debugmusic_scene$814 Def000393
+S A$debugmusic_scene$805 Def000386
+S A$debugmusic_scene$760 Def000344
+S A$debugmusic_scene$751 Def000336
+S A$debugmusic_scene$724 Def00031B
+S A$debugmusic_scene$706 Def000303
+S A$debugmusic_scene$670 Def0002E0
+S A$debugmusic_scene$652 Def0002CC
+S A$debugmusic_scene$643 Def0002C0
+S A$debugmusic_scene$625 Def0002AB
+S A$debugmusic_scene$616 Def0002A0
+S A$debugmusic_scene$607 Def000291
+S A$debugmusic_scene$580 Def00026C
+S A$debugmusic_scene$553 Def000251
+S A$debugmusic_scene$526 Def000236
+S A$debugmusic_scene$508 Def00021F
+S A$debugmusic_scene$436 Def00018F
+S A$debugmusic_scene$418 Def000177
+S A$debugmusic_scene$409 Def00016D
+S A$debugmusic_scene$382 Def000147
+S A$debugmusic_scene$373 Def00013D
+S A$debugmusic_scene$364 Def00012F
+S A$debugmusic_scene$328 Def000105
+S A$debugmusic_scene$319 Def0000F9
+S A$debugmusic_scene$292 Def0000DF
+S A$debugmusic_scene$283 Def0000D2
+S A$debugmusic_scene$265 Def0000D0
+S A$debugmusic_scene$247 Def0000B8
+S A$debugmusic_scene$238 Def0000AC
+S A$debugmusic_scene$193 Def00006E
+S A$debugmusic_scene$166 Def00005F
+S A$debugmusic_scene$157 Def000051
+S A$debugmusic_scene$148 Def000046
+S A$debugmusic_scene$139 Def000039
+S C$debugmusic_scene.c$94$3_0$201 Def00023A
+S C$debugmusic_scene.c$30$1_0$195 Def000062
+S C$debugmusic_scene.c$22$1_0$194 Def00000A
+S A$debugmusic_scene$860 Def0003D1
+S A$debugmusic_scene$842 Def0003BB
+S A$debugmusic_scene$833 Def0003AB
+S A$debugmusic_scene$824 Def00039E
+S A$debugmusic_scene$815 Def000395
+S A$debugmusic_scene$806 Def000388
+S A$debugmusic_scene$770 Def000351
+S A$debugmusic_scene$761 Def000345
+S A$debugmusic_scene$752 Def000338
+S A$debugmusic_scene$716 Def00030F
+S A$debugmusic_scene$707 Def000305
+S A$debugmusic_scene$680 Def0002ED
+S A$debugmusic_scene$671 Def0002E3
+S A$debugmusic_scene$653 Def0002CE
+S A$debugmusic_scene$644 Def0002C1
+S A$debugmusic_scene$626 Def0002AC
+S A$debugmusic_scene$617 Def0002A2
+S A$debugmusic_scene$590 Def000279
+S A$debugmusic_scene$572 Def000262
+S A$debugmusic_scene$554 Def000253
+S A$debugmusic_scene$527 Def000238
+S A$debugmusic_scene$509 Def000222
+S A$debugmusic_scene$437 Def000191
+S A$debugmusic_scene$428 Def000184
+S A$debugmusic_scene$419 Def00017A
+S A$debugmusic_scene$392 Def000154
+S A$debugmusic_scene$383 Def00014A
+S A$debugmusic_scene$374 Def00013E
+S A$debugmusic_scene$365 Def000132
+S A$debugmusic_scene$356 Def000129
+S A$debugmusic_scene$293 Def0000E0
+S A$debugmusic_scene$284 Def0000D5
+S A$debugmusic_scene$257 Def0000C5
+S A$debugmusic_scene$248 Def0000B9
+S A$debugmusic_scene$239 Def0000AD
+S A$debugmusic_scene$158 Def000052
+S A$debugmusic_scene$149 Def000047
+S C$debugmusic_scene.c$31$1_0$195 Def00006D
+S A$debugmusic_scene$915 Def0003F2
+S A$debugmusic_scene$861 Def0003D3
+S A$debugmusic_scene$843 Def0003BD
+S A$debugmusic_scene$825 Def0003A0
+S A$debugmusic_scene$807 Def00038A
+S A$debugmusic_scene$780 Def000362
+S A$debugmusic_scene$771 Def000352
+S A$debugmusic_scene$762 Def000346
+S A$debugmusic_scene$753 Def00033A
+S A$debugmusic_scene$735 Def000321
+S A$debugmusic_scene$717 Def000312
+S A$debugmusic_scene$708 Def000307
+S A$debugmusic_scene$681 Def0002EF
+S A$debugmusic_scene$672 Def0002E5
+S A$debugmusic_scene$654 Def0002D0
+S A$debugmusic_scene$645 Def0002C3
+S A$debugmusic_scene$618 Def0002A5
+S A$debugmusic_scene$609 Def000294
+S A$debugmusic_scene$591 Def00027A
+S A$debugmusic_scene$573 Def000265
+S A$debugmusic_scene$546 Def000248
+S A$debugmusic_scene$519 Def00022F
+S A$debugmusic_scene$438 Def000193
+S A$debugmusic_scene$429 Def000187
+S A$debugmusic_scene$393 Def000157
+S A$debugmusic_scene$384 Def00014B
+S A$debugmusic_scene$375 Def000140
+S A$debugmusic_scene$366 Def000133
+S A$debugmusic_scene$348 Def00011E
+S A$debugmusic_scene$294 Def0000E1
+S A$debugmusic_scene$258 Def0000C8
+S A$debugmusic_scene$249 Def0000BA
+S A$debugmusic_scene$159 Def000053
+S C$debugmusic_scene.c$40$1_0$196 Def0000C5
+S A$debugmusic_scene$907 Def0003EF
+S A$debugmusic_scene$871 Def0003DA
+S A$debugmusic_scene$844 Def0003C0
+S A$debugmusic_scene$835 Def0003AD
+S A$debugmusic_scene$826 Def0003A2
+S A$debugmusic_scene$790 Def000372
+S A$debugmusic_scene$781 Def000365
+S A$debugmusic_scene$772 Def000355
+S A$debugmusic_scene$763 Def000347
+S A$debugmusic_scene$754 Def00033D
+S A$debugmusic_scene$745 Def00032F
+S A$debugmusic_scene$736 Def000323
+S A$debugmusic_scene$718 Def000314
+S A$debugmusic_scene$709 Def000308
+S A$debugmusic_scene$682 Def0002F0
+S A$debugmusic_scene$655 Def0002D2
+S A$debugmusic_scene$646 Def0002C4
+S A$debugmusic_scene$637 Def0002B6
+S A$debugmusic_scene$619 Def0002A6
+S A$debugmusic_scene$592 Def00027B
+S A$debugmusic_scene$574 Def000266
+S A$debugmusic_scene$565 Def000259
+S A$debugmusic_scene$547 Def00024B
+S A$debugmusic_scene$394 Def000158
+S A$debugmusic_scene$385 Def00014D
+S A$debugmusic_scene$376 Def000141
+S A$debugmusic_scene$367 Def000135
+S A$debugmusic_scene$349 Def000121
+S A$debugmusic_scene$295 Def0000E2
+S A$debugmusic_scene$259 Def0000C9
+S A$debugmusic_scene$178 Def00006C
+S C$debugmusic_scene.c$97$2_0$202 Def000248
+S C$debugmusic_scene.c$41$1_0$196 Def0000D1
+S C$debugmusic_scene.c$24$1_0$195 Def00000B
+S A$debugmusic_scene$890 Def0003DF
+S A$debugmusic_scene$845 Def0003C1
+S A$debugmusic_scene$836 Def0003AF
+S A$debugmusic_scene$827 Def0003A3
+S A$debugmusic_scene$818 Def000397
+S A$debugmusic_scene$782 Def000366
+S A$debugmusic_scene$773 Def000356
+S A$debugmusic_scene$764 Def00034A
+S A$debugmusic_scene$755 Def00033E
+S A$debugmusic_scene$746 Def000332
+S A$debugmusic_scene$737 Def000326
+S A$debugmusic_scene$656 Def0002D4
+S A$debugmusic_scene$647 Def0002C6
+S A$debugmusic_scene$638 Def0002B9
+S A$debugmusic_scene$593 Def00027C
+S A$debugmusic_scene$584 Def00026E
+S A$debugmusic_scene$566 Def00025B
+S A$debugmusic_scene$548 Def00024C
+S A$debugmusic_scene$539 Def000240
+S A$debugmusic_scene$494 Def000212
+S A$debugmusic_scene$395 Def00015A
+S A$debugmusic_scene$386 Def00014E
+S A$debugmusic_scene$377 Def000142
+S A$debugmusic_scene$368 Def000137
+S A$debugmusic_scene$296 Def0000E5
+S A$debugmusic_scene$197 Def00006F
+S C$debugmusic_scene.c$50$1_0$197 Def0000EC
+S C$debugmusic_scene.c$25$1_0$195 Def00000C
+S _drawSfxName Def00006E
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 21 00 00 36 00 21 00 00 36 00 C9
+R 00 00 07 00 02 04 0F 00 02 09 26 00
+T 0B 00 00
+R 00 00 07 00
+T 0B 00 00 3B 11 00 00 D5 21 03 01 E5 21 01 04 E5
+R 00 00 07 00 02 05 1C 00
+T 18 00 00 CD 00 00 E8 06 11 00 00 21 00 00 4E 06
+R 00 00 07 00 02 04 2C 00 02 09 06 00 02 0C 0F 00
+T 25 00 00 00 3E 0A F5 33 D5 C5 CD 00 00 E8 05 11
+R 00 00 07 00 02 0B 03 00
+T 32 00 00 00 00 D5 1E 04 3E 01 CD 00 00 F8 00 36
+R 00 00 07 00 02 03 06 00 02 0B 08 00
+T 3F 00 00 00 00 00 21 00 00 4E 06 00 69 60 29 29
+R 00 00 07 00 0B 03 24 00 02 07 0F 00
+T 4A 00 00 29 29 09 01 00 00 09 4D 44 F8 00 7E F5
+R 00 00 07 00 02 07 28 00
+T 57 00 00 33 11 0E 00 D5 11 00 00 CD 00 00 11
+R 00 00 07 00 02 09 09 00 02 0C 22 00
+T 63 00 00 00 00 D5 3E 04 5F CD 00 00 33 C9
+R 00 00 07 00 02 03 09 00 02 0A 08 00
+T 6E 00 00
+R 00 00 07 00
+T 6E 00 00 3B 11 00 00 D5 21 03 01 E5 21 01 06 E5
+R 00 00 07 00 02 05 1C 00
+T 7B 00 00 CD 00 00 E8 06 11 00 00 21 00 00 4E 06
+R 00 00 07 00 02 04 2C 00 02 09 06 00 02 0C 05 00
+T 88 00 00 00 3E 0A F5 33 D5 C5 CD 00 00 E8 05 11
+R 00 00 07 00 02 0B 03 00
+T 95 00 00 00 00 D5 1E 06 3E 01 CD 00 00 F8 00 36
+R 00 00 07 00 02 03 06 00 02 0B 08 00
+T A2 00 00 00 00 00 21 00 00 4E 06 00 69 60 29 29
+R 00 00 07 00 0B 03 12 00 02 07 05 00
+T AD 00 00 29 09 29 01 00 00 09 4D 44 F8 00 7E F5
+R 00 00 07 00 02 07 23 00
+T BA 00 00 33 11 0E 00 D5 11 00 00 CD 00 00 11
+R 00 00 07 00 02 09 09 00 02 0C 22 00
+T C6 00 00 00 00 D5 1E 06 3E 04 CD 00 00 33 C9
+R 00 00 07 00 02 03 09 00 02 0B 08 00
+T D2 00 00
+R 00 00 07 00
+T D2 00 00 21 00 00 36 00 11 00 00 D5 21 14 12 E5
+R 00 00 07 00 02 04 07 00 02 09 1C 00
+T DF 00 00 AF 0F F5 CD 00 00 E8 06 21 00 00 36 01
+R 00 00 07 00 02 07 2C 00 02 0C 29 00
+T EC 00 00 21 00 00 36 C4 CD 00 00 21 00 00 36 00
+R 00 00 07 00 02 04 2B 00 02 09 0A 00 02 0C 0F 00
+T F9 00 00 21 00 00 36 00 11 9C 01 D5 3E 01 5F CD
+R 00 00 07 00 02 04 05 00 00 09 07 00
+T 06 01 00 00 00 11 A7 01 D5 1E 03 3E 01 CD 00 00
+R 00 00 07 00 02 03 08 00 00 06 07 00 02 0E 08 00
+T 13 01 00 11 B0 01 D5 1E 03 3E 01 CD 00 00 11
+R 00 00 07 00 00 04 07 00 02 0C 08 00
+T 1F 01 00 BB 01 D5 1E 05 3E 01 CD 00 00 CD 0B 00
+R 00 00 07 00 00 03 07 00 02 0B 08 00 00 0E 07 00
+T 2C 01 00 CD 6E 00 11 C4 01 D5 1E 0A 3E 01 CD
+R 00 00 07 00 00 04 07 00 00 07 07 00
+T 38 01 00 00 00 21 0A C6 E5 3E 01 F5 33 CD 00 00
+R 00 00 07 00 02 03 08 00 02 0E 11 00
+T 45 01 00 E8 03 21 0A C5 E5 3E 03 F5 33 CD 00 00
+R 00 00 07 00 02 0E 11 00
+T 52 01 00 E8 03 11 D8 01 D5 1E 0B 3E 01 CD 00 00
+R 00 00 07 00 00 06 07 00 02 0E 08 00
+T 5F 01 00 11 F0 01 D5 1E 0C 3E 01 CD 00 00 21
+R 00 00 07 00 00 04 07 00 02 0C 08 00
+T 6B 01 00 0C C7 E5 3E 01 F5 33 CD 00 00 E8 03 21
+R 00 00 07 00 02 0B 11 00
+T 78 01 00 0C C4 E5 3E 03 F5 33 CD 00 00 E8 03 11
+R 00 00 07 00 02 0B 11 00
+T 85 01 00 02 02 D5 1E 0D 3E 01 CD 00 00 F0
+R 00 00 07 00 00 03 07 00 02 0B 08 00
+T 90 01 00 00 00 00 E6 FB E0 00 00 00 F0 00 00 00
+R 00 00 07 00 0B 03 27 00 0B 09 27 00 0B 0D 27 00
+T 97 01 00 F6 02 E0 00 00 00 C9
+R 00 00 07 00 0B 06 27 00
+T 9C 01 00
+R 00 00 07 00
+T 9C 01 00 4D 55 53 49 43 20 52 4F 4F 4D 00
+R 00 00 07 00
+T A7 01 00
+R 00 00 07 00
+T A7 01 00 54 52 41 43 4B 20 49 44 00
+R 00 00 07 00
+T B0 01 00
+R 00 00 07 00
+T B0 01 00 54 52 41 43 4B 20 4E 41 4D 45 00
+R 00 00 07 00
+T BB 01 00
+R 00 00 07 00
+T BB 01 00 53 46 58 20 4E 41 4D 45 00
+R 00 00 07 00
+T C4 01 00
+R 00 00 07 00
+T C4 01 00 55 2F 44 20 20 20 20 43 48 41 4E 47 45
+R 00 00 07 00
+T D1 01 00 20 54 52 41 43 4B 00
+R 00 00 07 00
+T D8 01 00
+R 00 00 07 00
+T D8 01 00 53 54 41 52 54 20 20 50 4C 41 59 2F 50
+R 00 00 07 00
+T E5 01 00 41 55 53 45 20 4D 55 53 49 43 00
+R 00 00 07 00
+T F0 01 00
+R 00 00 07 00
+T F0 01 00 4C 2F 52 20 20 20 20 43 48 41 4E 47 45
+R 00 00 07 00
+T FD 01 00 20 53 46 58 00
+R 00 00 07 00
+T 02 02 00
+R 00 00 07 00
+T 02 02 00 41 20 20 20 20 20 20 50 4C 41 59 20 53
+R 00 00 07 00
+T 0F 02 00 46 58 00
+R 00 00 07 00
+T 12 02 00
+R 00 00 07 00
+T 12 02 00 3B FA 00 00 EA 00 00 FA 00 00 EA
+R 00 00 07 00 02 05 0F 00 02 08 26 00 02 0B 05 00
+T 1D 02 00 00 00 21 00 00 46 21 00 00 4E CB 50 28
+R 00 00 07 00 02 03 02 00 02 06 20 00 02 0A 04 00
+T 2A 02 00 15 CB 51 20 11 21 00 00 7E B7 20 04 36
+R 00 00 07 00 02 09 0F 00
+T 37 02 00 01 18 1F
+R 00 00 07 00
+T 3A 02 00
+R 00 00 07 00
+T 3A 02 00 21 00 00 35 18 19
+R 00 00 07 00 02 04 0F 00
+T 40 02 00
+R 00 00 07 00
+T 40 02 00 CB 58 28 15 CB 59 20 11 FA 00 00 3D 20
+R 00 00 07 00 02 0C 0F 00
+T 4D 02 00 07 21 00 00 36 00 18 04
+R 00 00 07 00 02 05 0F 00
+T 55 02 00
+R 00 00 07 00
+T 55 02 00 21 00 00 34
+R 00 00 07 00 02 04 0F 00
+T 59 02 00
+R 00 00 07 00
+T 59 02 00 CB 78 CA DC 02 CB 79 20 7A FA 00 00 B7
+R 00 00 07 00 00 06 07 00 02 0D 0F 00
+T 66 02 00 28 74 FA 00 00 B7 20 48 F8 00 36
+R 00 00 07 00 02 06 01 00
+T 71 02 00 00 00 00 21 00 00 4E 06 00 69 60 29 29
+R 00 00 07 00 0B 03 24 00 02 07 0F 00
+T 7C 02 00 29 29 09 01 00 00 09 4D 44 F8 00 7E F5
+R 00 00 07 00 02 07 28 00
+T 89 02 00 33 11 11 00 D5 11 00 00 CD 00 00 21
+R 00 00 07 00 02 09 18 00 02 0C 22 00
+T 95 02 00 0F 00 2A 4F 46 FA 0E 00 21 00 00 36 FF
+R 00 00 07 00 02 03 18 00 02 09 18 00 02 0C 0D 00
+T A2 02 00 21 00 00 71 23 70 EA 00 00 AF CD 00 00
+R 00 00 07 00 02 04 0E 00 02 0A 0D 00 02 0E 2A 00
+T AF 02 00 21 00 00 36 01 18 26
+R 00 00 07 00 02 04 01 00
+T B6 02 00
+R 00 00 07 00
+T B6 02 00 21 00 00 36 00 21 00 00 36 FF AF E0
+R 00 00 07 00 02 04 01 00 02 09 0D 00
+T C2 02 00 00 00 00 AF E0 00 00 00 AF E0 00 00 00
+R 00 00 07 00 0B 03 1B 00 0B 08 17 00 0B 0D 15 00
+T C9 02 00 AF E0 00 00 00 3E C0 E0 00 00 00 3E C0
+R 00 00 07 00 0B 05 14 00 0B 0B 1D 00
+T D2 02 00 E0 00 00 00 3E C0 E0 00 00 00 3E FF E0
+R 00 00 07 00 0B 04 1A 00 0B 0A 16 00
+T DB 02 00 00 00 00
+R 00 00 07 00 0B 03 19 00
+T DC 02 00
+R 00 00 07 00
+T DC 02 00 21 00 00 4E FA 00 00 F8 00 77 CB 49 28
+R 00 00 07 00 02 04 20 00 02 08 04 00
+T E9 02 00 19 E5 F8 02 CB 4E E1 20 11 21 00 00 7E
+R 00 00 07 00 02 0D 05 00
+T F6 02 00 B7 20 04 36 03 18 24
+R 00 00 07 00
+T FD 02 00
+R 00 00 07 00
+T FD 02 00 21 00 00 35 18 1E
+R 00 00 07 00 02 04 05 00
+T 03 03 00
+R 00 00 07 00
+T 03 03 00 CB 41 28 1A E5 F8 02 CB 46 E1 20 12 FA
+R 00 00 07 00
+T 10 03 00 00 00 D6 03 20 07 21 00 00 36 00 18 04
+R 00 00 07 00 02 03 05 00 02 0A 05 00
+T 1D 03 00
+R 00 00 07 00
+T 1D 03 00 21 00 00 34
+R 00 00 07 00 02 04 05 00
+T 21 03 00
+R 00 00 07 00
+T 21 03 00 CB 61 CA C7 03 E5 F8 02 CB 66 E1 C2
+R 00 00 07 00 00 06 07 00
+T 2D 03 00 C7 03 FA 00 00 B7 CA C7 03 F8 00 36
+R 00 00 07 00 00 03 07 00 02 06 05 00 00 0A 07 00
+T 39 03 00 00 00 00 21 00 00 4E 06 00 69 60 29 29
+R 00 00 07 00 0B 03 12 00 02 07 05 00
+T 44 03 00 29 09 29 01 00 00 09 4D 44 F8 00 7E F5
+R 00 00 07 00 02 07 23 00
+T 51 03 00 33 11 12 00 D5 11 00 00 CD 00 00 FA
+R 00 00 07 00 02 09 0C 00 02 0C 22 00
+T 5D 03 00 11 00 F8 00 77 21 0F 00 2A 4F 46 21
+R 00 00 07 00 02 03 0C 00 02 09 0C 00
+T 69 03 00 0E 00 5E 3E 01 21 00 00 96 38 53 21
+R 00 00 07 00 02 03 0C 00 02 09 0B 00
+T 75 03 00 00 00 36 FF 21 00 00 36 01 FA 00 00 57
+R 00 00 07 00 02 03 00 00 02 08 0B 00 02 0D 1E 00
+T 82 03 00 0F 30 07 AF E0 00 00 00 3E C0 E0
+R 00 00 07 00 0B 08 14 00
+T 8B 03 00 00 00 00
+R 00 00 07 00 0B 03 16 00
+T 8C 03 00
+R 00 00 07 00
+T 8C 03 00 CB 4A 28 07 AF E0 00 00 00 3E C0 E0
+R 00 00 07 00 0B 09 15 00
+T 96 03 00 00 00 00
+R 00 00 07 00 0B 03 1A 00
+T 97 03 00
+R 00 00 07 00
+T 97 03 00 CB 52 28 03 AF E0 00 00 00
+R 00 00 07 00 0B 09 17 00
+T 9E 03 00
+R 00 00 07 00
+T 9E 03 00 CB 5A 28 07 AF E0 00 00 00 3E C0 E0
+R 00 00 07 00 0B 09 1B 00
+T A8 03 00 00 00 00
+R 00 00 07 00 0B 03 1D 00
+T A9 03 00
+R 00 00 07 00
+T A9 03 00 3E FF E0 00 00 00 F8 00 7E EA 00 00 21
+R 00 00 07 00 0B 06 19 00 02 0D 1E 00
+T B4 03 00 00 00 36 FF 21 00 00 36 00 21 00 00 79
+R 00 00 07 00 02 03 00 00 02 08 25 00 02 0D 1F 00
+T C1 03 00 22 70 21 00 00 73
+R 00 00 07 00 02 06 00 00
+T C7 03 00
+R 00 00 07 00
+T C7 03 00 FA 00 00 CB 6F 28 0C FA 00 00 CB 6F 20
+R 00 00 07 00 02 04 20 00 02 0B 04 00
+T D4 03 00 05 21 00 00 36 09
+R 00 00 07 00 02 05 10 00
+T DA 03 00
+R 00 00 07 00
+T DA 03 00 33 C9
+R 00 00 07 00
+T DC 03 00
+R 00 00 07 00
+T DC 03 00 FA 00 00 21 00 00 96 28 03 CD 0B 00
+R 00 00 07 00 02 04 0F 00 02 07 26 00 00 0D 07 00
+T E8 03 00
+R 00 00 07 00
+T E8 03 00 FA 00 00 21 00 00 96 C2 6E 00 C9
+R 00 00 07 00 02 04 05 00 02 07 02 00 00 0B 07 00

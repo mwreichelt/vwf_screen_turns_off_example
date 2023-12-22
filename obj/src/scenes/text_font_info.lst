@@ -1,0 +1,112 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module text_font_info
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _tsCoCaGBv2_alphabet
+                                     12 	.globl _tsCoCaGBv2_desc
+                                     13 	.globl b___func_text_font_info
+                                     14 	.globl ___func_text_font_info
+                                     15 ;--------------------------------------------------------
+                                     16 ; special function registers
+                                     17 ;--------------------------------------------------------
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area _DATA
+                                     22 ;--------------------------------------------------------
+                                     23 ; ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area _INITIALIZED
+                                     26 ;--------------------------------------------------------
+                                     27 ; absolute external ram data
+                                     28 ;--------------------------------------------------------
+                                     29 	.area _DABS (ABS)
+                                     30 ;--------------------------------------------------------
+                                     31 ; global & static initialisations
+                                     32 ;--------------------------------------------------------
+                                     33 	.area _HOME
+                                     34 	.area _GSINIT
+                                     35 	.area _GSFINAL
+                                     36 	.area _GSINIT
+                                     37 ;--------------------------------------------------------
+                                     38 ; Home
+                                     39 ;--------------------------------------------------------
+                                     40 	.area _HOME
+                                     41 	.area _HOME
+                                     42 ;--------------------------------------------------------
+                                     43 ; code
+                                     44 ;--------------------------------------------------------
+                                     45 	.area _CODE_255
+                           000000    46 	G$__func_text_font_info$0$0	= .
+                                     47 	.globl	G$__func_text_font_info$0$0
+                           000000    48 	C$text_font_info.c$6$0_0$119	= .
+                                     49 	.globl	C$text_font_info.c$6$0_0$119
+                                     50 ;src/scenes/text_font_info.c:6: BANKREF(text_font_info)
+                                     51 ;	---------------------------------
+                                     52 ; Function __func_text_font_info
+                                     53 ; ---------------------------------
+                           0000FF    54 	b___func_text_font_info	= 255
+      000000                         55 ___func_text_font_info::
+                                     56 	.local b___func_text_font_info 
+                           0000FF    57 	___bank_text_font_info = b___func_text_font_info 
+                                     58 	.globl ___bank_text_font_info 
+                                     59 	.area _CODE_255
+                           000000    60 G$tsCoCaGBv2_desc$0_0$0 == .
+      000000                         61 _tsCoCaGBv2_desc:
+      000000r04r00                   62 	.dw _tsCoCaGBv2_alphabet
+      000002r08r00                   63 	.dw __str_0
+                           000004    64 G$tsCoCaGBv2_alphabet$0_0$0 == .
+      000004                         65 _tsCoCaGBv2_alphabet:
+      000004r00r00                   66 	.dw _tsCoCaGBv2_desc
+      000006r6Er00                   67 	.dw __str_1
+                           000008    68 Ftext_font_info$__str_0$0_0$0 == .
+      000008                         69 __str_0:
+      000008 54 68 69 73 20 69 73    70 	.ascii "This is the primary writing font for delivering lots of text"
+             20 74 68 65 20 70 72
+             69 6D 61 72 79 20 77
+             72 69 74 69 6E 67 20
+             66 6F 6E 74 20 66 6F
+             72 20 64 65 6C 69 76
+             65 72 69 6E 67 20 6C
+             6F 74 73 20 6F 66 20
+             74 65 78 74
+      000044 20 61 74 20 6F 6E 63    71 	.ascii " at once. I made it for this game myself."
+             65 2E 20 49 20 6D 61
+             64 65 20 69 74 20 66
+             6F 72 20 74 68 69 73
+             20 67 61 6D 65 20 6D
+             79 73 65 6C 66 2E
+      00006D 00                      72 	.db 0x00
+                           00006E    73 Ftext_font_info$__str_1$0_0$0 == .
+      00006E                         74 __str_1:
+      00006E 0A                      75 	.db 0x0a
+      00006F 41 42 43 44 45 46 47    76 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      000089 0A                      77 	.db 0x0a
+      00008A 30 31 32 33 34 35 36    78 	.ascii "01234567890"
+             37 38 39 30
+      000095 0A                      79 	.db 0x0a
+      000096 41 42 43 44 45 46 47    80 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      0000B0 0A                      81 	.db 0x0a
+      0000B1 30 31 32 33 34 35 36    82 	.ascii "01234567890"
+             37 38 39 30
+      0000BC 0A                      83 	.db 0x0a
+      0000BD 21 40 23 24 25 5E 26    84 	.ascii "!@#$%^&*()-=+[]{}<>;:'"
+             2A 28 29 2D 3D 2B 5B
+             5D 7B 7D 3C 3E 3B 3A
+             27
+      0000D3 22                      85 	.db 0x22
+      0000D4 00                      86 	.db 0x00
+                                     87 	.area _INITIALIZER
+                                     88 	.area _CABS (ABS)

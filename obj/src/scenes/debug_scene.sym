@@ -1,0 +1,349 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 A$debug_scene$128                                              000025 GR
+  7 A$debug_scene$129                                              000028 GR
+  7 A$debug_scene$133                                              00002A GR
+  7 A$debug_scene$134                                              00002D GR
+  7 A$debug_scene$135                                              00002E GR
+  7 A$debug_scene$136                                              000031 GR
+  7 A$debug_scene$137                                              000032 GR
+  7 A$debug_scene$138                                              000033 GR
+  7 A$debug_scene$139                                              000034 GR
+  7 A$debug_scene$140                                              000035 GR
+  7 A$debug_scene$141                                              000036 GR
+  7 A$debug_scene$142                                              000039 GR
+  7 A$debug_scene$146                                              00003B GR
+  7 A$debug_scene$147                                              00003D GR
+  7 A$debug_scene$148                                              000040 GR
+  7 A$debug_scene$152                                              000043 GR
+  7 A$debug_scene$153                                              000046 GR
+  7 A$debug_scene$157                                              000048 GR
+  7 A$debug_scene$158                                              00004B GR
+  7 A$debug_scene$162                                              00004D GR
+  7 A$debug_scene$166                                              000050 GR
+  7 A$debug_scene$167                                              000053 GR
+  7 A$debug_scene$171                                              000055 GR
+  7 A$debug_scene$172                                              000058 GR
+  7 A$debug_scene$176                                              00005A GR
+  7 A$debug_scene$180                                              00005D GR
+  7 A$debug_scene$181                                              000060 GR
+  7 A$debug_scene$182                                              000061 GR
+  7 A$debug_scene$183                                              000062 GR
+  7 A$debug_scene$184                                              000063 GR
+  7 A$debug_scene$188                                              000066 GR
+  7 A$debug_scene$189                                              000069 GR
+  7 A$debug_scene$190                                              00006A GR
+  7 A$debug_scene$191                                              00006C GR
+  7 A$debug_scene$192                                              00006E GR
+  7 A$debug_scene$196                                              000071 GR
+  7 A$debug_scene$197                                              000074 GR
+  7 A$debug_scene$198                                              000075 GR
+  7 A$debug_scene$199                                              000077 GR
+  7 A$debug_scene$200                                              000079 GR
+  7 A$debug_scene$204                                              00007C GR
+  7 A$debug_scene$205                                              00007F GR
+  7 A$debug_scene$206                                              000080 GR
+  7 A$debug_scene$207                                              000082 GR
+  7 A$debug_scene$208                                              000084 GR
+  7 A$debug_scene$212                                              000087 GR
+  7 A$debug_scene$213                                              00008A GR
+  7 A$debug_scene$214                                              00008D GR
+  7 A$debug_scene$215                                              00008E GR
+  7 A$debug_scene$216                                              000090 GR
+  7 A$debug_scene$217                                              000092 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$debug_scene$218                                              000093 GR
+  7 A$debug_scene$219                                              000094 GR
+  7 A$debug_scene$220                                              000095 GR
+  7 A$debug_scene$221                                              000096 GR
+  7 A$debug_scene$222                                              000099 GR
+  7 A$debug_scene$226                                              00009B GR
+  7 A$debug_scene$227                                              00009E GR
+  7 A$debug_scene$228                                              00009F GR
+  7 A$debug_scene$229                                              0000A1 GR
+  7 A$debug_scene$230                                              0000A3 GR
+  7 A$debug_scene$234                                              0000A6 GR
+  7 A$debug_scene$236                                              0000A8 GR
+  7 A$debug_scene$237                                              0000A9 GR
+  7 A$debug_scene$238                                              0000AB GR
+  7 A$debug_scene$242                                              0000AD GR
+  7 A$debug_scene$243                                              0000AF GR
+  7 A$debug_scene$244                                              0000B0 GR
+  7 A$debug_scene$245                                              0000B1 GR
+  7 A$debug_scene$246                                              0000B2 GR
+  7 A$debug_scene$247                                              0000B3 GR
+  7 A$debug_scene$248                                              0000B4 GR
+  7 A$debug_scene$249                                              0000B5 GR
+  7 A$debug_scene$250                                              0000B6 GR
+  7 A$debug_scene$251                                              0000B9 GR
+  7 A$debug_scene$252                                              0000BA GR
+  7 A$debug_scene$253                                              0000BB GR
+  7 A$debug_scene$254                                              0000BC GR
+  7 A$debug_scene$255                                              0000BD GR
+  7 A$debug_scene$256                                              0000BE GR
+  7 A$debug_scene$257                                              0000C0 GR
+  7 A$debug_scene$258                                              0000C3 GR
+  7 A$debug_scene$262                                              0000C4 GR
+  7 A$debug_scene$263                                              0000C5 GR
+  7 A$debug_scene$268                                              0000C7 GR
+  7 A$debug_scene$269                                              0000CA GR
+  7 A$debug_scene$273                                              0000CC GR
+  7 A$debug_scene$274                                              0000CF GR
+  7 A$debug_scene$276                                              0000D1 GR
+  7 A$debug_scene$277                                              0000D4 GR
+  7 A$debug_scene$279                                              0000D6 GR
+  7 A$debug_scene$280                                              0000D9 GR
+  7 A$debug_scene$281                                              0000DA GR
+  7 A$debug_scene$282                                              0000DB GR
+  7 A$debug_scene$283                                              0000DC GR
+  7 A$debug_scene$284                                              0000DD GR
+  7 A$debug_scene$285                                              0000DF GR
+  7 A$debug_scene$287                                              0000E0 GR
+  7 A$debug_scene$289                                              0000E3 GR
+  7 A$debug_scene$290                                              0000E4 GR
+  7 A$debug_scene$291                                              0000E5 GR
+  7 A$debug_scene$295                                              0000E7 GR
+  7 A$debug_scene$296                                              0000E9 GR
+  7 A$debug_scene$297                                              0000EB GR
+  7 A$debug_scene$301                                              0000ED GR
+  7 A$debug_scene$302                                              0000EF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$debug_scene$303                                              0000F1 GR
+  7 A$debug_scene$311                                              0000F3 GR
+  7 A$debug_scene$336                                              000101 GR
+  7 A$debug_scene$337                                              000104 GR
+  7 A$debug_scene$341                                              000107 GR
+  7 A$debug_scene$342                                              00010A GR
+  7 A$debug_scene$343                                              00010B GR
+  7 A$debug_scene$344                                              00010E GR
+  7 A$debug_scene$345                                              00010F GR
+  7 A$debug_scene$346                                              000111 GR
+  7 A$debug_scene$347                                              000113 GR
+  7 A$debug_scene$348                                              000115 GR
+  7 A$debug_scene$352                                              000117 GR
+  7 A$debug_scene$353                                              00011A GR
+  7 A$debug_scene$354                                              00011B GR
+  7 A$debug_scene$355                                              00011C GR
+  7 A$debug_scene$359                                              00011E GR
+  7 A$debug_scene$360                                              000120 GR
+  7 A$debug_scene$365                                              000122 GR
+  7 A$debug_scene$366                                              000125 GR
+  7 A$debug_scene$367                                              000126 GR
+  7 A$debug_scene$372                                              000128 GR
+  7 A$debug_scene$373                                              00012A GR
+  7 A$debug_scene$374                                              00012C GR
+  7 A$debug_scene$375                                              00012E GR
+  7 A$debug_scene$379                                              000130 GR
+  7 A$debug_scene$380                                              000133 GR
+  7 A$debug_scene$381                                              000134 GR
+  7 A$debug_scene$385                                              000136 GR
+  7 A$debug_scene$386                                              000139 GR
+  7 A$debug_scene$387                                              00013B GR
+  7 A$debug_scene$392                                              00013D GR
+  7 A$debug_scene$393                                              000140 GR
+  7 A$debug_scene$398                                              000141 GR
+  7 A$debug_scene$399                                              000143 GR
+  7 A$debug_scene$400                                              000145 GR
+  7 A$debug_scene$401                                              000147 GR
+  7 A$debug_scene$406                                              000149 GR
+  7 A$debug_scene$407                                              00014B GR
+  7 A$debug_scene$408                                              00014C GR
+  7 A$debug_scene$409                                              00014E GR
+  7 A$debug_scene$414                                              00014F GR
+  7 A$debug_scene$415                                              000152 GR
+  7 A$debug_scene$416                                              000153 GR
+  7 A$debug_scene$417                                              000155 GR
+  7 A$debug_scene$418                                              000156 GR
+  7 A$debug_scene$419                                              000157 GR
+  7 A$debug_scene$420                                              000158 GR
+  7 A$debug_scene$421                                              000159 GR
+  7 A$debug_scene$422                                              00015A GR
+  7 A$debug_scene$423                                              00015B GR
+  7 A$debug_scene$424                                              00015C GR
+  7 A$debug_scene$425                                              00015F GR
+  7 A$debug_scene$426                                              000160 GR
+  7 A$debug_scene$427                                              000163 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$debug_scene$428                                              000164 GR
+  7 A$debug_scene$429                                              000165 GR
+  7 A$debug_scene$437                                              000168 GR
+  7 A$debug_scene$450                                              000169 GR
+  7 A$debug_scene$451                                              00016C GR
+  7 A$debug_scene$452                                              00016F GR
+  7 A$debug_scene$453                                              000170 GR
+  7 A$debug_scene$455                                              000171 GR
+  7 A$debug_scene$456                                              000174 GR
+  7 A$debug_scene$457                                              000175 GR
+  7 A$debug_scene$458                                              000176 GR
+  7 A$debug_scene$459                                              000177 GR
+  7 A$debug_scene$460                                              000178 GR
+  7 A$debug_scene$461                                              00017A GR
+  7 A$debug_scene$463                                              00017B GR
+  7 A$debug_scene$465                                              00017E GR
+  7 A$debug_scene$466                                              00017F GR
+  7 A$debug_scene$467                                              000180 GR
+  7 A$debug_scene$471                                              000182 GR
+  7 A$debug_scene$472                                              000185 GR
+  7 A$debug_scene$473                                              000188 GR
+  7 A$debug_scene$474                                              000189 GR
+  7 A$debug_scene$475                                              00018B GR
+  7 A$debug_scene$476                                              00018D GR
+  7 A$debug_scene$477                                              00018E GR
+  7 A$debug_scene$478                                              00018F GR
+  7 A$debug_scene$479                                              000190 GR
+  7 A$debug_scene$480                                              000191 GR
+  7 A$debug_scene$481                                              000194 GR
+  7 A$debug_scene$485                                              000196 GR
+  7 A$debug_scene$486                                              000199 GR
+  7 A$debug_scene$487                                              00019A GR
+  7 A$debug_scene$488                                              00019C GR
+  7 A$debug_scene$489                                              00019E GR
+  7 A$debug_scene$497                                              0001A1 GR
+  7 A$debug_scene$79                                               000000 GR
+  7 A$debug_scene$81                                               000003 GR
+  7 A$debug_scene$82                                               000004 GR
+  7 A$debug_scene$83                                               000005 GR
+  7 A$debug_scene$84                                               000006 GR
+  7 A$debug_scene$85                                               000007 GR
+  7 A$debug_scene$89                                               000008 GR
+  7 A$debug_scene$90                                               00000A GR
+  7 A$debug_scene$91                                               00000C GR
+  7 A$debug_scene$99                                               00000E GR
+  7 C$debug_scene.c$102$1_0$170                                 =  000141 GR
+  7 C$debug_scene.c$103$1_0$170                                 =  000149 GR
+  7 C$debug_scene.c$105$2_0$177                                 =  00014F GR
+  7 C$debug_scene.c$107$1_0$170                                 =  000168 GR
+  7 C$debug_scene.c$109$1_0$178                                 =  000169 GR
+  7 C$debug_scene.c$110$1_0$178                                 =  000169 GR
+  7 C$debug_scene.c$115$2_0$179                                 =  000182 GR
+  7 C$debug_scene.c$116$2_0$179                                 =  000196 GR
+  7 C$debug_scene.c$118$1_0$178                                 =  0001A1 GR
+  7 C$debug_scene.c$20$0_0$156                                  =  000000 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 C$debug_scene.c$33$1_0$157                                  =  000000 GR
+  7 C$debug_scene.c$37$1_0$157                                  =  000008 GR
+  7 C$debug_scene.c$38$1_0$157                                  =  00000E GR
+  7 C$debug_scene.c$40$1_0$161                                  =  000025 GR
+  7 C$debug_scene.c$42$1_0$161                                  =  000025 GR
+  7 C$debug_scene.c$43$1_0$161                                  =  00002A GR
+  7 C$debug_scene.c$46$1_0$161                                  =  00003B GR
+  7 C$debug_scene.c$48$1_0$161                                  =  000043 GR
+  7 C$debug_scene.c$49$1_0$161                                  =  000048 GR
+  7 C$debug_scene.c$50$1_0$161                                  =  00004D GR
+  7 C$debug_scene.c$52$1_0$161                                  =  000050 GR
+  7 C$debug_scene.c$53$1_0$161                                  =  000055 GR
+  7 C$debug_scene.c$54$1_0$161                                  =  00005A GR
+  7 C$debug_scene.c$58$1_0$161                                  =  00005D GR
+  7 C$debug_scene.c$61$1_0$161                                  =  000066 GR
+  7 C$debug_scene.c$62$1_0$161                                  =  000071 GR
+  7 C$debug_scene.c$65$1_0$161                                  =  00007C GR
+  7 C$debug_scene.c$66$1_0$161                                  =  000087 GR
+  7 C$debug_scene.c$67$1_0$161                                  =  00009B GR
+  7 C$debug_scene.c$70$2_0$162                                  =  0000C4 GR
+  7 C$debug_scene.c$70$3_0$163                                  =  0000A6 GR
+  7 C$debug_scene.c$71$3_0$163                                  =  0000AD GR
+  7 C$debug_scene.c$75$1_0$161                                  =  0000C7 GR
+  7 C$debug_scene.c$76$1_0$161                                  =  0000CC GR
+  7 C$debug_scene.c$80$1_0$161                                  =  0000E7 GR
+  7 C$debug_scene.c$81$1_0$161                                  =  0000ED GR
+  7 C$debug_scene.c$82$1_0$161                                  =  0000F3 GR
+  7 C$debug_scene.c$84$1_0$170                                  =  000101 GR
+  7 C$debug_scene.c$85$1_0$170                                  =  000101 GR
+  7 C$debug_scene.c$87$1_0$170                                  =  000107 GR
+  7 C$debug_scene.c$88$2_0$171                                  =  000117 GR
+  7 C$debug_scene.c$89$3_0$172                                  =  00011E GR
+  7 C$debug_scene.c$91$3_0$173                                  =  000122 GR
+  7 C$debug_scene.c$93$1_0$170                                  =  000128 GR
+  7 C$debug_scene.c$94$2_0$174                                  =  000130 GR
+  7 C$debug_scene.c$95$3_0$175                                  =  000136 GR
+  7 C$debug_scene.c$97$3_0$176                                  =  00013D GR
+  7 Fdebug_scene$__str_2$0_0$0                                  =  0000F4 GR
+  7 Fdebug_scene$__str_3$0_0$0                                  =  0000FA GR
+  7 Fdebug_scene$__str_4$0_0$0                                  =  0000FF GR
+  7 G$Debug_Room_Options$0_0$0                                  =  00000F GR
+  7 G$__func_debug_scene_bank$0$0                               =  000000 GR
+  7 G$debugSceneTeardown$0$0                                    =  000000 GR
+  7 G$drawDebugScene$0$0                                        =  000169 GR
+  7 G$handleDebugUpdate$0$0                                     =  000101 GR
+  7 G$initializeDebugScene$0$0                                  =  000025 GR
+  7 XG$debugSceneTeardown$0$0                                   =  00000E GR
+  7 XG$drawDebugScene$0$0                                       =  0001A1 GR
+  7 XG$handleDebugUpdate$0$0                                    =  000168 GR
+  7 XG$initializeDebugScene$0$0                                 =  0000F3 GR
+    _BLANK_SCREEN_MAP                                              ****** GX
+    _CURSOR_INDEX                                                  ****** GX
+    _CURSOR_INDEX_PREV                                             ****** GX
+  7 _Debug_Room_Options                                            00000F GR
+    _GAME_STATE                                                    ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    _ITOA_STRING                                                   ****** GX
+    _JOYPAD_CURRENT                                                ****** GX
+    _JOYPAD_PREVIOUS                                               ****** GX
+    _LCDC_REG                                                      ****** GX
+    _RENDER_TARGET                                                 ****** GX
+    _TEMP_VAR_A                                                    ****** GX
+    _TEMP_VAR_B                                                    ****** GX
+    ___bank_debug_scene_bank                                    =  0000FF G
+  7 ___func_debug_scene_bank                                       000000 GR
+    ___sdcc_bcall_ehl                                              ****** GX
+  7 ___str_2                                                       0000F4 R
+  7 ___str_3                                                       0000FA R
+  7 ___str_4                                                       0000FF R
+  7 _debugSceneTeardown                                            000000 GR
+  7 _drawDebugScene                                                000169 GR
+    _drawTextBkg                                                   ****** GX
+    _drawWindowBorder                                              ****** GX
+  7 _handleDebugUpdate                                             000101 GR
+  7 _initializeDebugScene                                          000025 GR
+    _loadFontGraphicsData                                          ****** GX
+    _loadUIGraphics                                                ****** GX
+    _set_bkg_tiles                                                 ****** GX
+    _shadow_OAM                                                    ****** GX
+    _uitoa                                                         ****** GX
+    b___func_debug_scene_bank                                   =  0000FF L
+    b_loadFontGraphicsData                                         ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_255                                  size    1A2   flags    0
+   8 _INITIALIZER                               size      0   flags    0
+   9 _CABS                                      size      0   flags    8
+

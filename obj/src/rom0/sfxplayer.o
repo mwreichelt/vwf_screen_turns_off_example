@@ -1,0 +1,216 @@
+;!FILE obj/src/rom0/sfxplayer.asm
+XL3
+H 9 areas 64 global symbols
+M sfxplayer
+O -msm83
+S _NR10_REG Ref000000
+S __AUD3WAVERAM Ref000000
+S .__.ABS. Def000000
+S _NR30_REG Ref000000
+S _NR31_REG Ref000000
+S _NR32_REG Ref000000
+S _NR33_REG Ref000000
+S _NR34_REG Ref000000
+S _rROMB0 Ref000000
+S __current_bank Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 1 flags 0 addr 0
+S _sfx_frame_skip Def000000
+S G$sfx_frame_skip$0_0$0 Def000000
+A _INITIALIZED size 3 flags 0 addr 0
+S _sfx_play_bank Def000000
+S G$sfx_play_bank$0_0$0 Def000000
+S _sfx_play_sample Def000001
+S G$sfx_play_sample$0_0$0 Def000001
+A _DABS size 0 flags 8 addr 0
+A _HOME size D3 flags 0 addr 0
+S A$sfxplayer$162 Def0000D1
+S A$sfxplayer$153 Def0000C2
+S A$sfxplayer$144 Def000098
+S A$sfxplayer$126 Def00007F
+S A$sfxplayer$108 Def000036
+S A$sfxplayer$163 Def0000D2
+S A$sfxplayer$145 Def00009A
+S A$sfxplayer$136 Def00008E
+S A$sfxplayer$127 Def000081
+S A$sfxplayer$109 Def000038
+S A$sfxplayer$155 Def0000C3
+S A$sfxplayer$137 Def000091
+S A$sfxplayer$128 Def000083
+S A$sfxplayer$156 Def0000C4
+S A$sfxplayer$138 Def000092
+S A$sfxplayer$129 Def000085
+S A$sfxplayer$157 Def0000C7
+S A$sfxplayer$158 Def0000C8
+S A$sfxplayer$159 Def0000CB
+S C$sfxplayer.c$9$0_0$110 Def000000
+S A$sfxplayer$70 Def000000
+S A$sfxplayer$80 Def00000F
+S A$sfxplayer$71 Def000003
+S A$sfxplayer$90 Def00001A
+S A$sfxplayer$72 Def000004
+S A$sfxplayer$91 Def00001B
+S A$sfxplayer$82 Def000010
+S A$sfxplayer$73 Def000005
+S A$sfxplayer$92 Def00001D
+S A$sfxplayer$83 Def000011
+S A$sfxplayer$74 Def000006
+S A$sfxplayer$93 Def00001E
+S A$sfxplayer$75 Def000007
+S A$sfxplayer$94 Def000020
+S A$sfxplayer$85 Def000012
+S A$sfxplayer$76 Def000008
+S A$sfxplayer$95 Def000023
+S A$sfxplayer$86 Def000013
+S A$sfxplayer$77 Def00000B
+S A$sfxplayer$96 Def000025
+S A$sfxplayer$87 Def000014
+S A$sfxplayer$78 Def00000C
+S A$sfxplayer$97 Def000026
+S A$sfxplayer$88 Def000016
+S A$sfxplayer$79 Def00000D
+S A$sfxplayer$98 Def000028
+S A$sfxplayer$89 Def000017
+S A$sfxplayer$99 Def000029
+S G$sfx_play_isr$0$0 Def000000
+S C$sfxplayer.c$131$1_0$110 Def0000D3
+S C$sfxplayer.c$129$1_0$110 Def000000
+S _sfx_play_isr Def000000
+S A$sfxplayer$100 Def00002C
+S A$sfxplayer$110 Def00003A
+S A$sfxplayer$101 Def00002D
+S A$sfxplayer$120 Def000074
+S A$sfxplayer$111 Def00003C
+S A$sfxplayer$102 Def00002E
+S A$sfxplayer$130 Def000086
+S A$sfxplayer$121 Def000075
+S A$sfxplayer$112 Def00003E
+S A$sfxplayer$103 Def00002F
+S A$sfxplayer$140 Def000094
+S A$sfxplayer$131 Def000088
+S A$sfxplayer$122 Def000077
+S A$sfxplayer$113 Def00003F
+S A$sfxplayer$150 Def0000BE
+S A$sfxplayer$141 Def000095
+S A$sfxplayer$132 Def00008A
+S A$sfxplayer$123 Def000079
+S A$sfxplayer$114 Def000042
+S A$sfxplayer$105 Def000032
+S A$sfxplayer$160 Def0000CC
+S A$sfxplayer$151 Def0000BF
+S A$sfxplayer$142 Def000096
+S A$sfxplayer$133 Def00008C
+S A$sfxplayer$124 Def00007B
+S A$sfxplayer$106 Def000033
+S A$sfxplayer$161 Def0000CE
+S A$sfxplayer$143 Def000097
+S A$sfxplayer$125 Def00007D
+S A$sfxplayer$107 Def000034
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 3 flags 0 addr 0
+S Fsfxplayer$__xinit_sfx_play_sample$0_0$0 Def000001
+S Fsfxplayer$__xinit_sfx_play_bank$0_0$0 Def000000
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 01 00
+T 00 00 00
+R 00 00 01 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 04 00
+T 00 00 00 21 01 00 2A 5F B6 C8 56 21 00 00 AF B6
+R 00 00 04 00 00 04 02 00 00 0C 01 00
+T 0D 00 00 28 03 35
+R 00 00 04 00
+T 10 00 00
+R 00 00 04 00
+T 10 00 00 5F C9
+R 00 00 04 00
+T 12 00 00
+R 00 00 04 00
+T 12 00 00 62 6B F0 00 00 00 5F FA 00 00 3C 28 F3
+R 00 00 04 00 0B 06 09 00 00 0B 02 00
+T 1D 00 00 3D E0 00 00 00 EA 00 00 16 0F 7E CB 37
+R 00 00 04 00 0B 05 09 00 02 09 08 00
+T 28 00 00 A2 EA 00 00 2A A2 57 CA C2 00
+R 00 00 04 00 00 05 01 00 00 0B 04 00
+T 32 00 00
+R 00 00 04 00
+T 32 00 00 2A 47 E6 07 FE 05 38 5A FE 07 28 50 AF
+R 00 00 04 00
+T 3F 00 00 EA 00 00 0E 00 00 00 2A E2 0C 2A E2 0C
+R 00 00 04 00 02 04 03 00 0B 07 01 00
+T 4A 00 00 2A E2 0C 2A E2 0C 2A E2 0C 2A E2 0C 2A
+R 00 00 04 00
+T 57 00 00 E2 0C 2A E2 0C 2A E2 0C 2A E2 0C 2A E2
+R 00 00 04 00
+T 64 00 00 0C 2A E2 0C 2A E2 0C 2A E2 0C 2A E2 0C
+R 00 00 04 00
+T 71 00 00 2A E2 0C 78 FE 06 20 45 3E 80 E0
+R 00 00 04 00
+T 7C 00 00 00 00 00 3E FE E0 00 00 00 3E 20 E0
+R 00 00 04 00 0B 03 03 00 0B 09 04 00
+T 84 00 00 00 00 00 AF E0 00 00 00 3E C7 E0
+R 00 00 04 00 0B 03 05 00 0B 08 06 00
+T 8B 00 00 00 00 00 18 30
+R 00 00 04 00 0B 03 07 00
+T 8E 00 00
+R 00 00 04 00
+T 8E 00 00 21 00 00 55 18 2F
+R 00 00 04 00
+T 94 00 00
+R 00 00 04 00
+T 94 00 00 4F 87 87 81 C6 00 00 00 4F CB 20 30 02
+R 00 00 04 00 0B 08 00 00
+T 9F 00 00 2A E2
+R 00 00 04 00
+T A1 00 00
+R 00 00 04 00
+T A1 00 00 0C CB 20 30 02 2A E2
+R 00 00 04 00
+T A8 00 00
+R 00 00 04 00
+T A8 00 00 0C CB 20 30 02 2A E2
+R 00 00 04 00
+T AF 00 00
+R 00 00 04 00
+T AF 00 00 0C CB 20 30 02 2A E2
+R 00 00 04 00
+T B6 00 00
+R 00 00 04 00
+T B6 00 00 0C CB 20 30 02 2A E2
+R 00 00 04 00
+T BD 00 00
+R 00 00 04 00
+T BD 00 00 0C
+R 00 00 04 00
+T BE 00 00
+R 00 00 04 00
+T BE 00 00 15 C2 32 00
+R 00 00 04 00 00 05 04 00
+T C2 00 00
+R 00 00 04 00
+T C2 00 00 14
+R 00 00 04 00
+T C3 00 00
+R 00 00 04 00
+T C3 00 00 7D EA 01 00 7C EA 02 00 7B E0 00 00 00
+R 00 00 04 00 00 05 02 00 00 09 02 00 0B 0D 09 00
+T CE 00 00 EA 00 00 5A C9
+R 00 00 04 00 02 04 08 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 FF
+R 00 00 07 00
+T 01 00 00
+R 00 00 07 00
+T 01 00 00 00 00
+R 00 00 07 00

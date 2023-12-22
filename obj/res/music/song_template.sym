@@ -1,0 +1,55 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 C$song_template.c$6$0_0$112                                 =  000000 GR
+  7 Fsong_template$P0$0_0$0                                     =  000001 GR
+  7 Fsong_template$P1$0_0$0                                     =  0000C1 GR
+  7 Fsong_template$duty_instruments$0_0$0                       =  000189 GR
+  7 Fsong_template$noise_instruments$0_0$0                      =  000201 GR
+  7 Fsong_template$order1$0_0$0                                 =  000181 GR
+  7 Fsong_template$order2$0_0$0                                 =  000183 GR
+  7 Fsong_template$order3$0_0$0                                 =  000185 GR
+  7 Fsong_template$order4$0_0$0                                 =  000187 GR
+  7 Fsong_template$order_cnt$0_0$0                              =  000000 GR
+  7 Fsong_template$wave_instruments$0_0$0                       =  0001C5 GR
+  7 Fsong_template$waves$0_0$0                                  =  000279 GR
+  7 G$__func_song_template$0$0                                  =  000000 GR
+  7 G$template$0_0$0                                            =  000379 GR
+  7 _P0                                                            000001 R
+  7 _P1                                                            0000C1 R
+    ___bank_song_template                                       =  000002 G
+  7 ___func_song_template                                          000000 GR
+  7 _duty_instruments                                              000189 R
+  7 _noise_instruments                                             000201 R
+  7 _order1                                                        000181 R
+  7 _order2                                                        000183 R
+  7 _order3                                                        000185 R
+  7 _order4                                                        000187 R
+  7 _order_cnt                                                     000000 R
+  7 _template                                                      000379 GR
+  7 _wave_instruments                                              0001C5 R
+  7 _waves                                                         000279 R
+    b___func_song_template                                      =  000002 L
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_2                                    size    38E   flags    0
+   8 _INITIALIZER                               size      0   flags    0
+   9 _CABS                                      size      0   flags    8
+

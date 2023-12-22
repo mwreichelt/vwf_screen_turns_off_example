@@ -1,0 +1,761 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module debug_fonts_scene
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _drawFontInfo_TextArea
+                                     12 	.globl _drawFontInfo
+                                     13 	.globl b___func_debug_fonts_scene_bank
+                                     14 	.globl ___func_debug_fonts_scene_bank
+                                     15 	.globl _vwf_draw_text
+                                     16 	.globl _vwf_activate_font
+                                     17 	.globl _set_bkg_tiles
+                                     18 	.globl _fontData
+                                     19 	.globl _debug_fontsTeardown
+                                     20 	.globl _initializedebug_fontsScene
+                                     21 	.globl _handledebug_fontsUpdate
+                                     22 	.globl _drawdebug_fontsScene
+                                     23 ;--------------------------------------------------------
+                                     24 ; special function registers
+                                     25 ;--------------------------------------------------------
+                                     26 ;--------------------------------------------------------
+                                     27 ; ram data
+                                     28 ;--------------------------------------------------------
+                                     29 	.area _DATA
+                                     30 ;--------------------------------------------------------
+                                     31 ; ram data
+                                     32 ;--------------------------------------------------------
+                                     33 	.area _INITIALIZED
+                                     34 ;--------------------------------------------------------
+                                     35 ; absolute external ram data
+                                     36 ;--------------------------------------------------------
+                                     37 	.area _DABS (ABS)
+                                     38 ;--------------------------------------------------------
+                                     39 ; global & static initialisations
+                                     40 ;--------------------------------------------------------
+                                     41 	.area _HOME
+                                     42 	.area _GSINIT
+                                     43 	.area _GSFINAL
+                                     44 	.area _GSINIT
+                                     45 ;--------------------------------------------------------
+                                     46 ; Home
+                                     47 ;--------------------------------------------------------
+                                     48 	.area _HOME
+                                     49 	.area _HOME
+                                     50 ;--------------------------------------------------------
+                                     51 ; code
+                                     52 ;--------------------------------------------------------
+                                     53 	.area _CODE_255
+                           000000    54 	G$__func_debug_fonts_scene_bank$0$0	= .
+                                     55 	.globl	G$__func_debug_fonts_scene_bank$0$0
+                           000000    56 	C$debug_fonts_scene.c$11$0_0$142	= .
+                                     57 	.globl	C$debug_fonts_scene.c$11$0_0$142
+                                     58 ;src/scenes/debug_fonts_scene.c:11: BANKREF(debug_fonts_scene_bank)
+                                     59 ;	---------------------------------
+                                     60 ; Function __func_debug_fonts_scene_bank
+                                     61 ; ---------------------------------
+                           0000FF    62 	b___func_debug_fonts_scene_bank	= 255
+      000000                         63 ___func_debug_fonts_scene_bank::
+                                     64 	.local b___func_debug_fonts_scene_bank 
+                           0000FF    65 	___bank_debug_fonts_scene_bank = b___func_debug_fonts_scene_bank 
+                                     66 	.globl ___bank_debug_fonts_scene_bank 
+                           000000    67 	G$drawFontInfo$0$0	= .
+                                     68 	.globl	G$drawFontInfo$0$0
+                           000000    69 	C$debug_fonts_scene.c$25$1_0$143	= .
+                                     70 	.globl	C$debug_fonts_scene.c$25$1_0$143
+                                     71 ;src/scenes/debug_fonts_scene.c:25: void drawFontInfo() {
+                                     72 ;	---------------------------------
+                                     73 ; Function drawFontInfo
+                                     74 ; ---------------------------------
+      000000                         75 _drawFontInfo::
+                           000000    76 	C$debug_fonts_scene.c$26$1_0$143	= .
+                                     77 	.globl	C$debug_fonts_scene.c$26$1_0$143
+                                     78 ;src/scenes/debug_fonts_scene.c:26: vwf_activate_font(fontData[CURSOR_INDEX].fontId);
+      000000 21r00r00         [12]   79 	ld	hl, #_CURSOR_INDEX
+      000003 4E               [ 8]   80 	ld	c, (hl)
+      000004 06 00            [ 8]   81 	ld	b, #0x00
+      000006 69               [ 4]   82 	ld	l, c
+      000007 60               [ 4]   83 	ld	h, b
+      000008 29               [ 8]   84 	add	hl, hl
+      000009 09               [ 8]   85 	add	hl, bc
+      00000A 29               [ 8]   86 	add	hl, hl
+      00000B 09               [ 8]   87 	add	hl, bc
+      00000C 29               [ 8]   88 	add	hl, hl
+      00000D 29               [ 8]   89 	add	hl, hl
+      00000E 09               [ 8]   90 	add	hl, bc
+      00000F 29               [ 8]   91 	add	hl, hl
+      000010 29               [ 8]   92 	add	hl, hl
+      000011 29               [ 8]   93 	add	hl, hl
+      000012 09               [ 8]   94 	add	hl, bc
+      000013 01r69r00         [12]   95 	ld	bc,#_fontData
+      000016 09               [ 8]   96 	add	hl,bc
+      000017 01 E8 00         [12]   97 	ld	bc, #0x00e8
+      00001A 09               [ 8]   98 	add	hl, bc
+      00001B 7E               [ 8]   99 	ld	a, (hl)
+      00001C CDr00r00         [24]  100 	call	_vwf_activate_font
+                           00001F   101 	C$debug_fonts_scene.c$27$1_0$143	= .
+                                    102 	.globl	C$debug_fonts_scene.c$27$1_0$143
+                                    103 ;src/scenes/debug_fonts_scene.c:27: vwf_draw_text(1u, 2u, 0x8B, (const unsigned char *)fontData[CURSOR_INDEX].name);
+      00001F 21r00r00         [12]  104 	ld	hl, #_CURSOR_INDEX
+      000022 4E               [ 8]  105 	ld	c, (hl)
+      000023 06 00            [ 8]  106 	ld	b, #0x00
+      000025 69               [ 4]  107 	ld	l, c
+      000026 60               [ 4]  108 	ld	h, b
+      000027 29               [ 8]  109 	add	hl, hl
+      000028 09               [ 8]  110 	add	hl, bc
+      000029 29               [ 8]  111 	add	hl, hl
+      00002A 09               [ 8]  112 	add	hl, bc
+      00002B 29               [ 8]  113 	add	hl, hl
+      00002C 29               [ 8]  114 	add	hl, hl
+      00002D 09               [ 8]  115 	add	hl, bc
+      00002E 29               [ 8]  116 	add	hl, hl
+      00002F 29               [ 8]  117 	add	hl, hl
+      000030 29               [ 8]  118 	add	hl, hl
+      000031 09               [ 8]  119 	add	hl, bc
+      000032 01r69r00         [12]  120 	ld	bc,#_fontData
+      000035 09               [ 8]  121 	add	hl,bc
+      000036 E5               [16]  122 	push	hl
+      000037 3E 8B            [ 8]  123 	ld	a, #0x8b
+      000039 F5               [16]  124 	push	af
+      00003A 33               [ 8]  125 	inc	sp
+      00003B 1E 02            [ 8]  126 	ld	e, #0x02
+      00003D 3E 01            [ 8]  127 	ld	a, #0x01
+      00003F CDr00r00         [24]  128 	call	_vwf_draw_text
+                           000042   129 	C$debug_fonts_scene.c$28$1_0$143	= .
+                                    130 	.globl	C$debug_fonts_scene.c$28$1_0$143
+                                    131 ;src/scenes/debug_fonts_scene.c:28: vwf_draw_text(0u, 3u, 0x94, (const unsigned char *)fontData[CURSOR_INDEX].description);
+      000042 21r00r00         [12]  132 	ld	hl, #_CURSOR_INDEX
+      000045 4E               [ 8]  133 	ld	c, (hl)
+      000046 06 00            [ 8]  134 	ld	b, #0x00
+      000048 69               [ 4]  135 	ld	l, c
+      000049 60               [ 4]  136 	ld	h, b
+      00004A 29               [ 8]  137 	add	hl, hl
+      00004B 09               [ 8]  138 	add	hl, bc
+      00004C 29               [ 8]  139 	add	hl, hl
+      00004D 09               [ 8]  140 	add	hl, bc
+      00004E 29               [ 8]  141 	add	hl, hl
+      00004F 29               [ 8]  142 	add	hl, hl
+      000050 09               [ 8]  143 	add	hl, bc
+      000051 29               [ 8]  144 	add	hl, hl
+      000052 29               [ 8]  145 	add	hl, hl
+      000053 29               [ 8]  146 	add	hl, hl
+      000054 09               [ 8]  147 	add	hl, bc
+      000055 01r69r00         [12]  148 	ld	bc,#_fontData
+      000058 09               [ 8]  149 	add	hl,bc
+      000059 01 0C 00         [12]  150 	ld	bc, #0x000c
+      00005C 09               [ 8]  151 	add	hl, bc
+      00005D E5               [16]  152 	push	hl
+      00005E 3E 94            [ 8]  153 	ld	a, #0x94
+      000060 F5               [16]  154 	push	af
+      000061 33               [ 8]  155 	inc	sp
+      000062 1E 03            [ 8]  156 	ld	e, #0x03
+      000064 AF               [ 4]  157 	xor	a, a
+      000065 CDr00r00         [24]  158 	call	_vwf_draw_text
+                           000068   159 	C$debug_fonts_scene.c$29$1_0$143	= .
+                                    160 	.globl	C$debug_fonts_scene.c$29$1_0$143
+                                    161 ;src/scenes/debug_fonts_scene.c:29: }
+                           000068   162 	C$debug_fonts_scene.c$29$1_0$143	= .
+                                    163 	.globl	C$debug_fonts_scene.c$29$1_0$143
+                           000068   164 	XG$drawFontInfo$0$0	= .
+                                    165 	.globl	XG$drawFontInfo$0$0
+      000068 C9               [16]  166 	ret
+                           000069   167 G$fontData$0_0$0 == .
+      000069                        168 _fontData:
+      000069 43 6F 43 61 5F 47 42   169 	.ascii "CoCa_GB_v2"
+             5F 76 32
+      000073 00                     170 	.db 0x00
+      000074 00                     171 	.db 0x00
+      000075 20 54 68 69 73 20 69   172 	.ascii " This is the primary writing"
+             73 20 74 68 65 20 70
+             72 69 6D 61 72 79 20
+             77 72 69 74 69 6E 67
+      000091 0A                     173 	.db 0x0a
+      000092 66 6F 6E 74 20 66 6F   174 	.ascii "font for delivering lots of text"
+             72 20 64 65 6C 69 76
+             65 72 69 6E 67 20 6C
+             6F 74 73 20 6F 66 20
+             74 65 78 74
+      0000B2 0A                     175 	.db 0x0a
+      0000B3 61 74 20 6F 6E 63 65   176 	.ascii "at once."
+             2E
+      0000BB 0A                     177 	.db 0x0a
+      0000BC 49 20 6D 61 64 65 20   178 	.ascii "I made it for this game myself."
+             69 74 20 66 6F 72 20
+             74 68 69 73 20 67 61
+             6D 65 20 6D 79 73 65
+             6C 66 2E
+      0000DB 0A                     179 	.db 0x0a
+      0000DC 41 42 43 44 45 46 47   180 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      0000F6 0A                     181 	.db 0x0a
+      0000F7 30 31 32 33 34 35 36   182 	.ascii "01234567890"
+             37 38 39 30
+      000102 0A                     183 	.db 0x0a
+      000103 41 42 43 44 45 46 47   184 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      00011D 0A                     185 	.db 0x0a
+      00011E 30 31 32 33 34 35 36   186 	.ascii "01234567890"
+             37 38 39 30
+      000129 0A                     187 	.db 0x0a
+      00012A 21 40 23 24 25 5E 26   188 	.ascii "!@#$%^&*()-=+[]{}<>;:'"
+             2A 28 29 2D 3D 2B 5B
+             5D 7B 7D 3C 3E 3B 3A
+             27
+      000140 22                     189 	.db 0x22
+      000141 00                     190 	.db 0x00
+      000142 00                     191 	.db 0x00
+      000143 00                     192 	.db 0x00
+      000144 00                     193 	.db 0x00
+      000145 00                     194 	.db 0x00
+      000146 00                     195 	.db 0x00
+      000147 00                     196 	.db 0x00
+      000148 00                     197 	.db 0x00
+      000149 00                     198 	.db 0x00
+      00014A 00                     199 	.db 0x00
+      00014B 00                     200 	.db 0x00
+      00014C 00                     201 	.db 0x00
+      00014D 00                     202 	.db 0x00
+      00014E 00                     203 	.db 0x00
+      00014F 00                     204 	.db 0x00
+      000150 00                     205 	.db 0x00
+      000151 00                     206 	.db #0x00	; 0
+      000152 63 6F 6E 64 65 6E 73   207 	.ascii "condensed"
+             65 64
+      00015B 00                     208 	.db 0x00
+      00015C 00                     209 	.db 0x00
+      00015D 00                     210 	.db 0x00
+      00015E 54 68 69 73 20 69 73   211 	.ascii "This is the font writing in cramped spaces"
+             20 74 68 65 20 66 6F
+             6E 74 20 77 72 69 74
+             69 6E 67 20 69 6E 20
+             63 72 61 6D 70 65 64
+             20 73 70 61 63 65 73
+      000188 0A                     212 	.db 0x0a
+      000189 6F 72 20 66 6F 72 20   213 	.ascii "or for labelling things."
+             6C 61 62 65 6C 6C 69
+             6E 67 20 74 68 69 6E
+             67 73 2E
+      0001A1 0A                     214 	.db 0x0a
+      0001A2 41 42 43 44 45 46 47   215 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A 30 31
+             32 33 34 35 36 37 38
+             39 30
+      0001C7 0A                     216 	.db 0x0a
+      0001C8 41 42 43 44 45 46 47   217 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A 30 31
+             32 33 34 35 36 37 38
+             39 30
+      0001ED 0A                     218 	.db 0x0a
+      0001EE 21 40 23 24 25 5E 26   219 	.ascii "!@#$%^&*()-=+[]{}<>;:'"
+             2A 28 29 2D 3D 2B 5B
+             5D 7B 7D 3C 3E 3B 3A
+             27
+      000204 22                     220 	.db 0x22
+      000205 00                     221 	.db 0x00
+      000206 00                     222 	.db 0x00
+      000207 00                     223 	.db 0x00
+      000208 00                     224 	.db 0x00
+      000209 00                     225 	.db 0x00
+      00020A 00                     226 	.db 0x00
+      00020B 00                     227 	.db 0x00
+      00020C 00                     228 	.db 0x00
+      00020D 00                     229 	.db 0x00
+      00020E 00                     230 	.db 0x00
+      00020F 00                     231 	.db 0x00
+      000210 00                     232 	.db 0x00
+      000211 00                     233 	.db 0x00
+      000212 00                     234 	.db 0x00
+      000213 00                     235 	.db 0x00
+      000214 00                     236 	.db 0x00
+      000215 00                     237 	.db 0x00
+      000216 00                     238 	.db 0x00
+      000217 00                     239 	.db 0x00
+      000218 00                     240 	.db 0x00
+      000219 00                     241 	.db 0x00
+      00021A 00                     242 	.db 0x00
+      00021B 00                     243 	.db 0x00
+      00021C 00                     244 	.db 0x00
+      00021D 00                     245 	.db 0x00
+      00021E 00                     246 	.db 0x00
+      00021F 00                     247 	.db 0x00
+      000220 00                     248 	.db 0x00
+      000221 00                     249 	.db 0x00
+      000222 00                     250 	.db 0x00
+      000223 00                     251 	.db 0x00
+      000224 00                     252 	.db 0x00
+      000225 00                     253 	.db 0x00
+      000226 00                     254 	.db 0x00
+      000227 00                     255 	.db 0x00
+      000228 00                     256 	.db 0x00
+      000229 00                     257 	.db 0x00
+      00022A 00                     258 	.db 0x00
+      00022B 00                     259 	.db 0x00
+      00022C 00                     260 	.db 0x00
+      00022D 00                     261 	.db 0x00
+      00022E 00                     262 	.db 0x00
+      00022F 00                     263 	.db 0x00
+      000230 00                     264 	.db 0x00
+      000231 00                     265 	.db 0x00
+      000232 00                     266 	.db 0x00
+      000233 00                     267 	.db 0x00
+      000234 00                     268 	.db 0x00
+      000235 00                     269 	.db 0x00
+      000236 00                     270 	.db 0x00
+      000237 00                     271 	.db 0x00
+      000238 00                     272 	.db 0x00
+      000239 00                     273 	.db 0x00
+      00023A 01                     274 	.db #0x01	; 1
+      00023B 4D 69 6E 69 6D 61 6C   275 	.ascii "Minimal 3x5"
+             20 33 78 35
+      000246 00                     276 	.db 0x00
+      000247 54 68 69 73 20 69 73   277 	.ascii "This is the Minimal3x5 font."
+             20 74 68 65 20 4D 69
+             6E 69 6D 61 6C 33 78
+             35 20 66 6F 6E 74 2E
+      000263 0A                     278 	.db 0x0a
+      000264 49 27 6D 20 6E 6F 74   279 	.ascii "I'm not sure I will use it right now."
+             20 73 75 72 65 20 49
+             20 77 69 6C 6C 20 75
+             73 65 20 69 74 20 72
+             69 67 68 74 20 6E 6F
+             77 2E
+      000289 0A                     280 	.db 0x0a
+      00028A 41 42 43 44 45 46 47   281 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A 30 31
+             32 33 34 35 36 37 38
+             39 30
+      0002AF 0A                     282 	.db 0x0a
+      0002B0 41 42 43 44 45 46 47   283 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A 30 31
+             32 33 34 35 36 37 38
+             39 30
+      0002D5 0A                     284 	.db 0x0a
+      0002D6 21 40 23 24 25 5E 26   285 	.ascii "!@#$%^&*()-=+[]{}<>;:'"
+             2A 28 29 2D 3D 2B 5B
+             5D 7B 7D 3C 3E 3B 3A
+             27
+      0002EC 22                     286 	.db 0x22
+      0002ED 00                     287 	.db 0x00
+      0002EE 00                     288 	.db 0x00
+      0002EF 00                     289 	.db 0x00
+      0002F0 00                     290 	.db 0x00
+      0002F1 00                     291 	.db 0x00
+      0002F2 00                     292 	.db 0x00
+      0002F3 00                     293 	.db 0x00
+      0002F4 00                     294 	.db 0x00
+      0002F5 00                     295 	.db 0x00
+      0002F6 00                     296 	.db 0x00
+      0002F7 00                     297 	.db 0x00
+      0002F8 00                     298 	.db 0x00
+      0002F9 00                     299 	.db 0x00
+      0002FA 00                     300 	.db 0x00
+      0002FB 00                     301 	.db 0x00
+      0002FC 00                     302 	.db 0x00
+      0002FD 00                     303 	.db 0x00
+      0002FE 00                     304 	.db 0x00
+      0002FF 00                     305 	.db 0x00
+      000300 00                     306 	.db 0x00
+      000301 00                     307 	.db 0x00
+      000302 00                     308 	.db 0x00
+      000303 00                     309 	.db 0x00
+      000304 00                     310 	.db 0x00
+      000305 00                     311 	.db 0x00
+      000306 00                     312 	.db 0x00
+      000307 00                     313 	.db 0x00
+      000308 00                     314 	.db 0x00
+      000309 00                     315 	.db 0x00
+      00030A 00                     316 	.db 0x00
+      00030B 00                     317 	.db 0x00
+      00030C 00                     318 	.db 0x00
+      00030D 00                     319 	.db 0x00
+      00030E 00                     320 	.db 0x00
+      00030F 00                     321 	.db 0x00
+      000310 00                     322 	.db 0x00
+      000311 00                     323 	.db 0x00
+      000312 00                     324 	.db 0x00
+      000313 00                     325 	.db 0x00
+      000314 00                     326 	.db 0x00
+      000315 00                     327 	.db 0x00
+      000316 00                     328 	.db 0x00
+      000317 00                     329 	.db 0x00
+      000318 00                     330 	.db 0x00
+      000319 00                     331 	.db 0x00
+      00031A 00                     332 	.db 0x00
+      00031B 00                     333 	.db 0x00
+      00031C 00                     334 	.db 0x00
+      00031D 00                     335 	.db 0x00
+      00031E 00                     336 	.db 0x00
+      00031F 00                     337 	.db 0x00
+      000320 00                     338 	.db 0x00
+      000321 00                     339 	.db 0x00
+      000322 00                     340 	.db 0x00
+      000323 02                     341 	.db #0x02	; 2
+      000324 4D 69 6E 69 6D 61 6C   342 	.ascii "Minimal 5x7"
+             20 35 78 37
+      00032F 00                     343 	.db 0x00
+      000330 54 68 69 73 20 69 73   344 	.ascii "This is the Minimal5x7 font."
+             20 74 68 65 20 4D 69
+             6E 69 6D 61 6C 35 78
+             37 20 66 6F 6E 74 2E
+      00034C 0A                     345 	.db 0x0a
+      00034D 49 20 77 69 6C 6C 20   346 	.ascii "I will likely replace this one."
+             6C 69 6B 65 6C 79 20
+             72 65 70 6C 61 63 65
+             20 74 68 69 73 20 6F
+             6E 65 2E
+      00036C 0A                     347 	.db 0x0a
+      00036D 41 42 43 44 45 46 47   348 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      000387 0A                     349 	.db 0x0a
+      000388 30 31 32 33 34 35 36   350 	.ascii "01234567890"
+             37 38 39 30
+      000393 0A                     351 	.db 0x0a
+      000394 41 42 43 44 45 46 47   352 	.ascii "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+             48 49 4A 4B 4C 4D 4E
+             4F 50 51 52 53 54 55
+             56 57 58 59 5A
+      0003AE 0A                     353 	.db 0x0a
+      0003AF 30 31 32 33 34 35 36   354 	.ascii "01234567890"
+             37 38 39 30
+      0003BA 0A                     355 	.db 0x0a
+      0003BB 21 40 23 24 25 5E 26   356 	.ascii "!@#$%^&*()-=+[]{}<>;:'"
+             2A 28 29 2D 3D 2B 5B
+             5D 7B 7D 3C 3E 3B 3A
+             27
+      0003D1 22                     357 	.db 0x22
+      0003D2 00                     358 	.db 0x00
+      0003D3 00                     359 	.db 0x00
+      0003D4 00                     360 	.db 0x00
+      0003D5 00                     361 	.db 0x00
+      0003D6 00                     362 	.db 0x00
+      0003D7 00                     363 	.db 0x00
+      0003D8 00                     364 	.db 0x00
+      0003D9 00                     365 	.db 0x00
+      0003DA 00                     366 	.db 0x00
+      0003DB 00                     367 	.db 0x00
+      0003DC 00                     368 	.db 0x00
+      0003DD 00                     369 	.db 0x00
+      0003DE 00                     370 	.db 0x00
+      0003DF 00                     371 	.db 0x00
+      0003E0 00                     372 	.db 0x00
+      0003E1 00                     373 	.db 0x00
+      0003E2 00                     374 	.db 0x00
+      0003E3 00                     375 	.db 0x00
+      0003E4 00                     376 	.db 0x00
+      0003E5 00                     377 	.db 0x00
+      0003E6 00                     378 	.db 0x00
+      0003E7 00                     379 	.db 0x00
+      0003E8 00                     380 	.db 0x00
+      0003E9 00                     381 	.db 0x00
+      0003EA 00                     382 	.db 0x00
+      0003EB 00                     383 	.db 0x00
+      0003EC 00                     384 	.db 0x00
+      0003ED 00                     385 	.db 0x00
+      0003EE 00                     386 	.db 0x00
+      0003EF 00                     387 	.db 0x00
+      0003F0 00                     388 	.db 0x00
+      0003F1 00                     389 	.db 0x00
+      0003F2 00                     390 	.db 0x00
+      0003F3 00                     391 	.db 0x00
+      0003F4 00                     392 	.db 0x00
+      0003F5 00                     393 	.db 0x00
+      0003F6 00                     394 	.db 0x00
+      0003F7 00                     395 	.db 0x00
+      0003F8 00                     396 	.db 0x00
+      0003F9 00                     397 	.db 0x00
+      0003FA 00                     398 	.db 0x00
+      0003FB 00                     399 	.db 0x00
+      0003FC 00                     400 	.db 0x00
+      0003FD 00                     401 	.db 0x00
+      0003FE 00                     402 	.db 0x00
+      0003FF 00                     403 	.db 0x00
+      000400 00                     404 	.db 0x00
+      000401 00                     405 	.db 0x00
+      000402 00                     406 	.db 0x00
+      000403 00                     407 	.db 0x00
+      000404 00                     408 	.db 0x00
+      000405 00                     409 	.db 0x00
+      000406 00                     410 	.db 0x00
+      000407 00                     411 	.db 0x00
+      000408 00                     412 	.db 0x00
+      000409 00                     413 	.db 0x00
+      00040A 00                     414 	.db 0x00
+      00040B 00                     415 	.db 0x00
+      00040C 03                     416 	.db #0x03	; 3
+                           00040D   417 	G$drawFontInfo_TextArea$0$0	= .
+                                    418 	.globl	G$drawFontInfo_TextArea$0$0
+                           00040D   419 	C$debug_fonts_scene.c$36$1_0$144	= .
+                                    420 	.globl	C$debug_fonts_scene.c$36$1_0$144
+                                    421 ;src/scenes/debug_fonts_scene.c:36: void drawFontInfo_TextArea() {
+                                    422 ;	---------------------------------
+                                    423 ; Function drawFontInfo_TextArea
+                                    424 ; ---------------------------------
+      00040D                        425 _drawFontInfo_TextArea::
+                           00040D   426 	C$debug_fonts_scene.c$51$1_0$144	= .
+                                    427 	.globl	C$debug_fonts_scene.c$51$1_0$144
+                                    428 ;src/scenes/debug_fonts_scene.c:51: vwf_activate_font(fontData[CURSOR_INDEX].fontId);
+      00040D 21r00r00         [12]  429 	ld	hl, #_CURSOR_INDEX
+      000410 4E               [ 8]  430 	ld	c, (hl)
+      000411 06 00            [ 8]  431 	ld	b, #0x00
+      000413 69               [ 4]  432 	ld	l, c
+      000414 60               [ 4]  433 	ld	h, b
+      000415 29               [ 8]  434 	add	hl, hl
+      000416 09               [ 8]  435 	add	hl, bc
+      000417 29               [ 8]  436 	add	hl, hl
+      000418 09               [ 8]  437 	add	hl, bc
+      000419 29               [ 8]  438 	add	hl, hl
+      00041A 29               [ 8]  439 	add	hl, hl
+      00041B 09               [ 8]  440 	add	hl, bc
+      00041C 29               [ 8]  441 	add	hl, hl
+      00041D 29               [ 8]  442 	add	hl, hl
+      00041E 29               [ 8]  443 	add	hl, hl
+      00041F 09               [ 8]  444 	add	hl, bc
+      000420 01r69r00         [12]  445 	ld	bc,#_fontData
+      000423 09               [ 8]  446 	add	hl,bc
+      000424 01 E8 00         [12]  447 	ld	bc, #0x00e8
+      000427 09               [ 8]  448 	add	hl, bc
+      000428 7E               [ 8]  449 	ld	a, (hl)
+      000429 CDr00r00         [24]  450 	call	_vwf_activate_font
+                           00042C   451 	C$debug_fonts_scene.c$52$1_0$144	= .
+                                    452 	.globl	C$debug_fonts_scene.c$52$1_0$144
+                                    453 ;src/scenes/debug_fonts_scene.c:52: vwf_draw_text(1u, 8u, 0x80, (const unsigned char *)fontData[CURSOR_INDEX].description);
+      00042C 21r00r00         [12]  454 	ld	hl, #_CURSOR_INDEX
+      00042F 4E               [ 8]  455 	ld	c, (hl)
+      000430 06 00            [ 8]  456 	ld	b, #0x00
+      000432 69               [ 4]  457 	ld	l, c
+      000433 60               [ 4]  458 	ld	h, b
+      000434 29               [ 8]  459 	add	hl, hl
+      000435 09               [ 8]  460 	add	hl, bc
+      000436 29               [ 8]  461 	add	hl, hl
+      000437 09               [ 8]  462 	add	hl, bc
+      000438 29               [ 8]  463 	add	hl, hl
+      000439 29               [ 8]  464 	add	hl, hl
+      00043A 09               [ 8]  465 	add	hl, bc
+      00043B 29               [ 8]  466 	add	hl, hl
+      00043C 29               [ 8]  467 	add	hl, hl
+      00043D 29               [ 8]  468 	add	hl, hl
+      00043E 09               [ 8]  469 	add	hl, bc
+      00043F 01r69r00         [12]  470 	ld	bc,#_fontData
+      000442 09               [ 8]  471 	add	hl,bc
+      000443 01 0C 00         [12]  472 	ld	bc, #0x000c
+      000446 09               [ 8]  473 	add	hl, bc
+      000447 E5               [16]  474 	push	hl
+      000448 3E 80            [ 8]  475 	ld	a, #0x80
+      00044A F5               [16]  476 	push	af
+      00044B 33               [ 8]  477 	inc	sp
+      00044C 1E 08            [ 8]  478 	ld	e, #0x08
+      00044E 3E 01            [ 8]  479 	ld	a, #0x01
+      000450 CDr00r00         [24]  480 	call	_vwf_draw_text
+                           000453   481 	C$debug_fonts_scene.c$53$1_0$144	= .
+                                    482 	.globl	C$debug_fonts_scene.c$53$1_0$144
+                                    483 ;src/scenes/debug_fonts_scene.c:53: }
+                           000453   484 	C$debug_fonts_scene.c$53$1_0$144	= .
+                                    485 	.globl	C$debug_fonts_scene.c$53$1_0$144
+                           000453   486 	XG$drawFontInfo_TextArea$0$0	= .
+                                    487 	.globl	XG$drawFontInfo_TextArea$0$0
+      000453 C9               [16]  488 	ret
+                           000454   489 	G$debug_fontsTeardown$0$0	= .
+                                    490 	.globl	G$debug_fontsTeardown$0$0
+                           000454   491 	C$debug_fonts_scene.c$57$1_0$146	= .
+                                    492 	.globl	C$debug_fonts_scene.c$57$1_0$146
+                                    493 ;src/scenes/debug_fonts_scene.c:57: void debug_fontsTeardown() {
+                                    494 ;	---------------------------------
+                                    495 ; Function debug_fontsTeardown
+                                    496 ; ---------------------------------
+      000454                        497 _debug_fontsTeardown::
+                           000454   498 	C$debug_fonts_scene.c$59$1_0$146	= .
+                                    499 	.globl	C$debug_fonts_scene.c$59$1_0$146
+                                    500 ;src/scenes/debug_fonts_scene.c:59: }
+                           000454   501 	C$debug_fonts_scene.c$59$1_0$146	= .
+                                    502 	.globl	C$debug_fonts_scene.c$59$1_0$146
+                           000454   503 	XG$debug_fontsTeardown$0$0	= .
+                                    504 	.globl	XG$debug_fontsTeardown$0$0
+      000454 C9               [16]  505 	ret
+                           000455   506 	G$initializedebug_fontsScene$0$0	= .
+                                    507 	.globl	G$initializedebug_fontsScene$0$0
+                           000455   508 	C$debug_fonts_scene.c$61$1_0$147	= .
+                                    509 	.globl	C$debug_fonts_scene.c$61$1_0$147
+                                    510 ;src/scenes/debug_fonts_scene.c:61: void initializedebug_fontsScene() {
+                                    511 ;	---------------------------------
+                                    512 ; Function initializedebug_fontsScene
+                                    513 ; ---------------------------------
+      000455                        514 _initializedebug_fontsScene::
+                           000455   515 	C$debug_fonts_scene.c$63$1_0$147	= .
+                                    516 	.globl	C$debug_fonts_scene.c$63$1_0$147
+                                    517 ;src/scenes/debug_fonts_scene.c:63: RENDER_TARGET = RENDER_TARGET_BKG;
+      000455 21r00r00         [12]  518 	ld	hl, #_RENDER_TARGET
+      000458 36 00            [12]  519 	ld	(hl), #0x00
+                           00045A   520 	C$debug_fonts_scene.c$64$1_0$147	= .
+                                    521 	.globl	C$debug_fonts_scene.c$64$1_0$147
+                                    522 ;src/scenes/debug_fonts_scene.c:64: set_bkg_tiles(0, 0, 20u, 18u, BLANK_SCREEN_MAP);
+      00045A 11r00r00         [12]  523 	ld	de, #_BLANK_SCREEN_MAP
+      00045D D5               [16]  524 	push	de
+      00045E 21 14 12         [12]  525 	ld	hl, #0x1214
+      000461 E5               [16]  526 	push	hl
+      000462 AF               [ 4]  527 	xor	a, a
+      000463 0F               [ 4]  528 	rrca
+      000464 F5               [16]  529 	push	af
+      000465 CDr00r00         [24]  530 	call	_set_bkg_tiles
+      000468 E8 06            [16]  531 	add	sp, #6
+                           00046A   532 	C$debug_fonts_scene.c$66$1_0$147	= .
+                                    533 	.globl	C$debug_fonts_scene.c$66$1_0$147
+                                    534 ;src/scenes/debug_fonts_scene.c:66: CURSOR_INDEX = 0u;
+      00046A 21r00r00         [12]  535 	ld	hl, #_CURSOR_INDEX
+      00046D 36 00            [12]  536 	ld	(hl), #0x00
+                           00046F   537 	C$debug_fonts_scene.c$68$1_0$147	= .
+                                    538 	.globl	C$debug_fonts_scene.c$68$1_0$147
+                                    539 ;src/scenes/debug_fonts_scene.c:68: drawFontInfo_TextArea();
+      00046F CDr0Dr04         [24]  540 	call	_drawFontInfo_TextArea
+                           000472   541 	C$debug_fonts_scene.c$70$1_0$147	= .
+                                    542 	.globl	C$debug_fonts_scene.c$70$1_0$147
+                                    543 ;src/scenes/debug_fonts_scene.c:70: SPRITES_8x8;
+      000472 F0r00            [12]  544 	ldh	a, (_LCDC_REG + 0)
+      000474 E6 FB            [ 8]  545 	and	a, #0xfb
+      000476 E0r00            [12]  546 	ldh	(_LCDC_REG + 0), a
+                           000478   547 	C$debug_fonts_scene.c$71$1_0$147	= .
+                                    548 	.globl	C$debug_fonts_scene.c$71$1_0$147
+                                    549 ;src/scenes/debug_fonts_scene.c:71: SHOW_SPRITES;
+      000478 F0r00            [12]  550 	ldh	a, (_LCDC_REG + 0)
+      00047A F6 02            [ 8]  551 	or	a, #0x02
+      00047C E0r00            [12]  552 	ldh	(_LCDC_REG + 0), a
+                           00047E   553 	C$debug_fonts_scene.c$72$1_0$147	= .
+                                    554 	.globl	C$debug_fonts_scene.c$72$1_0$147
+                                    555 ;src/scenes/debug_fonts_scene.c:72: }
+                           00047E   556 	C$debug_fonts_scene.c$72$1_0$147	= .
+                                    557 	.globl	C$debug_fonts_scene.c$72$1_0$147
+                           00047E   558 	XG$initializedebug_fontsScene$0$0	= .
+                                    559 	.globl	XG$initializedebug_fontsScene$0$0
+      00047E C9               [16]  560 	ret
+                           00047F   561 	G$handledebug_fontsUpdate$0$0	= .
+                                    562 	.globl	G$handledebug_fontsUpdate$0$0
+                           00047F   563 	C$debug_fonts_scene.c$74$1_0$148	= .
+                                    564 	.globl	C$debug_fonts_scene.c$74$1_0$148
+                                    565 ;src/scenes/debug_fonts_scene.c:74: void handledebug_fontsUpdate() {
+                                    566 ;	---------------------------------
+                                    567 ; Function handledebug_fontsUpdate
+                                    568 ; ---------------------------------
+      00047F                        569 _handledebug_fontsUpdate::
+                           00047F   570 	C$debug_fonts_scene.c$75$1_0$148	= .
+                                    571 	.globl	C$debug_fonts_scene.c$75$1_0$148
+                                    572 ;src/scenes/debug_fonts_scene.c:75: CURSOR_INDEX_PREV = CURSOR_INDEX;
+      00047F FAr00r00         [16]  573 	ld	a, (#_CURSOR_INDEX)
+      000482 EAr00r00         [16]  574 	ld	(#_CURSOR_INDEX_PREV),a
+                           000485   575 	C$debug_fonts_scene.c$79$1_0$148	= .
+                                    576 	.globl	C$debug_fonts_scene.c$79$1_0$148
+                                    577 ;src/scenes/debug_fonts_scene.c:79: if((JOYPAD_CURRENT & J_B) && !(JOYPAD_PREVIOUS & J_B)) {
+      000485 FAr00r00         [16]  578 	ld	a, (#_JOYPAD_CURRENT)
+      000488 21r00r00         [12]  579 	ld	hl, #_JOYPAD_PREVIOUS
+      00048B 4E               [ 8]  580 	ld	c, (hl)
+      00048C CB 6F            [ 8]  581 	bit	5, a
+      00048E 28 0A            [12]  582 	jr	Z, 00115$
+      000490 CB 69            [ 8]  583 	bit	5, c
+      000492 20 06            [12]  584 	jr	NZ, 00115$
+                           000494   585 	C$debug_fonts_scene.c$80$2_0$149	= .
+                                    586 	.globl	C$debug_fonts_scene.c$80$2_0$149
+                                    587 ;src/scenes/debug_fonts_scene.c:80: GAME_STATE = STATE_DEBUGROOM;
+      000494 21r00r00         [12]  588 	ld	hl, #_GAME_STATE
+      000497 36 09            [12]  589 	ld	(hl), #0x09
+      000499 C9               [16]  590 	ret
+      00049A                        591 00115$:
+                           00049A   592 	C$debug_fonts_scene.c$81$1_0$148	= .
+                                    593 	.globl	C$debug_fonts_scene.c$81$1_0$148
+                                    594 ;src/scenes/debug_fonts_scene.c:81: } else if((JOYPAD_CURRENT & J_LEFT) && !(JOYPAD_PREVIOUS & J_LEFT)) {
+      00049A CB 4F            [ 8]  595 	bit	1, a
+      00049C 28 13            [12]  596 	jr	Z, 00111$
+      00049E CB 49            [ 8]  597 	bit	1, c
+      0004A0 20 0F            [12]  598 	jr	NZ, 00111$
+                           0004A2   599 	C$debug_fonts_scene.c$82$2_0$150	= .
+                                    600 	.globl	C$debug_fonts_scene.c$82$2_0$150
+                                    601 ;src/scenes/debug_fonts_scene.c:82: if(CURSOR_INDEX == 0u) {
+      0004A2 21r00r00         [12]  602 	ld	hl, #_CURSOR_INDEX
+      0004A5 7E               [ 8]  603 	ld	a, (hl)
+      0004A6 B7               [ 4]  604 	or	a, a
+      0004A7 20 03            [12]  605 	jr	NZ, 00102$
+                           0004A9   606 	C$debug_fonts_scene.c$83$3_0$151	= .
+                                    607 	.globl	C$debug_fonts_scene.c$83$3_0$151
+                                    608 ;src/scenes/debug_fonts_scene.c:83: CURSOR_INDEX = FONT_COUNT - 1u;
+      0004A9 36 03            [12]  609 	ld	(hl), #0x03
+      0004AB C9               [16]  610 	ret
+      0004AC                        611 00102$:
+                           0004AC   612 	C$debug_fonts_scene.c$85$3_0$152	= .
+                                    613 	.globl	C$debug_fonts_scene.c$85$3_0$152
+                                    614 ;src/scenes/debug_fonts_scene.c:85: CURSOR_INDEX--;
+      0004AC 21r00r00         [12]  615 	ld	hl, #_CURSOR_INDEX
+      0004AF 35               [12]  616 	dec	(hl)
+      0004B0 C9               [16]  617 	ret
+      0004B1                        618 00111$:
+                           0004B1   619 	C$debug_fonts_scene.c$87$1_0$148	= .
+                                    620 	.globl	C$debug_fonts_scene.c$87$1_0$148
+                                    621 ;src/scenes/debug_fonts_scene.c:87: } else if((JOYPAD_CURRENT & J_RIGHT) && !(JOYPAD_PREVIOUS & J_RIGHT)) {
+      0004B1 0F               [ 4]  622 	rrca
+      0004B2 D0               [20]  623 	ret	NC
+      0004B3 CB 41            [ 8]  624 	bit	0, c
+      0004B5 C0               [20]  625 	ret	NZ
+                           0004B6   626 	C$debug_fonts_scene.c$88$2_0$153	= .
+                                    627 	.globl	C$debug_fonts_scene.c$88$2_0$153
+                                    628 ;src/scenes/debug_fonts_scene.c:88: if(CURSOR_INDEX == (FONT_COUNT - 1u)) {
+      0004B6 FAr00r00         [16]  629 	ld	a, (#_CURSOR_INDEX)
+      0004B9 D6 03            [ 8]  630 	sub	a, #0x03
+      0004BB 20 06            [12]  631 	jr	NZ, 00105$
+                           0004BD   632 	C$debug_fonts_scene.c$89$3_0$154	= .
+                                    633 	.globl	C$debug_fonts_scene.c$89$3_0$154
+                                    634 ;src/scenes/debug_fonts_scene.c:89: CURSOR_INDEX = 0u;
+      0004BD 21r00r00         [12]  635 	ld	hl, #_CURSOR_INDEX
+      0004C0 36 00            [12]  636 	ld	(hl), #0x00
+      0004C2 C9               [16]  637 	ret
+      0004C3                        638 00105$:
+                           0004C3   639 	C$debug_fonts_scene.c$91$3_0$155	= .
+                                    640 	.globl	C$debug_fonts_scene.c$91$3_0$155
+                                    641 ;src/scenes/debug_fonts_scene.c:91: CURSOR_INDEX++;
+      0004C3 21r00r00         [12]  642 	ld	hl, #_CURSOR_INDEX
+      0004C6 34               [12]  643 	inc	(hl)
+                           0004C7   644 	C$debug_fonts_scene.c$94$1_0$148	= .
+                                    645 	.globl	C$debug_fonts_scene.c$94$1_0$148
+                                    646 ;src/scenes/debug_fonts_scene.c:94: }
+                           0004C7   647 	C$debug_fonts_scene.c$94$1_0$148	= .
+                                    648 	.globl	C$debug_fonts_scene.c$94$1_0$148
+                           0004C7   649 	XG$handledebug_fontsUpdate$0$0	= .
+                                    650 	.globl	XG$handledebug_fontsUpdate$0$0
+      0004C7 C9               [16]  651 	ret
+                           0004C8   652 	G$drawdebug_fontsScene$0$0	= .
+                                    653 	.globl	G$drawdebug_fontsScene$0$0
+                           0004C8   654 	C$debug_fonts_scene.c$96$1_0$156	= .
+                                    655 	.globl	C$debug_fonts_scene.c$96$1_0$156
+                                    656 ;src/scenes/debug_fonts_scene.c:96: void drawdebug_fontsScene() {
+                                    657 ;	---------------------------------
+                                    658 ; Function drawdebug_fontsScene
+                                    659 ; ---------------------------------
+      0004C8                        660 _drawdebug_fontsScene::
+                           0004C8   661 	C$debug_fonts_scene.c$97$1_0$156	= .
+                                    662 	.globl	C$debug_fonts_scene.c$97$1_0$156
+                                    663 ;src/scenes/debug_fonts_scene.c:97: if(CURSOR_INDEX != CURSOR_INDEX_PREV) {
+                           0004C8   664 	C$debug_fonts_scene.c$101$1_0$156	= .
+                                    665 	.globl	C$debug_fonts_scene.c$101$1_0$156
+                                    666 ;src/scenes/debug_fonts_scene.c:101: }
+                           0004C8   667 	C$debug_fonts_scene.c$101$1_0$156	= .
+                                    668 	.globl	C$debug_fonts_scene.c$101$1_0$156
+                           0004C8   669 	XG$drawdebug_fontsScene$0$0	= .
+                                    670 	.globl	XG$drawdebug_fontsScene$0$0
+      0004C8 C9               [16]  671 	ret
+                                    672 	.area _CODE_255
+                                    673 	.area _INITIALIZER
+                                    674 	.area _CABS (ABS)

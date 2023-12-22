@@ -1,0 +1,490 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module mainmenu_scene
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl b___func_mainmenu_scene_bank
+                                     12 	.globl ___func_mainmenu_scene_bank
+                                     13 	.globl _mainmenuSceneTeardown
+                                     14 	.globl _drawMainmenuScene
+                                     15 	.globl _handleMainmenuUpdate
+                                     16 	.globl _initializeMainmenuScene
+                                     17 	.globl _loadUIGraphics
+                                     18 	.globl _drawWindowBorder
+                                     19 	.globl _uitoa
+                                     20 	.globl b_loadFontGraphicsData
+                                     21 	.globl _loadFontGraphicsData
+                                     22 	.globl _set_bkg_tile_xy
+                                     23 	.globl _set_bkg_tiles
+                                     24 ;--------------------------------------------------------
+                                     25 ; special function registers
+                                     26 ;--------------------------------------------------------
+                                     27 ;--------------------------------------------------------
+                                     28 ; ram data
+                                     29 ;--------------------------------------------------------
+                                     30 	.area _DATA
+                                     31 ;--------------------------------------------------------
+                                     32 ; ram data
+                                     33 ;--------------------------------------------------------
+                                     34 	.area _INITIALIZED
+                                     35 ;--------------------------------------------------------
+                                     36 ; absolute external ram data
+                                     37 ;--------------------------------------------------------
+                                     38 	.area _DABS (ABS)
+                                     39 ;--------------------------------------------------------
+                                     40 ; global & static initialisations
+                                     41 ;--------------------------------------------------------
+                                     42 	.area _HOME
+                                     43 	.area _GSINIT
+                                     44 	.area _GSFINAL
+                                     45 	.area _GSINIT
+                                     46 ;--------------------------------------------------------
+                                     47 ; Home
+                                     48 ;--------------------------------------------------------
+                                     49 	.area _HOME
+                                     50 	.area _HOME
+                                     51 ;--------------------------------------------------------
+                                     52 ; code
+                                     53 ;--------------------------------------------------------
+                                     54 	.area _CODE_255
+                           000000    55 	G$initializeMainmenuScene$0$0	= .
+                                     56 	.globl	G$initializeMainmenuScene$0$0
+                           000000    57 	C$mainmenu_scene.c$21$0_0$145	= .
+                                     58 	.globl	C$mainmenu_scene.c$21$0_0$145
+                                     59 ;src/scenes/mainmenu_scene.c:21: void initializeMainmenuScene() {
+                                     60 ;	---------------------------------
+                                     61 ; Function initializeMainmenuScene
+                                     62 ; ---------------------------------
+      000000                         63 _initializeMainmenuScene::
+                           000000    64 	C$mainmenu_scene.c$23$1_0$145	= .
+                                     65 	.globl	C$mainmenu_scene.c$23$1_0$145
+                                     66 ;src/scenes/mainmenu_scene.c:23: RENDER_TARGET = RENDER_TARGET_BKG;
+      000000 21r00r00         [12]   67 	ld	hl, #_RENDER_TARGET
+      000003 36 00            [12]   68 	ld	(hl), #0x00
+                           000005    69 	C$mainmenu_scene.c$25$1_0$145	= .
+                                     70 	.globl	C$mainmenu_scene.c$25$1_0$145
+                                     71 ;src/scenes/mainmenu_scene.c:25: loadFontGraphicsData();
+      000005 1Er00            [ 8]   72 	ld	e, #b_loadFontGraphicsData
+      000007 21r00r00         [12]   73 	ld	hl, #_loadFontGraphicsData
+      00000A CDr00r00         [24]   74 	call	___sdcc_bcall_ehl
+                           00000D    75 	C$mainmenu_scene.c$27$1_0$145	= .
+                                     76 	.globl	C$mainmenu_scene.c$27$1_0$145
+                                     77 ;src/scenes/mainmenu_scene.c:27: TEMP_VAR_A = UI_GRAPHICS_WINDOW_BORDERS_INDEX;
+      00000D 21r00r00         [12]   78 	ld	hl, #_TEMP_VAR_A
+      000010 36 00            [12]   79 	ld	(hl), #0x00
+                           000012    80 	C$mainmenu_scene.c$28$1_0$145	= .
+                                     81 	.globl	C$mainmenu_scene.c$28$1_0$145
+                                     82 ;src/scenes/mainmenu_scene.c:28: TEMP_VAR_B = VRAM_WINDOW_BORDERS_START;
+      000012 21r00r00         [12]   83 	ld	hl, #_TEMP_VAR_B
+      000015 36 60            [12]   84 	ld	(hl), #0x60
+                           000017    85 	C$mainmenu_scene.c$29$1_0$145	= .
+                                     86 	.globl	C$mainmenu_scene.c$29$1_0$145
+                                     87 ;src/scenes/mainmenu_scene.c:29: loadUIGraphics();
+      000017 CDr00r00         [24]   88 	call	_loadUIGraphics
+                           00001A    89 	C$mainmenu_scene.c$31$1_0$145	= .
+                                     90 	.globl	C$mainmenu_scene.c$31$1_0$145
+                                     91 ;src/scenes/mainmenu_scene.c:31: TEMP_VAR_A = UI_GRAPHICS_SMALL_ARROWS_INDEX;
+      00001A 21r00r00         [12]   92 	ld	hl, #_TEMP_VAR_A
+      00001D 36 01            [12]   93 	ld	(hl), #0x01
+                           00001F    94 	C$mainmenu_scene.c$32$1_0$145	= .
+                                     95 	.globl	C$mainmenu_scene.c$32$1_0$145
+                                     96 ;src/scenes/mainmenu_scene.c:32: TEMP_VAR_B = VRAM_SMALL_ARROWS_START;
+      00001F 21r00r00         [12]   97 	ld	hl, #_TEMP_VAR_B
+      000022 36 C4            [12]   98 	ld	(hl), #0xc4
+                           000024    99 	C$mainmenu_scene.c$33$1_0$145	= .
+                                    100 	.globl	C$mainmenu_scene.c$33$1_0$145
+                                    101 ;src/scenes/mainmenu_scene.c:33: loadUIGraphics();
+      000024 CDr00r00         [24]  102 	call	_loadUIGraphics
+                           000027   103 	C$mainmenu_scene.c$36$1_0$145	= .
+                                    104 	.globl	C$mainmenu_scene.c$36$1_0$145
+                                    105 ;src/scenes/mainmenu_scene.c:36: set_bkg_tiles(0, 0, 20u, 18u, BLANK_SCREEN_MAP);
+      000027 11r00r00         [12]  106 	ld	de, #_BLANK_SCREEN_MAP
+      00002A D5               [16]  107 	push	de
+      00002B 21 14 12         [12]  108 	ld	hl, #0x1214
+      00002E E5               [16]  109 	push	hl
+      00002F AF               [ 4]  110 	xor	a, a
+      000030 0F               [ 4]  111 	rrca
+      000031 F5               [16]  112 	push	af
+      000032 CDr00r00         [24]  113 	call	_set_bkg_tiles
+      000035 E8 06            [16]  114 	add	sp, #6
+                           000037   115 	C$mainmenu_scene.c$37$1_0$145	= .
+                                    116 	.globl	C$mainmenu_scene.c$37$1_0$145
+                                    117 ;src/scenes/mainmenu_scene.c:37: drawWindowBorder(9u, 0u, 11u, 5u);
+      000037 21 0B 05         [12]  118 	ld	hl, #0x50b
+      00003A E5               [16]  119 	push	hl
+      00003B 1E 00            [ 8]  120 	ld	e, #0x00
+      00003D 3E 09            [ 8]  121 	ld	a, #0x09
+      00003F CDr00r00         [24]  122 	call	_drawWindowBorder
+                           000042   123 	C$mainmenu_scene.c$39$1_0$145	= .
+                                    124 	.globl	C$mainmenu_scene.c$39$1_0$145
+                                    125 ;src/scenes/mainmenu_scene.c:39: set_bkg_tiles(11u, 1u, 8u, 1u, "NEW GAME");
+      000042 11r99r00         [12]  126 	ld	de, #___str_0
+      000045 D5               [16]  127 	push	de
+      000046 21 08 01         [12]  128 	ld	hl, #0x108
+      000049 E5               [16]  129 	push	hl
+      00004A 21 0B 01         [12]  130 	ld	hl, #0x10b
+      00004D E5               [16]  131 	push	hl
+      00004E CDr00r00         [24]  132 	call	_set_bkg_tiles
+      000051 E8 06            [16]  133 	add	sp, #6
+                           000053   134 	C$mainmenu_scene.c$40$1_0$145	= .
+                                    135 	.globl	C$mainmenu_scene.c$40$1_0$145
+                                    136 ;src/scenes/mainmenu_scene.c:40: set_bkg_tiles(11u, 2u, 8u, 1u, "CONTINUE");
+      000053 11rA2r00         [12]  137 	ld	de, #___str_1
+      000056 D5               [16]  138 	push	de
+      000057 21 08 01         [12]  139 	ld	hl, #0x108
+      00005A E5               [16]  140 	push	hl
+      00005B 21 0B 02         [12]  141 	ld	hl, #0x20b
+      00005E E5               [16]  142 	push	hl
+      00005F CDr00r00         [24]  143 	call	_set_bkg_tiles
+      000062 E8 06            [16]  144 	add	sp, #6
+                           000064   145 	C$mainmenu_scene.c$41$1_0$145	= .
+                                    146 	.globl	C$mainmenu_scene.c$41$1_0$145
+                                    147 ;src/scenes/mainmenu_scene.c:41: set_bkg_tiles(11u, 3u, 8u, 1u, "SETTINGS");
+      000064 11rABr00         [12]  148 	ld	de, #___str_2
+      000067 D5               [16]  149 	push	de
+      000068 21 08 01         [12]  150 	ld	hl, #0x108
+      00006B E5               [16]  151 	push	hl
+      00006C 21 0B 03         [12]  152 	ld	hl, #0x30b
+      00006F E5               [16]  153 	push	hl
+      000070 CDr00r00         [24]  154 	call	_set_bkg_tiles
+      000073 E8 06            [16]  155 	add	sp, #6
+                           000075   156 	C$mainmenu_scene.c$44$1_0$145	= .
+                                    157 	.globl	C$mainmenu_scene.c$44$1_0$145
+                                    158 ;src/scenes/mainmenu_scene.c:44: CURSOR_INDEX = CURSOR_INDEX_NEWGAME;
+      000075 21r00r00         [12]  159 	ld	hl, #_CURSOR_INDEX
+      000078 36 00            [12]  160 	ld	(hl), #0x00
+                           00007A   161 	C$mainmenu_scene.c$45$1_0$145	= .
+                                    162 	.globl	C$mainmenu_scene.c$45$1_0$145
+                                    163 ;src/scenes/mainmenu_scene.c:45: CURSOR_INDEX_PREV = CURSOR_INDEX_NEWGAME;
+      00007A 21r00r00         [12]  164 	ld	hl, #_CURSOR_INDEX_PREV
+      00007D 36 00            [12]  165 	ld	(hl), #0x00
+                                    166 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1602: shadow_OAM[nb].tile=tile;
+      00007F 21r02r00         [12]  167 	ld	hl, #(_shadow_OAM + 2)
+      000082 36 C4            [12]  168 	ld	(hl), #0xc4
+                                    169 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      000084 21r00r00         [12]  170 	ld	hl, #_shadow_OAM
+                                    171 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      000087 3E 18            [ 8]  172 	ld	a, #0x18
+      000089 22               [ 8]  173 	ld	(hl+), a
+      00008A 36 54            [12]  174 	ld	(hl), #0x54
+                           00008C   175 	C$mainmenu_scene.c$49$1_0$145	= .
+                                    176 	.globl	C$mainmenu_scene.c$49$1_0$145
+                                    177 ;src/scenes/mainmenu_scene.c:49: SPRITES_8x8;
+      00008C F0r00            [12]  178 	ldh	a, (_LCDC_REG + 0)
+      00008E E6 FB            [ 8]  179 	and	a, #0xfb
+      000090 E0r00            [12]  180 	ldh	(_LCDC_REG + 0), a
+                           000092   181 	C$mainmenu_scene.c$50$1_0$145	= .
+                                    182 	.globl	C$mainmenu_scene.c$50$1_0$145
+                                    183 ;src/scenes/mainmenu_scene.c:50: SHOW_SPRITES;
+      000092 F0r00            [12]  184 	ldh	a, (_LCDC_REG + 0)
+      000094 F6 02            [ 8]  185 	or	a, #0x02
+      000096 E0r00            [12]  186 	ldh	(_LCDC_REG + 0), a
+                           000098   187 	C$mainmenu_scene.c$51$1_0$145	= .
+                                    188 	.globl	C$mainmenu_scene.c$51$1_0$145
+                                    189 ;src/scenes/mainmenu_scene.c:51: }
+                           000098   190 	C$mainmenu_scene.c$51$1_0$145	= .
+                                    191 	.globl	C$mainmenu_scene.c$51$1_0$145
+                           000098   192 	XG$initializeMainmenuScene$0$0	= .
+                                    193 	.globl	XG$initializeMainmenuScene$0$0
+      000098 C9               [16]  194 	ret
+                           000099   195 Fmainmenu_scene$__str_0$0_0$0 == .
+      000099                        196 ___str_0:
+      000099 4E 45 57 20 47 41 4D   197 	.ascii "NEW GAME"
+             45
+      0000A1 00                     198 	.db 0x00
+                           0000A2   199 Fmainmenu_scene$__str_1$0_0$0 == .
+      0000A2                        200 ___str_1:
+      0000A2 43 4F 4E 54 49 4E 55   201 	.ascii "CONTINUE"
+             45
+      0000AA 00                     202 	.db 0x00
+                           0000AB   203 Fmainmenu_scene$__str_2$0_0$0 == .
+      0000AB                        204 ___str_2:
+      0000AB 53 45 54 54 49 4E 47   205 	.ascii "SETTINGS"
+             53
+      0000B3 00                     206 	.db 0x00
+                           0000B4   207 	G$handleMainmenuUpdate$0$0	= .
+                                    208 	.globl	G$handleMainmenuUpdate$0$0
+                           0000B4   209 	C$mainmenu_scene.c$53$1_0$152	= .
+                                    210 	.globl	C$mainmenu_scene.c$53$1_0$152
+                                    211 ;src/scenes/mainmenu_scene.c:53: void handleMainmenuUpdate() {
+                                    212 ;	---------------------------------
+                                    213 ; Function handleMainmenuUpdate
+                                    214 ; ---------------------------------
+      0000B4                        215 _handleMainmenuUpdate::
+                           0000B4   216 	C$mainmenu_scene.c$55$1_0$152	= .
+                                    217 	.globl	C$mainmenu_scene.c$55$1_0$152
+                                    218 ;src/scenes/mainmenu_scene.c:55: CURSOR_INDEX_PREV = CURSOR_INDEX;
+      0000B4 FAr00r00         [16]  219 	ld	a, (#_CURSOR_INDEX)
+      0000B7 EAr00r00         [16]  220 	ld	(#_CURSOR_INDEX_PREV),a
+                           0000BA   221 	C$mainmenu_scene.c$56$1_0$152	= .
+                                    222 	.globl	C$mainmenu_scene.c$56$1_0$152
+                                    223 ;src/scenes/mainmenu_scene.c:56: if((JOYPAD_CURRENT & J_UP) && !(JOYPAD_PREVIOUS & J_UP)) {
+      0000BA 21r00r00         [12]  224 	ld	hl, #_JOYPAD_CURRENT
+      0000BD 4E               [ 8]  225 	ld	c, (hl)
+      0000BE 21r00r00         [12]  226 	ld	hl, #_JOYPAD_PREVIOUS
+      0000C1 46               [ 8]  227 	ld	b, (hl)
+      0000C2 CB 51            [ 8]  228 	bit	2, c
+      0000C4 28 13            [12]  229 	jr	Z, 00105$
+      0000C6 CB 50            [ 8]  230 	bit	2, b
+      0000C8 20 0F            [12]  231 	jr	NZ, 00105$
+                           0000CA   232 	C$mainmenu_scene.c$57$2_0$153	= .
+                                    233 	.globl	C$mainmenu_scene.c$57$2_0$153
+                                    234 ;src/scenes/mainmenu_scene.c:57: if(CURSOR_INDEX != CURSOR_INDEX_NEWGAME) {
+      0000CA 21r00r00         [12]  235 	ld	hl, #_CURSOR_INDEX
+      0000CD 7E               [ 8]  236 	ld	a, (hl)
+      0000CE B7               [ 4]  237 	or	a, a
+      0000CF 28 03            [12]  238 	jr	Z, 00102$
+                           0000D1   239 	C$mainmenu_scene.c$58$3_0$154	= .
+                                    240 	.globl	C$mainmenu_scene.c$58$3_0$154
+                                    241 ;src/scenes/mainmenu_scene.c:58: CURSOR_INDEX--;
+      0000D1 35               [12]  242 	dec	(hl)
+      0000D2 18 05            [12]  243 	jr	00105$
+      0000D4                        244 00102$:
+                           0000D4   245 	C$mainmenu_scene.c$60$3_0$155	= .
+                                    246 	.globl	C$mainmenu_scene.c$60$3_0$155
+                                    247 ;src/scenes/mainmenu_scene.c:60: CURSOR_INDEX = CURSOR_INDEX_SETTINGS;
+      0000D4 21r00r00         [12]  248 	ld	hl, #_CURSOR_INDEX
+      0000D7 36 02            [12]  249 	ld	(hl), #0x02
+      0000D9                        250 00105$:
+                           0000D9   251 	C$mainmenu_scene.c$63$1_0$152	= .
+                                    252 	.globl	C$mainmenu_scene.c$63$1_0$152
+                                    253 ;src/scenes/mainmenu_scene.c:63: if((JOYPAD_CURRENT & J_DOWN) && !(JOYPAD_PREVIOUS & J_DOWN)) {
+      0000D9 CB 59            [ 8]  254 	bit	3, c
+      0000DB 28 16            [12]  255 	jr	Z, 00111$
+      0000DD CB 58            [ 8]  256 	bit	3, b
+      0000DF 20 12            [12]  257 	jr	NZ, 00111$
+                           0000E1   258 	C$mainmenu_scene.c$64$2_0$156	= .
+                                    259 	.globl	C$mainmenu_scene.c$64$2_0$156
+                                    260 ;src/scenes/mainmenu_scene.c:64: if(CURSOR_INDEX != CURSOR_INDEX_SETTINGS) {
+      0000E1 FAr00r00         [16]  261 	ld	a, (#_CURSOR_INDEX)
+      0000E4 D6 02            [ 8]  262 	sub	a, #0x02
+      0000E6 28 06            [12]  263 	jr	Z, 00108$
+                           0000E8   264 	C$mainmenu_scene.c$65$3_0$157	= .
+                                    265 	.globl	C$mainmenu_scene.c$65$3_0$157
+                                    266 ;src/scenes/mainmenu_scene.c:65: CURSOR_INDEX++;
+      0000E8 21r00r00         [12]  267 	ld	hl, #_CURSOR_INDEX
+      0000EB 34               [12]  268 	inc	(hl)
+      0000EC 18 05            [12]  269 	jr	00111$
+      0000EE                        270 00108$:
+                           0000EE   271 	C$mainmenu_scene.c$67$3_0$158	= .
+                                    272 	.globl	C$mainmenu_scene.c$67$3_0$158
+                                    273 ;src/scenes/mainmenu_scene.c:67: CURSOR_INDEX = CURSOR_INDEX_NEWGAME;
+      0000EE 21r00r00         [12]  274 	ld	hl, #_CURSOR_INDEX
+      0000F1 36 00            [12]  275 	ld	(hl), #0x00
+      0000F3                        276 00111$:
+                           0000F3   277 	C$mainmenu_scene.c$72$1_0$152	= .
+                                    278 	.globl	C$mainmenu_scene.c$72$1_0$152
+                                    279 ;src/scenes/mainmenu_scene.c:72: ((JOYPAD_CURRENT & J_A) && !(JOYPAD_PREVIOUS & J_A)) ||
+      0000F3 CB 61            [ 8]  280 	bit	4, c
+      0000F5 28 04            [12]  281 	jr	Z, 00117$
+      0000F7 CB 60            [ 8]  282 	bit	4, b
+      0000F9 28 06            [12]  283 	jr	Z, 00113$
+      0000FB                        284 00117$:
+                           0000FB   285 	C$mainmenu_scene.c$73$1_0$152	= .
+                                    286 	.globl	C$mainmenu_scene.c$73$1_0$152
+                                    287 ;src/scenes/mainmenu_scene.c:73: ((JOYPAD_CURRENT & J_START) && !(JOYPAD_PREVIOUS & J_START))
+      0000FB CB 79            [ 8]  288 	bit	7, c
+      0000FD C8               [20]  289 	ret	Z
+      0000FE CB 78            [ 8]  290 	bit	7, b
+      000100 C0               [20]  291 	ret	NZ
+      000101                        292 00113$:
+                           000101   293 	C$mainmenu_scene.c$77$2_0$159	= .
+                                    294 	.globl	C$mainmenu_scene.c$77$2_0$159
+                                    295 ;src/scenes/mainmenu_scene.c:77: GAME_STATE = STATE_DEBUGROOM; //TODO: Change this to a more sensible thing
+      000101 21r00r00         [12]  296 	ld	hl, #_GAME_STATE
+      000104 36 09            [12]  297 	ld	(hl), #0x09
+                           000106   298 	C$mainmenu_scene.c$80$1_0$152	= .
+                                    299 	.globl	C$mainmenu_scene.c$80$1_0$152
+                                    300 ;src/scenes/mainmenu_scene.c:80: }
+                           000106   301 	C$mainmenu_scene.c$80$1_0$152	= .
+                                    302 	.globl	C$mainmenu_scene.c$80$1_0$152
+                           000106   303 	XG$handleMainmenuUpdate$0$0	= .
+                                    304 	.globl	XG$handleMainmenuUpdate$0$0
+      000106 C9               [16]  305 	ret
+                           000107   306 	G$drawMainmenuScene$0$0	= .
+                                    307 	.globl	G$drawMainmenuScene$0$0
+                           000107   308 	C$mainmenu_scene.c$82$1_0$160	= .
+                                    309 	.globl	C$mainmenu_scene.c$82$1_0$160
+                                    310 ;src/scenes/mainmenu_scene.c:82: void drawMainmenuScene() {
+                                    311 ;	---------------------------------
+                                    312 ; Function drawMainmenuScene
+                                    313 ; ---------------------------------
+      000107                        314 _drawMainmenuScene::
+                           000107   315 	C$mainmenu_scene.c$84$1_0$160	= .
+                                    316 	.globl	C$mainmenu_scene.c$84$1_0$160
+                                    317 ;src/scenes/mainmenu_scene.c:84: if(CURSOR_INDEX != CURSOR_INDEX_PREV) {
+      000107 FAr00r00         [16]  318 	ld	a, (#_CURSOR_INDEX)
+      00010A 21r00r00         [12]  319 	ld	hl, #_CURSOR_INDEX_PREV
+      00010D 96               [ 8]  320 	sub	a, (hl)
+      00010E 28 2F            [12]  321 	jr	Z, 00107$
+                           000110   322 	C$mainmenu_scene.c$85$2_0$161	= .
+                                    323 	.globl	C$mainmenu_scene.c$85$2_0$161
+                                    324 ;src/scenes/mainmenu_scene.c:85: switch(CURSOR_INDEX) {
+      000110 FAr00r00         [16]  325 	ld	a, (#_CURSOR_INDEX)
+      000113 B7               [ 4]  326 	or	a, a
+      000114 28 0D            [12]  327 	jr	Z, 00102$
+      000116 FAr00r00         [16]  328 	ld	a, (#_CURSOR_INDEX)
+      000119 3D               [ 4]  329 	dec	a
+      00011A 28 11            [12]  330 	jr	Z, 00103$
+      00011C FAr00r00         [16]  331 	ld	a, (#_CURSOR_INDEX)
+      00011F D6 02            [ 8]  332 	sub	a, #0x02
+      000121 28 14            [12]  333 	jr	Z, 00104$
+                           000123   334 	C$mainmenu_scene.c$87$3_0$162	= .
+                                    335 	.globl	C$mainmenu_scene.c$87$3_0$162
+                                    336 ;src/scenes/mainmenu_scene.c:87: case CURSOR_INDEX_NEWGAME:
+      000123                        337 00102$:
+                                    338 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      000123 21r00r00         [12]  339 	ld	hl, #_shadow_OAM
+                                    340 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      000126 3E 18            [ 8]  341 	ld	a, #0x18
+      000128 22               [ 8]  342 	ld	(hl+), a
+      000129 36 54            [12]  343 	ld	(hl), #0x54
+                           00012B   344 	C$mainmenu_scene.c$89$3_0$162	= .
+                                    345 	.globl	C$mainmenu_scene.c$89$3_0$162
+                                    346 ;src/scenes/mainmenu_scene.c:89: break;
+      00012B 18 12            [12]  347 	jr	00107$
+                           00012D   348 	C$mainmenu_scene.c$90$3_0$162	= .
+                                    349 	.globl	C$mainmenu_scene.c$90$3_0$162
+                                    350 ;src/scenes/mainmenu_scene.c:90: case CURSOR_INDEX_CONTINUE:
+      00012D                        351 00103$:
+                                    352 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      00012D 21r00r00         [12]  353 	ld	hl, #_shadow_OAM
+                                    354 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      000130 3E 20            [ 8]  355 	ld	a, #0x20
+      000132 22               [ 8]  356 	ld	(hl+), a
+      000133 36 54            [12]  357 	ld	(hl), #0x54
+                           000135   358 	C$mainmenu_scene.c$92$3_0$162	= .
+                                    359 	.globl	C$mainmenu_scene.c$92$3_0$162
+                                    360 ;src/scenes/mainmenu_scene.c:92: break;
+      000135 18 08            [12]  361 	jr	00107$
+                           000137   362 	C$mainmenu_scene.c$93$3_0$162	= .
+                                    363 	.globl	C$mainmenu_scene.c$93$3_0$162
+                                    364 ;src/scenes/mainmenu_scene.c:93: case CURSOR_INDEX_SETTINGS:
+      000137                        365 00104$:
+                                    366 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      000137 21r00r00         [12]  367 	ld	hl, #_shadow_OAM
+                                    368 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      00013A 3E 28            [ 8]  369 	ld	a, #0x28
+      00013C 22               [ 8]  370 	ld	(hl+), a
+      00013D 36 54            [12]  371 	ld	(hl), #0x54
+                           00013F   372 	C$mainmenu_scene.c$96$1_0$160	= .
+                                    373 	.globl	C$mainmenu_scene.c$96$1_0$160
+                                    374 ;src/scenes/mainmenu_scene.c:96: }
+      00013F                        375 00107$:
+                           00013F   376 	C$mainmenu_scene.c$100$1_0$160	= .
+                                    377 	.globl	C$mainmenu_scene.c$100$1_0$160
+                                    378 ;src/scenes/mainmenu_scene.c:100: if(ANIMATION_TICK < 10u) {
+      00013F FAr00r00         [16]  379 	ld	a, (#_ANIMATION_TICK)
+      000142 D6 0A            [ 8]  380 	sub	a, #0x0a
+      000144 30 1C            [12]  381 	jr	NC, 00109$
+                           000146   382 	C$mainmenu_scene.c$101$2_0$163	= .
+                                    383 	.globl	C$mainmenu_scene.c$101$2_0$163
+                                    384 ;src/scenes/mainmenu_scene.c:101: set_bkg_tile_xy(0u, 0u, 0x30); //0
+      000146 3E 30            [ 8]  385 	ld	a, #0x30
+      000148 F5               [16]  386 	push	af
+      000149 33               [ 8]  387 	inc	sp
+      00014A AF               [ 4]  388 	xor	a, a
+      00014B 0F               [ 4]  389 	rrca
+      00014C F5               [16]  390 	push	af
+      00014D CDr00r00         [24]  391 	call	_set_bkg_tile_xy
+      000150 E8 03            [16]  392 	add	sp, #3
+                           000152   393 	C$mainmenu_scene.c$102$2_0$163	= .
+                                    394 	.globl	C$mainmenu_scene.c$102$2_0$163
+                                    395 ;src/scenes/mainmenu_scene.c:102: set_bkg_tile_xy(0u, 0u, 0x30 + ANIMATION_TICK);
+      000152 FAr00r00         [16]  396 	ld	a, (#_ANIMATION_TICK)
+      000155 C6 30            [ 8]  397 	add	a, #0x30
+      000157 F5               [16]  398 	push	af
+      000158 33               [ 8]  399 	inc	sp
+      000159 AF               [ 4]  400 	xor	a, a
+      00015A 0F               [ 4]  401 	rrca
+      00015B F5               [16]  402 	push	af
+      00015C CDr00r00         [24]  403 	call	_set_bkg_tile_xy
+      00015F E8 03            [16]  404 	add	sp, #3
+      000161 C9               [16]  405 	ret
+      000162                        406 00109$:
+                           000162   407 	C$mainmenu_scene.c$104$2_0$164	= .
+                                    408 	.globl	C$mainmenu_scene.c$104$2_0$164
+                                    409 ;src/scenes/mainmenu_scene.c:104: uitoa(ANIMATION_TICK, (char *)ITOA_STRING, 10u);
+      000162 11r00r00         [12]  410 	ld	de, #_ITOA_STRING
+      000165 21r00r00         [12]  411 	ld	hl, #_ANIMATION_TICK
+      000168 4E               [ 8]  412 	ld	c, (hl)
+      000169 06 00            [ 8]  413 	ld	b, #0x00
+      00016B 3E 0A            [ 8]  414 	ld	a, #0x0a
+      00016D F5               [16]  415 	push	af
+      00016E 33               [ 8]  416 	inc	sp
+      00016F D5               [16]  417 	push	de
+      000170 C5               [16]  418 	push	bc
+      000171 CDr00r00         [24]  419 	call	_uitoa
+      000174 E8 05            [16]  420 	add	sp, #5
+                           000176   421 	C$mainmenu_scene.c$105$2_0$164	= .
+                                    422 	.globl	C$mainmenu_scene.c$105$2_0$164
+                                    423 ;src/scenes/mainmenu_scene.c:105: set_bkg_tiles(0, 0, 2u, 1u, ITOA_STRING);
+      000176 11r00r00         [12]  424 	ld	de, #_ITOA_STRING
+      000179 D5               [16]  425 	push	de
+      00017A 21 02 01         [12]  426 	ld	hl, #0x102
+      00017D E5               [16]  427 	push	hl
+      00017E AF               [ 4]  428 	xor	a, a
+      00017F 0F               [ 4]  429 	rrca
+      000180 F5               [16]  430 	push	af
+      000181 CDr00r00         [24]  431 	call	_set_bkg_tiles
+      000184 E8 06            [16]  432 	add	sp, #6
+                           000186   433 	C$mainmenu_scene.c$108$1_0$160	= .
+                                    434 	.globl	C$mainmenu_scene.c$108$1_0$160
+                                    435 ;src/scenes/mainmenu_scene.c:108: }
+                           000186   436 	C$mainmenu_scene.c$108$1_0$160	= .
+                                    437 	.globl	C$mainmenu_scene.c$108$1_0$160
+                           000186   438 	XG$drawMainmenuScene$0$0	= .
+                                    439 	.globl	XG$drawMainmenuScene$0$0
+      000186 C9               [16]  440 	ret
+                           000187   441 	G$mainmenuSceneTeardown$0$0	= .
+                                    442 	.globl	G$mainmenuSceneTeardown$0$0
+                           000187   443 	C$mainmenu_scene.c$110$1_0$174	= .
+                                    444 	.globl	C$mainmenu_scene.c$110$1_0$174
+                                    445 ;src/scenes/mainmenu_scene.c:110: void mainmenuSceneTeardown() {
+                                    446 ;	---------------------------------
+                                    447 ; Function mainmenuSceneTeardown
+                                    448 ; ---------------------------------
+      000187                        449 _mainmenuSceneTeardown::
+                                    450 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      000187 01r00r00         [12]  451 	ld	bc, #_shadow_OAM+0
+                                    452 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      00018A AF               [ 4]  453 	xor	a, a
+      00018B 02               [ 8]  454 	ld	(bc), a
+      00018C 03               [ 8]  455 	inc	bc
+      00018D AF               [ 4]  456 	xor	a, a
+      00018E 02               [ 8]  457 	ld	(bc), a
+                           00018F   458 	C$mainmenu_scene.c$113$1_0$174	= .
+                                    459 	.globl	C$mainmenu_scene.c$113$1_0$174
+                                    460 ;src/scenes/mainmenu_scene.c:113: HIDE_SPRITES;
+      00018F F0r00            [12]  461 	ldh	a, (_LCDC_REG + 0)
+      000191 E6 FD            [ 8]  462 	and	a, #0xfd
+      000193 E0r00            [12]  463 	ldh	(_LCDC_REG + 0), a
+                           000195   464 	C$mainmenu_scene.c$114$1_0$174	= .
+                                    465 	.globl	C$mainmenu_scene.c$114$1_0$174
+                                    466 ;src/scenes/mainmenu_scene.c:114: }
+                           000195   467 	C$mainmenu_scene.c$114$1_0$174	= .
+                                    468 	.globl	C$mainmenu_scene.c$114$1_0$174
+                           000195   469 	XG$mainmenuSceneTeardown$0$0	= .
+                                    470 	.globl	XG$mainmenuSceneTeardown$0$0
+      000195 C9               [16]  471 	ret
+                           000196   472 	G$__func_mainmenu_scene_bank$0$0	= .
+                                    473 	.globl	G$__func_mainmenu_scene_bank$0$0
+                           000196   474 	C$mainmenu_scene.c$116$1_0$178	= .
+                                    475 	.globl	C$mainmenu_scene.c$116$1_0$178
+                                    476 ;src/scenes/mainmenu_scene.c:116: BANKREF(mainmenu_scene_bank)
+                                    477 ;	---------------------------------
+                                    478 ; Function __func_mainmenu_scene_bank
+                                    479 ; ---------------------------------
+                           0000FF   480 	b___func_mainmenu_scene_bank	= 255
+      000196                        481 ___func_mainmenu_scene_bank::
+                                    482 	.local b___func_mainmenu_scene_bank 
+                           0000FF   483 	___bank_mainmenu_scene_bank = b___func_mainmenu_scene_bank 
+                                    484 	.globl ___bank_mainmenu_scene_bank 
+                                    485 	.area _CODE_255
+                                    486 	.area _INITIALIZER
+                                    487 	.area _CABS (ABS)

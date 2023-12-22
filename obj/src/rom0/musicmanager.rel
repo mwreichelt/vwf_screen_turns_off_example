@@ -1,0 +1,285 @@
+;!FILE obj/src/rom0/musicmanager.asm
+XL3
+H 9 areas A7 global symbols
+M musicmanager
+O -msm83
+S _sfx_play_bank Ref000000
+S _hUGE_dosound Ref000000
+S _hUGE_mute_mask Ref000000
+S _hUGE_current_wave Ref000000
+S .__.ABS. Def000000
+S _NR12_REG Ref000000
+S _NR22_REG Ref000000
+S _NR14_REG Ref000000
+S _NR32_REG Ref000000
+S _NR51_REG Ref000000
+S _NR24_REG Ref000000
+S _NR42_REG Ref000000
+S _NR44_REG Ref000000
+S _sfx_play_isr Ref000000
+S _hUGE_init Ref000000
+S __current_bank Ref000000
+A _CODE size 25 flags 0 addr 0
+S XG$music_pause$0$0 Def000024
+S A$musicmanager$240 Def000000
+S A$musicmanager$250 Def000008
+S A$musicmanager$260 Def000016
+S A$musicmanager$251 Def000009
+S A$musicmanager$261 Def000018
+S A$musicmanager$252 Def00000B
+S A$musicmanager$262 Def00001A
+S A$musicmanager$253 Def00000C
+S A$musicmanager$244 Def000001
+S A$musicmanager$263 Def00001C
+S A$musicmanager$254 Def00000E
+S A$musicmanager$245 Def000004
+S A$musicmanager$264 Def00001E
+S A$musicmanager$255 Def00000F
+S A$musicmanager$246 Def000005
+S A$musicmanager$256 Def000011
+S A$musicmanager$247 Def000006
+S A$musicmanager$266 Def000020
+S A$musicmanager$257 Def000012
+S A$musicmanager$248 Def000007
+S A$musicmanager$267 Def000022
+S A$musicmanager$259 Def000014
+S C$musicmanager.c$44$1_0$175 Def000024
+S C$musicmanager.c$43$1_1$175 Def000000
+S A$musicmanager$278 Def000024
+S C$musicmanager.c$45$1_0$175 Def000024
+S G$music_pause$0$0 Def000000
+S _music_pause Def000000
+A _DATA size 2 flags 0 addr 0
+S _music_next_track Def000000
+S G$music_next_track$0_0$0 Def000000
+A _INITIALIZED size 6 flags 0 addr 0
+S G$music_play_isr_pause$0_0$0 Def000004
+S _music_current_track_bank Def000000
+S _music_sfx_priority Def000005
+S _music_mute_flag Def000001
+S G$music_sfx_priority$0_0$0 Def000005
+S G$music_current_track_bank$0_0$0 Def000000
+S G$music_mute_flag$0_0$0 Def000001
+S _music_play_isr_counter Def000003
+S G$music_play_isr_counter$0_0$0 Def000003
+S _music_mute_mask Def000002
+S G$music_mute_mask$0_0$0 Def000002
+S _music_play_isr_pause Def000004
+A _DABS size 0 flags 8 addr 0
+A _HOME size 96 flags 0 addr 0
+S _music_play_isr Def000000
+S XG$music_play_isr$0$0 Def000095
+S A$musicmanager$100 Def00001A
+S A$musicmanager$200 Def000085
+S A$musicmanager$110 Def000026
+S A$musicmanager$101 Def00001B
+S A$musicmanager$201 Def000086
+S A$musicmanager$120 Def000030
+S A$musicmanager$102 Def00001C
+S A$musicmanager$202 Def000087
+S A$musicmanager$130 Def00003A
+S A$musicmanager$141 Def000041
+S A$musicmanager$114 Def000028
+S A$musicmanager$214 Def00008E
+S A$musicmanager$142 Def000044
+S A$musicmanager$124 Def000032
+S A$musicmanager$115 Def00002B
+S A$musicmanager$106 Def00001E
+S C$musicmanager.c$15$0_0$160 Def000000
+S A$musicmanager$215 Def00008F
+S A$musicmanager$170 Def000061
+S A$musicmanager$161 Def000054
+S A$musicmanager$152 Def000049
+S A$musicmanager$143 Def000045
+S A$musicmanager$125 Def000035
+S A$musicmanager$107 Def000021
+S C$musicmanager.c$41$1_1$160 Def000095
+S A$musicmanager$225 Def000095
+S A$musicmanager$216 Def000091
+S A$musicmanager$207 Def000089
+S A$musicmanager$180 Def000071
+S A$musicmanager$171 Def000062
+S A$musicmanager$162 Def000057
+S A$musicmanager$153 Def00004C
+S A$musicmanager$135 Def00003C
+S C$musicmanager.c$16$1_0$160 Def000000
+S A$musicmanager$217 Def000094
+S A$musicmanager$208 Def00008A
+S A$musicmanager$190 Def00007A
+S A$musicmanager$172 Def000064
+S A$musicmanager$163 Def000058
+S A$musicmanager$154 Def00004D
+S A$musicmanager$136 Def00003F
+S A$musicmanager$109 Def000023
+S C$musicmanager.c$40$1_1$163 Def00008E
+S A$musicmanager$209 Def00008D
+S A$musicmanager$191 Def00007B
+S A$musicmanager$182 Def000073
+S A$musicmanager$173 Def000065
+S A$musicmanager$164 Def000059
+S A$musicmanager$155 Def00004F
+S A$musicmanager$137 Def000040
+S A$musicmanager$119 Def00002D
+S C$musicmanager.c$23$3_0$162 Def00002D
+S A$musicmanager$192 Def00007C
+S A$musicmanager$183 Def000075
+S A$musicmanager$156 Def000052
+S A$musicmanager$147 Def000046
+S A$musicmanager$129 Def000037
+S C$musicmanager.c$33$2_0$163 Def000046
+S C$musicmanager.c$28$1_0$160 Def00003C
+S C$musicmanager.c$24$3_0$162 Def000032
+S C$musicmanager.c$17$2_0$161 Def000006
+S A$musicmanager$193 Def00007F
+S A$musicmanager$175 Def000067
+S A$musicmanager$166 Def00005B
+S A$musicmanager$157 Def000053
+S A$musicmanager$148 Def000048
+S C$musicmanager.c$34$1_1$163 Def000049
+S C$musicmanager.c$29$1_0$160 Def000041
+S C$musicmanager.c$25$3_0$162 Def000037
+S C$musicmanager.c$18$2_0$161 Def000017
+S A$musicmanager$194 Def000080
+S A$musicmanager$176 Def000069
+S A$musicmanager$167 Def00005C
+S C$musicmanager.c$35$1_1$163 Def000054
+S A$musicmanager$177 Def00006B
+S A$musicmanager$168 Def00005E
+S A$musicmanager$187 Def000077
+S A$musicmanager$178 Def00006D
+S A$musicmanager$169 Def00005F
+S C$musicmanager.c$19$3_0$162 Def000028
+S A$musicmanager$188 Def000078
+S A$musicmanager$179 Def00006F
+S A$musicmanager$198 Def000081
+S A$musicmanager$189 Def000079
+S C$musicmanager.c$39$1_1$163 Def000089
+S C$musicmanager.c$37$2_1$164 Def000077
+S A$musicmanager$199 Def000082
+S C$musicmanager.c$38$2_1$164 Def000081
+S A$musicmanager$90 Def00000A
+S A$musicmanager$91 Def00000C
+S A$musicmanager$82 Def000000
+S A$musicmanager$92 Def00000F
+S A$musicmanager$83 Def000003
+S A$musicmanager$93 Def000012
+S A$musicmanager$84 Def000004
+S A$musicmanager$94 Def000015
+S A$musicmanager$88 Def000006
+S A$musicmanager$89 Def000009
+S G$music_play_isr$0$0 Def000000
+S A$musicmanager$99 Def000017
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 6 flags 0 addr 0
+S Fmusicmanager$__xinit_music_play_isr_pause$0_0$0 Def000004
+S Fmusicmanager$__xinit_music_sfx_priority$0_0$0 Def000005
+S Fmusicmanager$__xinit_music_current_track_bank$0_0$0 Def000000
+S Fmusicmanager$__xinit_music_mute_flag$0_0$0 Def000001
+S Fmusicmanager$__xinit_music_play_isr_counter$0_0$0 Def000003
+S Fmusicmanager$__xinit_music_mute_mask$0_0$0 Def000002
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 01 00
+T 00 00 00
+R 00 00 01 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 02 00 00
+R 00 00 02 00
+T 02 00 00
+R 00 00 02 00
+T 03 00 00
+R 00 00 02 00
+T 03 00 00
+R 00 00 02 00
+T 04 00 00
+R 00 00 02 00
+T 04 00 00
+R 00 00 02 00
+T 05 00 00
+R 00 00 02 00
+T 05 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 04 00
+T 00 00 00 FA 00 00 3C 28 36 FA 01 00 B7 20 0B FA
+R 00 00 04 00 02 04 00 00 00 0A 02 00
+T 0D 00 00 02 00 EA 00 00 21 01 00 36 01
+R 00 00 04 00 00 03 02 00 02 06 02 00 00 09 02 00
+T 17 00 00
+R 00 00 04 00
+T 17 00 00 CD 00 00 7B B7 20 1E 21 00 00 36 00 21
+R 00 00 04 00 02 04 0D 00 02 0B 02 00
+T 24 00 00 00 00 36 64 21 01 00 36 00 21 02 00 36
+R 00 00 04 00 02 03 03 00 00 08 02 00 00 0D 02 00
+T 31 00 00 00 21 05 00 36 00 21 00 00 36 FF
+R 00 00 04 00 00 05 02 00 02 0A 00 00
+T 3C 00 00
+R 00 00 04 00
+T 3C 00 00 FA 04 00 B7 C0 FA 00 00 3C C8 F0
+R 00 00 04 00 00 04 02 00 00 09 02 00
+T 47 00 00 00 00 00 4F 21 00 00 7E E0 00 00 00 11
+R 00 00 04 00 0B 03 0F 00 00 08 02 00 0B 0C 0F 00
+T 50 00 00 00 20 7E 12 21 01 00 3A B6 28 2E AF E0
+R 00 00 04 00 00 08 01 00
+T 5D 00 00 00 00 00 AF E0 00 00 00 AF E0 00 00 00
+R 00 00 04 00 0B 03 0B 00 0B 08 08 00 0B 0D 06 00
+T 64 00 00 AF E0 00 00 00 3E C0 E0 00 00 00 3E C0
+R 00 00 04 00 0B 05 05 00 0B 0B 0C 00
+T 6D 00 00 E0 00 00 00 3E C0 E0 00 00 00 3E FF E0
+R 00 00 04 00 0B 04 0A 00 0B 0A 07 00
+T 76 00 00 00 00 00 C5 2A 5F 56 D5 CD 00 00 E1 C1
+R 00 00 04 00 0B 03 09 00 02 0C 0E 00
+T 81 00 00 AF 21 00 00 22 77 18 05
+R 00 00 04 00 00 05 01 00
+T 89 00 00
+R 00 00 04 00
+T 89 00 00 C5 CD 00 00 C1
+R 00 00 04 00 02 05 01 00
+T 8E 00 00
+R 00 00 04 00
+T 8E 00 00 79 E0 00 00 00 21 00 20 71 C9
+R 00 00 04 00 0B 05 0F 00
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 4F 21 04 00 71 79 B7 C8 AF E0 00 00 00
+R 00 00 00 00 00 05 02 00 0B 0D 0B 00
+T 0B 00 00 AF E0 00 00 00 AF E0 00 00 00 AF E0
+R 00 00 00 00 0B 05 08 00 0B 0A 06 00
+T 13 00 00 00 00 00 3E C0 E0 00 00 00 3E C0 E0
+R 00 00 00 00 0B 03 05 00 0B 09 0C 00
+T 1B 00 00 00 00 00 3E C0 E0 00 00 00 3E FF E0
+R 00 00 00 00 0B 03 0A 00 0B 09 07 00
+T 23 00 00 00 00 00 C9
+R 00 00 00 00 0B 03 09 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 FF
+R 00 00 07 00
+T 01 00 00
+R 00 00 07 00
+T 01 00 00 00
+R 00 00 07 00
+T 02 00 00
+R 00 00 07 00
+T 02 00 00 00
+R 00 00 07 00
+T 03 00 00
+R 00 00 07 00
+T 03 00 00 00
+R 00 00 07 00
+T 04 00 00
+R 00 00 07 00
+T 04 00 00 00
+R 00 00 07 00
+T 05 00 00
+R 00 00 07 00
+T 05 00 00 00
+R 00 00 07 00

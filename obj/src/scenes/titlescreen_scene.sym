@@ -1,0 +1,64 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 A$titlescreen_scene$102                                        000009 GR
+  7 A$titlescreen_scene$103                                        00000C GR
+  7 A$titlescreen_scene$104                                        00000D GR
+  7 A$titlescreen_scene$108                                        00000E GR
+  7 A$titlescreen_scene$109                                        000011 GR
+  7 A$titlescreen_scene$117                                        000013 GR
+  7 A$titlescreen_scene$60                                         000000 GR
+  7 A$titlescreen_scene$61                                         000003 GR
+  7 A$titlescreen_scene$72                                         000005 GR
+  7 A$titlescreen_scene$89                                         000008 GR
+  7 C$titlescreen_scene.c$10$1_0$126                            =  000005 GR
+  7 C$titlescreen_scene.c$11$1_0$126                            =  000005 GR
+  7 C$titlescreen_scene.c$13$1_0$128                            =  000008 GR
+  7 C$titlescreen_scene.c$15$1_0$128                            =  000008 GR
+  7 C$titlescreen_scene.c$17$1_0$129                            =  000009 GR
+  7 C$titlescreen_scene.c$20$1_0$129                            =  000009 GR
+  7 C$titlescreen_scene.c$22$2_0$130                            =  00000E GR
+  7 C$titlescreen_scene.c$24$1_0$129                            =  000013 GR
+  7 C$titlescreen_scene.c$26$1_0$131                            =  000014 GR
+  7 C$titlescreen_scene.c$7$0_0$126                             =  000000 GR
+  7 C$titlescreen_scene.c$9$1_0$126                             =  000000 GR
+  7 G$__func_titlescreen_scene_bank$0$0                         =  000014 GR
+  7 G$drawTitlescreen$0$0                                       =  000008 GR
+  7 G$handleTitlescreenUpdate$0$0                               =  000009 GR
+  7 G$loadTitlescreenGraphics$0$0                               =  000000 GR
+  7 XG$drawTitlescreen$0$0                                      =  000008 GR
+  7 XG$handleTitlescreenUpdate$0$0                              =  000013 GR
+  7 XG$loadTitlescreenGraphics$0$0                              =  000005 GR
+    _GAME_STATE                                                    ****** GX
+    _JOYPAD_CURRENT                                                ****** GX
+    _TEMP_VAR_A                                                    ****** GX
+    ___bank_titlescreen_scene_bank                              =  0000FF G
+  7 ___func_titlescreen_scene_bank                                 000014 GR
+  7 _drawTitlescreen                                               000008 GR
+  7 _handleTitlescreenUpdate                                       000009 GR
+    _loadFullScreenGraphics                                        ****** GX
+  7 _loadTitlescreenGraphics                                       000000 GR
+    b___func_titlescreen_scene_bank                             =  0000FF L
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_255                                  size     14   flags    0
+   8 _INITIALIZER                               size      0   flags    0
+   9 _CABS                                      size      0   flags    8
+

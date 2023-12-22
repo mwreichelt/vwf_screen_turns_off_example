@@ -1,0 +1,132 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module GraphicsLoader_UI
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _set_banked_data
+                                     12 	.globl _loadUIGraphics
+                                     13 ;--------------------------------------------------------
+                                     14 ; special function registers
+                                     15 ;--------------------------------------------------------
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area _DATA
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area _INITIALIZED
+                                     24 ;--------------------------------------------------------
+                                     25 ; absolute external ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area _DABS (ABS)
+                                     28 ;--------------------------------------------------------
+                                     29 ; global & static initialisations
+                                     30 ;--------------------------------------------------------
+                                     31 	.area _HOME
+                                     32 	.area _GSINIT
+                                     33 	.area _GSFINAL
+                                     34 	.area _GSINIT
+                                     35 ;--------------------------------------------------------
+                                     36 ; Home
+                                     37 ;--------------------------------------------------------
+                                     38 	.area _HOME
+                                     39 	.area _HOME
+                                     40 ;--------------------------------------------------------
+                                     41 ; code
+                                     42 ;--------------------------------------------------------
+                                     43 	.area _CODE_0
+                           000000    44 	G$loadUIGraphics$0$0	= .
+                                     45 	.globl	G$loadUIGraphics$0$0
+                           000000    46 	C$GraphicsLoader_UI.c$22$0_0$142	= .
+                                     47 	.globl	C$GraphicsLoader_UI.c$22$0_0$142
+                                     48 ;src/rom0/GraphicsLoader_UI.c:22: void loadUIGraphics() {
+                                     49 ;	---------------------------------
+                                     50 ; Function loadUIGraphics
+                                     51 ; ---------------------------------
+      000000                         52 _loadUIGraphics::
+                           000000    53 	C$GraphicsLoader_UI.c$23$1_0$142	= .
+                                     54 	.globl	C$GraphicsLoader_UI.c$23$1_0$142
+                                     55 ;src/rom0/GraphicsLoader_UI.c:23: switch(UI_GRAPHICS_INDEX) {
+      000000 FAr00r00         [16]   56 	ld	a, (#_TEMP_VAR_A)
+      000003 B7               [ 4]   57 	or	a, a
+      000004 28 0E            [12]   58 	jr	Z, 00101$
+      000006 FAr00r00         [16]   59 	ld	a, (#_TEMP_VAR_A)
+      000009 3D               [ 4]   60 	dec	a
+      00000A 28 19            [12]   61 	jr	Z, 00102$
+      00000C FAr00r00         [16]   62 	ld	a, (#_TEMP_VAR_A)
+      00000F D6 07            [ 8]   63 	sub	a, #0x07
+      000011 28 23            [12]   64 	jr	Z, 00103$
+      000013 C9               [16]   65 	ret
+                           000014    66 	C$GraphicsLoader_UI.c$24$2_0$143	= .
+                                     67 	.globl	C$GraphicsLoader_UI.c$24$2_0$143
+                                     68 ;src/rom0/GraphicsLoader_UI.c:24: case UI_GRAPHICS_WINDOW_BORDERS_INDEX:
+      000014                         69 00101$:
+                           000014    70 	C$GraphicsLoader_UI.c$25$2_0$143	= .
+                                     71 	.globl	C$GraphicsLoader_UI.c$25$2_0$143
+                                     72 ;src/rom0/GraphicsLoader_UI.c:25: set_banked_data(UI_GRAPHICS_VRAM_START, 8u, WindowBorders, BANK(WindowBorders_bank));
+      000014 06r00            [ 8]   73 	ld	b, #<(___bank_WindowBorders_bank)
+      000016 C5               [16]   74 	push	bc
+      000017 33               [ 8]   75 	inc	sp
+      000018 11r00r00         [12]   76 	ld	de, #_WindowBorders
+      00001B D5               [16]   77 	push	de
+      00001C 1E 08            [ 8]   78 	ld	e, #0x08
+      00001E FAr00r00         [16]   79 	ld	a, (#_TEMP_VAR_B)
+      000021 CDr00r00         [24]   80 	call	_set_banked_data
+                           000024    81 	C$GraphicsLoader_UI.c$26$2_0$143	= .
+                                     82 	.globl	C$GraphicsLoader_UI.c$26$2_0$143
+                                     83 ;src/rom0/GraphicsLoader_UI.c:26: break;
+      000024 C9               [16]   84 	ret
+                           000025    85 	C$GraphicsLoader_UI.c$27$2_0$143	= .
+                                     86 	.globl	C$GraphicsLoader_UI.c$27$2_0$143
+                                     87 ;src/rom0/GraphicsLoader_UI.c:27: case UI_GRAPHICS_SMALL_ARROWS_INDEX:
+      000025                         88 00102$:
+                           000025    89 	C$GraphicsLoader_UI.c$28$2_0$143	= .
+                                     90 	.globl	C$GraphicsLoader_UI.c$28$2_0$143
+                                     91 ;src/rom0/GraphicsLoader_UI.c:28: set_banked_data(UI_GRAPHICS_VRAM_START, 4u, Icon_Small_Arrows, BANK(Icon_Small_Arrows_bank));
+      000025 06r00            [ 8]   92 	ld	b, #<(___bank_Icon_Small_Arrows_bank)
+      000027 C5               [16]   93 	push	bc
+      000028 33               [ 8]   94 	inc	sp
+      000029 11r00r00         [12]   95 	ld	de, #_Icon_Small_Arrows
+      00002C D5               [16]   96 	push	de
+      00002D 1E 04            [ 8]   97 	ld	e, #0x04
+      00002F FAr00r00         [16]   98 	ld	a, (#_TEMP_VAR_B)
+      000032 CDr00r00         [24]   99 	call	_set_banked_data
+                           000035   100 	C$GraphicsLoader_UI.c$29$2_0$143	= .
+                                    101 	.globl	C$GraphicsLoader_UI.c$29$2_0$143
+                                    102 ;src/rom0/GraphicsLoader_UI.c:29: break;
+      000035 C9               [16]  103 	ret
+                           000036   104 	C$GraphicsLoader_UI.c$30$2_0$143	= .
+                                    105 	.globl	C$GraphicsLoader_UI.c$30$2_0$143
+                                    106 ;src/rom0/GraphicsLoader_UI.c:30: case UI_GRAPHICS_TOGGLE_INDEX:
+      000036                        107 00103$:
+                           000036   108 	C$GraphicsLoader_UI.c$31$2_0$143	= .
+                                    109 	.globl	C$GraphicsLoader_UI.c$31$2_0$143
+                                    110 ;src/rom0/GraphicsLoader_UI.c:31: set_banked_data(UI_GRAPHICS_VRAM_START, 8u, Toggle1x2_tiles, BANK(Toggle1x2_bank));
+      000036 06r00            [ 8]  111 	ld	b, #<(___bank_Toggle1x2_bank)
+      000038 C5               [16]  112 	push	bc
+      000039 33               [ 8]  113 	inc	sp
+      00003A 11r00r00         [12]  114 	ld	de, #_Toggle1x2_tiles
+      00003D D5               [16]  115 	push	de
+      00003E 1E 08            [ 8]  116 	ld	e, #0x08
+      000040 FAr00r00         [16]  117 	ld	a, (#_TEMP_VAR_B)
+      000043 CDr00r00         [24]  118 	call	_set_banked_data
+                           000046   119 	C$GraphicsLoader_UI.c$33$1_0$142	= .
+                                    120 	.globl	C$GraphicsLoader_UI.c$33$1_0$142
+                                    121 ;src/rom0/GraphicsLoader_UI.c:33: }
+                           000046   122 	C$GraphicsLoader_UI.c$34$1_0$142	= .
+                                    123 	.globl	C$GraphicsLoader_UI.c$34$1_0$142
+                                    124 ;src/rom0/GraphicsLoader_UI.c:34: }
+                           000046   125 	C$GraphicsLoader_UI.c$34$1_0$142	= .
+                                    126 	.globl	C$GraphicsLoader_UI.c$34$1_0$142
+                           000046   127 	XG$loadUIGraphics$0$0	= .
+                                    128 	.globl	XG$loadUIGraphics$0$0
+      000046 C9               [16]  129 	ret
+                                    130 	.area _CODE_0
+                                    131 	.area _INITIALIZER
+                                    132 	.area _CABS (ABS)

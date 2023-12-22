@@ -1,0 +1,53 @@
+XL3
+H A areas 11 global symbols
+M Data_SFX
+O -msm83
+S ___bank_sound_effect3 Ref000000
+S _sound_effect1 Ref000000
+S _sound_effect2 Ref000000
+S _sound_effect3 Ref000000
+S ___bank_Data_SFX_bank Def0000FF
+S .__.ABS. Def000000
+S ___mute_mask_sound_effect1 Ref000000
+S ___mute_mask_sound_effect2 Ref000000
+S ___mute_mask_sound_effect3 Ref000000
+S ___bank_sound_effect1 Ref000000
+S ___bank_sound_effect2 Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 48 flags 0 addr 0
+S _Data_SFX Def000000
+S G$Data_SFX$0_0$0 Def000000
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_255 size 0 flags 0 addr 0
+S G$__func_Data_SFX_bank$0$0 Def000000
+S C$Data_SFX.c$10$0_0$167 Def000000
+S ___func_Data_SFX_bank Def000000
+A _INITIALIZER size 48 flags 0 addr 0
+S FData_SFX$__xinit_Data_SFX$0_0$0 Def000000
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 08 00
+T 00 00 00 4E 4F 4E 45 20 20 20 20 20 20 20 20 20
+R 00 00 08 00
+T 0D 00 00 00 00 00 00 00 53 46 58 31 20 20 20 20
+R 00 00 08 00
+T 1A 00 00 20 20 20 20 20 00 00 00 00 00 00
+R 00 00 08 00 0B 09 09 00 02 0C 01 00
+T 23 00 00 00 00 00 53 46 58 32 20 20 20 20 20 20
+R 00 00 08 00 0B 03 06 00
+T 2E 00 00 20 20 20 00 00 00 00 00 00 00 00 00 53
+R 00 00 08 00 0B 07 0A 00 02 0A 02 00 0B 0C 07 00
+T 37 00 00 46 58 33 20 20 20 20 20 20 20 20 20 00
+R 00 00 08 00
+T 44 00 00 00 00 00 00 00 00 00 00
+R 00 00 08 00 0B 03 00 00 02 06 03 00 0B 08 08 00

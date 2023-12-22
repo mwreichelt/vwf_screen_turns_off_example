@@ -1,0 +1,500 @@
+;!FILE obj/src/scenes/debug_fonts_scene.asm
+XL3
+H A areas 101 global symbols
+M debug_fonts_scene
+O -msm83
+S _JOYPAD_PREVIOUS Ref000000
+S _RENDER_TARGET Ref000000
+S ___bank_debug_fonts_scene_bank Def000001
+S _CURSOR_INDEX Ref000000
+S _GAME_STATE Ref000000
+S .__.ABS. Def000000
+S _BLANK_SCREEN_MAP Ref000000
+S _vwf_draw_text Ref000000
+S _JOYPAD_CURRENT Ref000000
+S _CURSOR_INDEX_PREV Ref000000
+S _LCDC_REG Ref000000
+S _vwf_activate_font Ref000000
+S _set_bkg_tiles Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_1 size 4C9 flags 0 addr 0
+S G$initializedebug_fontsScene$0$0 Def000455
+S XG$handledebug_fontsUpdate$0$0 Def0004C7
+S _drawdebug_fontsScene Def0004C8
+S C$debug_fonts_scene.c$101$1_0$156 Def0004C8
+S _initializedebug_fontsScene Def000455
+S _fontData Def000069
+S G$fontData$0_0$0 Def000069
+S G$__func_debug_fonts_scene_bank$0$0 Def000000
+S A$debug_fonts_scene$100 Def00001C
+S XG$drawdebug_fontsScene$0$0 Def0004C8
+S A$debug_fonts_scene$110 Def000028
+S A$debug_fonts_scene$120 Def000032
+S A$debug_fonts_scene$111 Def000029
+S C$debug_fonts_scene.c$11$0_0$142 Def000000
+S A$debug_fonts_scene$121 Def000035
+S A$debug_fonts_scene$112 Def00002A
+S A$debug_fonts_scene$140 Def00004D
+S A$debug_fonts_scene$122 Def000036
+S A$debug_fonts_scene$113 Def00002B
+S A$debug_fonts_scene$104 Def00001F
+S XG$initializedebug_fontsScene$0$0 Def00047E
+S A$debug_fonts_scene$150 Def000059
+S A$debug_fonts_scene$141 Def00004E
+S A$debug_fonts_scene$132 Def000042
+S A$debug_fonts_scene$123 Def000037
+S A$debug_fonts_scene$114 Def00002C
+S A$debug_fonts_scene$105 Def000022
+S A$debug_fonts_scene$610 Def0004AB
+S A$debug_fonts_scene$430 Def000410
+S A$debug_fonts_scene$151 Def00005C
+S A$debug_fonts_scene$142 Def00004F
+S A$debug_fonts_scene$133 Def000045
+S A$debug_fonts_scene$124 Def000039
+S A$debug_fonts_scene$115 Def00002D
+S A$debug_fonts_scene$106 Def000023
+S A$debug_fonts_scene$602 Def0004A2
+S A$debug_fonts_scene$530 Def000465
+S A$debug_fonts_scene$440 Def00041B
+S A$debug_fonts_scene$431 Def000411
+S A$debug_fonts_scene$152 Def00005D
+S A$debug_fonts_scene$143 Def000050
+S A$debug_fonts_scene$134 Def000046
+S A$debug_fonts_scene$125 Def00003A
+S A$debug_fonts_scene$116 Def00002E
+S A$debug_fonts_scene$107 Def000025
+S A$debug_fonts_scene$630 Def0004B9
+S A$debug_fonts_scene$603 Def0004A5
+S A$debug_fonts_scene$540 Def00046F
+S A$debug_fonts_scene$531 Def000468
+S A$debug_fonts_scene$450 Def000429
+S A$debug_fonts_scene$441 Def00041C
+S A$debug_fonts_scene$432 Def000413
+S A$debug_fonts_scene$153 Def00005E
+S A$debug_fonts_scene$144 Def000051
+S A$debug_fonts_scene$135 Def000048
+S A$debug_fonts_scene$126 Def00003B
+S A$debug_fonts_scene$117 Def00002F
+S A$debug_fonts_scene$108 Def000026
+S A$debug_fonts_scene$631 Def0004BB
+S A$debug_fonts_scene$622 Def0004B1
+S A$debug_fonts_scene$604 Def0004A6
+S A$debug_fonts_scene$550 Def000478
+S A$debug_fonts_scene$523 Def00045A
+S A$debug_fonts_scene$505 Def000454
+S A$debug_fonts_scene$460 Def000435
+S A$debug_fonts_scene$442 Def00041D
+S A$debug_fonts_scene$433 Def000414
+S A$debug_fonts_scene$154 Def000060
+S A$debug_fonts_scene$145 Def000052
+S A$debug_fonts_scene$136 Def000049
+S A$debug_fonts_scene$127 Def00003D
+S A$debug_fonts_scene$118 Def000030
+S A$debug_fonts_scene$109 Def000027
+S C$debug_fonts_scene.c$51$1_0$144 Def00040D
+S C$debug_fonts_scene.c$25$1_0$143 Def000000
+S ___func_debug_fonts_scene_bank Def000000
+S A$debug_fonts_scene$623 Def0004B2
+S A$debug_fonts_scene$605 Def0004A7
+S A$debug_fonts_scene$560 Def00047E
+S A$debug_fonts_scene$551 Def00047A
+S A$debug_fonts_scene$524 Def00045D
+S A$debug_fonts_scene$470 Def00043F
+S A$debug_fonts_scene$461 Def000436
+S A$debug_fonts_scene$443 Def00041E
+S A$debug_fonts_scene$434 Def000415
+S A$debug_fonts_scene$155 Def000061
+S A$debug_fonts_scene$146 Def000053
+S A$debug_fonts_scene$137 Def00004A
+S A$debug_fonts_scene$128 Def00003F
+S A$debug_fonts_scene$119 Def000031
+S C$debug_fonts_scene.c$52$1_0$144 Def00042C
+S G$drawFontInfo_TextArea$0$0 Def00040D
+S C$debug_fonts_scene.c$26$1_0$143 Def000000
+S A$debug_fonts_scene$651 Def0004C7
+S A$debug_fonts_scene$642 Def0004C3
+S A$debug_fonts_scene$624 Def0004B3
+S A$debug_fonts_scene$615 Def0004AC
+S A$debug_fonts_scene$552 Def00047C
+S A$debug_fonts_scene$525 Def00045E
+S A$debug_fonts_scene$480 Def000450
+S A$debug_fonts_scene$471 Def000442
+S A$debug_fonts_scene$462 Def000437
+S A$debug_fonts_scene$444 Def00041F
+S A$debug_fonts_scene$435 Def000416
+S A$debug_fonts_scene$156 Def000062
+S A$debug_fonts_scene$147 Def000054
+S A$debug_fonts_scene$138 Def00004B
+S C$debug_fonts_scene.c$82$2_0$150 Def0004A2
+S C$debug_fonts_scene.c$53$1_0$144 Def000453
+S C$debug_fonts_scene.c$27$1_0$143 Def00001F
+S A$debug_fonts_scene$643 Def0004C6
+S A$debug_fonts_scene$625 Def0004B5
+S A$debug_fonts_scene$616 Def0004AF
+S A$debug_fonts_scene$580 Def00048B
+S A$debug_fonts_scene$544 Def000472
+S A$debug_fonts_scene$535 Def00046A
+S A$debug_fonts_scene$526 Def000461
+S A$debug_fonts_scene$472 Def000443
+S A$debug_fonts_scene$463 Def000438
+S A$debug_fonts_scene$454 Def00042C
+S A$debug_fonts_scene$445 Def000420
+S A$debug_fonts_scene$436 Def000417
+S A$debug_fonts_scene$166 Def000068
+S A$debug_fonts_scene$157 Def000064
+S A$debug_fonts_scene$148 Def000055
+S A$debug_fonts_scene$139 Def00004C
+S C$debug_fonts_scene.c$36$1_0$144 Def00040D
+S C$debug_fonts_scene.c$28$1_0$143 Def000042
+S A$debug_fonts_scene$671 Def0004C8
+S A$debug_fonts_scene$635 Def0004BD
+S A$debug_fonts_scene$617 Def0004B0
+S A$debug_fonts_scene$590 Def000499
+S A$debug_fonts_scene$581 Def00048C
+S A$debug_fonts_scene$545 Def000474
+S A$debug_fonts_scene$536 Def00046D
+S A$debug_fonts_scene$527 Def000462
+S A$debug_fonts_scene$518 Def000455
+S A$debug_fonts_scene$473 Def000446
+S A$debug_fonts_scene$464 Def000439
+S A$debug_fonts_scene$455 Def00042F
+S A$debug_fonts_scene$446 Def000423
+S A$debug_fonts_scene$437 Def000418
+S A$debug_fonts_scene$158 Def000065
+S A$debug_fonts_scene$149 Def000058
+S C$debug_fonts_scene.c$70$1_0$147 Def000472
+S C$debug_fonts_scene.c$61$1_0$147 Def000455
+S C$debug_fonts_scene.c$29$1_0$143 Def000068
+S G$drawFontInfo$0$0 Def000000
+S A$debug_fonts_scene$636 Def0004C0
+S A$debug_fonts_scene$609 Def0004A9
+S A$debug_fonts_scene$582 Def00048E
+S A$debug_fonts_scene$573 Def00047F
+S A$debug_fonts_scene$546 Def000476
+S A$debug_fonts_scene$528 Def000463
+S A$debug_fonts_scene$519 Def000458
+S A$debug_fonts_scene$474 Def000447
+S A$debug_fonts_scene$465 Def00043A
+S A$debug_fonts_scene$456 Def000430
+S A$debug_fonts_scene$447 Def000424
+S A$debug_fonts_scene$438 Def000419
+S A$debug_fonts_scene$429 Def00040D
+S C$debug_fonts_scene.c$83$3_0$151 Def0004A9
+S C$debug_fonts_scene.c$71$1_0$147 Def000478
+S A$debug_fonts_scene$637 Def0004C2
+S A$debug_fonts_scene$583 Def000490
+S A$debug_fonts_scene$574 Def000482
+S A$debug_fonts_scene$529 Def000464
+S A$debug_fonts_scene$475 Def000448
+S A$debug_fonts_scene$466 Def00043B
+S A$debug_fonts_scene$457 Def000432
+S A$debug_fonts_scene$448 Def000427
+S A$debug_fonts_scene$439 Def00041A
+S C$debug_fonts_scene.c$72$1_0$147 Def00047E
+S C$debug_fonts_scene.c$63$1_0$147 Def000455
+S A$debug_fonts_scene$629 Def0004B6
+S A$debug_fonts_scene$584 Def000492
+S A$debug_fonts_scene$476 Def00044A
+S A$debug_fonts_scene$467 Def00043C
+S A$debug_fonts_scene$458 Def000433
+S A$debug_fonts_scene$449 Def000428
+S C$debug_fonts_scene.c$81$1_0$148 Def00049A
+S C$debug_fonts_scene.c$64$1_0$147 Def00045A
+S G$debug_fontsTeardown$0$0 Def000454
+S A$debug_fonts_scene$477 Def00044B
+S A$debug_fonts_scene$468 Def00043D
+S A$debug_fonts_scene$459 Def000434
+S C$debug_fonts_scene.c$91$3_0$155 Def0004C3
+S C$debug_fonts_scene.c$85$3_0$152 Def0004AC
+S C$debug_fonts_scene.c$80$2_0$149 Def000494
+S C$debug_fonts_scene.c$57$1_0$146 Def000454
+S A$debug_fonts_scene$595 Def00049A
+S A$debug_fonts_scene$478 Def00044C
+S A$debug_fonts_scene$469 Def00043E
+S C$debug_fonts_scene.c$74$1_0$148 Def00047F
+S C$debug_fonts_scene.c$66$1_0$147 Def00046A
+S A$debug_fonts_scene$596 Def00049C
+S A$debug_fonts_scene$578 Def000485
+S A$debug_fonts_scene$488 Def000453
+S A$debug_fonts_scene$479 Def00044E
+S C$debug_fonts_scene.c$75$1_0$148 Def00047F
+S C$debug_fonts_scene.c$59$1_0$146 Def000454
+S A$debug_fonts_scene$597 Def00049E
+S A$debug_fonts_scene$588 Def000494
+S A$debug_fonts_scene$579 Def000488
+S C$debug_fonts_scene.c$94$1_0$148 Def0004C7
+S C$debug_fonts_scene.c$88$2_0$153 Def0004B6
+S C$debug_fonts_scene.c$68$1_0$147 Def00046F
+S A$debug_fonts_scene$598 Def0004A0
+S A$debug_fonts_scene$589 Def000497
+S C$debug_fonts_scene.c$96$1_0$156 Def0004C8
+S C$debug_fonts_scene.c$97$1_0$156 Def0004C8
+S C$debug_fonts_scene.c$87$1_0$148 Def0004B1
+S _drawFontInfo_TextArea Def00040D
+S A$debug_fonts_scene$80 Def000003
+S C$debug_fonts_scene.c$89$3_0$154 Def0004BD
+S C$debug_fonts_scene.c$79$1_0$148 Def000485
+S A$debug_fonts_scene$90 Def00000E
+S A$debug_fonts_scene$81 Def000004
+S A$debug_fonts_scene$91 Def00000F
+S A$debug_fonts_scene$82 Def000006
+S _drawFontInfo Def000000
+S A$debug_fonts_scene$92 Def000010
+S A$debug_fonts_scene$83 Def000007
+S A$debug_fonts_scene$93 Def000011
+S A$debug_fonts_scene$84 Def000008
+S G$handledebug_fontsUpdate$0$0 Def00047F
+S A$debug_fonts_scene$94 Def000012
+S A$debug_fonts_scene$85 Def000009
+S _debug_fontsTeardown Def000454
+S A$debug_fonts_scene$95 Def000013
+S A$debug_fonts_scene$86 Def00000A
+S A$debug_fonts_scene$96 Def000016
+S A$debug_fonts_scene$87 Def00000B
+S A$debug_fonts_scene$97 Def000017
+S A$debug_fonts_scene$88 Def00000C
+S A$debug_fonts_scene$79 Def000000
+S A$debug_fonts_scene$98 Def00001A
+S A$debug_fonts_scene$89 Def00000D
+S A$debug_fonts_scene$99 Def00001B
+S XG$drawFontInfo_TextArea$0$0 Def000453
+S XG$drawFontInfo$0$0 Def000068
+S _handledebug_fontsUpdate Def00047F
+S G$drawdebug_fontsScene$0$0 Def0004C8
+S XG$debug_fontsTeardown$0$0 Def000454
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 21 00 00 4E 06 00 69 60 29 09 29 09 29
+R 00 00 07 00 02 04 03 00
+T 0D 00 00 29 09 29 29 29 09 01 69 00 09 01 E8 00
+R 00 00 07 00 00 0A 07 00
+T 1A 00 00 09 7E CD 00 00 21 00 00 4E 06 00 69 60
+R 00 00 07 00 02 06 0B 00 02 09 03 00
+T 27 00 00 29 09 29 09 29 29 09 29 29 29 09 01
+R 00 00 07 00
+T 33 00 00 69 00 09 E5 3E 8B F5 33 1E 02 3E 01 CD
+R 00 00 07 00 00 03 07 00
+T 40 00 00 00 00 21 00 00 4E 06 00 69 60 29 09 29
+R 00 00 07 00 02 03 07 00 02 06 03 00
+T 4D 00 00 09 29 29 09 29 29 29 09 01 69 00 09 01
+R 00 00 07 00 00 0C 07 00
+T 5A 00 00 0C 00 09 E5 3E 94 F5 33 1E 03 AF CD
+R 00 00 07 00
+T 66 00 00 00 00 C9
+R 00 00 07 00 02 03 07 00
+T 69 00 00
+R 00 00 07 00
+T 69 00 00 43 6F 43 61 5F 47 42 5F 76 32 00 00 20
+R 00 00 07 00
+T 76 00 00 54 68 69 73 20 69 73 20 74 68 65 20 70
+R 00 00 07 00
+T 83 00 00 72 69 6D 61 72 79 20 77 72 69 74 69 6E
+R 00 00 07 00
+T 90 00 00 67 0A 66 6F 6E 74 20 66 6F 72 20 64 65
+R 00 00 07 00
+T 9D 00 00 6C 69 76 65 72 69 6E 67 20 6C 6F 74 73
+R 00 00 07 00
+T AA 00 00 20 6F 66 20 74 65 78 74 0A 61 74 20 6F
+R 00 00 07 00
+T B7 00 00 6E 63 65 2E 0A 49 20 6D 61 64 65 20 69
+R 00 00 07 00
+T C4 00 00 74 20 66 6F 72 20 74 68 69 73 20 67 61
+R 00 00 07 00
+T D1 00 00 6D 65 20 6D 79 73 65 6C 66 2E 0A 41 42
+R 00 00 07 00
+T DE 00 00 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
+R 00 00 07 00
+T EB 00 00 50 51 52 53 54 55 56 57 58 59 5A 0A 30
+R 00 00 07 00
+T F8 00 00 31 32 33 34 35 36 37 38 39 30 0A 41 42
+R 00 00 07 00
+T 05 01 00 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
+R 00 00 07 00
+T 12 01 00 50 51 52 53 54 55 56 57 58 59 5A 0A 30
+R 00 00 07 00
+T 1F 01 00 31 32 33 34 35 36 37 38 39 30 0A 21 40
+R 00 00 07 00
+T 2C 01 00 23 24 25 5E 26 2A 28 29 2D 3D 2B 5B 5D
+R 00 00 07 00
+T 39 01 00 7B 7D 3C 3E 3B 3A 27 22 00 00 00 00 00
+R 00 00 07 00
+T 46 01 00 00 00 00 00 00 00 00 00 00 00 00 00 63
+R 00 00 07 00
+T 53 01 00 6F 6E 64 65 6E 73 65 64 00 00 00 54 68
+R 00 00 07 00
+T 60 01 00 69 73 20 69 73 20 74 68 65 20 66 6F 6E
+R 00 00 07 00
+T 6D 01 00 74 20 77 72 69 74 69 6E 67 20 69 6E 20
+R 00 00 07 00
+T 7A 01 00 63 72 61 6D 70 65 64 20 73 70 61 63 65
+R 00 00 07 00
+T 87 01 00 73 0A 6F 72 20 66 6F 72 20 6C 61 62 65
+R 00 00 07 00
+T 94 01 00 6C 6C 69 6E 67 20 74 68 69 6E 67 73 2E
+R 00 00 07 00
+T A1 01 00 0A 41 42 43 44 45 46 47 48 49 4A 4B 4C
+R 00 00 07 00
+T AE 01 00 4D 4E 4F 50 51 52 53 54 55 56 57 58 59
+R 00 00 07 00
+T BB 01 00 5A 30 31 32 33 34 35 36 37 38 39 30 0A
+R 00 00 07 00
+T C8 01 00 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D
+R 00 00 07 00
+T D5 01 00 4E 4F 50 51 52 53 54 55 56 57 58 59 5A
+R 00 00 07 00
+T E2 01 00 30 31 32 33 34 35 36 37 38 39 30 0A 21
+R 00 00 07 00
+T EF 01 00 40 23 24 25 5E 26 2A 28 29 2D 3D 2B 5B
+R 00 00 07 00
+T FC 01 00 5D 7B 7D 3C 3E 3B 3A 27 22 00 00 00 00
+R 00 00 07 00
+T 09 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 16 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 23 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 30 02 00 00 00 00 00 00 00 00 00 00 00 01 4D 69
+R 00 00 07 00
+T 3D 02 00 6E 69 6D 61 6C 20 33 78 35 00 54 68 69
+R 00 00 07 00
+T 4A 02 00 73 20 69 73 20 74 68 65 20 4D 69 6E 69
+R 00 00 07 00
+T 57 02 00 6D 61 6C 33 78 35 20 66 6F 6E 74 2E 0A
+R 00 00 07 00
+T 64 02 00 49 27 6D 20 6E 6F 74 20 73 75 72 65 20
+R 00 00 07 00
+T 71 02 00 49 20 77 69 6C 6C 20 75 73 65 20 69 74
+R 00 00 07 00
+T 7E 02 00 20 72 69 67 68 74 20 6E 6F 77 2E 0A 41
+R 00 00 07 00
+T 8B 02 00 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E
+R 00 00 07 00
+T 98 02 00 4F 50 51 52 53 54 55 56 57 58 59 5A 30
+R 00 00 07 00
+T A5 02 00 31 32 33 34 35 36 37 38 39 30 0A 41 42
+R 00 00 07 00
+T B2 02 00 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F
+R 00 00 07 00
+T BF 02 00 50 51 52 53 54 55 56 57 58 59 5A 30 31
+R 00 00 07 00
+T CC 02 00 32 33 34 35 36 37 38 39 30 0A 21 40 23
+R 00 00 07 00
+T D9 02 00 24 25 5E 26 2A 28 29 2D 3D 2B 5B 5D 7B
+R 00 00 07 00
+T E6 02 00 7D 3C 3E 3B 3A 27 22 00 00 00 00 00 00
+R 00 00 07 00
+T F3 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 0D 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 1A 03 00 00 00 00 00 00 00 00 00 00 02 4D 69 6E
+R 00 00 07 00
+T 27 03 00 69 6D 61 6C 20 35 78 37 00 54 68 69 73
+R 00 00 07 00
+T 34 03 00 20 69 73 20 74 68 65 20 4D 69 6E 69 6D
+R 00 00 07 00
+T 41 03 00 61 6C 35 78 37 20 66 6F 6E 74 2E 0A 49
+R 00 00 07 00
+T 4E 03 00 20 77 69 6C 6C 20 6C 69 6B 65 6C 79 20
+R 00 00 07 00
+T 5B 03 00 72 65 70 6C 61 63 65 20 74 68 69 73 20
+R 00 00 07 00
+T 68 03 00 6F 6E 65 2E 0A 41 42 43 44 45 46 47 48
+R 00 00 07 00
+T 75 03 00 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55
+R 00 00 07 00
+T 82 03 00 56 57 58 59 5A 0A 30 31 32 33 34 35 36
+R 00 00 07 00
+T 8F 03 00 37 38 39 30 0A 41 42 43 44 45 46 47 48
+R 00 00 07 00
+T 9C 03 00 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55
+R 00 00 07 00
+T A9 03 00 56 57 58 59 5A 0A 30 31 32 33 34 35 36
+R 00 00 07 00
+T B6 03 00 37 38 39 30 0A 21 40 23 24 25 5E 26 2A
+R 00 00 07 00
+T C3 03 00 28 29 2D 3D 2B 5B 5D 7B 7D 3C 3E 3B 3A
+R 00 00 07 00
+T D0 03 00 27 22 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T DD 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T EA 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T F7 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T 04 04 00 00 00 00 00 00 00 00 00 03
+R 00 00 07 00
+T 0D 04 00
+R 00 00 07 00
+T 0D 04 00 21 00 00 4E 06 00 69 60 29 09 29 09 29
+R 00 00 07 00 02 04 03 00
+T 1A 04 00 29 09 29 29 29 09 01 69 00 09 01 E8 00
+R 00 00 07 00 00 0A 07 00
+T 27 04 00 09 7E CD 00 00 21 00 00 4E 06 00 69 60
+R 00 00 07 00 02 06 0B 00 02 09 03 00
+T 34 04 00 29 09 29 09 29 29 09 29 29 29 09 01
+R 00 00 07 00
+T 40 04 00 69 00 09 01 0C 00 09 E5 3E 80 F5 33 1E
+R 00 00 07 00 00 03 07 00
+T 4D 04 00 08 3E 01 CD 00 00 C9
+R 00 00 07 00 02 07 07 00
+T 54 04 00
+R 00 00 07 00
+T 54 04 00 C9
+R 00 00 07 00
+T 55 04 00
+R 00 00 07 00
+T 55 04 00 21 00 00 36 00 11 00 00 D5 21 14 12 E5
+R 00 00 07 00 02 04 01 00 02 09 06 00
+T 62 04 00 AF 0F F5 CD 00 00 E8 06 21 00 00 36 00
+R 00 00 07 00 02 07 0C 00 02 0C 03 00
+T 6F 04 00 CD 0D 04 F0 00 00 00 E6 FB E0 00 00 00
+R 00 00 07 00 00 04 07 00 0B 07 0A 00 0B 0D 0A 00
+T 78 04 00 F0 00 00 00 F6 02 E0 00 00 00 C9
+R 00 00 07 00 0B 04 0A 00 0B 0A 0A 00
+T 7F 04 00
+R 00 00 07 00
+T 7F 04 00 FA 00 00 EA 00 00 FA 00 00 21
+R 00 00 07 00 02 04 03 00 02 07 09 00 02 0A 08 00
+T 89 04 00 00 00 4E CB 6F 28 0A CB 69 20 06 21
+R 00 00 07 00 02 03 00 00
+T 95 04 00 00 00 36 09 C9
+R 00 00 07 00 02 03 04 00
+T 9A 04 00
+R 00 00 07 00
+T 9A 04 00 CB 4F 28 13 CB 49 20 0F 21 00 00 7E B7
+R 00 00 07 00 02 0C 03 00
+T A7 04 00 20 03 36 03 C9
+R 00 00 07 00
+T AC 04 00
+R 00 00 07 00
+T AC 04 00 21 00 00 35 C9
+R 00 00 07 00 02 04 03 00
+T B1 04 00
+R 00 00 07 00
+T B1 04 00 0F D0 CB 41 C0 FA 00 00 D6 03 20 06 21
+R 00 00 07 00 02 09 03 00
+T BE 04 00 00 00 36 00 C9
+R 00 00 07 00 02 03 03 00
+T C3 04 00
+R 00 00 07 00
+T C3 04 00 21 00 00 34 C9
+R 00 00 07 00 02 04 03 00
+T C8 04 00
+R 00 00 07 00
+T C8 04 00 C9
+R 00 00 07 00

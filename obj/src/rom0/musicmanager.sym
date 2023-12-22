@@ -1,0 +1,213 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  4 A$musicmanager$100                                             00001A GR
+  4 A$musicmanager$101                                             00001B GR
+  4 A$musicmanager$102                                             00001C GR
+  4 A$musicmanager$106                                             00001E GR
+  4 A$musicmanager$107                                             000021 GR
+  4 A$musicmanager$109                                             000023 GR
+  4 A$musicmanager$110                                             000026 GR
+  4 A$musicmanager$114                                             000028 GR
+  4 A$musicmanager$115                                             00002B GR
+  4 A$musicmanager$119                                             00002D GR
+  4 A$musicmanager$120                                             000030 GR
+  4 A$musicmanager$124                                             000032 GR
+  4 A$musicmanager$125                                             000035 GR
+  4 A$musicmanager$129                                             000037 GR
+  4 A$musicmanager$130                                             00003A GR
+  4 A$musicmanager$135                                             00003C GR
+  4 A$musicmanager$136                                             00003F GR
+  4 A$musicmanager$137                                             000040 GR
+  4 A$musicmanager$141                                             000041 GR
+  4 A$musicmanager$142                                             000044 GR
+  4 A$musicmanager$143                                             000045 GR
+  4 A$musicmanager$147                                             000046 GR
+  4 A$musicmanager$148                                             000048 GR
+  4 A$musicmanager$152                                             000049 GR
+  4 A$musicmanager$153                                             00004C GR
+  4 A$musicmanager$154                                             00004D GR
+  4 A$musicmanager$155                                             00004F GR
+  4 A$musicmanager$156                                             000052 GR
+  4 A$musicmanager$157                                             000053 GR
+  4 A$musicmanager$161                                             000054 GR
+  4 A$musicmanager$162                                             000057 GR
+  4 A$musicmanager$163                                             000058 GR
+  4 A$musicmanager$164                                             000059 GR
+  4 A$musicmanager$166                                             00005B GR
+  4 A$musicmanager$167                                             00005C GR
+  4 A$musicmanager$168                                             00005E GR
+  4 A$musicmanager$169                                             00005F GR
+  4 A$musicmanager$170                                             000061 GR
+  4 A$musicmanager$171                                             000062 GR
+  4 A$musicmanager$172                                             000064 GR
+  4 A$musicmanager$173                                             000065 GR
+  4 A$musicmanager$175                                             000067 GR
+  4 A$musicmanager$176                                             000069 GR
+  4 A$musicmanager$177                                             00006B GR
+  4 A$musicmanager$178                                             00006D GR
+  4 A$musicmanager$179                                             00006F GR
+  4 A$musicmanager$180                                             000071 GR
+  4 A$musicmanager$182                                             000073 GR
+  4 A$musicmanager$183                                             000075 GR
+  4 A$musicmanager$187                                             000077 GR
+  4 A$musicmanager$188                                             000078 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  4 A$musicmanager$189                                             000079 GR
+  4 A$musicmanager$190                                             00007A GR
+  4 A$musicmanager$191                                             00007B GR
+  4 A$musicmanager$192                                             00007C GR
+  4 A$musicmanager$193                                             00007F GR
+  4 A$musicmanager$194                                             000080 GR
+  4 A$musicmanager$198                                             000081 GR
+  4 A$musicmanager$199                                             000082 GR
+  4 A$musicmanager$200                                             000085 GR
+  4 A$musicmanager$201                                             000086 GR
+  4 A$musicmanager$202                                             000087 GR
+  4 A$musicmanager$207                                             000089 GR
+  4 A$musicmanager$208                                             00008A GR
+  4 A$musicmanager$209                                             00008D GR
+  4 A$musicmanager$214                                             00008E GR
+  4 A$musicmanager$215                                             00008F GR
+  4 A$musicmanager$216                                             000091 GR
+  4 A$musicmanager$217                                             000094 GR
+  4 A$musicmanager$225                                             000095 GR
+  0 A$musicmanager$240                                             000000 GR
+  0 A$musicmanager$244                                             000001 GR
+  0 A$musicmanager$245                                             000004 GR
+  0 A$musicmanager$246                                             000005 GR
+  0 A$musicmanager$247                                             000006 GR
+  0 A$musicmanager$248                                             000007 GR
+  0 A$musicmanager$250                                             000008 GR
+  0 A$musicmanager$251                                             000009 GR
+  0 A$musicmanager$252                                             00000B GR
+  0 A$musicmanager$253                                             00000C GR
+  0 A$musicmanager$254                                             00000E GR
+  0 A$musicmanager$255                                             00000F GR
+  0 A$musicmanager$256                                             000011 GR
+  0 A$musicmanager$257                                             000012 GR
+  0 A$musicmanager$259                                             000014 GR
+  0 A$musicmanager$260                                             000016 GR
+  0 A$musicmanager$261                                             000018 GR
+  0 A$musicmanager$262                                             00001A GR
+  0 A$musicmanager$263                                             00001C GR
+  0 A$musicmanager$264                                             00001E GR
+  0 A$musicmanager$266                                             000020 GR
+  0 A$musicmanager$267                                             000022 GR
+  0 A$musicmanager$278                                             000024 GR
+  4 A$musicmanager$82                                              000000 GR
+  4 A$musicmanager$83                                              000003 GR
+  4 A$musicmanager$84                                              000004 GR
+  4 A$musicmanager$88                                              000006 GR
+  4 A$musicmanager$89                                              000009 GR
+  4 A$musicmanager$90                                              00000A GR
+  4 A$musicmanager$91                                              00000C GR
+  4 A$musicmanager$92                                              00000F GR
+  4 A$musicmanager$93                                              000012 GR
+  4 A$musicmanager$94                                              000015 GR
+  4 A$musicmanager$99                                              000017 GR
+  4 C$musicmanager.c$15$0_0$160                                 =  000000 GR
+  4 C$musicmanager.c$16$1_0$160                                 =  000000 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  4 C$musicmanager.c$17$2_0$161                                 =  000006 GR
+  4 C$musicmanager.c$18$2_0$161                                 =  000017 GR
+  4 C$musicmanager.c$19$3_0$162                                 =  000028 GR
+  4 C$musicmanager.c$23$3_0$162                                 =  00002D GR
+  4 C$musicmanager.c$24$3_0$162                                 =  000032 GR
+  4 C$musicmanager.c$25$3_0$162                                 =  000037 GR
+  4 C$musicmanager.c$28$1_0$160                                 =  00003C GR
+  4 C$musicmanager.c$29$1_0$160                                 =  000041 GR
+  4 C$musicmanager.c$33$2_0$163                                 =  000046 GR
+  4 C$musicmanager.c$34$1_1$163                                 =  000049 GR
+  4 C$musicmanager.c$35$1_1$163                                 =  000054 GR
+  4 C$musicmanager.c$37$2_1$164                                 =  000077 GR
+  4 C$musicmanager.c$38$2_1$164                                 =  000081 GR
+  4 C$musicmanager.c$39$1_1$163                                 =  000089 GR
+  4 C$musicmanager.c$40$1_1$163                                 =  00008E GR
+  4 C$musicmanager.c$41$1_1$160                                 =  000095 GR
+  0 C$musicmanager.c$43$1_1$175                                 =  000000 GR
+  0 C$musicmanager.c$44$1_0$175                                 =  000024 GR
+  0 C$musicmanager.c$45$1_0$175                                 =  000024 GR
+  7 Fmusicmanager$__xinit_music_current_track_bank$0_0$0        =  000000 GR
+  7 Fmusicmanager$__xinit_music_mute_flag$0_0$0                 =  000001 GR
+  7 Fmusicmanager$__xinit_music_mute_mask$0_0$0                 =  000002 GR
+  7 Fmusicmanager$__xinit_music_play_isr_counter$0_0$0          =  000003 GR
+  7 Fmusicmanager$__xinit_music_play_isr_pause$0_0$0            =  000004 GR
+  7 Fmusicmanager$__xinit_music_sfx_priority$0_0$0              =  000005 GR
+  2 G$music_current_track_bank$0_0$0                            =  000000 GR
+  2 G$music_mute_flag$0_0$0                                     =  000001 GR
+  2 G$music_mute_mask$0_0$0                                     =  000002 GR
+  1 G$music_next_track$0_0$0                                    =  000000 GR
+  0 G$music_pause$0$0                                           =  000000 GR
+  4 G$music_play_isr$0$0                                        =  000000 GR
+  2 G$music_play_isr_counter$0_0$0                              =  000003 GR
+  2 G$music_play_isr_pause$0_0$0                                =  000004 GR
+  2 G$music_sfx_priority$0_0$0                                  =  000005 GR
+  0 XG$music_pause$0$0                                          =  000024 GR
+  4 XG$music_play_isr$0$0                                       =  000095 GR
+    _NR12_REG                                                      ****** GX
+    _NR14_REG                                                      ****** GX
+    _NR22_REG                                                      ****** GX
+    _NR24_REG                                                      ****** GX
+    _NR32_REG                                                      ****** GX
+    _NR42_REG                                                      ****** GX
+    _NR44_REG                                                      ****** GX
+    _NR51_REG                                                      ****** GX
+    __current_bank                                                 ****** GX
+  7 __xinit__music_current_track_bank                              000000 R
+  7 __xinit__music_mute_flag                                       000001 R
+  7 __xinit__music_mute_mask                                       000002 R
+  7 __xinit__music_play_isr_counter                                000003 R
+  7 __xinit__music_play_isr_pause                                  000004 R
+  7 __xinit__music_sfx_priority                                    000005 R
+    _hUGE_current_wave                                             ****** GX
+    _hUGE_dosound                                                  ****** GX
+    _hUGE_init                                                     ****** GX
+    _hUGE_mute_mask                                                ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  2 _music_current_track_bank                                      000000 GR
+  2 _music_mute_flag                                               000001 GR
+  2 _music_mute_mask                                               000002 GR
+  1 _music_next_track                                              000000 GR
+  0 _music_pause                                                   000000 GR
+  4 _music_play_isr                                                000000 GR
+  2 _music_play_isr_counter                                        000003 GR
+  2 _music_play_isr_pause                                          000004 GR
+  2 _music_sfx_priority                                            000005 GR
+    _sfx_play_bank                                                 ****** GX
+    _sfx_play_isr                                                  ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size     25   flags    0
+   1 _DATA                                      size      2   flags    0
+   2 _INITIALIZED                               size      6   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size     96   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      6   flags    0
+   8 _CABS                                      size      0   flags    8
+

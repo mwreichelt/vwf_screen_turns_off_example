@@ -1,0 +1,131 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002715 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  4 A$sfxplayer$100                                                00002C GR
+  4 A$sfxplayer$101                                                00002D GR
+  4 A$sfxplayer$102                                                00002E GR
+  4 A$sfxplayer$103                                                00002F GR
+  4 A$sfxplayer$105                                                000032 GR
+  4 A$sfxplayer$106                                                000033 GR
+  4 A$sfxplayer$107                                                000034 GR
+  4 A$sfxplayer$108                                                000036 GR
+  4 A$sfxplayer$109                                                000038 GR
+  4 A$sfxplayer$110                                                00003A GR
+  4 A$sfxplayer$111                                                00003C GR
+  4 A$sfxplayer$112                                                00003E GR
+  4 A$sfxplayer$113                                                00003F GR
+  4 A$sfxplayer$114                                                000042 GR
+  4 A$sfxplayer$120                                                000074 GR
+  4 A$sfxplayer$121                                                000075 GR
+  4 A$sfxplayer$122                                                000077 GR
+  4 A$sfxplayer$123                                                000079 GR
+  4 A$sfxplayer$124                                                00007B GR
+  4 A$sfxplayer$125                                                00007D GR
+  4 A$sfxplayer$126                                                00007F GR
+  4 A$sfxplayer$127                                                000081 GR
+  4 A$sfxplayer$128                                                000083 GR
+  4 A$sfxplayer$129                                                000085 GR
+  4 A$sfxplayer$130                                                000086 GR
+  4 A$sfxplayer$131                                                000088 GR
+  4 A$sfxplayer$132                                                00008A GR
+  4 A$sfxplayer$133                                                00008C GR
+  4 A$sfxplayer$136                                                00008E GR
+  4 A$sfxplayer$137                                                000091 GR
+  4 A$sfxplayer$138                                                000092 GR
+  4 A$sfxplayer$140                                                000094 GR
+  4 A$sfxplayer$141                                                000095 GR
+  4 A$sfxplayer$142                                                000096 GR
+  4 A$sfxplayer$143                                                000097 GR
+  4 A$sfxplayer$144                                                000098 GR
+  4 A$sfxplayer$145                                                00009A GR
+  4 A$sfxplayer$150                                                0000BE GR
+  4 A$sfxplayer$151                                                0000BF GR
+  4 A$sfxplayer$153                                                0000C2 GR
+  4 A$sfxplayer$155                                                0000C3 GR
+  4 A$sfxplayer$156                                                0000C4 GR
+  4 A$sfxplayer$157                                                0000C7 GR
+  4 A$sfxplayer$158                                                0000C8 GR
+  4 A$sfxplayer$159                                                0000CB GR
+  4 A$sfxplayer$160                                                0000CC GR
+  4 A$sfxplayer$161                                                0000CE GR
+  4 A$sfxplayer$162                                                0000D1 GR
+  4 A$sfxplayer$163                                                0000D2 GR
+  4 A$sfxplayer$70                                                 000000 GR
+  4 A$sfxplayer$71                                                 000003 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  4 A$sfxplayer$72                                                 000004 GR
+  4 A$sfxplayer$73                                                 000005 GR
+  4 A$sfxplayer$74                                                 000006 GR
+  4 A$sfxplayer$75                                                 000007 GR
+  4 A$sfxplayer$76                                                 000008 GR
+  4 A$sfxplayer$77                                                 00000B GR
+  4 A$sfxplayer$78                                                 00000C GR
+  4 A$sfxplayer$79                                                 00000D GR
+  4 A$sfxplayer$80                                                 00000F GR
+  4 A$sfxplayer$82                                                 000010 GR
+  4 A$sfxplayer$83                                                 000011 GR
+  4 A$sfxplayer$85                                                 000012 GR
+  4 A$sfxplayer$86                                                 000013 GR
+  4 A$sfxplayer$87                                                 000014 GR
+  4 A$sfxplayer$88                                                 000016 GR
+  4 A$sfxplayer$89                                                 000017 GR
+  4 A$sfxplayer$90                                                 00001A GR
+  4 A$sfxplayer$91                                                 00001B GR
+  4 A$sfxplayer$92                                                 00001D GR
+  4 A$sfxplayer$93                                                 00001E GR
+  4 A$sfxplayer$94                                                 000020 GR
+  4 A$sfxplayer$95                                                 000023 GR
+  4 A$sfxplayer$96                                                 000025 GR
+  4 A$sfxplayer$97                                                 000026 GR
+  4 A$sfxplayer$98                                                 000028 GR
+  4 A$sfxplayer$99                                                 000029 GR
+  4 C$sfxplayer.c$129$1_0$110                                   =  000000 GR
+  4 C$sfxplayer.c$131$1_0$110                                   =  0000D3 GR
+  4 C$sfxplayer.c$9$0_0$110                                     =  000000 GR
+  7 Fsfxplayer$__xinit_sfx_play_bank$0_0$0                      =  000000 GR
+  7 Fsfxplayer$__xinit_sfx_play_sample$0_0$0                    =  000001 GR
+  1 G$sfx_frame_skip$0_0$0                                      =  000000 GR
+  2 G$sfx_play_bank$0_0$0                                       =  000000 GR
+  4 G$sfx_play_isr$0$0                                          =  000000 GR
+  2 G$sfx_play_sample$0_0$0                                     =  000001 GR
+    _NR10_REG                                                      ****** GX
+    _NR30_REG                                                      ****** GX
+    _NR31_REG                                                      ****** GX
+    _NR32_REG                                                      ****** GX
+    _NR33_REG                                                      ****** GX
+    _NR34_REG                                                      ****** GX
+    __AUD3WAVERAM                                                  ****** GX
+    __current_bank                                                 ****** GX
+  7 __xinit__sfx_play_bank                                         000000 R
+  7 __xinit__sfx_play_sample                                       000001 R
+    _rROMB0                                                        ****** GX
+  1 _sfx_frame_skip                                                000000 GR
+  2 _sfx_play_bank                                                 000000 GR
+  4 _sfx_play_isr                                                  000000 GR
+  2 _sfx_play_sample                                               000001 GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      1   flags    0
+   2 _INITIALIZED                               size      3   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size     D3   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      3   flags    0
+   8 _CABS                                      size      0   flags    8
+

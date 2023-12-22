@@ -1,0 +1,299 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module musicmanager
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _hUGE_dosound
+                                     12 	.globl _hUGE_init
+                                     13 	.globl _sfx_play_isr
+                                     14 	.globl _music_sfx_priority
+                                     15 	.globl _music_play_isr_pause
+                                     16 	.globl _music_play_isr_counter
+                                     17 	.globl _music_mute_mask
+                                     18 	.globl _music_mute_flag
+                                     19 	.globl _music_current_track_bank
+                                     20 	.globl _music_next_track
+                                     21 	.globl _music_play_isr
+                                     22 	.globl _music_pause
+                                     23 ;--------------------------------------------------------
+                                     24 ; special function registers
+                                     25 ;--------------------------------------------------------
+                                     26 ;--------------------------------------------------------
+                                     27 ; ram data
+                                     28 ;--------------------------------------------------------
+                                     29 	.area _DATA
+                           000000    30 G$music_next_track$0_0$0==.
+      000000                         31 _music_next_track::
+      000000                         32 	.ds 2
+                                     33 ;--------------------------------------------------------
+                                     34 ; ram data
+                                     35 ;--------------------------------------------------------
+                                     36 	.area _INITIALIZED
+                           000000    37 G$music_current_track_bank$0_0$0==.
+      000000                         38 _music_current_track_bank::
+      000000                         39 	.ds 1
+                           000001    40 G$music_mute_flag$0_0$0==.
+      000001                         41 _music_mute_flag::
+      000001                         42 	.ds 1
+                           000002    43 G$music_mute_mask$0_0$0==.
+      000002                         44 _music_mute_mask::
+      000002                         45 	.ds 1
+                           000003    46 G$music_play_isr_counter$0_0$0==.
+      000003                         47 _music_play_isr_counter::
+      000003                         48 	.ds 1
+                           000004    49 G$music_play_isr_pause$0_0$0==.
+      000004                         50 _music_play_isr_pause::
+      000004                         51 	.ds 1
+                           000005    52 G$music_sfx_priority$0_0$0==.
+      000005                         53 _music_sfx_priority::
+      000005                         54 	.ds 1
+                                     55 ;--------------------------------------------------------
+                                     56 ; absolute external ram data
+                                     57 ;--------------------------------------------------------
+                                     58 	.area _DABS (ABS)
+                                     59 ;--------------------------------------------------------
+                                     60 ; global & static initialisations
+                                     61 ;--------------------------------------------------------
+                                     62 	.area _HOME
+                                     63 	.area _GSINIT
+                                     64 	.area _GSFINAL
+                                     65 	.area _GSINIT
+                                     66 ;--------------------------------------------------------
+                                     67 ; Home
+                                     68 ;--------------------------------------------------------
+                                     69 	.area _HOME
+                           000000    70 	G$music_play_isr$0$0	= .
+                                     71 	.globl	G$music_play_isr$0$0
+                           000000    72 	C$musicmanager.c$15$0_0$160	= .
+                                     73 	.globl	C$musicmanager.c$15$0_0$160
+                                     74 ;src/rom0/musicmanager.c:15: void music_play_isr() NONBANKED {
+                                     75 ;	---------------------------------
+                                     76 ; Function music_play_isr
+                                     77 ; ---------------------------------
+      000000                         78 _music_play_isr::
+                           000000    79 	C$musicmanager.c$16$1_0$160	= .
+                                     80 	.globl	C$musicmanager.c$16$1_0$160
+                                     81 ;src/rom0/musicmanager.c:16: if (sfx_play_bank != SFX_STOP_BANK) {
+      000000 FAr00r00         [16]   82 	ld	a, (#_sfx_play_bank)
+      000003 3C               [ 4]   83 	inc	a
+      000004 28 36            [12]   84 	jr	Z, 00106$
+                           000006    85 	C$musicmanager.c$17$2_0$161	= .
+                                     86 	.globl	C$musicmanager.c$17$2_0$161
+                                     87 ;src/rom0/musicmanager.c:17: if (!music_mute_flag) hUGE_mute_mask = music_mute_mask, music_mute_flag = TRUE;
+      000006 FAr01r00         [16]   88 	ld	a, (#_music_mute_flag)
+      000009 B7               [ 4]   89 	or	a, a
+      00000A 20 0B            [12]   90 	jr	NZ, 00102$
+      00000C FAr02r00         [16]   91 	ld	a, (#_music_mute_mask)
+      00000F EAr00r00         [16]   92 	ld	(#_hUGE_mute_mask),a
+      000012 21r01r00         [12]   93 	ld	hl, #_music_mute_flag
+      000015 36 01            [12]   94 	ld	(hl), #0x01
+      000017                         95 00102$:
+                           000017    96 	C$musicmanager.c$18$2_0$161	= .
+                                     97 	.globl	C$musicmanager.c$18$2_0$161
+                                     98 ;src/rom0/musicmanager.c:18: if (!sfx_play_isr()) {
+      000017 CDr00r00         [24]   99 	call	_sfx_play_isr
+      00001A 7B               [ 4]  100 	ld	a, e
+      00001B B7               [ 4]  101 	or	a, a
+      00001C 20 1E            [12]  102 	jr	NZ, 00106$
+                           00001E   103 	C$musicmanager.c$19$3_0$162	= .
+                                    104 	.globl	C$musicmanager.c$19$3_0$162
+                                    105 ;src/rom0/musicmanager.c:19: hUGE_mute_mask = MUTE_MASK_NONE, hUGE_reset_wave(), music_mute_flag = FALSE;
+      00001E 21r00r00         [12]  106 	ld	hl, #_hUGE_mute_mask
+      000021 36 00            [12]  107 	ld	(hl), #0x00
+                                    108 ;include/hUGEDriver_b9.h:116: hUGE_current_wave = 100;
+      000023 21r00r00         [12]  109 	ld	hl, #_hUGE_current_wave
+      000026 36 64            [12]  110 	ld	(hl), #0x64
+                           000028   111 	C$musicmanager.c$19$3_0$162	= .
+                                    112 	.globl	C$musicmanager.c$19$3_0$162
+                                    113 ;src/rom0/musicmanager.c:19: hUGE_mute_mask = MUTE_MASK_NONE, hUGE_reset_wave(), music_mute_flag = FALSE;
+      000028 21r01r00         [12]  114 	ld	hl, #_music_mute_flag
+      00002B 36 00            [12]  115 	ld	(hl), #0x00
+                           00002D   116 	C$musicmanager.c$23$3_0$162	= .
+                                    117 	.globl	C$musicmanager.c$23$3_0$162
+                                    118 ;src/rom0/musicmanager.c:23: music_mute_mask = MUTE_MASK_NONE;
+      00002D 21r02r00         [12]  119 	ld	hl, #_music_mute_mask
+      000030 36 00            [12]  120 	ld	(hl), #0x00
+                           000032   121 	C$musicmanager.c$24$3_0$162	= .
+                                    122 	.globl	C$musicmanager.c$24$3_0$162
+                                    123 ;src/rom0/musicmanager.c:24: music_sfx_priority = MUSIC_SFX_PRIORITY_MINIMAL; 
+      000032 21r05r00         [12]  124 	ld	hl, #_music_sfx_priority
+      000035 36 00            [12]  125 	ld	(hl), #0x00
+                           000037   126 	C$musicmanager.c$25$3_0$162	= .
+                                    127 	.globl	C$musicmanager.c$25$3_0$162
+                                    128 ;src/rom0/musicmanager.c:25: sfx_play_bank = SFX_STOP_BANK;
+      000037 21r00r00         [12]  129 	ld	hl, #_sfx_play_bank
+      00003A 36 FF            [12]  130 	ld	(hl), #0xff
+      00003C                        131 00106$:
+                           00003C   132 	C$musicmanager.c$28$1_0$160	= .
+                                    133 	.globl	C$musicmanager.c$28$1_0$160
+                                    134 ;src/rom0/musicmanager.c:28: if (music_play_isr_pause) return;
+      00003C FAr04r00         [16]  135 	ld	a, (#_music_play_isr_pause)
+      00003F B7               [ 4]  136 	or	a, a
+      000040 C0               [20]  137 	ret	NZ
+                           000041   138 	C$musicmanager.c$29$1_0$160	= .
+                                    139 	.globl	C$musicmanager.c$29$1_0$160
+                                    140 ;src/rom0/musicmanager.c:29: if (music_current_track_bank == MUSIC_STOP_BANK) return;
+      000041 FAr00r00         [16]  141 	ld	a, (#_music_current_track_bank)
+      000044 3C               [ 4]  142 	inc	a
+      000045 C8               [20]  143 	ret	Z
+                           000046   144 	C$musicmanager.c$33$2_0$163	= .
+                                    145 	.globl	C$musicmanager.c$33$2_0$163
+                                    146 ;src/rom0/musicmanager.c:33: uint8_t save_bank = _current_bank;
+      000046 F0r00            [12]  147 	ldh	a, (__current_bank + 0)
+      000048 4F               [ 4]  148 	ld	c, a
+                           000049   149 	C$musicmanager.c$34$1_1$163	= .
+                                    150 	.globl	C$musicmanager.c$34$1_1$163
+                                    151 ;src/rom0/musicmanager.c:34: SWITCH_ROM(music_current_track_bank);
+      000049 21r00r00         [12]  152 	ld	hl, #_music_current_track_bank
+      00004C 7E               [ 8]  153 	ld	a, (hl)
+      00004D E0r00            [12]  154 	ldh	(__current_bank + 0), a
+      00004F 11 00 20         [12]  155 	ld	de, #0x2000
+      000052 7E               [ 8]  156 	ld	a, (hl)
+      000053 12               [ 8]  157 	ld	(de), a
+                           000054   158 	C$musicmanager.c$35$1_1$163	= .
+                                    159 	.globl	C$musicmanager.c$35$1_1$163
+                                    160 ;src/rom0/musicmanager.c:35: if (music_next_track) {
+      000054 21r01r00         [12]  161 	ld	hl, #_music_next_track + 1
+      000057 3A               [ 8]  162 	ld	a, (hl-)
+      000058 B6               [ 8]  163 	or	a, (hl)
+      000059 28 2E            [12]  164 	jr	Z, 00112$
+                                    165 ;include/sfxplayer.h:22: NR12_REG = NR22_REG = NR32_REG = NR42_REG = 0;
+      00005B AF               [ 4]  166 	xor	a, a
+      00005C E0r00            [12]  167 	ldh	(_NR42_REG + 0), a
+      00005E AF               [ 4]  168 	xor	a, a
+      00005F E0r00            [12]  169 	ldh	(_NR32_REG + 0), a
+      000061 AF               [ 4]  170 	xor	a, a
+      000062 E0r00            [12]  171 	ldh	(_NR22_REG + 0), a
+      000064 AF               [ 4]  172 	xor	a, a
+      000065 E0r00            [12]  173 	ldh	(_NR12_REG + 0), a
+                                    174 ;include/sfxplayer.h:23: NR14_REG = NR24_REG = NR44_REG = SFX_CH_RETRIGGER;
+      000067 3E C0            [ 8]  175 	ld	a, #0xc0
+      000069 E0r00            [12]  176 	ldh	(_NR44_REG + 0), a
+      00006B 3E C0            [ 8]  177 	ld	a, #0xc0
+      00006D E0r00            [12]  178 	ldh	(_NR24_REG + 0), a
+      00006F 3E C0            [ 8]  179 	ld	a, #0xc0
+      000071 E0r00            [12]  180 	ldh	(_NR14_REG + 0), a
+                                    181 ;include/sfxplayer.h:24: NR51_REG = 0xFF;
+      000073 3E FF            [ 8]  182 	ld	a, #0xff
+      000075 E0r00            [12]  183 	ldh	(_NR51_REG + 0), a
+                           000077   184 	C$musicmanager.c$37$2_1$164	= .
+                                    185 	.globl	C$musicmanager.c$37$2_1$164
+                                    186 ;src/rom0/musicmanager.c:37: hUGE_init(music_next_track);
+      000077 C5               [16]  187 	push	bc
+      000078 2A               [ 8]  188 	ld	a, (hl+)
+      000079 5F               [ 4]  189 	ld	e, a
+      00007A 56               [ 8]  190 	ld	d, (hl)
+      00007B D5               [16]  191 	push	de
+      00007C CDr00r00         [24]  192 	call	_hUGE_init
+      00007F E1               [12]  193 	pop	hl
+      000080 C1               [12]  194 	pop	bc
+                           000081   195 	C$musicmanager.c$38$2_1$164	= .
+                                    196 	.globl	C$musicmanager.c$38$2_1$164
+                                    197 ;src/rom0/musicmanager.c:38: music_next_track = 0;
+      000081 AF               [ 4]  198 	xor	a, a
+      000082 21r00r00         [12]  199 	ld	hl, #_music_next_track
+      000085 22               [ 8]  200 	ld	(hl+), a
+      000086 77               [ 8]  201 	ld	(hl), a
+      000087 18 05            [12]  202 	jr	00113$
+      000089                        203 00112$:
+                           000089   204 	C$musicmanager.c$39$1_1$163	= .
+                                    205 	.globl	C$musicmanager.c$39$1_1$163
+                                    206 ;src/rom0/musicmanager.c:39: } else hUGE_dosound();
+      000089 C5               [16]  207 	push	bc
+      00008A CDr00r00         [24]  208 	call	_hUGE_dosound
+      00008D C1               [12]  209 	pop	bc
+      00008E                        210 00113$:
+                           00008E   211 	C$musicmanager.c$40$1_1$163	= .
+                                    212 	.globl	C$musicmanager.c$40$1_1$163
+                                    213 ;src/rom0/musicmanager.c:40: SWITCH_ROM(save_bank);
+      00008E 79               [ 4]  214 	ld	a, c
+      00008F E0r00            [12]  215 	ldh	(__current_bank + 0), a
+      000091 21 00 20         [12]  216 	ld	hl, #0x2000
+      000094 71               [ 8]  217 	ld	(hl), c
+                           000095   218 	C$musicmanager.c$41$1_1$160	= .
+                                    219 	.globl	C$musicmanager.c$41$1_1$160
+                                    220 ;src/rom0/musicmanager.c:41: }
+                           000095   221 	C$musicmanager.c$41$1_1$160	= .
+                                    222 	.globl	C$musicmanager.c$41$1_1$160
+                           000095   223 	XG$music_play_isr$0$0	= .
+                                    224 	.globl	XG$music_play_isr$0$0
+      000095 C9               [16]  225 	ret
+                                    226 	.area _HOME
+                                    227 ;--------------------------------------------------------
+                                    228 ; code
+                                    229 ;--------------------------------------------------------
+                                    230 	.area _CODE
+                           000000   231 	G$music_pause$0$0	= .
+                                    232 	.globl	G$music_pause$0$0
+                           000000   233 	C$musicmanager.c$43$1_1$175	= .
+                                    234 	.globl	C$musicmanager.c$43$1_1$175
+                                    235 ;src/rom0/musicmanager.c:43: void music_pause(uint8_t pause) {
+                                    236 ;	---------------------------------
+                                    237 ; Function music_pause
+                                    238 ; ---------------------------------
+      000000                        239 _music_pause::
+      000000 4F               [ 4]  240 	ld	c, a
+                           000001   241 	C$musicmanager.c$44$1_0$175	= .
+                                    242 	.globl	C$musicmanager.c$44$1_0$175
+                                    243 ;src/rom0/musicmanager.c:44: if (music_play_isr_pause = pause) music_sound_cut();
+      000001 21r04r00         [12]  244 	ld	hl, #_music_play_isr_pause
+      000004 71               [ 8]  245 	ld	(hl), c
+      000005 79               [ 4]  246 	ld	a, c
+      000006 B7               [ 4]  247 	or	a, a
+      000007 C8               [20]  248 	ret	Z
+                                    249 ;include/sfxplayer.h:22: NR12_REG = NR22_REG = NR32_REG = NR42_REG = 0;
+      000008 AF               [ 4]  250 	xor	a, a
+      000009 E0r00            [12]  251 	ldh	(_NR42_REG + 0), a
+      00000B AF               [ 4]  252 	xor	a, a
+      00000C E0r00            [12]  253 	ldh	(_NR32_REG + 0), a
+      00000E AF               [ 4]  254 	xor	a, a
+      00000F E0r00            [12]  255 	ldh	(_NR22_REG + 0), a
+      000011 AF               [ 4]  256 	xor	a, a
+      000012 E0r00            [12]  257 	ldh	(_NR12_REG + 0), a
+                                    258 ;include/sfxplayer.h:23: NR14_REG = NR24_REG = NR44_REG = SFX_CH_RETRIGGER;
+      000014 3E C0            [ 8]  259 	ld	a, #0xc0
+      000016 E0r00            [12]  260 	ldh	(_NR44_REG + 0), a
+      000018 3E C0            [ 8]  261 	ld	a, #0xc0
+      00001A E0r00            [12]  262 	ldh	(_NR24_REG + 0), a
+      00001C 3E C0            [ 8]  263 	ld	a, #0xc0
+      00001E E0r00            [12]  264 	ldh	(_NR14_REG + 0), a
+                                    265 ;include/sfxplayer.h:24: NR51_REG = 0xFF;
+      000020 3E FF            [ 8]  266 	ld	a, #0xff
+      000022 E0r00            [12]  267 	ldh	(_NR51_REG + 0), a
+                           000024   268 	C$musicmanager.c$44$1_0$175	= .
+                                    269 	.globl	C$musicmanager.c$44$1_0$175
+                                    270 ;src/rom0/musicmanager.c:44: if (music_play_isr_pause = pause) music_sound_cut();
+                           000024   271 	C$musicmanager.c$45$1_0$175	= .
+                                    272 	.globl	C$musicmanager.c$45$1_0$175
+                                    273 ;src/rom0/musicmanager.c:45: }
+                           000024   274 	C$musicmanager.c$45$1_0$175	= .
+                                    275 	.globl	C$musicmanager.c$45$1_0$175
+                           000024   276 	XG$music_pause$0$0	= .
+                                    277 	.globl	XG$music_pause$0$0
+      000024 C9               [16]  278 	ret
+                                    279 	.area _CODE
+                                    280 	.area _INITIALIZER
+                           000000   281 Fmusicmanager$__xinit_music_current_track_bank$0_0$0 == .
+      000000                        282 __xinit__music_current_track_bank:
+      000000 FF                     283 	.db #0xff	; 255
+                           000001   284 Fmusicmanager$__xinit_music_mute_flag$0_0$0 == .
+      000001                        285 __xinit__music_mute_flag:
+      000001 00                     286 	.db #0x00	; 0
+                           000002   287 Fmusicmanager$__xinit_music_mute_mask$0_0$0 == .
+      000002                        288 __xinit__music_mute_mask:
+      000002 00                     289 	.db #0x00	; 0
+                           000003   290 Fmusicmanager$__xinit_music_play_isr_counter$0_0$0 == .
+      000003                        291 __xinit__music_play_isr_counter:
+      000003 00                     292 	.db #0x00	; 0
+                           000004   293 Fmusicmanager$__xinit_music_play_isr_pause$0_0$0 == .
+      000004                        294 __xinit__music_play_isr_pause:
+      000004 00                     295 	.db #0x00	; 0
+                           000005   296 Fmusicmanager$__xinit_music_sfx_priority$0_0$0 == .
+      000005                        297 __xinit__music_sfx_priority:
+      000005 00                     298 	.db #0x00	; 0
+                                    299 	.area _CABS (ABS)

@@ -1,0 +1,44 @@
+XL3
+H 9 areas 7 global symbols
+M Toggle1x2
+O -msm83
+S ___bank_Toggle1x2_bank Def000000
+S .__.ABS. Def000000
+A _CODE size 80 flags 0 addr 0
+S G$__func_Toggle1x2_bank$0$0 Def000000
+S _Toggle1x2_tiles Def000000
+S G$Toggle1x2_tiles$0_0$0 Def000000
+S ___func_Toggle1x2_bank Def000000
+S C$Toggle1x2.c$7$0_0$119 Def000000
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 00
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 00 FF 7F 80 71 80 75 80 75 80 71 80 7F
+R 00 00 00 00
+T 0D 00 00 80 00 FF 00 FF FE 01 B6 01 96 01 A6 01
+R 00 00 00 00
+T 1A 00 00 B6 01 FE 01 00 FF 00 FF 7F FF 7F C4 7F
+R 00 00 00 00
+T 27 00 00 D5 7F D4 7F C5 7F FF 00 FF 00 FF FE FF
+R 00 00 00 00
+T 34 00 00 FE 47 FE DF FE CF FE DF FE FF 00 FF FF
+R 00 00 00 00
+T 41 00 00 FF FF FF B1 FF B7 FF B3 FF 91 FF FF FF
+R 00 00 00 00
+T 4E 00 00 FF FF FF FF FF FF 11 FF 77 FF 59 FF 11
+R 00 00 00 00
+T 5B 00 00 FF FF FF FF FF FF FF FF FF A8 FF 8B FF
+R 00 00 00 00
+T 68 00 00 A9 FF A8 FF FF FF FF FF FF FF FF FF 89
+R 00 00 00 00
+T 75 00 00 FF AA FF 8A FF A9 FF FF FF FF FF
+R 00 00 00 00

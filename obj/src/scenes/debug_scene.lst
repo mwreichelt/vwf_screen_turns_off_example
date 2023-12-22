@@ -1,0 +1,500 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module debug_scene
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _drawDebugScene
+                                     12 	.globl _handleDebugUpdate
+                                     13 	.globl _initializeDebugScene
+                                     14 	.globl _debugSceneTeardown
+                                     15 	.globl b___func_debug_scene_bank
+                                     16 	.globl ___func_debug_scene_bank
+                                     17 	.globl _loadUIGraphics
+                                     18 	.globl _drawWindowBorder
+                                     19 	.globl _drawTextBkg
+                                     20 	.globl b_loadFontGraphicsData
+                                     21 	.globl _loadFontGraphicsData
+                                     22 	.globl _uitoa
+                                     23 	.globl _set_bkg_tiles
+                                     24 	.globl _Debug_Room_Options
+                                     25 ;--------------------------------------------------------
+                                     26 ; special function registers
+                                     27 ;--------------------------------------------------------
+                                     28 ;--------------------------------------------------------
+                                     29 ; ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area _DATA
+                                     32 ;--------------------------------------------------------
+                                     33 ; ram data
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _INITIALIZED
+                                     36 ;--------------------------------------------------------
+                                     37 ; absolute external ram data
+                                     38 ;--------------------------------------------------------
+                                     39 	.area _DABS (ABS)
+                                     40 ;--------------------------------------------------------
+                                     41 ; global & static initialisations
+                                     42 ;--------------------------------------------------------
+                                     43 	.area _HOME
+                                     44 	.area _GSINIT
+                                     45 	.area _GSFINAL
+                                     46 	.area _GSINIT
+                                     47 ;--------------------------------------------------------
+                                     48 ; Home
+                                     49 ;--------------------------------------------------------
+                                     50 	.area _HOME
+                                     51 	.area _HOME
+                                     52 ;--------------------------------------------------------
+                                     53 ; code
+                                     54 ;--------------------------------------------------------
+                                     55 	.area _CODE_255
+                           000000    56 	G$__func_debug_scene_bank$0$0	= .
+                                     57 	.globl	G$__func_debug_scene_bank$0$0
+                           000000    58 	C$debug_scene.c$20$0_0$156	= .
+                                     59 	.globl	C$debug_scene.c$20$0_0$156
+                                     60 ;src/scenes/debug_scene.c:20: BANKREF(debug_scene_bank)
+                                     61 ;	---------------------------------
+                                     62 ; Function __func_debug_scene_bank
+                                     63 ; ---------------------------------
+                           0000FF    64 	b___func_debug_scene_bank	= 255
+      000000                         65 ___func_debug_scene_bank::
+                                     66 	.local b___func_debug_scene_bank 
+                           0000FF    67 	___bank_debug_scene_bank = b___func_debug_scene_bank 
+                                     68 	.globl ___bank_debug_scene_bank 
+                           000000    69 	G$debugSceneTeardown$0$0	= .
+                                     70 	.globl	G$debugSceneTeardown$0$0
+                           000000    71 	C$debug_scene.c$33$1_0$157	= .
+                                     72 	.globl	C$debug_scene.c$33$1_0$157
+                                     73 ;src/scenes/debug_scene.c:33: void debugSceneTeardown() {
+                                     74 ;	---------------------------------
+                                     75 ; Function debugSceneTeardown
+                                     76 ; ---------------------------------
+      000000                         77 _debugSceneTeardown::
+                                     78 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      000000 01r00r00         [12]   79 	ld	bc, #_shadow_OAM+0
+                                     80 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      000003 AF               [ 4]   81 	xor	a, a
+      000004 02               [ 8]   82 	ld	(bc), a
+      000005 03               [ 8]   83 	inc	bc
+      000006 AF               [ 4]   84 	xor	a, a
+      000007 02               [ 8]   85 	ld	(bc), a
+                           000008    86 	C$debug_scene.c$37$1_0$157	= .
+                                     87 	.globl	C$debug_scene.c$37$1_0$157
+                                     88 ;src/scenes/debug_scene.c:37: HIDE_SPRITES;
+      000008 F0r00            [12]   89 	ldh	a, (_LCDC_REG + 0)
+      00000A E6 FD            [ 8]   90 	and	a, #0xfd
+      00000C E0r00            [12]   91 	ldh	(_LCDC_REG + 0), a
+                           00000E    92 	C$debug_scene.c$38$1_0$157	= .
+                                     93 	.globl	C$debug_scene.c$38$1_0$157
+                                     94 ;src/scenes/debug_scene.c:38: }
+                           00000E    95 	C$debug_scene.c$38$1_0$157	= .
+                                     96 	.globl	C$debug_scene.c$38$1_0$157
+                           00000E    97 	XG$debugSceneTeardown$0$0	= .
+                                     98 	.globl	XG$debugSceneTeardown$0$0
+      00000E C9               [16]   99 	ret
+                           00000F   100 G$Debug_Room_Options$0_0$0 == .
+      00000F                        101 _Debug_Room_Options:
+      00000F 4D 55 53 49 43         102 	.ascii "MUSIC"
+      000014 00                     103 	.db 0x00
+      000015 00                     104 	.db 0x00
+      000016 00                     105 	.db 0x00
+      000017 00                     106 	.db 0x00
+      000018 00                     107 	.db 0x00
+      000019 0A                     108 	.db #0x0a	; 10
+      00001A 46 4F 4E 54 53         109 	.ascii "FONTS"
+      00001F 00                     110 	.db 0x00
+      000020 00                     111 	.db 0x00
+      000021 00                     112 	.db 0x00
+      000022 00                     113 	.db 0x00
+      000023 00                     114 	.db 0x00
+      000024 14                     115 	.db #0x14	; 20
+                           000025   116 	G$initializeDebugScene$0$0	= .
+                                    117 	.globl	G$initializeDebugScene$0$0
+                           000025   118 	C$debug_scene.c$40$1_0$161	= .
+                                    119 	.globl	C$debug_scene.c$40$1_0$161
+                                    120 ;src/scenes/debug_scene.c:40: void initializeDebugScene() {
+                                    121 ;	---------------------------------
+                                    122 ; Function initializeDebugScene
+                                    123 ; ---------------------------------
+      000025                        124 _initializeDebugScene::
+                           000025   125 	C$debug_scene.c$42$1_0$161	= .
+                                    126 	.globl	C$debug_scene.c$42$1_0$161
+                                    127 ;src/scenes/debug_scene.c:42: RENDER_TARGET = RENDER_TARGET_BKG;
+      000025 21r00r00         [12]  128 	ld	hl, #_RENDER_TARGET
+      000028 36 00            [12]  129 	ld	(hl), #0x00
+                           00002A   130 	C$debug_scene.c$43$1_0$161	= .
+                                    131 	.globl	C$debug_scene.c$43$1_0$161
+                                    132 ;src/scenes/debug_scene.c:43: set_bkg_tiles(0, 0, 20u, 18u, BLANK_SCREEN_MAP);
+      00002A 11r00r00         [12]  133 	ld	de, #_BLANK_SCREEN_MAP
+      00002D D5               [16]  134 	push	de
+      00002E 21 14 12         [12]  135 	ld	hl, #0x1214
+      000031 E5               [16]  136 	push	hl
+      000032 AF               [ 4]  137 	xor	a, a
+      000033 0F               [ 4]  138 	rrca
+      000034 F5               [16]  139 	push	af
+      000035 AF               [ 4]  140 	xor	a, a
+      000036 CDr00r00         [24]  141 	call	_set_bkg_tiles
+      000039 E8 06            [16]  142 	add	sp, #6
+                           00003B   143 	C$debug_scene.c$46$1_0$161	= .
+                                    144 	.globl	C$debug_scene.c$46$1_0$161
+                                    145 ;src/scenes/debug_scene.c:46: loadFontGraphicsData();
+      00003B 1Er00            [ 8]  146 	ld	e, #b_loadFontGraphicsData
+      00003D 21r00r00         [12]  147 	ld	hl, #_loadFontGraphicsData
+      000040 CDr00r00         [24]  148 	call	___sdcc_bcall_ehl
+                           000043   149 	C$debug_scene.c$48$1_0$161	= .
+                                    150 	.globl	C$debug_scene.c$48$1_0$161
+                                    151 ;src/scenes/debug_scene.c:48: TEMP_VAR_A = UI_GRAPHICS_WINDOW_BORDERS_INDEX;
+      000043 21r00r00         [12]  152 	ld	hl, #_TEMP_VAR_A
+      000046 36 00            [12]  153 	ld	(hl), #0x00
+                           000048   154 	C$debug_scene.c$49$1_0$161	= .
+                                    155 	.globl	C$debug_scene.c$49$1_0$161
+                                    156 ;src/scenes/debug_scene.c:49: TEMP_VAR_B = VRAM_WINDOW_BORDERS_START;
+      000048 21r00r00         [12]  157 	ld	hl, #_TEMP_VAR_B
+      00004B 36 60            [12]  158 	ld	(hl), #0x60
+                           00004D   159 	C$debug_scene.c$50$1_0$161	= .
+                                    160 	.globl	C$debug_scene.c$50$1_0$161
+                                    161 ;src/scenes/debug_scene.c:50: loadUIGraphics();
+      00004D CDr00r00         [24]  162 	call	_loadUIGraphics
+                           000050   163 	C$debug_scene.c$52$1_0$161	= .
+                                    164 	.globl	C$debug_scene.c$52$1_0$161
+                                    165 ;src/scenes/debug_scene.c:52: TEMP_VAR_A = UI_GRAPHICS_SMALL_ARROWS_INDEX;
+      000050 21r00r00         [12]  166 	ld	hl, #_TEMP_VAR_A
+      000053 36 01            [12]  167 	ld	(hl), #0x01
+                           000055   168 	C$debug_scene.c$53$1_0$161	= .
+                                    169 	.globl	C$debug_scene.c$53$1_0$161
+                                    170 ;src/scenes/debug_scene.c:53: TEMP_VAR_B = VRAM_SMALL_ARROWS_START;
+      000055 21r00r00         [12]  171 	ld	hl, #_TEMP_VAR_B
+      000058 36 C4            [12]  172 	ld	(hl), #0xc4
+                           00005A   173 	C$debug_scene.c$54$1_0$161	= .
+                                    174 	.globl	C$debug_scene.c$54$1_0$161
+                                    175 ;src/scenes/debug_scene.c:54: loadUIGraphics();
+      00005A CDr00r00         [24]  176 	call	_loadUIGraphics
+                           00005D   177 	C$debug_scene.c$58$1_0$161	= .
+                                    178 	.globl	C$debug_scene.c$58$1_0$161
+                                    179 ;src/scenes/debug_scene.c:58: drawWindowBorder(0, 0, 12u, 18u);
+      00005D 21 0C 12         [12]  180 	ld	hl, #0x120c
+      000060 E5               [16]  181 	push	hl
+      000061 AF               [ 4]  182 	xor	a, a
+      000062 5F               [ 4]  183 	ld	e, a
+      000063 CDr00r00         [24]  184 	call	_drawWindowBorder
+                           000066   185 	C$debug_scene.c$61$1_0$161	= .
+                                    186 	.globl	C$debug_scene.c$61$1_0$161
+                                    187 ;src/scenes/debug_scene.c:61: drawTextBkg(13u, 1u, (unsigned char *)"DEBUG");
+      000066 11rF4r00         [12]  188 	ld	de, #___str_2
+      000069 D5               [16]  189 	push	de
+      00006A 1E 01            [ 8]  190 	ld	e, #0x01
+      00006C 3E 0D            [ 8]  191 	ld	a, #0x0d
+      00006E CDr00r00         [24]  192 	call	_drawTextBkg
+                           000071   193 	C$debug_scene.c$62$1_0$161	= .
+                                    194 	.globl	C$debug_scene.c$62$1_0$161
+                                    195 ;src/scenes/debug_scene.c:62: drawTextBkg(13u, 2u, (unsigned char *)"ROOM");
+      000071 11rFAr00         [12]  196 	ld	de, #___str_3
+      000074 D5               [16]  197 	push	de
+      000075 1E 02            [ 8]  198 	ld	e, #0x02
+      000077 3E 0D            [ 8]  199 	ld	a, #0x0d
+      000079 CDr00r00         [24]  200 	call	_drawTextBkg
+                           00007C   201 	C$debug_scene.c$65$1_0$161	= .
+                                    202 	.globl	C$debug_scene.c$65$1_0$161
+                                    203 ;src/scenes/debug_scene.c:65: drawTextBkg(13u, 3u, (unsigned char *)"C");
+      00007C 11rFFr00         [12]  204 	ld	de, #___str_4
+      00007F D5               [16]  205 	push	de
+      000080 1E 03            [ 8]  206 	ld	e, #0x03
+      000082 3E 0D            [ 8]  207 	ld	a, #0x0d
+      000084 CDr00r00         [24]  208 	call	_drawTextBkg
+                           000087   209 	C$debug_scene.c$66$1_0$161	= .
+                                    210 	.globl	C$debug_scene.c$66$1_0$161
+                                    211 ;src/scenes/debug_scene.c:66: uitoa(CURSOR_INDEX, (char *)ITOA_STRING, 10);
+      000087 11r00r00         [12]  212 	ld	de, #_ITOA_STRING
+      00008A 21r00r00         [12]  213 	ld	hl, #_CURSOR_INDEX
+      00008D 4E               [ 8]  214 	ld	c, (hl)
+      00008E 06 00            [ 8]  215 	ld	b, #0x00
+      000090 3E 0A            [ 8]  216 	ld	a, #0x0a
+      000092 F5               [16]  217 	push	af
+      000093 33               [ 8]  218 	inc	sp
+      000094 D5               [16]  219 	push	de
+      000095 C5               [16]  220 	push	bc
+      000096 CDr00r00         [24]  221 	call	_uitoa
+      000099 E8 05            [16]  222 	add	sp, #5
+                           00009B   223 	C$debug_scene.c$67$1_0$161	= .
+                                    224 	.globl	C$debug_scene.c$67$1_0$161
+                                    225 ;src/scenes/debug_scene.c:67: drawTextBkg(14u, 3u, ITOA_STRING);
+      00009B 11r00r00         [12]  226 	ld	de, #_ITOA_STRING
+      00009E D5               [16]  227 	push	de
+      00009F 1E 03            [ 8]  228 	ld	e, #0x03
+      0000A1 3E 0E            [ 8]  229 	ld	a, #0x0e
+      0000A3 CDr00r00         [24]  230 	call	_drawTextBkg
+                           0000A6   231 	C$debug_scene.c$70$3_0$163	= .
+                                    232 	.globl	C$debug_scene.c$70$3_0$163
+                                    233 ;src/scenes/debug_scene.c:70: for(uint8_t i = 0; i < DEBUGSCENE_OPTIONS_COUNT; i++) {
+      0000A6 0E 00            [ 8]  234 	ld	c, #0x00
+      0000A8                        235 00105$:
+      0000A8 79               [ 4]  236 	ld	a, c
+      0000A9 D6 02            [ 8]  237 	sub	a, #0x02
+      0000AB 30 1A            [12]  238 	jr	NC, 00101$
+                           0000AD   239 	C$debug_scene.c$71$3_0$163	= .
+                                    240 	.globl	C$debug_scene.c$71$3_0$163
+                                    241 ;src/scenes/debug_scene.c:71: drawTextBkg(2u, i + 1, (unsigned char *) Debug_Room_Options[i].name);
+      0000AD 06 00            [ 8]  242 	ld	b, #0x00
+      0000AF 69               [ 4]  243 	ld	l, c
+      0000B0 60               [ 4]  244 	ld	h, b
+      0000B1 29               [ 8]  245 	add	hl, hl
+      0000B2 29               [ 8]  246 	add	hl, hl
+      0000B3 09               [ 8]  247 	add	hl, bc
+      0000B4 29               [ 8]  248 	add	hl, hl
+      0000B5 09               [ 8]  249 	add	hl, bc
+      0000B6 11r0Fr00         [12]  250 	ld	de, #_Debug_Room_Options
+      0000B9 19               [ 8]  251 	add	hl, de
+      0000BA 59               [ 4]  252 	ld	e, c
+      0000BB 1C               [ 4]  253 	inc	e
+      0000BC C5               [16]  254 	push	bc
+      0000BD E5               [16]  255 	push	hl
+      0000BE 3E 02            [ 8]  256 	ld	a, #0x02
+      0000C0 CDr00r00         [24]  257 	call	_drawTextBkg
+      0000C3 C1               [12]  258 	pop	bc
+                           0000C4   259 	C$debug_scene.c$70$2_0$162	= .
+                                    260 	.globl	C$debug_scene.c$70$2_0$162
+                                    261 ;src/scenes/debug_scene.c:70: for(uint8_t i = 0; i < DEBUGSCENE_OPTIONS_COUNT; i++) {
+      0000C4 0C               [ 4]  262 	inc	c
+      0000C5 18 E1            [12]  263 	jr	00105$
+      0000C7                        264 00101$:
+                           0000C7   265 	C$debug_scene.c$75$1_0$161	= .
+                                    266 	.globl	C$debug_scene.c$75$1_0$161
+                                    267 ;src/scenes/debug_scene.c:75: CURSOR_INDEX = DEBUGSCENE_CURSOR_INDEX_START;
+      0000C7 21r00r00         [12]  268 	ld	hl, #_CURSOR_INDEX
+      0000CA 36 00            [12]  269 	ld	(hl), #0x00
+                           0000CC   270 	C$debug_scene.c$76$1_0$161	= .
+                                    271 	.globl	C$debug_scene.c$76$1_0$161
+                                    272 ;src/scenes/debug_scene.c:76: CURSOR_INDEX_PREV = DEBUGSCENE_CURSOR_INDEX_START;
+      0000CC 21r00r00         [12]  273 	ld	hl, #_CURSOR_INDEX_PREV
+      0000CF 36 00            [12]  274 	ld	(hl), #0x00
+                                    275 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1602: shadow_OAM[nb].tile=tile;
+      0000D1 21r02r00         [12]  276 	ld	hl, #(_shadow_OAM + 2)
+      0000D4 36 C4            [12]  277 	ld	(hl), #0xc4
+                                    278 ;src/scenes/debug_scene.c:78: move_sprite(DEBUGSCENE_CURSOR_SPRITE_ID, DEBUGSCENE_CURSOR_X_POS, DEBUGSCENE_CURSOR_Y_START_POS + (8u * (CURSOR_INDEX + 1)));
+      0000D6 FAr00r00         [16]  279 	ld	a, (#_CURSOR_INDEX)
+      0000D9 3C               [ 4]  280 	inc	a
+      0000DA 87               [ 4]  281 	add	a, a
+      0000DB 87               [ 4]  282 	add	a, a
+      0000DC 87               [ 4]  283 	add	a, a
+      0000DD C6 11            [ 8]  284 	add	a, #0x11
+      0000DF 4F               [ 4]  285 	ld	c, a
+                                    286 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      0000E0 21r00r00         [12]  287 	ld	hl, #_shadow_OAM
+                                    288 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      0000E3 71               [ 8]  289 	ld	(hl), c
+      0000E4 23               [ 8]  290 	inc	hl
+      0000E5 36 0A            [12]  291 	ld	(hl), #0x0a
+                           0000E7   292 	C$debug_scene.c$80$1_0$161	= .
+                                    293 	.globl	C$debug_scene.c$80$1_0$161
+                                    294 ;src/scenes/debug_scene.c:80: SPRITES_8x8;
+      0000E7 F0r00            [12]  295 	ldh	a, (_LCDC_REG + 0)
+      0000E9 E6 FB            [ 8]  296 	and	a, #0xfb
+      0000EB E0r00            [12]  297 	ldh	(_LCDC_REG + 0), a
+                           0000ED   298 	C$debug_scene.c$81$1_0$161	= .
+                                    299 	.globl	C$debug_scene.c$81$1_0$161
+                                    300 ;src/scenes/debug_scene.c:81: SHOW_SPRITES;
+      0000ED F0r00            [12]  301 	ldh	a, (_LCDC_REG + 0)
+      0000EF F6 02            [ 8]  302 	or	a, #0x02
+      0000F1 E0r00            [12]  303 	ldh	(_LCDC_REG + 0), a
+                           0000F3   304 	C$debug_scene.c$82$1_0$161	= .
+                                    305 	.globl	C$debug_scene.c$82$1_0$161
+                                    306 ;src/scenes/debug_scene.c:82: }
+                           0000F3   307 	C$debug_scene.c$82$1_0$161	= .
+                                    308 	.globl	C$debug_scene.c$82$1_0$161
+                           0000F3   309 	XG$initializeDebugScene$0$0	= .
+                                    310 	.globl	XG$initializeDebugScene$0$0
+      0000F3 C9               [16]  311 	ret
+                           0000F4   312 Fdebug_scene$__str_2$0_0$0 == .
+      0000F4                        313 ___str_2:
+      0000F4 44 45 42 55 47         314 	.ascii "DEBUG"
+      0000F9 00                     315 	.db 0x00
+                           0000FA   316 Fdebug_scene$__str_3$0_0$0 == .
+      0000FA                        317 ___str_3:
+      0000FA 52 4F 4F 4D            318 	.ascii "ROOM"
+      0000FE 00                     319 	.db 0x00
+                           0000FF   320 Fdebug_scene$__str_4$0_0$0 == .
+      0000FF                        321 ___str_4:
+      0000FF 43                     322 	.ascii "C"
+      000100 00                     323 	.db 0x00
+                           000101   324 	G$handleDebugUpdate$0$0	= .
+                                    325 	.globl	G$handleDebugUpdate$0$0
+                           000101   326 	C$debug_scene.c$84$1_0$170	= .
+                                    327 	.globl	C$debug_scene.c$84$1_0$170
+                                    328 ;src/scenes/debug_scene.c:84: void handleDebugUpdate() {
+                                    329 ;	---------------------------------
+                                    330 ; Function handleDebugUpdate
+                                    331 ; ---------------------------------
+      000101                        332 _handleDebugUpdate::
+                           000101   333 	C$debug_scene.c$85$1_0$170	= .
+                                    334 	.globl	C$debug_scene.c$85$1_0$170
+                                    335 ;src/scenes/debug_scene.c:85: CURSOR_INDEX_PREV = CURSOR_INDEX;
+      000101 FAr00r00         [16]  336 	ld	a, (#_CURSOR_INDEX)
+      000104 EAr00r00         [16]  337 	ld	(#_CURSOR_INDEX_PREV),a
+                           000107   338 	C$debug_scene.c$87$1_0$170	= .
+                                    339 	.globl	C$debug_scene.c$87$1_0$170
+                                    340 ;src/scenes/debug_scene.c:87: if((JOYPAD_CURRENT & J_UP) && !(JOYPAD_PREVIOUS & J_UP)) {
+      000107 21r00r00         [12]  341 	ld	hl, #_JOYPAD_CURRENT
+      00010A 4E               [ 8]  342 	ld	c, (hl)
+      00010B 21r00r00         [12]  343 	ld	hl, #_JOYPAD_PREVIOUS
+      00010E 46               [ 8]  344 	ld	b, (hl)
+      00010F CB 51            [ 8]  345 	bit	2, c
+      000111 28 15            [12]  346 	jr	Z, 00111$
+      000113 CB 50            [ 8]  347 	bit	2, b
+      000115 20 11            [12]  348 	jr	NZ, 00111$
+                           000117   349 	C$debug_scene.c$88$2_0$171	= .
+                                    350 	.globl	C$debug_scene.c$88$2_0$171
+                                    351 ;src/scenes/debug_scene.c:88: if(CURSOR_INDEX == 0u) {
+      000117 21r00r00         [12]  352 	ld	hl, #_CURSOR_INDEX
+      00011A 7E               [ 8]  353 	ld	a, (hl)
+      00011B B7               [ 4]  354 	or	a, a
+      00011C 20 04            [12]  355 	jr	NZ, 00102$
+                           00011E   356 	C$debug_scene.c$89$3_0$172	= .
+                                    357 	.globl	C$debug_scene.c$89$3_0$172
+                                    358 ;src/scenes/debug_scene.c:89: CURSOR_INDEX = DEBUGSCENE_OPTIONS_COUNT - 1u;
+      00011E 36 01            [12]  359 	ld	(hl), #0x01
+      000120 18 1F            [12]  360 	jr	00112$
+      000122                        361 00102$:
+                           000122   362 	C$debug_scene.c$91$3_0$173	= .
+                                    363 	.globl	C$debug_scene.c$91$3_0$173
+                                    364 ;src/scenes/debug_scene.c:91: CURSOR_INDEX--;
+      000122 21r00r00         [12]  365 	ld	hl, #_CURSOR_INDEX
+      000125 35               [12]  366 	dec	(hl)
+      000126 18 19            [12]  367 	jr	00112$
+      000128                        368 00111$:
+                           000128   369 	C$debug_scene.c$93$1_0$170	= .
+                                    370 	.globl	C$debug_scene.c$93$1_0$170
+                                    371 ;src/scenes/debug_scene.c:93: } else if ((JOYPAD_CURRENT & J_DOWN) && !(JOYPAD_PREVIOUS & J_DOWN)) {
+      000128 CB 59            [ 8]  372 	bit	3, c
+      00012A 28 15            [12]  373 	jr	Z, 00112$
+      00012C CB 58            [ 8]  374 	bit	3, b
+      00012E 20 11            [12]  375 	jr	NZ, 00112$
+                           000130   376 	C$debug_scene.c$94$2_0$174	= .
+                                    377 	.globl	C$debug_scene.c$94$2_0$174
+                                    378 ;src/scenes/debug_scene.c:94: if(CURSOR_INDEX == DEBUGSCENE_OPTIONS_COUNT - 1u) {
+      000130 FAr00r00         [16]  379 	ld	a, (#_CURSOR_INDEX)
+      000133 3D               [ 4]  380 	dec	a
+      000134 20 07            [12]  381 	jr	NZ, 00105$
+                           000136   382 	C$debug_scene.c$95$3_0$175	= .
+                                    383 	.globl	C$debug_scene.c$95$3_0$175
+                                    384 ;src/scenes/debug_scene.c:95: CURSOR_INDEX = 0u;
+      000136 21r00r00         [12]  385 	ld	hl, #_CURSOR_INDEX
+      000139 36 00            [12]  386 	ld	(hl), #0x00
+      00013B 18 04            [12]  387 	jr	00112$
+      00013D                        388 00105$:
+                           00013D   389 	C$debug_scene.c$97$3_0$176	= .
+                                    390 	.globl	C$debug_scene.c$97$3_0$176
+                                    391 ;src/scenes/debug_scene.c:97: CURSOR_INDEX++;
+      00013D 21r00r00         [12]  392 	ld	hl, #_CURSOR_INDEX
+      000140 34               [12]  393 	inc	(hl)
+      000141                        394 00112$:
+                           000141   395 	C$debug_scene.c$102$1_0$170	= .
+                                    396 	.globl	C$debug_scene.c$102$1_0$170
+                                    397 ;src/scenes/debug_scene.c:102: ((JOYPAD_CURRENT & J_A) && !(JOYPAD_PREVIOUS & J_A)) ||
+      000141 CB 61            [ 8]  398 	bit	4, c
+      000143 28 04            [12]  399 	jr	Z, 00118$
+      000145 CB 60            [ 8]  400 	bit	4, b
+      000147 28 06            [12]  401 	jr	Z, 00114$
+      000149                        402 00118$:
+                           000149   403 	C$debug_scene.c$103$1_0$170	= .
+                                    404 	.globl	C$debug_scene.c$103$1_0$170
+                                    405 ;src/scenes/debug_scene.c:103: ((JOYPAD_CURRENT & J_START) && !(JOYPAD_PREVIOUS & J_START))
+      000149 CB 79            [ 8]  406 	bit	7, c
+      00014B C8               [20]  407 	ret	Z
+      00014C CB 78            [ 8]  408 	bit	7, b
+      00014E C0               [20]  409 	ret	NZ
+      00014F                        410 00114$:
+                           00014F   411 	C$debug_scene.c$105$2_0$177	= .
+                                    412 	.globl	C$debug_scene.c$105$2_0$177
+                                    413 ;src/scenes/debug_scene.c:105: GAME_STATE = Debug_Room_Options[CURSOR_INDEX].state;
+      00014F 21r00r00         [12]  414 	ld	hl, #_CURSOR_INDEX
+      000152 4E               [ 8]  415 	ld	c, (hl)
+      000153 06 00            [ 8]  416 	ld	b, #0x00
+      000155 69               [ 4]  417 	ld	l, c
+      000156 60               [ 4]  418 	ld	h, b
+      000157 29               [ 8]  419 	add	hl, hl
+      000158 29               [ 8]  420 	add	hl, hl
+      000159 09               [ 8]  421 	add	hl, bc
+      00015A 29               [ 8]  422 	add	hl, hl
+      00015B 09               [ 8]  423 	add	hl, bc
+      00015C 01r0Fr00         [12]  424 	ld	bc,#_Debug_Room_Options
+      00015F 09               [ 8]  425 	add	hl,bc
+      000160 01 0A 00         [12]  426 	ld	bc, #0x000a
+      000163 09               [ 8]  427 	add	hl, bc
+      000164 7E               [ 8]  428 	ld	a, (hl)
+      000165 EAr00r00         [16]  429 	ld	(#_GAME_STATE),a
+                           000168   430 	C$debug_scene.c$107$1_0$170	= .
+                                    431 	.globl	C$debug_scene.c$107$1_0$170
+                                    432 ;src/scenes/debug_scene.c:107: }
+                           000168   433 	C$debug_scene.c$107$1_0$170	= .
+                                    434 	.globl	C$debug_scene.c$107$1_0$170
+                           000168   435 	XG$handleDebugUpdate$0$0	= .
+                                    436 	.globl	XG$handleDebugUpdate$0$0
+      000168 C9               [16]  437 	ret
+                           000169   438 	G$drawDebugScene$0$0	= .
+                                    439 	.globl	G$drawDebugScene$0$0
+                           000169   440 	C$debug_scene.c$109$1_0$178	= .
+                                    441 	.globl	C$debug_scene.c$109$1_0$178
+                                    442 ;src/scenes/debug_scene.c:109: void drawDebugScene() {
+                                    443 ;	---------------------------------
+                                    444 ; Function drawDebugScene
+                                    445 ; ---------------------------------
+      000169                        446 _drawDebugScene::
+                           000169   447 	C$debug_scene.c$110$1_0$178	= .
+                                    448 	.globl	C$debug_scene.c$110$1_0$178
+                                    449 ;src/scenes/debug_scene.c:110: if (CURSOR_INDEX != CURSOR_INDEX_PREV) {
+      000169 FAr00r00         [16]  450 	ld	a, (#_CURSOR_INDEX)
+      00016C 21r00r00         [12]  451 	ld	hl, #_CURSOR_INDEX_PREV
+      00016F 96               [ 8]  452 	sub	a, (hl)
+      000170 C8               [20]  453 	ret	Z
+                                    454 ;src/scenes/debug_scene.c:112: move_sprite(DEBUGSCENE_CURSOR_SPRITE_ID, DEBUGSCENE_CURSOR_X_POS, DEBUGSCENE_CURSOR_Y_START_POS + (8u * (CURSOR_INDEX + 1)));
+      000171 FAr00r00         [16]  455 	ld	a, (#_CURSOR_INDEX)
+      000174 3C               [ 4]  456 	inc	a
+      000175 87               [ 4]  457 	add	a, a
+      000176 87               [ 4]  458 	add	a, a
+      000177 87               [ 4]  459 	add	a, a
+      000178 C6 11            [ 8]  460 	add	a, #0x11
+      00017A 4F               [ 4]  461 	ld	c, a
+                                    462 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1675: OAM_item_t * itm = &shadow_OAM[nb];
+      00017B 21r00r00         [12]  463 	ld	hl, #_shadow_OAM
+                                    464 ;/home/mreichelt/workspace/gameboy_development/gbdk/include/gb/gb.h:1676: itm->y=y, itm->x=x;
+      00017E 71               [ 8]  465 	ld	(hl), c
+      00017F 23               [ 8]  466 	inc	hl
+      000180 36 0A            [12]  467 	ld	(hl), #0x0a
+                           000182   468 	C$debug_scene.c$115$2_0$179	= .
+                                    469 	.globl	C$debug_scene.c$115$2_0$179
+                                    470 ;src/scenes/debug_scene.c:115: uitoa(CURSOR_INDEX, (char *)ITOA_STRING, 10);
+      000182 11r00r00         [12]  471 	ld	de, #_ITOA_STRING
+      000185 21r00r00         [12]  472 	ld	hl, #_CURSOR_INDEX
+      000188 4E               [ 8]  473 	ld	c, (hl)
+      000189 06 00            [ 8]  474 	ld	b, #0x00
+      00018B 3E 0A            [ 8]  475 	ld	a, #0x0a
+      00018D F5               [16]  476 	push	af
+      00018E 33               [ 8]  477 	inc	sp
+      00018F D5               [16]  478 	push	de
+      000190 C5               [16]  479 	push	bc
+      000191 CDr00r00         [24]  480 	call	_uitoa
+      000194 E8 05            [16]  481 	add	sp, #5
+                           000196   482 	C$debug_scene.c$116$2_0$179	= .
+                                    483 	.globl	C$debug_scene.c$116$2_0$179
+                                    484 ;src/scenes/debug_scene.c:116: drawTextBkg(14u, 3u, ITOA_STRING);
+      000196 11r00r00         [12]  485 	ld	de, #_ITOA_STRING
+      000199 D5               [16]  486 	push	de
+      00019A 1E 03            [ 8]  487 	ld	e, #0x03
+      00019C 3E 0E            [ 8]  488 	ld	a, #0x0e
+      00019E CDr00r00         [24]  489 	call	_drawTextBkg
+                           0001A1   490 	C$debug_scene.c$118$1_0$178	= .
+                                    491 	.globl	C$debug_scene.c$118$1_0$178
+                                    492 ;src/scenes/debug_scene.c:118: }
+                           0001A1   493 	C$debug_scene.c$118$1_0$178	= .
+                                    494 	.globl	C$debug_scene.c$118$1_0$178
+                           0001A1   495 	XG$drawDebugScene$0$0	= .
+                                    496 	.globl	XG$drawDebugScene$0$0
+      0001A1 C9               [16]  497 	ret
+                                    498 	.area _CODE_255
+                                    499 	.area _INITIALIZER
+                                    500 	.area _CABS (ABS)

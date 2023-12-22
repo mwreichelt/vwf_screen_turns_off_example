@@ -1,0 +1,101 @@
+;!FILE obj/src/rom0/GraphicsLoader_UI.asm
+XL3
+H A areas 3E global symbols
+M GraphicsLoader_UI
+O -msm83
+S ___bank_Toggle1x2_bank Ref000000
+S ___bank_Icon_Small_Arrows_bank Ref000000
+S _Toggle1x2_tiles Ref000000
+S ___bank_WindowBorders_bank Ref000000
+S _Icon_Small_Arrows Ref000000
+S .__.ABS. Def000000
+S _WindowBorders Ref000000
+S _set_banked_data Ref000000
+S _TEMP_VAR_A Ref000000
+S _TEMP_VAR_B Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_0 size 47 flags 0 addr 0
+S A$GraphicsLoader_UI$99 Def000032
+S G$loadUIGraphics$0$0 Def000000
+S _loadUIGraphics Def000000
+S XG$loadUIGraphics$0$0 Def000046
+S A$GraphicsLoader_UI$111 Def000036
+S A$GraphicsLoader_UI$112 Def000038
+S A$GraphicsLoader_UI$103 Def000035
+S A$GraphicsLoader_UI$113 Def000039
+S C$GraphicsLoader_UI.c$22$0_0$142 Def000000
+S A$GraphicsLoader_UI$114 Def00003A
+S A$GraphicsLoader_UI$115 Def00003D
+S C$GraphicsLoader_UI.c$30$2_0$143 Def000036
+S C$GraphicsLoader_UI.c$23$1_0$142 Def000000
+S A$GraphicsLoader_UI$116 Def00003E
+S C$GraphicsLoader_UI.c$33$1_0$142 Def000046
+S C$GraphicsLoader_UI.c$31$2_0$143 Def000036
+S A$GraphicsLoader_UI$117 Def000040
+S C$GraphicsLoader_UI.c$34$1_0$142 Def000046
+S A$GraphicsLoader_UI$118 Def000043
+S C$GraphicsLoader_UI.c$24$2_0$143 Def000014
+S C$GraphicsLoader_UI.c$25$2_0$143 Def000014
+S A$GraphicsLoader_UI$129 Def000046
+S C$GraphicsLoader_UI.c$26$2_0$143 Def000024
+S C$GraphicsLoader_UI.c$27$2_0$143 Def000025
+S C$GraphicsLoader_UI.c$28$2_0$143 Def000025
+S C$GraphicsLoader_UI.c$29$2_0$143 Def000035
+S A$GraphicsLoader_UI$60 Def000009
+S A$GraphicsLoader_UI$61 Def00000A
+S A$GraphicsLoader_UI$80 Def000021
+S A$GraphicsLoader_UI$62 Def00000C
+S A$GraphicsLoader_UI$63 Def00000F
+S A$GraphicsLoader_UI$73 Def000014
+S A$GraphicsLoader_UI$64 Def000011
+S A$GraphicsLoader_UI$92 Def000025
+S A$GraphicsLoader_UI$74 Def000016
+S A$GraphicsLoader_UI$65 Def000013
+S A$GraphicsLoader_UI$56 Def000000
+S A$GraphicsLoader_UI$93 Def000027
+S A$GraphicsLoader_UI$84 Def000024
+S A$GraphicsLoader_UI$75 Def000017
+S A$GraphicsLoader_UI$57 Def000003
+S A$GraphicsLoader_UI$94 Def000028
+S A$GraphicsLoader_UI$76 Def000018
+S A$GraphicsLoader_UI$58 Def000004
+S A$GraphicsLoader_UI$95 Def000029
+S A$GraphicsLoader_UI$77 Def00001B
+S A$GraphicsLoader_UI$59 Def000006
+S A$GraphicsLoader_UI$96 Def00002C
+S A$GraphicsLoader_UI$78 Def00001C
+S A$GraphicsLoader_UI$97 Def00002D
+S A$GraphicsLoader_UI$79 Def00001E
+S A$GraphicsLoader_UI$98 Def00002F
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 FA 00 00 B7 28 0E FA 00 00 3D 28 19 FA
+R 00 00 07 00 02 04 08 00 02 0A 08 00
+T 0D 00 00 00 00 D6 07 28 23 C9
+R 00 00 07 00 02 03 08 00
+T 14 00 00
+R 00 00 07 00
+T 14 00 00 06 00 00 00 C5 33 11 00 00 D5 1E 08 FA
+R 00 00 07 00 0B 04 03 00 02 0A 06 00
+T 1F 00 00 00 00 CD 00 00 C9
+R 00 00 07 00 02 03 09 00 02 06 07 00
+T 25 00 00
+R 00 00 07 00
+T 25 00 00 06 00 00 00 C5 33 11 00 00 D5 1E 04 FA
+R 00 00 07 00 0B 04 01 00 02 0A 04 00
+T 30 00 00 00 00 CD 00 00 C9
+R 00 00 07 00 02 03 09 00 02 06 07 00
+T 36 00 00
+R 00 00 07 00
+T 36 00 00 06 00 00 00 C5 33 11 00 00 D5 1E 08 FA
+R 00 00 07 00 0B 04 00 00 02 0A 02 00
+T 41 00 00 00 00 CD 00 00 C9
+R 00 00 07 00 02 03 09 00 02 06 07 00

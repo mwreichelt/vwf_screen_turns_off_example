@@ -1,0 +1,263 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module sfxplayer
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _sfx_play_sample
+                                     12 	.globl _sfx_play_bank
+                                     13 	.globl _sfx_frame_skip
+                                     14 	.globl _sfx_play_isr
+                                     15 ;--------------------------------------------------------
+                                     16 ; special function registers
+                                     17 ;--------------------------------------------------------
+                                     18 ;--------------------------------------------------------
+                                     19 ; ram data
+                                     20 ;--------------------------------------------------------
+                                     21 	.area _DATA
+                           000000    22 G$sfx_frame_skip$0_0$0==.
+      000000                         23 _sfx_frame_skip::
+      000000                         24 	.ds 1
+                                     25 ;--------------------------------------------------------
+                                     26 ; ram data
+                                     27 ;--------------------------------------------------------
+                                     28 	.area _INITIALIZED
+                           000000    29 G$sfx_play_bank$0_0$0==.
+      000000                         30 _sfx_play_bank::
+      000000                         31 	.ds 1
+                           000001    32 G$sfx_play_sample$0_0$0==.
+      000001                         33 _sfx_play_sample::
+      000001                         34 	.ds 2
+                                     35 ;--------------------------------------------------------
+                                     36 ; absolute external ram data
+                                     37 ;--------------------------------------------------------
+                                     38 	.area _DABS (ABS)
+                                     39 ;--------------------------------------------------------
+                                     40 ; global & static initialisations
+                                     41 ;--------------------------------------------------------
+                                     42 	.area _HOME
+                                     43 	.area _GSINIT
+                                     44 	.area _GSFINAL
+                                     45 	.area _GSINIT
+                                     46 ;--------------------------------------------------------
+                                     47 ; Home
+                                     48 ;--------------------------------------------------------
+                                     49 	.area _HOME
+                           000000    50 	G$sfx_play_isr$0$0	= .
+                                     51 	.globl	G$sfx_play_isr$0$0
+                           000000    52 	C$sfxplayer.c$9$0_0$110	= .
+                                     53 	.globl	C$sfxplayer.c$9$0_0$110
+                                     54 ;src/rom0/sfxplayer.c:9: uint8_t sfx_play_isr() NONBANKED NAKED OLDCALL {
+                                     55 ;	---------------------------------
+                                     56 ; Function sfx_play_isr
+                                     57 ; ---------------------------------
+      000000                         58 _sfx_play_isr::
+                           000000    59 	C$sfxplayer.c$129$1_0$110	= .
+                                     60 	.globl	C$sfxplayer.c$129$1_0$110
+                                     61 ;src/rom0/sfxplayer.c:129: __endasm;
+                                     62 	.macro	copy_reg ?lbl
+                                     63 	sla	b
+                                     64 	jr	nc, lbl
+                                     65 	ld	a, (hl+)
+                                     66 	ldh	(c), a
+                                     67 lbl:
+                                     68 	inc	c
+                                     69 	.endm
+      000000 21r01r00         [12]   70 	ld	hl, #_sfx_play_sample
+      000003 2A               [ 8]   71 	ld	a, (hl+)
+      000004 5F               [ 4]   72 	ld	e, a
+      000005 B6               [ 8]   73 	or	(hl)
+      000006 C8               [20]   74 	ret	z
+      000007 56               [ 8]   75 	ld	d, (hl)
+      000008 21r00r00         [12]   76 	ld	hl, #_sfx_frame_skip
+      00000B AF               [ 4]   77 	xor	a
+      00000C B6               [ 8]   78 	or	(hl)
+      00000D 28 03            [12]   79 	jr	z, 7$
+      00000F 35               [12]   80 	dec	(hl)
+      000010                         81 8$:
+      000010 5F               [ 4]   82 	ld	e, a
+      000011 C9               [16]   83 	ret
+      000012                         84 7$:
+      000012 62               [ 4]   85 	ld	h, d
+      000013 6B               [ 4]   86 	ld	l, e ; HL = current position inside the sample
+      000014 F0r00            [12]   87 	ldh	a, (__current_bank) ; save bank and switch
+      000016 5F               [ 4]   88 	ld	e, a
+      000017 FAr00r00         [16]   89 	ld	a, (_sfx_play_bank)
+      00001A 3C               [ 4]   90 	inc	a ; 0xffu ?
+      00001B 28 F3            [12]   91 	jr	z, 8$
+      00001D 3D               [ 4]   92 	dec	a
+      00001E E0r00            [12]   93 	ldh	(__current_bank), a
+      000020 EAr00r00         [16]   94 	ld	(_rROMB0), a
+      000023 16 0F            [ 8]   95 	ld	d, #0x0f
+      000025 7E               [ 8]   96 	ld	a, (hl)
+      000026 CB 37            [ 8]   97 	swap	a
+      000028 A2               [ 4]   98 	and	d
+      000029 EAr00r00         [16]   99 	ld	(_sfx_frame_skip), a
+      00002C 2A               [ 8]  100 	ld	a, (hl+)
+      00002D A2               [ 4]  101 	and	d
+      00002E 57               [ 4]  102 	ld	d, a ; d = frame channel count
+      00002F CArC2r00         [16]  103 	jp	z, 6$
+      000032                        104 2$:
+      000032 2A               [ 8]  105 	ld	a, (hl+)
+      000033 47               [ 4]  106 	ld	b, a ; a = b = channel no + register mask
+      000034 E6 07            [ 8]  107 	and	#0b00000111
+      000036 FE 05            [ 8]  108 	cp	#5
+      000038 38 5A            [12]  109 	jr	c, 3$
+      00003A FE 07            [ 8]  110 	cp	#7
+      00003C 28 50            [12]  111 	jr	z, 5$ ; terminator
+      00003E AF               [ 4]  112 	xor	a
+      00003F EAr00r00         [16]  113 	ld	(_NR30_REG), a
+      000042 0Er00            [ 8]  114 	ld	c, #__AUD3WAVERAM
+                                    115 	.rept	16
+                                    116 	ld	a, (hl+)
+                                    117 	ldh	(c), a
+                                    118 	inc	c
+                                    119 	.endm
+      000044 2A               [ 8]    1 	ld	a, (hl+)
+      000045 E2               [ 8]    2 	ldh	(c), a
+      000046 0C               [ 4]    3 	inc	c
+      000047 2A               [ 8]    1 	ld	a, (hl+)
+      000048 E2               [ 8]    2 	ldh	(c), a
+      000049 0C               [ 4]    3 	inc	c
+      00004A 2A               [ 8]    1 	ld	a, (hl+)
+      00004B E2               [ 8]    2 	ldh	(c), a
+      00004C 0C               [ 4]    3 	inc	c
+      00004D 2A               [ 8]    1 	ld	a, (hl+)
+      00004E E2               [ 8]    2 	ldh	(c), a
+      00004F 0C               [ 4]    3 	inc	c
+      000050 2A               [ 8]    1 	ld	a, (hl+)
+      000051 E2               [ 8]    2 	ldh	(c), a
+      000052 0C               [ 4]    3 	inc	c
+      000053 2A               [ 8]    1 	ld	a, (hl+)
+      000054 E2               [ 8]    2 	ldh	(c), a
+      000055 0C               [ 4]    3 	inc	c
+      000056 2A               [ 8]    1 	ld	a, (hl+)
+      000057 E2               [ 8]    2 	ldh	(c), a
+      000058 0C               [ 4]    3 	inc	c
+      000059 2A               [ 8]    1 	ld	a, (hl+)
+      00005A E2               [ 8]    2 	ldh	(c), a
+      00005B 0C               [ 4]    3 	inc	c
+      00005C 2A               [ 8]    1 	ld	a, (hl+)
+      00005D E2               [ 8]    2 	ldh	(c), a
+      00005E 0C               [ 4]    3 	inc	c
+      00005F 2A               [ 8]    1 	ld	a, (hl+)
+      000060 E2               [ 8]    2 	ldh	(c), a
+      000061 0C               [ 4]    3 	inc	c
+      000062 2A               [ 8]    1 	ld	a, (hl+)
+      000063 E2               [ 8]    2 	ldh	(c), a
+      000064 0C               [ 4]    3 	inc	c
+      000065 2A               [ 8]    1 	ld	a, (hl+)
+      000066 E2               [ 8]    2 	ldh	(c), a
+      000067 0C               [ 4]    3 	inc	c
+      000068 2A               [ 8]    1 	ld	a, (hl+)
+      000069 E2               [ 8]    2 	ldh	(c), a
+      00006A 0C               [ 4]    3 	inc	c
+      00006B 2A               [ 8]    1 	ld	a, (hl+)
+      00006C E2               [ 8]    2 	ldh	(c), a
+      00006D 0C               [ 4]    3 	inc	c
+      00006E 2A               [ 8]    1 	ld	a, (hl+)
+      00006F E2               [ 8]    2 	ldh	(c), a
+      000070 0C               [ 4]    3 	inc	c
+      000071 2A               [ 8]    1 	ld	a, (hl+)
+      000072 E2               [ 8]    2 	ldh	(c), a
+      000073 0C               [ 4]    3 	inc	c
+      000074 78               [ 4]  120 	ld	a, b
+      000075 FE 06            [ 8]  121 	cp	#6
+      000077 20 45            [12]  122 	jr	nz, 4$ ; just load waveform, not play
+      000079 3E 80            [ 8]  123 	ld	a, #0x80
+      00007B E0r00            [12]  124 	ldh	(_NR30_REG),a
+      00007D 3E FE            [ 8]  125 	ld	a, #0xFE ; length of wave
+      00007F E0r00            [12]  126 	ldh	(_NR31_REG),a
+      000081 3E 20            [ 8]  127 	ld	a, #0x20 ; volume
+      000083 E0r00            [12]  128 	ldh	(_NR32_REG),a
+      000085 AF               [ 4]  129 	xor	a ; low freq bits are zero
+      000086 E0r00            [12]  130 	ldh	(_NR33_REG),a
+      000088 3E C7            [ 8]  131 	ld	a, #0xC7 ; start; no loop; high freq bits are 111
+      00008A E0r00            [12]  132 	ldh	(_NR34_REG),a
+      00008C 18 30            [12]  133 	jr	4$
+      00008E                        134 5$:
+                                    135 ; terminator
+      00008E 21 00 00         [12]  136 	ld	hl, #0
+      000091 55               [ 4]  137 	ld	d, l
+      000092 18 2F            [12]  138 	jr	0$
+      000094                        139 3$:
+      000094 4F               [ 4]  140 	ld	c, a
+      000095 87               [ 4]  141 	add	a
+      000096 87               [ 4]  142 	add	a
+      000097 81               [ 4]  143 	add	c
+      000098 C6r00            [ 8]  144 	add	#_NR10_REG
+      00009A 4F               [ 4]  145 	ld	c, a ; c = NR10_REG + (a & 7) * 5
+                                    146 	.rept	5
+                                    147 	copy_reg
+                                    148 	.endm
+      00009B                          1 	copy_reg
+      00009B CB 20            [ 8]    1 	sla	b
+      00009D 30 02            [12]    2 	jr	nc, 10000$
+      00009F 2A               [ 8]    3 	ld	a, (hl+)
+      0000A0 E2               [ 8]    4 	ldh	(c), a
+      0000A1                          5 10000$:
+      0000A1 0C               [ 4]    6 	inc	c
+      0000A2                          1 	copy_reg
+      0000A2 CB 20            [ 8]    1 	sla	b
+      0000A4 30 02            [12]    2 	jr	nc, 10001$
+      0000A6 2A               [ 8]    3 	ld	a, (hl+)
+      0000A7 E2               [ 8]    4 	ldh	(c), a
+      0000A8                          5 10001$:
+      0000A8 0C               [ 4]    6 	inc	c
+      0000A9                          1 	copy_reg
+      0000A9 CB 20            [ 8]    1 	sla	b
+      0000AB 30 02            [12]    2 	jr	nc, 10002$
+      0000AD 2A               [ 8]    3 	ld	a, (hl+)
+      0000AE E2               [ 8]    4 	ldh	(c), a
+      0000AF                          5 10002$:
+      0000AF 0C               [ 4]    6 	inc	c
+      0000B0                          1 	copy_reg
+      0000B0 CB 20            [ 8]    1 	sla	b
+      0000B2 30 02            [12]    2 	jr	nc, 10003$
+      0000B4 2A               [ 8]    3 	ld	a, (hl+)
+      0000B5 E2               [ 8]    4 	ldh	(c), a
+      0000B6                          5 10003$:
+      0000B6 0C               [ 4]    6 	inc	c
+      0000B7                          1 	copy_reg
+      0000B7 CB 20            [ 8]    1 	sla	b
+      0000B9 30 02            [12]    2 	jr	nc, 10004$
+      0000BB 2A               [ 8]    3 	ld	a, (hl+)
+      0000BC E2               [ 8]    4 	ldh	(c), a
+      0000BD                          5 10004$:
+      0000BD 0C               [ 4]    6 	inc	c
+      0000BE                        149 4$:
+      0000BE 15               [ 4]  150 	dec	d
+      0000BF C2r32r00         [16]  151 	jp	nz, 2$
+      0000C2                        152 6$:
+      0000C2 14               [ 4]  153 	inc	d ; return 1 if still playing
+      0000C3                        154 0$:
+      0000C3 7D               [ 4]  155 	ld	a, l ; save current position
+      0000C4 EAr01r00         [16]  156 	ld	(_sfx_play_sample), a
+      0000C7 7C               [ 4]  157 	ld	a, h
+      0000C8 EAr02r00         [16]  158 	ld	(_sfx_play_sample + 1), a
+      0000CB 7B               [ 4]  159 	ld	a, e ; restore bank
+      0000CC E0r00            [12]  160 	ldh	(__current_bank), a
+      0000CE EAr00r00         [16]  161 	ld	(_rROMB0), a
+      0000D1 5A               [ 4]  162 	ld	e, d ; result in e
+      0000D2 C9               [16]  163 	ret
+                           0000D3   164 	C$sfxplayer.c$131$1_0$110	= .
+                                    165 	.globl	C$sfxplayer.c$131$1_0$110
+                                    166 ;src/rom0/sfxplayer.c:131: }
+                                    167 	.area _HOME
+                                    168 ;--------------------------------------------------------
+                                    169 ; code
+                                    170 ;--------------------------------------------------------
+                                    171 	.area _CODE
+                                    172 	.area _CODE
+                                    173 	.area _INITIALIZER
+                           000000   174 Fsfxplayer$__xinit_sfx_play_bank$0_0$0 == .
+      000000                        175 __xinit__sfx_play_bank:
+      000000 FF                     176 	.db #0xff	; 255
+                           000001   177 Fsfxplayer$__xinit_sfx_play_sample$0_0$0 == .
+      000001                        178 __xinit__sfx_play_sample:
+      000001 00 00                  179 	.dw #0x0000
+                                    180 	.area _CABS (ABS)

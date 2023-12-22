@@ -1,0 +1,31 @@
+
+  compilers:
+
+      - description: LCC 4.1.0 GBDK2020 Compiler
+        match-compiler-exe: "(.*/)?lcc(\\.exe)?"
+        match-language: C
+        code-insight-target-name: avr
+        include-dirs: 
+          - ${compiler-exe-dir}/../include
+          - ${project-path}/src
+          - ${project-path}/res
+          - ${project-path}/include
+        defines-text: "
+        #define __PORT_sm83
+        #define __TARGET_gb
+        #define __STDC_VERSION__ 201112L
+        #define __STDC_HOSTED__ 0
+        #define __STDC_UTF_16__ 1
+        #define __STDC_ISO_10646__ 201409L
+        #define __STDC_NO_VLA__ 1
+        #define __STDC_UTF_32__ 1
+        #define __STDC_NO_THREADS__ 1
+        #define __STDC_NO_ATOMICS__ 1
+        #define __STDC__ 1
+        #define __STDC_NO_COMPLEX__ 1
+        #define __interrupt(n)
+        #define __at(n)
+        #define __naked
+        #define __critical
+        #define __trap
+        "

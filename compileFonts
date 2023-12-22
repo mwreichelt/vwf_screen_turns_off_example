@@ -1,0 +1,38 @@
+#!/bin/sh
+
+python3 ./utils/png2font.py -o res/fonts/Font_Minimal3x5.c -i Font_Minimal3x5 --start=32 -r ./MasterGraphics/Font_Minimal3x5.png
+sed -i '3 a#include \"common.h\"' res/fonts/Font_Minimal3x5.c
+sed -i '3 a#include \"common.h\"' res/fonts/Font_Minimal3x5.h
+mv res/fonts/Font_Minimal3x5.h include/
+python3 ./utils/png2font.py -o res/fonts/Font_Minimal5x7.c -i Font_Minimal5x7 --start=32 -r ./MasterGraphics/Font_Minimal5x7.png
+sed -i '3 a#include \"common.h\"' res/fonts/Font_Minimal5x7.c
+sed -i '3 a#include \"common.h\"' res/fonts/Font_Minimal5x7.h
+mv res/fonts/Font_Minimal5x7.h include/
+python3 ./utils/png2font.py -o res/fonts/Font_condensed.c -r -i Font_condensed --start=32 ./MasterGraphics/Font_condensed.png
+sed -i '3 a#include \"common.h\"' res/fonts/Font_condensed.c
+sed -i '3 a#include \"common.h\"' res/fonts/Font_condensed.h
+mv res/fonts/Font_condensed.h include/
+#python3 ./utils/png2font.py -o res/fonts/Font_NEC-APC3.c -p 1 -r -i Font_NEC_APC3 --start=32 ./MasterGraphics/Font_NEC-APC3.png
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_NEC-APC3.c
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_NEC-APC3.h
+#mv res/fonts/Font_NEC-APC3.h include/
+#python3 ./utils/png2font.py -o res/fonts/Font_TriangularStonefish.c -p 1 -r -i Font_TriangularStonefish --start=32 ./MasterGraphics/Font_TriangularStonefish.png
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_TriangularStonefish.c
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_TriangularStonefish.h
+#mv res/fonts/Font_TriangularStonefish.h include/
+#python3 ./utils/png2font.py -o res/fonts/Font_WholeWeimardoodle.c -p 1 -r -i Font_WholeWeimardoodle --start=32 ./MasterGraphics/Font_WholeWeimardoodle.png
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_WholeWeimardoodle.c
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_WholeWeimardoodle.h
+#mv res/fonts/Font_WholeWeimardoodle.h include/
+#python3 ./utils/png2font.py -o res/fonts/Font_AppleII_Pro.c -p 1 -r -i Font_AppleII_Pro --start=32 ./MasterGraphics/Font_AppleII_Pro.png
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_AppleII_Pro.c
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_AppleII_Pro.h
+#mv res/fonts/Font_AppleII_Pro.h include/
+#python3 ./utils/png2font.py -o res/fonts/Font_CoCa_GB_v1.c -p 1 -r -i Font_CoCa_GB --start=32 ./MasterGraphics/Font_CoCa_GB_v1.png
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_CoCa_GB_v1.c
+#sed -i '3 a#include \"common.h\"' res/fonts/Font_CoCa_GB_v1.h
+#mv res/fonts/Font_CoCa_GB_v1.h include/
+python3 ./utils/png2font.py -o res/fonts/Font_CoCa_GB_v2.c -r -i Font_CoCa_GB --start=32 ./MasterGraphics/Font_CoCa_GB_v2.png
+sed -i '3 a#include \"common.h\"' res/fonts/Font_CoCa_GB_v2.c
+sed -i '3 a#include \"common.h\"' res/fonts/Font_CoCa_GB_v2.h
+mv res/fonts/Font_CoCa_GB_v2.h include/

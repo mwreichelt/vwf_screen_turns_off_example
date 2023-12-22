@@ -1,0 +1,67 @@
+;!FILE obj/src/scenes/titlescreen_scene.asm
+XL3
+H A areas 26 global symbols
+M titlescreen_scene
+O -msm83
+S _GAME_STATE Ref000000
+S .__.ABS. Def000000
+S ___bank_titlescreen_scene_bank Def000001
+S _loadFullScreenGraphics Ref000000
+S _JOYPAD_CURRENT Ref000000
+S _TEMP_VAR_A Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_1 size 14 flags 0 addr 0
+S A$titlescreen_scene$72 Def000005
+S C$titlescreen_scene.c$7$0_0$126 Def000000
+S G$drawTitlescreen$0$0 Def000008
+S C$titlescreen_scene.c$9$1_0$126 Def000000
+S A$titlescreen_scene$89 Def000008
+S _drawTitlescreen Def000008
+S XG$drawTitlescreen$0$0 Def000008
+S G$handleTitlescreenUpdate$0$0 Def000009
+S G$__func_titlescreen_scene_bank$0$0 Def000014
+S G$loadTitlescreenGraphics$0$0 Def000000
+S A$titlescreen_scene$102 Def000009
+S A$titlescreen_scene$103 Def00000C
+S C$titlescreen_scene.c$22$2_0$130 Def00000E
+S A$titlescreen_scene$104 Def00000D
+S C$titlescreen_scene.c$10$1_0$126 Def000005
+S C$titlescreen_scene.c$11$1_0$126 Def000005
+S C$titlescreen_scene.c$26$1_0$131 Def000014
+S _handleTitlescreenUpdate Def000009
+S A$titlescreen_scene$117 Def000013
+S A$titlescreen_scene$108 Def00000E
+S C$titlescreen_scene.c$20$1_0$129 Def000009
+S A$titlescreen_scene$109 Def000011
+S C$titlescreen_scene.c$13$1_0$128 Def000008
+S _loadTitlescreenGraphics Def000000
+S ___func_titlescreen_scene_bank Def000014
+S C$titlescreen_scene.c$15$1_0$128 Def000008
+S C$titlescreen_scene.c$24$1_0$129 Def000013
+S C$titlescreen_scene.c$17$1_0$129 Def000009
+S XG$handleTitlescreenUpdate$0$0 Def000013
+S A$titlescreen_scene$60 Def000000
+S XG$loadTitlescreenGraphics$0$0 Def000005
+S A$titlescreen_scene$61 Def000003
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 21 00 00 36 00 C3 00 00
+R 00 00 07 00 02 04 05 00 02 09 03 00
+T 08 00 00
+R 00 00 07 00
+T 08 00 00 C9
+R 00 00 07 00
+T 09 00 00
+R 00 00 07 00
+T 09 00 00 FA 00 00 07 D0 21 00 00 36 09 C9
+R 00 00 07 00 02 04 04 00 02 09 00 00
+T 14 00 00
+R 00 00 07 00

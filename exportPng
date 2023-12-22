@@ -1,0 +1,5 @@
+#!/bin/sh
+
+png2asset ${1}.png -spr8x8 -noflip -tiles_only -map -keep_duplicate_tiles
+mv ${1}.h res/
+mv ${1}.c res/

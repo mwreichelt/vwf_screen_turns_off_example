@@ -1,0 +1,38 @@
+XL3
+H A areas A global symbols
+M Data_Music
+O -msm83
+S ___bank_song_template Ref000000
+S .__.ABS. Def000000
+S ___bank_Data_Music_bank Def0000FF
+S _template Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 22 flags 0 addr 0
+S _Data_Music Def000000
+S G$Data_Music$0_0$0 Def000000
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_255 size 0 flags 0 addr 0
+S C$Data_Music.c$8$0_0$119 Def000000
+S G$__func_Data_Music_bank$0$0 Def000000
+S ___func_Data_Music_bank Def000000
+A _INITIALIZER size 22 flags 0 addr 0
+S FData_Music$__xinit_Data_Music$0_0$0 Def000000
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 08 00
+T 00 00 00 4E 4F 4E 45 20 20 20 20 20 20 20 20 20
+R 00 00 08 00
+T 0D 00 00 00 00 00 00 54 45 4D 50 4C 41 54 45 20
+R 00 00 08 00
+T 1A 00 00 20 20 20 20 00 00 00 00 00 00
+R 00 00 08 00 0B 08 00 00 02 0B 03 00

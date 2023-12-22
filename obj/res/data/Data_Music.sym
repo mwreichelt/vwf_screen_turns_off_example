@@ -1,0 +1,37 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 C$Data_Music.c$8$0_0$119                                    =  000000 GR
+  8 FData_Music$__xinit_Data_Music$0_0$0                        =  000000 GR
+  2 G$Data_Music$0_0$0                                          =  000000 GR
+  7 G$__func_Data_Music_bank$0$0                                =  000000 GR
+  2 _Data_Music                                                    000000 GR
+    ___bank_Data_Music_bank                                     =  0000FF G
+    ___bank_song_template                                          ****** GX
+  7 ___func_Data_Music_bank                                        000000 GR
+  8 __xinit__Data_Music                                            000000 R
+    _template                                                      ****** GX
+    b___func_Data_Music_bank                                    =  0000FF L
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size     22   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_255                                  size      0   flags    0
+   8 _INITIALIZER                               size     22   flags    0
+   9 _CABS                                      size      0   flags    8
+

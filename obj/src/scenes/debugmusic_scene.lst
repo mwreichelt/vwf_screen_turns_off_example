@@ -1,0 +1,931 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module debugmusic_scene
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _drawDebugMusicScene
+                                     12 	.globl _handleDebugMusicUpdate
+                                     13 	.globl _initializeDebugMusicScene
+                                     14 	.globl _drawSfxName
+                                     15 	.globl _drawTrackName
+                                     16 	.globl _debugMusicTeardown
+                                     17 	.globl b___func_debugmusic_scene_bank
+                                     18 	.globl ___func_debugmusic_scene_bank
+                                     19 	.globl _loadUIGraphics
+                                     20 	.globl _cpy_banked_data
+                                     21 	.globl _drawTextBkg
+                                     22 	.globl _music_pause
+                                     23 	.globl _uitoa
+                                     24 	.globl _set_bkg_tile_xy
+                                     25 	.globl _set_bkg_tiles
+                                     26 ;--------------------------------------------------------
+                                     27 ; special function registers
+                                     28 ;--------------------------------------------------------
+                                     29 ;--------------------------------------------------------
+                                     30 ; ram data
+                                     31 ;--------------------------------------------------------
+                                     32 	.area _DATA
+                                     33 ;--------------------------------------------------------
+                                     34 ; ram data
+                                     35 ;--------------------------------------------------------
+                                     36 	.area _INITIALIZED
+                                     37 ;--------------------------------------------------------
+                                     38 ; absolute external ram data
+                                     39 ;--------------------------------------------------------
+                                     40 	.area _DABS (ABS)
+                                     41 ;--------------------------------------------------------
+                                     42 ; global & static initialisations
+                                     43 ;--------------------------------------------------------
+                                     44 	.area _HOME
+                                     45 	.area _GSINIT
+                                     46 	.area _GSFINAL
+                                     47 	.area _GSINIT
+                                     48 ;--------------------------------------------------------
+                                     49 ; Home
+                                     50 ;--------------------------------------------------------
+                                     51 	.area _HOME
+                                     52 	.area _HOME
+                                     53 ;--------------------------------------------------------
+                                     54 ; code
+                                     55 ;--------------------------------------------------------
+                                     56 	.area _CODE_255
+                           000000    57 	G$__func_debugmusic_scene_bank$0$0	= .
+                                     58 	.globl	G$__func_debugmusic_scene_bank$0$0
+                           000000    59 	C$debugmusic_scene.c$13$0_0$193	= .
+                                     60 	.globl	C$debugmusic_scene.c$13$0_0$193
+                                     61 ;src/scenes/debugmusic_scene.c:13: BANKREF(debugmusic_scene_bank)
+                                     62 ;	---------------------------------
+                                     63 ; Function __func_debugmusic_scene_bank
+                                     64 ; ---------------------------------
+                           0000FF    65 	b___func_debugmusic_scene_bank	= 255
+      000000                         66 ___func_debugmusic_scene_bank::
+                                     67 	.local b___func_debugmusic_scene_bank 
+                           0000FF    68 	___bank_debugmusic_scene_bank = b___func_debugmusic_scene_bank 
+                                     69 	.globl ___bank_debugmusic_scene_bank 
+                           000000    70 	G$debugMusicTeardown$0$0	= .
+                                     71 	.globl	G$debugMusicTeardown$0$0
+                           000000    72 	C$debugmusic_scene.c$18$1_0$194	= .
+                                     73 	.globl	C$debugmusic_scene.c$18$1_0$194
+                                     74 ;src/scenes/debugmusic_scene.c:18: void debugMusicTeardown() {
+                                     75 ;	---------------------------------
+                                     76 ; Function debugMusicTeardown
+                                     77 ; ---------------------------------
+      000000                         78 _debugMusicTeardown::
+                           000000    79 	C$debugmusic_scene.c$20$1_0$194	= .
+                                     80 	.globl	C$debugmusic_scene.c$20$1_0$194
+                                     81 ;src/scenes/debugmusic_scene.c:20: CURSOR_INDEX = 0;
+      000000 21r00r00         [12]   82 	ld	hl, #_CURSOR_INDEX
+      000003 36 00            [12]   83 	ld	(hl), #0x00
+                           000005    84 	C$debugmusic_scene.c$21$1_0$194	= .
+                                     85 	.globl	C$debugmusic_scene.c$21$1_0$194
+                                     86 ;src/scenes/debugmusic_scene.c:21: CURSOR_INDEX_PREV = 0;
+      000005 21r00r00         [12]   87 	ld	hl, #_CURSOR_INDEX_PREV
+      000008 36 00            [12]   88 	ld	(hl), #0x00
+                           00000A    89 	C$debugmusic_scene.c$22$1_0$194	= .
+                                     90 	.globl	C$debugmusic_scene.c$22$1_0$194
+                                     91 ;src/scenes/debugmusic_scene.c:22: }
+                           00000A    92 	C$debugmusic_scene.c$22$1_0$194	= .
+                                     93 	.globl	C$debugmusic_scene.c$22$1_0$194
+                           00000A    94 	XG$debugMusicTeardown$0$0	= .
+                                     95 	.globl	XG$debugMusicTeardown$0$0
+      00000A C9               [16]   96 	ret
+                           00000B    97 	G$drawTrackName$0$0	= .
+                                     98 	.globl	G$drawTrackName$0$0
+                           00000B    99 	C$debugmusic_scene.c$24$1_0$195	= .
+                                    100 	.globl	C$debugmusic_scene.c$24$1_0$195
+                                    101 ;src/scenes/debugmusic_scene.c:24: void drawTrackName() {
+                                    102 ;	---------------------------------
+                                    103 ; Function drawTrackName
+                                    104 ; ---------------------------------
+      00000B                        105 _drawTrackName::
+      00000B 3B               [ 8]  106 	dec	sp
+                           00000C   107 	C$debugmusic_scene.c$25$1_0$195	= .
+                                    108 	.globl	C$debugmusic_scene.c$25$1_0$195
+                                    109 ;src/scenes/debugmusic_scene.c:25: set_bkg_tiles(1u, 4u, 3u,  1u, BLANK_SCREEN_MAP);
+      00000C 11r00r00         [12]  110 	ld	de, #_BLANK_SCREEN_MAP
+      00000F D5               [16]  111 	push	de
+      000010 21 03 01         [12]  112 	ld	hl, #0x103
+      000013 E5               [16]  113 	push	hl
+      000014 21 01 04         [12]  114 	ld	hl, #0x401
+      000017 E5               [16]  115 	push	hl
+      000018 CDr00r00         [24]  116 	call	_set_bkg_tiles
+      00001B E8 06            [16]  117 	add	sp, #6
+                           00001D   118 	C$debugmusic_scene.c$27$1_0$195	= .
+                                    119 	.globl	C$debugmusic_scene.c$27$1_0$195
+                                    120 ;src/scenes/debugmusic_scene.c:27: uitoa(CURSOR_INDEX, (char *)ITOA_STRING, 10);
+      00001D 11r00r00         [12]  121 	ld	de, #_ITOA_STRING
+      000020 21r00r00         [12]  122 	ld	hl, #_CURSOR_INDEX
+      000023 4E               [ 8]  123 	ld	c, (hl)
+      000024 06 00            [ 8]  124 	ld	b, #0x00
+      000026 3E 0A            [ 8]  125 	ld	a, #0x0a
+      000028 F5               [16]  126 	push	af
+      000029 33               [ 8]  127 	inc	sp
+      00002A D5               [16]  128 	push	de
+      00002B C5               [16]  129 	push	bc
+      00002C CDr00r00         [24]  130 	call	_uitoa
+      00002F E8 05            [16]  131 	add	sp, #5
+                           000031   132 	C$debugmusic_scene.c$28$1_0$195	= .
+                                    133 	.globl	C$debugmusic_scene.c$28$1_0$195
+                                    134 ;src/scenes/debugmusic_scene.c:28: drawTextBkg(1u, 4u, ITOA_STRING);
+      000031 11r00r00         [12]  135 	ld	de, #_ITOA_STRING
+      000034 D5               [16]  136 	push	de
+      000035 1E 04            [ 8]  137 	ld	e, #0x04
+      000037 3E 01            [ 8]  138 	ld	a, #0x01
+      000039 CDr00r00         [24]  139 	call	_drawTextBkg
+                           00003C   140 	C$debugmusic_scene.c$29$1_0$195	= .
+                                    141 	.globl	C$debugmusic_scene.c$29$1_0$195
+                                    142 ;src/scenes/debugmusic_scene.c:29: cpy_banked_data(TEMP_STRING, Data_Music[CURSOR_INDEX].title, 14u, BANK(Data_Music_bank));
+      00003C F8 00            [12]  143 	ldhl	sp,	#0
+      00003E 36r00            [12]  144 	ld	(hl), #<(___bank_Data_Music_bank)
+      000040 21r00r00         [12]  145 	ld	hl, #_CURSOR_INDEX
+      000043 4E               [ 8]  146 	ld	c, (hl)
+      000044 06 00            [ 8]  147 	ld	b, #0x00
+      000046 69               [ 4]  148 	ld	l, c
+      000047 60               [ 4]  149 	ld	h, b
+      000048 29               [ 8]  150 	add	hl, hl
+      000049 29               [ 8]  151 	add	hl, hl
+      00004A 29               [ 8]  152 	add	hl, hl
+      00004B 29               [ 8]  153 	add	hl, hl
+      00004C 09               [ 8]  154 	add	hl, bc
+      00004D 01r00r00         [12]  155 	ld	bc,#_Data_Music
+      000050 09               [ 8]  156 	add	hl,bc
+      000051 4D               [ 4]  157 	ld	c, l
+      000052 44               [ 4]  158 	ld	b, h
+      000053 F8 00            [12]  159 	ldhl	sp,	#0
+      000055 7E               [ 8]  160 	ld	a, (hl)
+      000056 F5               [16]  161 	push	af
+      000057 33               [ 8]  162 	inc	sp
+      000058 11 0E 00         [12]  163 	ld	de, #0x000e
+      00005B D5               [16]  164 	push	de
+      00005C 11r00r00         [12]  165 	ld	de, #_TEMP_STRING
+      00005F CDr00r00         [24]  166 	call	_cpy_banked_data
+                           000062   167 	C$debugmusic_scene.c$30$1_0$195	= .
+                                    168 	.globl	C$debugmusic_scene.c$30$1_0$195
+                                    169 ;src/scenes/debugmusic_scene.c:30: drawTextBkg(4u, 4u, (unsigned char *)TEMP_STRING);
+      000062 11r00r00         [12]  170 	ld	de, #_TEMP_STRING
+      000065 D5               [16]  171 	push	de
+      000066 3E 04            [ 8]  172 	ld	a,#0x04
+      000068 5F               [ 4]  173 	ld	e,a
+      000069 CDr00r00         [24]  174 	call	_drawTextBkg
+                           00006C   175 	C$debugmusic_scene.c$31$1_0$195	= .
+                                    176 	.globl	C$debugmusic_scene.c$31$1_0$195
+                                    177 ;src/scenes/debugmusic_scene.c:31: }
+      00006C 33               [ 8]  178 	inc	sp
+                           00006D   179 	C$debugmusic_scene.c$31$1_0$195	= .
+                                    180 	.globl	C$debugmusic_scene.c$31$1_0$195
+                           00006D   181 	XG$drawTrackName$0$0	= .
+                                    182 	.globl	XG$drawTrackName$0$0
+      00006D C9               [16]  183 	ret
+                           00006E   184 	G$drawSfxName$0$0	= .
+                                    185 	.globl	G$drawSfxName$0$0
+                           00006E   186 	C$debugmusic_scene.c$34$1_0$196	= .
+                                    187 	.globl	C$debugmusic_scene.c$34$1_0$196
+                                    188 ;src/scenes/debugmusic_scene.c:34: void drawSfxName() {
+                                    189 ;	---------------------------------
+                                    190 ; Function drawSfxName
+                                    191 ; ---------------------------------
+      00006E                        192 _drawSfxName::
+      00006E 3B               [ 8]  193 	dec	sp
+                           00006F   194 	C$debugmusic_scene.c$35$1_0$196	= .
+                                    195 	.globl	C$debugmusic_scene.c$35$1_0$196
+                                    196 ;src/scenes/debugmusic_scene.c:35: set_bkg_tiles(1u, 6u, 3u, 1u, BLANK_SCREEN_MAP);
+      00006F 11r00r00         [12]  197 	ld	de, #_BLANK_SCREEN_MAP
+      000072 D5               [16]  198 	push	de
+      000073 21 03 01         [12]  199 	ld	hl, #0x103
+      000076 E5               [16]  200 	push	hl
+      000077 21 01 06         [12]  201 	ld	hl, #0x601
+      00007A E5               [16]  202 	push	hl
+      00007B CDr00r00         [24]  203 	call	_set_bkg_tiles
+      00007E E8 06            [16]  204 	add	sp, #6
+                           000080   205 	C$debugmusic_scene.c$37$1_0$196	= .
+                                    206 	.globl	C$debugmusic_scene.c$37$1_0$196
+                                    207 ;src/scenes/debugmusic_scene.c:37: uitoa(TEMP_VAR_F, (char *)ITOA_STRING, 10);
+      000080 11r00r00         [12]  208 	ld	de, #_ITOA_STRING
+      000083 21r00r00         [12]  209 	ld	hl, #_TEMP_VAR_F
+      000086 4E               [ 8]  210 	ld	c, (hl)
+      000087 06 00            [ 8]  211 	ld	b, #0x00
+      000089 3E 0A            [ 8]  212 	ld	a, #0x0a
+      00008B F5               [16]  213 	push	af
+      00008C 33               [ 8]  214 	inc	sp
+      00008D D5               [16]  215 	push	de
+      00008E C5               [16]  216 	push	bc
+      00008F CDr00r00         [24]  217 	call	_uitoa
+      000092 E8 05            [16]  218 	add	sp, #5
+                           000094   219 	C$debugmusic_scene.c$38$1_0$196	= .
+                                    220 	.globl	C$debugmusic_scene.c$38$1_0$196
+                                    221 ;src/scenes/debugmusic_scene.c:38: drawTextBkg(1u, 6u, ITOA_STRING);
+      000094 11r00r00         [12]  222 	ld	de, #_ITOA_STRING
+      000097 D5               [16]  223 	push	de
+      000098 1E 06            [ 8]  224 	ld	e, #0x06
+      00009A 3E 01            [ 8]  225 	ld	a, #0x01
+      00009C CDr00r00         [24]  226 	call	_drawTextBkg
+                           00009F   227 	C$debugmusic_scene.c$39$1_0$196	= .
+                                    228 	.globl	C$debugmusic_scene.c$39$1_0$196
+                                    229 ;src/scenes/debugmusic_scene.c:39: cpy_banked_data(TEMP_STRING, Data_SFX[TEMP_VAR_F].title, 14u, BANK(Data_SFX_bank));
+      00009F F8 00            [12]  230 	ldhl	sp,	#0
+      0000A1 36r00            [12]  231 	ld	(hl), #<(___bank_Data_SFX_bank)
+      0000A3 21r00r00         [12]  232 	ld	hl, #_TEMP_VAR_F
+      0000A6 4E               [ 8]  233 	ld	c, (hl)
+      0000A7 06 00            [ 8]  234 	ld	b, #0x00
+      0000A9 69               [ 4]  235 	ld	l, c
+      0000AA 60               [ 4]  236 	ld	h, b
+      0000AB 29               [ 8]  237 	add	hl, hl
+      0000AC 29               [ 8]  238 	add	hl, hl
+      0000AD 29               [ 8]  239 	add	hl, hl
+      0000AE 09               [ 8]  240 	add	hl, bc
+      0000AF 29               [ 8]  241 	add	hl, hl
+      0000B0 01r00r00         [12]  242 	ld	bc,#_Data_SFX
+      0000B3 09               [ 8]  243 	add	hl,bc
+      0000B4 4D               [ 4]  244 	ld	c, l
+      0000B5 44               [ 4]  245 	ld	b, h
+      0000B6 F8 00            [12]  246 	ldhl	sp,	#0
+      0000B8 7E               [ 8]  247 	ld	a, (hl)
+      0000B9 F5               [16]  248 	push	af
+      0000BA 33               [ 8]  249 	inc	sp
+      0000BB 11 0E 00         [12]  250 	ld	de, #0x000e
+      0000BE D5               [16]  251 	push	de
+      0000BF 11r00r00         [12]  252 	ld	de, #_TEMP_STRING
+      0000C2 CDr00r00         [24]  253 	call	_cpy_banked_data
+                           0000C5   254 	C$debugmusic_scene.c$40$1_0$196	= .
+                                    255 	.globl	C$debugmusic_scene.c$40$1_0$196
+                                    256 ;src/scenes/debugmusic_scene.c:40: drawTextBkg(4u, 6u, (unsigned char *)TEMP_STRING);
+      0000C5 11r00r00         [12]  257 	ld	de, #_TEMP_STRING
+      0000C8 D5               [16]  258 	push	de
+      0000C9 1E 06            [ 8]  259 	ld	e, #0x06
+      0000CB 3E 04            [ 8]  260 	ld	a, #0x04
+      0000CD CDr00r00         [24]  261 	call	_drawTextBkg
+                           0000D0   262 	C$debugmusic_scene.c$41$1_0$196	= .
+                                    263 	.globl	C$debugmusic_scene.c$41$1_0$196
+                                    264 ;src/scenes/debugmusic_scene.c:41: }
+      0000D0 33               [ 8]  265 	inc	sp
+                           0000D1   266 	C$debugmusic_scene.c$41$1_0$196	= .
+                                    267 	.globl	C$debugmusic_scene.c$41$1_0$196
+                           0000D1   268 	XG$drawSfxName$0$0	= .
+                                    269 	.globl	XG$drawSfxName$0$0
+      0000D1 C9               [16]  270 	ret
+                           0000D2   271 	G$initializeDebugMusicScene$0$0	= .
+                                    272 	.globl	G$initializeDebugMusicScene$0$0
+                           0000D2   273 	C$debugmusic_scene.c$44$1_0$197	= .
+                                    274 	.globl	C$debugmusic_scene.c$44$1_0$197
+                                    275 ;src/scenes/debugmusic_scene.c:44: void initializeDebugMusicScene() {
+                                    276 ;	---------------------------------
+                                    277 ; Function initializeDebugMusicScene
+                                    278 ; ---------------------------------
+      0000D2                        279 _initializeDebugMusicScene::
+                           0000D2   280 	C$debugmusic_scene.c$46$1_0$197	= .
+                                    281 	.globl	C$debugmusic_scene.c$46$1_0$197
+                                    282 ;src/scenes/debugmusic_scene.c:46: RENDER_TARGET = RENDER_TARGET_BKG;
+      0000D2 21r00r00         [12]  283 	ld	hl, #_RENDER_TARGET
+      0000D5 36 00            [12]  284 	ld	(hl), #0x00
+                           0000D7   285 	C$debugmusic_scene.c$47$1_0$197	= .
+                                    286 	.globl	C$debugmusic_scene.c$47$1_0$197
+                                    287 ;src/scenes/debugmusic_scene.c:47: set_bkg_tiles(0, 0, 20u, 18u, BLANK_SCREEN_MAP);
+      0000D7 11r00r00         [12]  288 	ld	de, #_BLANK_SCREEN_MAP
+      0000DA D5               [16]  289 	push	de
+      0000DB 21 14 12         [12]  290 	ld	hl, #0x1214
+      0000DE E5               [16]  291 	push	hl
+      0000DF AF               [ 4]  292 	xor	a, a
+      0000E0 0F               [ 4]  293 	rrca
+      0000E1 F5               [16]  294 	push	af
+      0000E2 CDr00r00         [24]  295 	call	_set_bkg_tiles
+      0000E5 E8 06            [16]  296 	add	sp, #6
+                           0000E7   297 	C$debugmusic_scene.c$49$1_0$197	= .
+                                    298 	.globl	C$debugmusic_scene.c$49$1_0$197
+                                    299 ;src/scenes/debugmusic_scene.c:49: TEMP_VAR_A = UI_GRAPHICS_SMALL_ARROWS_INDEX;
+      0000E7 21r00r00         [12]  300 	ld	hl, #_TEMP_VAR_A
+      0000EA 36 01            [12]  301 	ld	(hl), #0x01
+                           0000EC   302 	C$debugmusic_scene.c$50$1_0$197	= .
+                                    303 	.globl	C$debugmusic_scene.c$50$1_0$197
+                                    304 ;src/scenes/debugmusic_scene.c:50: TEMP_VAR_B = VRAM_SMALL_ARROWS_START;
+      0000EC 21r00r00         [12]  305 	ld	hl, #_TEMP_VAR_B
+      0000EF 36 C4            [12]  306 	ld	(hl), #0xc4
+                           0000F1   307 	C$debugmusic_scene.c$51$1_0$197	= .
+                                    308 	.globl	C$debugmusic_scene.c$51$1_0$197
+                                    309 ;src/scenes/debugmusic_scene.c:51: loadUIGraphics();
+      0000F1 CDr00r00         [24]  310 	call	_loadUIGraphics
+                           0000F4   311 	C$debugmusic_scene.c$54$1_0$197	= .
+                                    312 	.globl	C$debugmusic_scene.c$54$1_0$197
+                                    313 ;src/scenes/debugmusic_scene.c:54: CURSOR_INDEX = 0u;
+      0000F4 21r00r00         [12]  314 	ld	hl, #_CURSOR_INDEX
+      0000F7 36 00            [12]  315 	ld	(hl), #0x00
+                           0000F9   316 	C$debugmusic_scene.c$55$1_0$197	= .
+                                    317 	.globl	C$debugmusic_scene.c$55$1_0$197
+                                    318 ;src/scenes/debugmusic_scene.c:55: TEMP_VAR_F = 0u;
+      0000F9 21r00r00         [12]  319 	ld	hl, #_TEMP_VAR_F
+      0000FC 36 00            [12]  320 	ld	(hl), #0x00
+                           0000FE   321 	C$debugmusic_scene.c$57$1_0$197	= .
+                                    322 	.globl	C$debugmusic_scene.c$57$1_0$197
+                                    323 ;src/scenes/debugmusic_scene.c:57: drawTextBkg(1u, 1u, (unsigned char *)"MUSIC ROOM");
+      0000FE 11r9Cr01         [12]  324 	ld	de, #___str_0
+      000101 D5               [16]  325 	push	de
+      000102 3E 01            [ 8]  326 	ld	a,#0x01
+      000104 5F               [ 4]  327 	ld	e,a
+      000105 CDr00r00         [24]  328 	call	_drawTextBkg
+                           000108   329 	C$debugmusic_scene.c$58$1_0$197	= .
+                                    330 	.globl	C$debugmusic_scene.c$58$1_0$197
+                                    331 ;src/scenes/debugmusic_scene.c:58: drawTextBkg(1u, 3u, (unsigned char *)"TRACK ID");
+      000108 11rA7r01         [12]  332 	ld	de, #___str_1
+      00010B D5               [16]  333 	push	de
+      00010C 1E 03            [ 8]  334 	ld	e, #0x03
+      00010E 3E 01            [ 8]  335 	ld	a, #0x01
+      000110 CDr00r00         [24]  336 	call	_drawTextBkg
+                           000113   337 	C$debugmusic_scene.c$59$1_0$197	= .
+                                    338 	.globl	C$debugmusic_scene.c$59$1_0$197
+                                    339 ;src/scenes/debugmusic_scene.c:59: drawTextBkg(1u, 3u, (unsigned char *)"TRACK NAME");
+      000113 11rB0r01         [12]  340 	ld	de, #___str_2
+      000116 D5               [16]  341 	push	de
+      000117 1E 03            [ 8]  342 	ld	e, #0x03
+      000119 3E 01            [ 8]  343 	ld	a, #0x01
+      00011B CDr00r00         [24]  344 	call	_drawTextBkg
+                           00011E   345 	C$debugmusic_scene.c$60$1_0$197	= .
+                                    346 	.globl	C$debugmusic_scene.c$60$1_0$197
+                                    347 ;src/scenes/debugmusic_scene.c:60: drawTextBkg(1u, 5u, (unsigned char *)"SFX NAME");
+      00011E 11rBBr01         [12]  348 	ld	de, #___str_3
+      000121 D5               [16]  349 	push	de
+      000122 1E 05            [ 8]  350 	ld	e, #0x05
+      000124 3E 01            [ 8]  351 	ld	a, #0x01
+      000126 CDr00r00         [24]  352 	call	_drawTextBkg
+                           000129   353 	C$debugmusic_scene.c$62$1_0$197	= .
+                                    354 	.globl	C$debugmusic_scene.c$62$1_0$197
+                                    355 ;src/scenes/debugmusic_scene.c:62: drawTrackName();
+      000129 CDr0Br00         [24]  356 	call	_drawTrackName
+                           00012C   357 	C$debugmusic_scene.c$64$1_0$197	= .
+                                    358 	.globl	C$debugmusic_scene.c$64$1_0$197
+                                    359 ;src/scenes/debugmusic_scene.c:64: drawSfxName();
+      00012C CDr6Er00         [24]  360 	call	_drawSfxName
+                           00012F   361 	C$debugmusic_scene.c$67$1_0$197	= .
+                                    362 	.globl	C$debugmusic_scene.c$67$1_0$197
+                                    363 ;src/scenes/debugmusic_scene.c:67: drawTextBkg(1u, 10u, (unsigned char *)"U/D    CHANGE TRACK");
+      00012F 11rC4r01         [12]  364 	ld	de, #___str_4
+      000132 D5               [16]  365 	push	de
+      000133 1E 0A            [ 8]  366 	ld	e, #0x0a
+      000135 3E 01            [ 8]  367 	ld	a, #0x01
+      000137 CDr00r00         [24]  368 	call	_drawTextBkg
+                           00013A   369 	C$debugmusic_scene.c$68$1_0$197	= .
+                                    370 	.globl	C$debugmusic_scene.c$68$1_0$197
+                                    371 ;src/scenes/debugmusic_scene.c:68: set_bkg_tile_xy(1u, 10u, VRAM_ICON_ARROW_UP);
+      00013A 21 0A C6         [12]  372 	ld	hl, #0xc60a
+      00013D E5               [16]  373 	push	hl
+      00013E 3E 01            [ 8]  374 	ld	a, #0x01
+      000140 F5               [16]  375 	push	af
+      000141 33               [ 8]  376 	inc	sp
+      000142 CDr00r00         [24]  377 	call	_set_bkg_tile_xy
+      000145 E8 03            [16]  378 	add	sp, #3
+                           000147   379 	C$debugmusic_scene.c$69$1_0$197	= .
+                                    380 	.globl	C$debugmusic_scene.c$69$1_0$197
+                                    381 ;src/scenes/debugmusic_scene.c:69: set_bkg_tile_xy(3u, 10u, VRAM_ICON_ARROW_DOWN);
+      000147 21 0A C5         [12]  382 	ld	hl, #0xc50a
+      00014A E5               [16]  383 	push	hl
+      00014B 3E 03            [ 8]  384 	ld	a, #0x03
+      00014D F5               [16]  385 	push	af
+      00014E 33               [ 8]  386 	inc	sp
+      00014F CDr00r00         [24]  387 	call	_set_bkg_tile_xy
+      000152 E8 03            [16]  388 	add	sp, #3
+                           000154   389 	C$debugmusic_scene.c$70$1_0$197	= .
+                                    390 	.globl	C$debugmusic_scene.c$70$1_0$197
+                                    391 ;src/scenes/debugmusic_scene.c:70: drawTextBkg(1u, 11u, (unsigned char *)"START  PLAY/PAUSE MUSIC");
+      000154 11rD8r01         [12]  392 	ld	de, #___str_5
+      000157 D5               [16]  393 	push	de
+      000158 1E 0B            [ 8]  394 	ld	e, #0x0b
+      00015A 3E 01            [ 8]  395 	ld	a, #0x01
+      00015C CDr00r00         [24]  396 	call	_drawTextBkg
+                           00015F   397 	C$debugmusic_scene.c$73$1_0$197	= .
+                                    398 	.globl	C$debugmusic_scene.c$73$1_0$197
+                                    399 ;src/scenes/debugmusic_scene.c:73: drawTextBkg(1u, 12u, (unsigned char *)"L/R    CHANGE SFX");
+      00015F 11rF0r01         [12]  400 	ld	de, #___str_6
+      000162 D5               [16]  401 	push	de
+      000163 1E 0C            [ 8]  402 	ld	e, #0x0c
+      000165 3E 01            [ 8]  403 	ld	a, #0x01
+      000167 CDr00r00         [24]  404 	call	_drawTextBkg
+                           00016A   405 	C$debugmusic_scene.c$74$1_0$197	= .
+                                    406 	.globl	C$debugmusic_scene.c$74$1_0$197
+                                    407 ;src/scenes/debugmusic_scene.c:74: set_bkg_tile_xy(1u, 12u, VRAM_ICON_ARROW_LEFT);
+      00016A 21 0C C7         [12]  408 	ld	hl, #0xc70c
+      00016D E5               [16]  409 	push	hl
+      00016E 3E 01            [ 8]  410 	ld	a, #0x01
+      000170 F5               [16]  411 	push	af
+      000171 33               [ 8]  412 	inc	sp
+      000172 CDr00r00         [24]  413 	call	_set_bkg_tile_xy
+      000175 E8 03            [16]  414 	add	sp, #3
+                           000177   415 	C$debugmusic_scene.c$75$1_0$197	= .
+                                    416 	.globl	C$debugmusic_scene.c$75$1_0$197
+                                    417 ;src/scenes/debugmusic_scene.c:75: set_bkg_tile_xy(3u, 12u, VRAM_ICON_ARROW_RIGHT);
+      000177 21 0C C4         [12]  418 	ld	hl, #0xc40c
+      00017A E5               [16]  419 	push	hl
+      00017B 3E 03            [ 8]  420 	ld	a, #0x03
+      00017D F5               [16]  421 	push	af
+      00017E 33               [ 8]  422 	inc	sp
+      00017F CDr00r00         [24]  423 	call	_set_bkg_tile_xy
+      000182 E8 03            [16]  424 	add	sp, #3
+                           000184   425 	C$debugmusic_scene.c$76$1_0$197	= .
+                                    426 	.globl	C$debugmusic_scene.c$76$1_0$197
+                                    427 ;src/scenes/debugmusic_scene.c:76: drawTextBkg(1u, 13u, (unsigned char *)"A      PLAY SFX");
+      000184 11r02r02         [12]  428 	ld	de, #___str_7
+      000187 D5               [16]  429 	push	de
+      000188 1E 0D            [ 8]  430 	ld	e, #0x0d
+      00018A 3E 01            [ 8]  431 	ld	a, #0x01
+      00018C CDr00r00         [24]  432 	call	_drawTextBkg
+                           00018F   433 	C$debugmusic_scene.c$79$1_0$197	= .
+                                    434 	.globl	C$debugmusic_scene.c$79$1_0$197
+                                    435 ;src/scenes/debugmusic_scene.c:79: SPRITES_8x8;
+      00018F F0r00            [12]  436 	ldh	a, (_LCDC_REG + 0)
+      000191 E6 FB            [ 8]  437 	and	a, #0xfb
+      000193 E0r00            [12]  438 	ldh	(_LCDC_REG + 0), a
+                           000195   439 	C$debugmusic_scene.c$80$1_0$197	= .
+                                    440 	.globl	C$debugmusic_scene.c$80$1_0$197
+                                    441 ;src/scenes/debugmusic_scene.c:80: SHOW_SPRITES;
+      000195 F0r00            [12]  442 	ldh	a, (_LCDC_REG + 0)
+      000197 F6 02            [ 8]  443 	or	a, #0x02
+      000199 E0r00            [12]  444 	ldh	(_LCDC_REG + 0), a
+                           00019B   445 	C$debugmusic_scene.c$81$1_0$197	= .
+                                    446 	.globl	C$debugmusic_scene.c$81$1_0$197
+                                    447 ;src/scenes/debugmusic_scene.c:81: }
+                           00019B   448 	C$debugmusic_scene.c$81$1_0$197	= .
+                                    449 	.globl	C$debugmusic_scene.c$81$1_0$197
+                           00019B   450 	XG$initializeDebugMusicScene$0$0	= .
+                                    451 	.globl	XG$initializeDebugMusicScene$0$0
+      00019B C9               [16]  452 	ret
+                           00019C   453 Fdebugmusic_scene$__str_0$0_0$0 == .
+      00019C                        454 ___str_0:
+      00019C 4D 55 53 49 43 20 52   455 	.ascii "MUSIC ROOM"
+             4F 4F 4D
+      0001A6 00                     456 	.db 0x00
+                           0001A7   457 Fdebugmusic_scene$__str_1$0_0$0 == .
+      0001A7                        458 ___str_1:
+      0001A7 54 52 41 43 4B 20 49   459 	.ascii "TRACK ID"
+             44
+      0001AF 00                     460 	.db 0x00
+                           0001B0   461 Fdebugmusic_scene$__str_2$0_0$0 == .
+      0001B0                        462 ___str_2:
+      0001B0 54 52 41 43 4B 20 4E   463 	.ascii "TRACK NAME"
+             41 4D 45
+      0001BA 00                     464 	.db 0x00
+                           0001BB   465 Fdebugmusic_scene$__str_3$0_0$0 == .
+      0001BB                        466 ___str_3:
+      0001BB 53 46 58 20 4E 41 4D   467 	.ascii "SFX NAME"
+             45
+      0001C3 00                     468 	.db 0x00
+                           0001C4   469 Fdebugmusic_scene$__str_4$0_0$0 == .
+      0001C4                        470 ___str_4:
+      0001C4 55 2F 44 20 20 20 20   471 	.ascii "U/D    CHANGE TRACK"
+             43 48 41 4E 47 45 20
+             54 52 41 43 4B
+      0001D7 00                     472 	.db 0x00
+                           0001D8   473 Fdebugmusic_scene$__str_5$0_0$0 == .
+      0001D8                        474 ___str_5:
+      0001D8 53 54 41 52 54 20 20   475 	.ascii "START  PLAY/PAUSE MUSIC"
+             50 4C 41 59 2F 50 41
+             55 53 45 20 4D 55 53
+             49 43
+      0001EF 00                     476 	.db 0x00
+                           0001F0   477 Fdebugmusic_scene$__str_6$0_0$0 == .
+      0001F0                        478 ___str_6:
+      0001F0 4C 2F 52 20 20 20 20   479 	.ascii "L/R    CHANGE SFX"
+             43 48 41 4E 47 45 20
+             53 46 58
+      000201 00                     480 	.db 0x00
+                           000202   481 Fdebugmusic_scene$__str_7$0_0$0 == .
+      000202                        482 ___str_7:
+      000202 41 20 20 20 20 20 20   483 	.ascii "A      PLAY SFX"
+             50 4C 41 59 20 53 46
+             58
+      000211 00                     484 	.db 0x00
+                           000212   485 	G$handleDebugMusicUpdate$0$0	= .
+                                    486 	.globl	G$handleDebugMusicUpdate$0$0
+                           000212   487 	C$debugmusic_scene.c$83$1_0$198	= .
+                                    488 	.globl	C$debugmusic_scene.c$83$1_0$198
+                                    489 ;src/scenes/debugmusic_scene.c:83: void handleDebugMusicUpdate() {
+                                    490 ;	---------------------------------
+                                    491 ; Function handleDebugMusicUpdate
+                                    492 ; ---------------------------------
+      000212                        493 _handleDebugMusicUpdate::
+      000212 3B               [ 8]  494 	dec	sp
+                           000213   495 	C$debugmusic_scene.c$85$1_0$198	= .
+                                    496 	.globl	C$debugmusic_scene.c$85$1_0$198
+                                    497 ;src/scenes/debugmusic_scene.c:85: CURSOR_INDEX_PREV = CURSOR_INDEX;
+      000213 FAr00r00         [16]  498 	ld	a, (#_CURSOR_INDEX)
+      000216 EAr00r00         [16]  499 	ld	(#_CURSOR_INDEX_PREV),a
+                           000219   500 	C$debugmusic_scene.c$87$1_0$198	= .
+                                    501 	.globl	C$debugmusic_scene.c$87$1_0$198
+                                    502 ;src/scenes/debugmusic_scene.c:87: TEMP_VAR_E = TEMP_VAR_F;
+      000219 FAr00r00         [16]  503 	ld	a, (#_TEMP_VAR_F)
+      00021C EAr00r00         [16]  504 	ld	(#_TEMP_VAR_E),a
+                           00021F   505 	C$debugmusic_scene.c$90$1_0$198	= .
+                                    506 	.globl	C$debugmusic_scene.c$90$1_0$198
+                                    507 ;src/scenes/debugmusic_scene.c:90: if((JOYPAD_CURRENT & J_UP) && !(JOYPAD_PREVIOUS & J_UP)) {
+      00021F 21r00r00         [12]  508 	ld	hl, #_JOYPAD_CURRENT
+      000222 46               [ 8]  509 	ld	b, (hl)
+      000223 21r00r00         [12]  510 	ld	hl, #_JOYPAD_PREVIOUS
+      000226 4E               [ 8]  511 	ld	c, (hl)
+      000227 CB 50            [ 8]  512 	bit	2, b
+      000229 28 15            [12]  513 	jr	Z, 00111$
+      00022B CB 51            [ 8]  514 	bit	2, c
+      00022D 20 11            [12]  515 	jr	NZ, 00111$
+                           00022F   516 	C$debugmusic_scene.c$91$2_0$199	= .
+                                    517 	.globl	C$debugmusic_scene.c$91$2_0$199
+                                    518 ;src/scenes/debugmusic_scene.c:91: if(CURSOR_INDEX == 0u) {
+      00022F 21r00r00         [12]  519 	ld	hl, #_CURSOR_INDEX
+      000232 7E               [ 8]  520 	ld	a, (hl)
+      000233 B7               [ 4]  521 	or	a, a
+      000234 20 04            [12]  522 	jr	NZ, 00102$
+                           000236   523 	C$debugmusic_scene.c$92$3_0$200	= .
+                                    524 	.globl	C$debugmusic_scene.c$92$3_0$200
+                                    525 ;src/scenes/debugmusic_scene.c:92: CURSOR_INDEX = MUSIC_TRACK_COUNT - 1u;
+      000236 36 01            [12]  526 	ld	(hl), #0x01
+      000238 18 1F            [12]  527 	jr	00112$
+      00023A                        528 00102$:
+                           00023A   529 	C$debugmusic_scene.c$94$3_0$201	= .
+                                    530 	.globl	C$debugmusic_scene.c$94$3_0$201
+                                    531 ;src/scenes/debugmusic_scene.c:94: CURSOR_INDEX--;
+      00023A 21r00r00         [12]  532 	ld	hl, #_CURSOR_INDEX
+      00023D 35               [12]  533 	dec	(hl)
+      00023E 18 19            [12]  534 	jr	00112$
+      000240                        535 00111$:
+                           000240   536 	C$debugmusic_scene.c$96$1_0$198	= .
+                                    537 	.globl	C$debugmusic_scene.c$96$1_0$198
+                                    538 ;src/scenes/debugmusic_scene.c:96: } else if ((JOYPAD_CURRENT & J_DOWN) && !(JOYPAD_PREVIOUS & J_DOWN)) {
+      000240 CB 58            [ 8]  539 	bit	3, b
+      000242 28 15            [12]  540 	jr	Z, 00112$
+      000244 CB 59            [ 8]  541 	bit	3, c
+      000246 20 11            [12]  542 	jr	NZ, 00112$
+                           000248   543 	C$debugmusic_scene.c$97$2_0$202	= .
+                                    544 	.globl	C$debugmusic_scene.c$97$2_0$202
+                                    545 ;src/scenes/debugmusic_scene.c:97: if(CURSOR_INDEX == MUSIC_TRACK_COUNT - 1u) {
+      000248 FAr00r00         [16]  546 	ld	a, (#_CURSOR_INDEX)
+      00024B 3D               [ 4]  547 	dec	a
+      00024C 20 07            [12]  548 	jr	NZ, 00105$
+                           00024E   549 	C$debugmusic_scene.c$98$3_0$203	= .
+                                    550 	.globl	C$debugmusic_scene.c$98$3_0$203
+                                    551 ;src/scenes/debugmusic_scene.c:98: CURSOR_INDEX = 0u;
+      00024E 21r00r00         [12]  552 	ld	hl, #_CURSOR_INDEX
+      000251 36 00            [12]  553 	ld	(hl), #0x00
+      000253 18 04            [12]  554 	jr	00112$
+      000255                        555 00105$:
+                           000255   556 	C$debugmusic_scene.c$100$3_0$204	= .
+                                    557 	.globl	C$debugmusic_scene.c$100$3_0$204
+                                    558 ;src/scenes/debugmusic_scene.c:100: CURSOR_INDEX++;
+      000255 21r00r00         [12]  559 	ld	hl, #_CURSOR_INDEX
+      000258 34               [12]  560 	inc	(hl)
+      000259                        561 00112$:
+                           000259   562 	C$debugmusic_scene.c$105$1_0$198	= .
+                                    563 	.globl	C$debugmusic_scene.c$105$1_0$198
+                                    564 ;src/scenes/debugmusic_scene.c:105: if((JOYPAD_CURRENT & J_START) && !(JOYPAD_PREVIOUS & J_START)) {
+      000259 CB 78            [ 8]  565 	bit	7, b
+      00025B CArDCr02         [16]  566 	jp	Z,00120$
+      00025E CB 79            [ 8]  567 	bit	7, c
+      000260 20 7A            [12]  568 	jr	NZ, 00120$
+                           000262   569 	C$debugmusic_scene.c$106$2_0$205	= .
+                                    570 	.globl	C$debugmusic_scene.c$106$2_0$205
+                                    571 ;src/scenes/debugmusic_scene.c:106: if(CURSOR_INDEX != 0u) {
+      000262 FAr00r00         [16]  572 	ld	a, (#_CURSOR_INDEX)
+      000265 B7               [ 4]  573 	or	a, a
+      000266 28 74            [12]  574 	jr	Z, 00120$
+                           000268   575 	C$debugmusic_scene.c$107$3_0$206	= .
+                                    576 	.globl	C$debugmusic_scene.c$107$3_0$206
+                                    577 ;src/scenes/debugmusic_scene.c:107: if(MUSIC_TOGGLE == 0u) {
+      000268 FAr00r00         [16]  578 	ld	a, (#_MUSIC_TOGGLE)
+      00026B B7               [ 4]  579 	or	a, a
+      00026C 20 48            [12]  580 	jr	NZ, 00115$
+                           00026E   581 	C$debugmusic_scene.c$108$4_0$207	= .
+                                    582 	.globl	C$debugmusic_scene.c$108$4_0$207
+                                    583 ;src/scenes/debugmusic_scene.c:108: cpy_banked_data(&VAR_MUSIC_DATA, &Data_Music[CURSOR_INDEX], sizeof(music_data_t), BANK(Data_Music_bank));
+      00026E F8 00            [12]  584 	ldhl	sp,	#0
+      000270 36r00            [12]  585 	ld	(hl), #<(___bank_Data_Music_bank)
+      000272 21r00r00         [12]  586 	ld	hl, #_CURSOR_INDEX
+      000275 4E               [ 8]  587 	ld	c, (hl)
+      000276 06 00            [ 8]  588 	ld	b, #0x00
+      000278 69               [ 4]  589 	ld	l, c
+      000279 60               [ 4]  590 	ld	h, b
+      00027A 29               [ 8]  591 	add	hl, hl
+      00027B 29               [ 8]  592 	add	hl, hl
+      00027C 29               [ 8]  593 	add	hl, hl
+      00027D 29               [ 8]  594 	add	hl, hl
+      00027E 09               [ 8]  595 	add	hl, bc
+      00027F 01r00r00         [12]  596 	ld	bc,#_Data_Music
+      000282 09               [ 8]  597 	add	hl,bc
+      000283 4D               [ 4]  598 	ld	c, l
+      000284 44               [ 4]  599 	ld	b, h
+      000285 F8 00            [12]  600 	ldhl	sp,	#0
+      000287 7E               [ 8]  601 	ld	a, (hl)
+      000288 F5               [16]  602 	push	af
+      000289 33               [ 8]  603 	inc	sp
+      00028A 11 11 00         [12]  604 	ld	de, #0x0011
+      00028D D5               [16]  605 	push	de
+      00028E 11r00r00         [12]  606 	ld	de, #_VAR_MUSIC_DATA
+      000291 CDr00r00         [24]  607 	call	_cpy_banked_data
+                                    608 ;src/scenes/debugmusic_scene.c:112: music_load(VAR_MUSIC_DATA.bank, VAR_MUSIC_DATA.data);
+      000294 21r0Fr00         [12]  609 	ld	hl, #_VAR_MUSIC_DATA + 15
+      000297 2A               [ 8]  610 	ld	a, (hl+)
+      000298 4F               [ 4]  611 	ld	c, a
+      000299 46               [ 8]  612 	ld	b, (hl)
+      00029A FAr0Er00         [16]  613 	ld	a, (#(_VAR_MUSIC_DATA + 14) + 0)
+                                    614 ;include/musicmanager.h:48: music_current_track_bank = MUSIC_STOP_BANK, music_next_track = data; music_current_track_bank = bank;
+      00029D 21r00r00         [12]  615 	ld	hl, #_music_current_track_bank
+      0002A0 36 FF            [12]  616 	ld	(hl), #0xff
+      0002A2 21r00r00         [12]  617 	ld	hl, #_music_next_track
+      0002A5 71               [ 8]  618 	ld	(hl), c
+      0002A6 23               [ 8]  619 	inc	hl
+      0002A7 70               [ 8]  620 	ld	(hl), b
+      0002A8 EAr00r00         [16]  621 	ld	(#_music_current_track_bank),a
+                           0002AB   622 	C$debugmusic_scene.c$113$4_0$207	= .
+                                    623 	.globl	C$debugmusic_scene.c$113$4_0$207
+                                    624 ;src/scenes/debugmusic_scene.c:113: music_pause(FALSE);
+      0002AB AF               [ 4]  625 	xor	a, a
+      0002AC CDr00r00         [24]  626 	call	_music_pause
+                           0002AF   627 	C$debugmusic_scene.c$115$4_0$207	= .
+                                    628 	.globl	C$debugmusic_scene.c$115$4_0$207
+                                    629 ;src/scenes/debugmusic_scene.c:115: MUSIC_TOGGLE = 1u;
+      0002AF 21r00r00         [12]  630 	ld	hl, #_MUSIC_TOGGLE
+      0002B2 36 01            [12]  631 	ld	(hl), #0x01
+      0002B4 18 26            [12]  632 	jr	00120$
+      0002B6                        633 00115$:
+                           0002B6   634 	C$debugmusic_scene.c$123$4_0$208	= .
+                                    635 	.globl	C$debugmusic_scene.c$123$4_0$208
+                                    636 ;src/scenes/debugmusic_scene.c:123: MUSIC_TOGGLE = 0u;
+      0002B6 21r00r00         [12]  637 	ld	hl, #_MUSIC_TOGGLE
+      0002B9 36 00            [12]  638 	ld	(hl), #0x00
+                                    639 ;include/musicmanager.h:54: music_current_track_bank = MUSIC_STOP_BANK, music_sound_cut();
+      0002BB 21r00r00         [12]  640 	ld	hl, #_music_current_track_bank
+      0002BE 36 FF            [12]  641 	ld	(hl), #0xff
+                                    642 ;include/sfxplayer.h:22: NR12_REG = NR22_REG = NR32_REG = NR42_REG = 0;
+      0002C0 AF               [ 4]  643 	xor	a, a
+      0002C1 E0r00            [12]  644 	ldh	(_NR42_REG + 0), a
+      0002C3 AF               [ 4]  645 	xor	a, a
+      0002C4 E0r00            [12]  646 	ldh	(_NR32_REG + 0), a
+      0002C6 AF               [ 4]  647 	xor	a, a
+      0002C7 E0r00            [12]  648 	ldh	(_NR22_REG + 0), a
+      0002C9 AF               [ 4]  649 	xor	a, a
+      0002CA E0r00            [12]  650 	ldh	(_NR12_REG + 0), a
+                                    651 ;include/sfxplayer.h:23: NR14_REG = NR24_REG = NR44_REG = SFX_CH_RETRIGGER;
+      0002CC 3E C0            [ 8]  652 	ld	a, #0xc0
+      0002CE E0r00            [12]  653 	ldh	(_NR44_REG + 0), a
+      0002D0 3E C0            [ 8]  654 	ld	a, #0xc0
+      0002D2 E0r00            [12]  655 	ldh	(_NR24_REG + 0), a
+      0002D4 3E C0            [ 8]  656 	ld	a, #0xc0
+      0002D6 E0r00            [12]  657 	ldh	(_NR14_REG + 0), a
+                                    658 ;include/sfxplayer.h:24: NR51_REG = 0xFF;
+      0002D8 3E FF            [ 8]  659 	ld	a, #0xff
+      0002DA E0r00            [12]  660 	ldh	(_NR51_REG + 0), a
+                           0002DC   661 	C$debugmusic_scene.c$125$1_0$198	= .
+                                    662 	.globl	C$debugmusic_scene.c$125$1_0$198
+                                    663 ;src/scenes/debugmusic_scene.c:125: music_stop();
+      0002DC                        664 00120$:
+                           0002DC   665 	C$debugmusic_scene.c$90$1_0$198	= .
+                                    666 	.globl	C$debugmusic_scene.c$90$1_0$198
+                                    667 ;src/scenes/debugmusic_scene.c:90: if((JOYPAD_CURRENT & J_UP) && !(JOYPAD_PREVIOUS & J_UP)) {
+      0002DC 21r00r00         [12]  668 	ld	hl, #_JOYPAD_CURRENT
+      0002DF 4E               [ 8]  669 	ld	c, (hl)
+      0002E0 FAr00r00         [16]  670 	ld	a, (#_JOYPAD_PREVIOUS)
+      0002E3 F8 00            [12]  671 	ldhl	sp,	#0
+      0002E5 77               [ 8]  672 	ld	(hl), a
+                           0002E6   673 	C$debugmusic_scene.c$137$1_0$198	= .
+                                    674 	.globl	C$debugmusic_scene.c$137$1_0$198
+                                    675 ;src/scenes/debugmusic_scene.c:137: if((JOYPAD_CURRENT & J_LEFT) && !(JOYPAD_PREVIOUS & J_LEFT)) {
+      0002E6 CB 49            [ 8]  676 	bit	1, c
+      0002E8 28 19            [12]  677 	jr	Z, 00132$
+      0002EA E5               [16]  678 	push	hl
+      0002EB F8 02            [12]  679 	ldhl	sp,	#2
+      0002ED CB 4E            [12]  680 	bit	1, (hl)
+      0002EF E1               [12]  681 	pop	hl
+      0002F0 20 11            [12]  682 	jr	NZ, 00132$
+                           0002F2   683 	C$debugmusic_scene.c$138$2_0$209	= .
+                                    684 	.globl	C$debugmusic_scene.c$138$2_0$209
+                                    685 ;src/scenes/debugmusic_scene.c:138: if(TEMP_VAR_F == 0u) {
+      0002F2 21r00r00         [12]  686 	ld	hl, #_TEMP_VAR_F
+      0002F5 7E               [ 8]  687 	ld	a, (hl)
+      0002F6 B7               [ 4]  688 	or	a, a
+      0002F7 20 04            [12]  689 	jr	NZ, 00123$
+                           0002F9   690 	C$debugmusic_scene.c$139$3_0$210	= .
+                                    691 	.globl	C$debugmusic_scene.c$139$3_0$210
+                                    692 ;src/scenes/debugmusic_scene.c:139: TEMP_VAR_F = MUSIC_SFX_COUNT - 1u;
+      0002F9 36 03            [12]  693 	ld	(hl), #0x03
+      0002FB 18 24            [12]  694 	jr	00133$
+      0002FD                        695 00123$:
+                           0002FD   696 	C$debugmusic_scene.c$141$3_0$211	= .
+                                    697 	.globl	C$debugmusic_scene.c$141$3_0$211
+                                    698 ;src/scenes/debugmusic_scene.c:141: TEMP_VAR_F--;
+      0002FD 21r00r00         [12]  699 	ld	hl, #_TEMP_VAR_F
+      000300 35               [12]  700 	dec	(hl)
+      000301 18 1E            [12]  701 	jr	00133$
+      000303                        702 00132$:
+                           000303   703 	C$debugmusic_scene.c$143$1_0$198	= .
+                                    704 	.globl	C$debugmusic_scene.c$143$1_0$198
+                                    705 ;src/scenes/debugmusic_scene.c:143: } else if ((JOYPAD_CURRENT & J_RIGHT) && !(JOYPAD_PREVIOUS & J_RIGHT)) {
+      000303 CB 41            [ 8]  706 	bit	0, c
+      000305 28 1A            [12]  707 	jr	Z, 00133$
+      000307 E5               [16]  708 	push	hl
+      000308 F8 02            [12]  709 	ldhl	sp,	#2
+      00030A CB 46            [12]  710 	bit	0, (hl)
+      00030C E1               [12]  711 	pop	hl
+      00030D 20 12            [12]  712 	jr	NZ, 00133$
+                           00030F   713 	C$debugmusic_scene.c$144$2_0$212	= .
+                                    714 	.globl	C$debugmusic_scene.c$144$2_0$212
+                                    715 ;src/scenes/debugmusic_scene.c:144: if(TEMP_VAR_F == MUSIC_SFX_COUNT - 1u) {
+      00030F FAr00r00         [16]  716 	ld	a, (#_TEMP_VAR_F)
+      000312 D6 03            [ 8]  717 	sub	a, #0x03
+      000314 20 07            [12]  718 	jr	NZ, 00126$
+                           000316   719 	C$debugmusic_scene.c$145$3_0$213	= .
+                                    720 	.globl	C$debugmusic_scene.c$145$3_0$213
+                                    721 ;src/scenes/debugmusic_scene.c:145: TEMP_VAR_F = 0u;
+      000316 21r00r00         [12]  722 	ld	hl, #_TEMP_VAR_F
+      000319 36 00            [12]  723 	ld	(hl), #0x00
+      00031B 18 04            [12]  724 	jr	00133$
+      00031D                        725 00126$:
+                           00031D   726 	C$debugmusic_scene.c$147$3_0$214	= .
+                                    727 	.globl	C$debugmusic_scene.c$147$3_0$214
+                                    728 ;src/scenes/debugmusic_scene.c:147: TEMP_VAR_F++;
+      00031D 21r00r00         [12]  729 	ld	hl, #_TEMP_VAR_F
+      000320 34               [12]  730 	inc	(hl)
+      000321                        731 00133$:
+                           000321   732 	C$debugmusic_scene.c$152$1_0$198	= .
+                                    733 	.globl	C$debugmusic_scene.c$152$1_0$198
+                                    734 ;src/scenes/debugmusic_scene.c:152: if((JOYPAD_CURRENT & J_A) && !(JOYPAD_PREVIOUS & J_A)) {
+      000321 CB 61            [ 8]  735 	bit	4, c
+      000323 CArC7r03         [16]  736 	jp	Z,00138$
+      000326 E5               [16]  737 	push	hl
+      000327 F8 02            [12]  738 	ldhl	sp,	#2
+      000329 CB 66            [12]  739 	bit	4, (hl)
+      00032B E1               [12]  740 	pop	hl
+      00032C C2rC7r03         [16]  741 	jp	NZ,00138$
+                           00032F   742 	C$debugmusic_scene.c$153$2_0$215	= .
+                                    743 	.globl	C$debugmusic_scene.c$153$2_0$215
+                                    744 ;src/scenes/debugmusic_scene.c:153: if(TEMP_VAR_F != 0u) {
+      00032F FAr00r00         [16]  745 	ld	a, (#_TEMP_VAR_F)
+      000332 B7               [ 4]  746 	or	a, a
+      000333 CArC7r03         [16]  747 	jp	Z, 00138$
+                           000336   748 	C$debugmusic_scene.c$154$3_0$216	= .
+                                    749 	.globl	C$debugmusic_scene.c$154$3_0$216
+                                    750 ;src/scenes/debugmusic_scene.c:154: cpy_banked_data(&VAR_SFX_DATA, &Data_SFX[TEMP_VAR_F], sizeof(sfx_data_t), BANK(Data_SFX_bank));
+      000336 F8 00            [12]  751 	ldhl	sp,	#0
+      000338 36r00            [12]  752 	ld	(hl), #<(___bank_Data_SFX_bank)
+      00033A 21r00r00         [12]  753 	ld	hl, #_TEMP_VAR_F
+      00033D 4E               [ 8]  754 	ld	c, (hl)
+      00033E 06 00            [ 8]  755 	ld	b, #0x00
+      000340 69               [ 4]  756 	ld	l, c
+      000341 60               [ 4]  757 	ld	h, b
+      000342 29               [ 8]  758 	add	hl, hl
+      000343 29               [ 8]  759 	add	hl, hl
+      000344 29               [ 8]  760 	add	hl, hl
+      000345 09               [ 8]  761 	add	hl, bc
+      000346 29               [ 8]  762 	add	hl, hl
+      000347 01r00r00         [12]  763 	ld	bc,#_Data_SFX
+      00034A 09               [ 8]  764 	add	hl,bc
+      00034B 4D               [ 4]  765 	ld	c, l
+      00034C 44               [ 4]  766 	ld	b, h
+      00034D F8 00            [12]  767 	ldhl	sp,	#0
+      00034F 7E               [ 8]  768 	ld	a, (hl)
+      000350 F5               [16]  769 	push	af
+      000351 33               [ 8]  770 	inc	sp
+      000352 11 12 00         [12]  771 	ld	de, #0x0012
+      000355 D5               [16]  772 	push	de
+      000356 11r00r00         [12]  773 	ld	de, #_VAR_SFX_DATA
+      000359 CDr00r00         [24]  774 	call	_cpy_banked_data
+                                    775 ;src/scenes/debugmusic_scene.c:156: VAR_SFX_DATA.mute_mask, 1);
+      00035C FAr11r00         [16]  776 	ld	a, (#(_VAR_SFX_DATA + 17) + 0)
+      00035F F8 00            [12]  777 	ldhl	sp,	#0
+      000361 77               [ 8]  778 	ld	(hl), a
+                                    779 ;src/scenes/debugmusic_scene.c:155: music_play_sfx(VAR_SFX_DATA.bank, VAR_SFX_DATA.data,
+      000362 21r0Fr00         [12]  780 	ld	hl, #_VAR_SFX_DATA + 15
+      000365 2A               [ 8]  781 	ld	a, (hl+)
+      000366 4F               [ 4]  782 	ld	c, a
+      000367 46               [ 8]  783 	ld	b, (hl)
+      000368 21r0Er00         [12]  784 	ld	hl, #_VAR_SFX_DATA + 14
+      00036B 5E               [ 8]  785 	ld	e, (hl)
+                                    786 ;include/musicmanager.h:61: if (priority < music_sfx_priority) return;
+      00036C 3E 01            [ 8]  787 	ld	a, #0x01
+      00036E 21r00r00         [12]  788 	ld	hl, #_music_sfx_priority
+      000371 96               [ 8]  789 	sub	a, (hl)
+      000372 38 53            [12]  790 	jr	C, 00138$
+                                    791 ;include/musicmanager.h:62: sfx_play_bank = SFX_STOP_BANK;
+      000374 21r00r00         [12]  792 	ld	hl, #_sfx_play_bank
+      000377 36 FF            [12]  793 	ld	(hl), #0xff
+                                    794 ;include/musicmanager.h:63: music_sfx_priority = priority;
+      000379 21r00r00         [12]  795 	ld	hl, #_music_sfx_priority
+      00037C 36 01            [12]  796 	ld	(hl), #0x01
+                                    797 ;include/musicmanager.h:64: music_sound_cut_mask(music_mute_mask);
+      00037E FAr00r00         [16]  798 	ld	a, (#_music_mute_mask)
+                                    799 ;include/musicmanager.h:42: sfx_sound_cut_mask(mask);
+      000381 57               [ 4]  800 	ld	d, a
+                                    801 ;include/sfxplayer.h:33: if (mask & SFX_CH_1) NR12_REG = 0, NR14_REG = SFX_CH_RETRIGGER; 
+      000382 0F               [ 4]  802 	rrca
+      000383 30 07            [12]  803 	jr	NC, 00150$
+      000385 AF               [ 4]  804 	xor	a, a
+      000386 E0r00            [12]  805 	ldh	(_NR12_REG + 0), a
+      000388 3E C0            [ 8]  806 	ld	a, #0xc0
+      00038A E0r00            [12]  807 	ldh	(_NR14_REG + 0), a
+      00038C                        808 00150$:
+                                    809 ;include/sfxplayer.h:34: if (mask & SFX_CH_2) NR22_REG = 0, NR24_REG = SFX_CH_RETRIGGER; 
+      00038C CB 4A            [ 8]  810 	bit	1, d
+      00038E 28 07            [12]  811 	jr	Z, 00152$
+      000390 AF               [ 4]  812 	xor	a, a
+      000391 E0r00            [12]  813 	ldh	(_NR22_REG + 0), a
+      000393 3E C0            [ 8]  814 	ld	a, #0xc0
+      000395 E0r00            [12]  815 	ldh	(_NR24_REG + 0), a
+      000397                        816 00152$:
+                                    817 ;include/sfxplayer.h:35: if (mask & SFX_CH_3) NR32_REG = 0; 
+      000397 CB 52            [ 8]  818 	bit	2, d
+      000399 28 03            [12]  819 	jr	Z, 00154$
+      00039B AF               [ 4]  820 	xor	a, a
+      00039C E0r00            [12]  821 	ldh	(_NR32_REG + 0), a
+      00039E                        822 00154$:
+                                    823 ;include/sfxplayer.h:36: if (mask & SFX_CH_4) NR42_REG = 0, NR44_REG = SFX_CH_RETRIGGER;
+      00039E CB 5A            [ 8]  824 	bit	3, d
+      0003A0 28 07            [12]  825 	jr	Z, 00156$
+      0003A2 AF               [ 4]  826 	xor	a, a
+      0003A3 E0r00            [12]  827 	ldh	(_NR42_REG + 0), a
+      0003A5 3E C0            [ 8]  828 	ld	a, #0xc0
+      0003A7 E0r00            [12]  829 	ldh	(_NR44_REG + 0), a
+      0003A9                        830 00156$:
+                                    831 ;include/sfxplayer.h:37: NR51_REG = 0xFF;
+      0003A9 3E FF            [ 8]  832 	ld	a, #0xff
+      0003AB E0r00            [12]  833 	ldh	(_NR51_REG + 0), a
+                                    834 ;include/musicmanager.h:65: music_mute_mask = mute_mask;
+      0003AD F8 00            [12]  835 	ldhl	sp,	#0
+      0003AF 7E               [ 8]  836 	ld	a, (hl)
+      0003B0 EAr00r00         [16]  837 	ld	(#_music_mute_mask),a
+                                    838 ;include/sfxplayer.h:45: sfx_play_bank = SFX_STOP_BANK, sfx_frame_skip = 0, sfx_play_sample = sample, sfx_play_bank = bank;
+      0003B3 21r00r00         [12]  839 	ld	hl, #_sfx_play_bank
+      0003B6 36 FF            [12]  840 	ld	(hl), #0xff
+      0003B8 21r00r00         [12]  841 	ld	hl, #_sfx_frame_skip
+      0003BB 36 00            [12]  842 	ld	(hl), #0x00
+      0003BD 21r00r00         [12]  843 	ld	hl, #_sfx_play_sample
+      0003C0 79               [ 4]  844 	ld	a, c
+      0003C1 22               [ 8]  845 	ld	(hl+), a
+      0003C2 70               [ 8]  846 	ld	(hl), b
+      0003C3 21r00r00         [12]  847 	ld	hl, #_sfx_play_bank
+      0003C6 73               [ 8]  848 	ld	(hl), e
+                           0003C7   849 	C$debugmusic_scene.c$156$1_0$198	= .
+                                    850 	.globl	C$debugmusic_scene.c$156$1_0$198
+                                    851 ;src/scenes/debugmusic_scene.c:156: VAR_SFX_DATA.mute_mask, 1);
+      0003C7                        852 00138$:
+                           0003C7   853 	C$debugmusic_scene.c$162$1_0$198	= .
+                                    854 	.globl	C$debugmusic_scene.c$162$1_0$198
+                                    855 ;src/scenes/debugmusic_scene.c:162: if((JOYPAD_CURRENT & J_B) && !(JOYPAD_PREVIOUS & J_B)) {
+      0003C7 FAr00r00         [16]  856 	ld	a, (#_JOYPAD_CURRENT)
+      0003CA CB 6F            [ 8]  857 	bit	5, a
+      0003CC 28 0C            [12]  858 	jr	Z, 00161$
+      0003CE FAr00r00         [16]  859 	ld	a, (#_JOYPAD_PREVIOUS)
+      0003D1 CB 6F            [ 8]  860 	bit	5, a
+      0003D3 20 05            [12]  861 	jr	NZ, 00161$
+                           0003D5   862 	C$debugmusic_scene.c$163$2_0$217	= .
+                                    863 	.globl	C$debugmusic_scene.c$163$2_0$217
+                                    864 ;src/scenes/debugmusic_scene.c:163: GAME_STATE = STATE_DEBUGROOM;
+      0003D5 21r00r00         [12]  865 	ld	hl, #_GAME_STATE
+      0003D8 36 09            [12]  866 	ld	(hl), #0x09
+      0003DA                        867 00161$:
+                           0003DA   868 	C$debugmusic_scene.c$165$1_0$198	= .
+                                    869 	.globl	C$debugmusic_scene.c$165$1_0$198
+                                    870 ;src/scenes/debugmusic_scene.c:165: }
+      0003DA 33               [ 8]  871 	inc	sp
+                           0003DB   872 	C$debugmusic_scene.c$165$1_0$198	= .
+                                    873 	.globl	C$debugmusic_scene.c$165$1_0$198
+                           0003DB   874 	XG$handleDebugMusicUpdate$0$0	= .
+                                    875 	.globl	XG$handleDebugMusicUpdate$0$0
+      0003DB C9               [16]  876 	ret
+                           0003DC   877 	G$drawDebugMusicScene$0$0	= .
+                                    878 	.globl	G$drawDebugMusicScene$0$0
+                           0003DC   879 	C$debugmusic_scene.c$167$1_0$242	= .
+                                    880 	.globl	C$debugmusic_scene.c$167$1_0$242
+                                    881 ;src/scenes/debugmusic_scene.c:167: void drawDebugMusicScene() {
+                                    882 ;	---------------------------------
+                                    883 ; Function drawDebugMusicScene
+                                    884 ; ---------------------------------
+      0003DC                        885 _drawDebugMusicScene::
+                           0003DC   886 	C$debugmusic_scene.c$169$1_0$242	= .
+                                    887 	.globl	C$debugmusic_scene.c$169$1_0$242
+                                    888 ;src/scenes/debugmusic_scene.c:169: if(CURSOR_INDEX != CURSOR_INDEX_PREV) {
+      0003DC FAr00r00         [16]  889 	ld	a, (#_CURSOR_INDEX)
+      0003DF 21r00r00         [12]  890 	ld	hl, #_CURSOR_INDEX_PREV
+      0003E2 96               [ 8]  891 	sub	a, (hl)
+      0003E3 28 03            [12]  892 	jr	Z, 00102$
+                           0003E5   893 	C$debugmusic_scene.c$170$2_0$243	= .
+                                    894 	.globl	C$debugmusic_scene.c$170$2_0$243
+                                    895 ;src/scenes/debugmusic_scene.c:170: drawTrackName();
+      0003E5 CDr0Br00         [24]  896 	call	_drawTrackName
+      0003E8                        897 00102$:
+                           0003E8   898 	C$debugmusic_scene.c$174$1_0$242	= .
+                                    899 	.globl	C$debugmusic_scene.c$174$1_0$242
+                                    900 ;src/scenes/debugmusic_scene.c:174: if(TEMP_VAR_F != TEMP_VAR_E) {
+      0003E8 FAr00r00         [16]  901 	ld	a, (#_TEMP_VAR_F)
+      0003EB 21r00r00         [12]  902 	ld	hl, #_TEMP_VAR_E
+      0003EE 96               [ 8]  903 	sub	a, (hl)
+                           0003EF   904 	C$debugmusic_scene.c$175$2_0$244	= .
+                                    905 	.globl	C$debugmusic_scene.c$175$2_0$244
+                                    906 ;src/scenes/debugmusic_scene.c:175: drawSfxName();
+      0003EF C2r6Er00         [16]  907 	jp	NZ,_drawSfxName
+                           0003F2   908 	C$debugmusic_scene.c$178$1_0$242	= .
+                                    909 	.globl	C$debugmusic_scene.c$178$1_0$242
+                                    910 ;src/scenes/debugmusic_scene.c:178: }
+                           0003F2   911 	C$debugmusic_scene.c$178$1_0$242	= .
+                                    912 	.globl	C$debugmusic_scene.c$178$1_0$242
+                           0003F2   913 	XG$drawDebugMusicScene$0$0	= .
+                                    914 	.globl	XG$drawDebugMusicScene$0$0
+      0003F2 C9               [16]  915 	ret
+                                    916 	.area _CODE_255
+                                    917 	.area _INITIALIZER
+                                    918 	.area _CABS (ABS)

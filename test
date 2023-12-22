@@ -1,0 +1,2 @@
+#!/bin/sh
+wine ~/bgb/bgb.exe ./obj/vwf_screen_turns_off_example.gb

@@ -1,0 +1,57 @@
+XL3
+H A areas 9 global symbols
+M sound_effect1
+O -msm83
+S .__.ABS. Def000000
+S ___mute_mask_sound_effect1 Def00000B
+S G$__mute_mask_sound_effect1$0_0$0 Def00000B
+S ___bank_sound_effect1 Def000001
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_1 size C2 flags 0 addr 0
+S G$__func_sound_effect1$0$0 Def000000
+S _sound_effect1 Def000000
+S G$sound_effect1$0_0$0 Def000000
+S ___func_sound_effect1 Def000000
+S C$sound_effect1.c$7$0_0$119 Def000000
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 33 F8 00 00 00 00 80 79 00 00 00 80 7B
+R 00 00 07 00
+T 0D 00 00 00 00 00 80 30 30 30 30 31 F8 00 80 F0
+R 00 00 07 00
+T 1A 00 00 00 80 30 30 31 38 F0 9D 80 30 30 31 38
+R 00 00 07 00
+T 27 00 00 F0 6B 81 30 30 31 38 F0 77 82 30 30 31
+R 00 00 07 00
+T 34 00 00 38 F0 12 83 30 30 31 38 F0 9B 83 30 30
+R 00 00 07 00
+T 41 00 00 31 38 F0 4E 84 30 30 31 38 F0 B5 84 30
+R 00 00 07 00
+T 4E 00 00 30 31 38 F0 3B 85 30 30 31 38 F0 89 85
+R 00 00 07 00
+T 5B 00 00 30 30 31 38 F0 CE 85 30 30 31 38 F0 27
+R 00 00 07 00
+T 68 00 00 86 30 30 31 38 F0 5B 86 30 30 31 38 F0
+R 00 00 07 00
+T 75 00 00 9E 86 30 30 31 38 F0 C4 86 30 30 31 38
+R 00 00 07 00
+T 82 00 00 F0 E7 86 30 30 31 38 F0 14 87 30 30 31
+R 00 00 07 00
+T 8F 00 00 38 F0 2D 87 30 30 31 38 F0 4F 87 30 30
+R 00 00 07 00
+T 9C 00 00 31 38 F0 62 87 30 30 31 38 F0 73 87 30
+R 00 00 07 00
+T A9 00 00 30 31 38 F0 8A 87 30 30 31 38 F0 97 87
+R 00 00 07 00
+T B6 00 00 30 30 31 78 80 F5 A7 87 30 30 01 07
+R 00 00 07 00

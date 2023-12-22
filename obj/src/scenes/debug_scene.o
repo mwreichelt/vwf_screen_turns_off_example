@@ -1,0 +1,427 @@
+;!FILE obj/src/scenes/debug_scene.asm
+XL3
+H A areas 126 global symbols
+M debug_scene
+O -msm83
+S _uitoa Ref000000
+S _loadFontGraphicsData Ref000000
+S _JOYPAD_PREVIOUS Ref000000
+S _ITOA_STRING Ref000000
+S _RENDER_TARGET Ref000000
+S _drawTextBkg Ref000000
+S ___bank_debug_scene_bank Def0000FF
+S _loadUIGraphics Ref000000
+S _CURSOR_INDEX Ref000000
+S _GAME_STATE Ref000000
+S .__.ABS. Def000000
+S _shadow_OAM Ref000000
+S _BLANK_SCREEN_MAP Ref000000
+S b_loadFontGraphicsData Ref000000
+S _drawWindowBorder Ref000000
+S _JOYPAD_CURRENT Ref000000
+S ___sdcc_bcall_ehl Ref000000
+S _CURSOR_INDEX_PREV Ref000000
+S _LCDC_REG Ref000000
+S _TEMP_VAR_A Ref000000
+S _TEMP_VAR_B Ref000000
+S _set_bkg_tiles Ref000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _CODE_255 size 1A2 flags 0 addr 0
+S C$debug_scene.c$102$1_0$170 Def000141
+S C$debug_scene.c$103$1_0$170 Def000149
+S C$debug_scene.c$107$1_0$170 Def000168
+S G$handleDebugUpdate$0$0 Def000101
+S C$debug_scene.c$110$1_0$178 Def000169
+S G$__func_debug_scene_bank$0$0 Def000000
+S G$debugSceneTeardown$0$0 Def000000
+S _Debug_Room_Options Def00000F
+S C$debug_scene.c$105$2_0$177 Def00014F
+S A$debug_scene$200 Def000079
+S G$Debug_Room_Options$0_0$0 Def00000F
+S A$debug_scene$400 Def000145
+S A$debug_scene$301 Def0000ED
+S A$debug_scene$220 Def000095
+S C$debug_scene.c$115$2_0$179 Def000182
+S A$debug_scene$401 Def000147
+S A$debug_scene$311 Def0000F3
+S A$debug_scene$302 Def0000EF
+S A$debug_scene$230 Def0000A3
+S A$debug_scene$221 Def000096
+S A$debug_scene$212 Def000087
+S A$debug_scene$140 Def000035
+S C$debug_scene.c$118$1_0$178 Def0001A1
+S C$debug_scene.c$116$2_0$179 Def000196
+S C$debug_scene.c$109$1_0$178 Def000169
+S A$debug_scene$420 Def000158
+S A$debug_scene$303 Def0000F1
+S A$debug_scene$222 Def000099
+S A$debug_scene$213 Def00008A
+S A$debug_scene$204 Def00007C
+S A$debug_scene$141 Def000036
+S A$debug_scene$421 Def000159
+S A$debug_scene$250 Def0000B6
+S A$debug_scene$214 Def00008D
+S A$debug_scene$205 Def00007F
+S A$debug_scene$142 Def000039
+S A$debug_scene$133 Def00002A
+S C$debug_scene.c$40$1_0$161 Def000025
+S A$debug_scene$422 Def00015A
+S A$debug_scene$341 Def000107
+S A$debug_scene$251 Def0000B9
+S A$debug_scene$242 Def0000AD
+S A$debug_scene$215 Def00008E
+S A$debug_scene$206 Def000080
+S A$debug_scene$152 Def000043
+S A$debug_scene$134 Def00002D
+S C$debug_scene.c$50$1_0$161 Def00004D
+S C$debug_scene.c$20$0_0$156 Def000000
+S _handleDebugUpdate Def000101
+S A$debug_scene$450 Def000169
+S A$debug_scene$423 Def00015B
+S A$debug_scene$414 Def00014F
+S A$debug_scene$360 Def000120
+S A$debug_scene$342 Def00010A
+S A$debug_scene$252 Def0000BA
+S A$debug_scene$243 Def0000AF
+S A$debug_scene$234 Def0000A6
+S A$debug_scene$216 Def000090
+S A$debug_scene$207 Def000082
+S A$debug_scene$180 Def00005D
+S A$debug_scene$171 Def000055
+S A$debug_scene$162 Def00004D
+S A$debug_scene$153 Def000046
+S A$debug_scene$135 Def00002E
+S G$drawDebugScene$0$0 Def000169
+S C$debug_scene.c$42$1_0$161 Def000025
+S A$debug_scene$460 Def000178
+S A$debug_scene$451 Def00016C
+S A$debug_scene$424 Def00015C
+S A$debug_scene$415 Def000152
+S A$debug_scene$406 Def000149
+S A$debug_scene$352 Def000117
+S A$debug_scene$343 Def00010B
+S A$debug_scene$280 Def0000D9
+S A$debug_scene$262 Def0000C4
+S A$debug_scene$253 Def0000BB
+S A$debug_scene$244 Def0000B0
+S A$debug_scene$226 Def00009B
+S A$debug_scene$217 Def000092
+S A$debug_scene$208 Def000084
+S A$debug_scene$190 Def00006A
+S A$debug_scene$181 Def000060
+S A$debug_scene$172 Def000058
+S A$debug_scene$136 Def000031
+S C$debug_scene.c$61$1_0$161 Def000066
+S C$debug_scene.c$52$1_0$161 Def000050
+S C$debug_scene.c$43$1_0$161 Def00002A
+S ___func_debug_scene_bank Def000000
+S A$debug_scene$461 Def00017A
+S A$debug_scene$452 Def00016F
+S A$debug_scene$425 Def00015F
+S A$debug_scene$416 Def000153
+S A$debug_scene$407 Def00014B
+S A$debug_scene$380 Def000133
+S A$debug_scene$353 Def00011A
+S A$debug_scene$344 Def00010E
+S A$debug_scene$290 Def0000E4
+S A$debug_scene$281 Def0000DA
+S A$debug_scene$263 Def0000C5
+S A$debug_scene$254 Def0000BC
+S A$debug_scene$245 Def0000B1
+S A$debug_scene$236 Def0000A8
+S A$debug_scene$227 Def00009E
+S A$debug_scene$218 Def000093
+S A$debug_scene$191 Def00006C
+S A$debug_scene$182 Def000061
+S A$debug_scene$146 Def00003B
+S A$debug_scene$137 Def000032
+S A$debug_scene$128 Def000025
+S C$debug_scene.c$80$1_0$161 Def0000E7
+S C$debug_scene.c$62$1_0$161 Def000071
+S C$debug_scene.c$53$1_0$161 Def000055
+S _debugSceneTeardown Def000000
+S A$debug_scene$480 Def000191
+S A$debug_scene$471 Def000182
+S A$debug_scene$453 Def000170
+S A$debug_scene$426 Def000160
+S A$debug_scene$417 Def000155
+S A$debug_scene$408 Def00014C
+S A$debug_scene$381 Def000134
+S A$debug_scene$372 Def000128
+S A$debug_scene$354 Def00011B
+S A$debug_scene$345 Def00010F
+S A$debug_scene$336 Def000101
+S A$debug_scene$291 Def0000E5
+S A$debug_scene$282 Def0000DB
+S A$debug_scene$273 Def0000CC
+S A$debug_scene$255 Def0000BD
+S A$debug_scene$246 Def0000B2
+S A$debug_scene$237 Def0000A9
+S A$debug_scene$228 Def00009F
+S A$debug_scene$219 Def000094
+S A$debug_scene$192 Def00006E
+S A$debug_scene$183 Def000062
+S A$debug_scene$147 Def00003D
+S A$debug_scene$138 Def000033
+S A$debug_scene$129 Def000028
+S C$debug_scene.c$81$1_0$161 Def0000ED
+S C$debug_scene.c$70$2_0$162 Def0000C4
+S C$debug_scene.c$54$1_0$161 Def00005A
+S A$debug_scene$481 Def000194
+S A$debug_scene$472 Def000185
+S A$debug_scene$463 Def00017B
+S A$debug_scene$427 Def000163
+S A$debug_scene$418 Def000156
+S A$debug_scene$409 Def00014E
+S A$debug_scene$373 Def00012A
+S A$debug_scene$355 Def00011C
+S A$debug_scene$346 Def000111
+S A$debug_scene$337 Def000104
+S A$debug_scene$283 Def0000DC
+S A$debug_scene$274 Def0000CF
+S A$debug_scene$256 Def0000BE
+S A$debug_scene$247 Def0000B3
+S A$debug_scene$238 Def0000AB
+S A$debug_scene$229 Def0000A1
+S A$debug_scene$184 Def000063
+S A$debug_scene$166 Def000050
+S A$debug_scene$157 Def000048
+S A$debug_scene$148 Def000040
+S A$debug_scene$139 Def000034
+S C$debug_scene.c$82$1_0$161 Def0000F3
+S C$debug_scene.c$46$1_0$161 Def00003B
+S G$initializeDebugScene$0$0 Def000025
+S A$debug_scene$473 Def000188
+S A$debug_scene$455 Def000171
+S A$debug_scene$437 Def000168
+S A$debug_scene$428 Def000164
+S A$debug_scene$419 Def000157
+S A$debug_scene$392 Def00013D
+S A$debug_scene$374 Def00012C
+S A$debug_scene$365 Def000122
+S A$debug_scene$347 Def000113
+S A$debug_scene$284 Def0000DD
+S A$debug_scene$257 Def0000C0
+S A$debug_scene$248 Def0000B4
+S A$debug_scene$176 Def00005A
+S A$debug_scene$167 Def000053
+S A$debug_scene$158 Def00004B
+S C$debug_scene.c$70$3_0$163 Def0000A6
+S C$debug_scene.c$65$1_0$161 Def00007C
+S C$debug_scene.c$33$1_0$157 Def000000
+S A$debug_scene$474 Def000189
+S A$debug_scene$465 Def00017E
+S A$debug_scene$456 Def000174
+S A$debug_scene$429 Def000165
+S A$debug_scene$393 Def000140
+S A$debug_scene$375 Def00012E
+S A$debug_scene$366 Def000125
+S A$debug_scene$348 Def000115
+S A$debug_scene$285 Def0000DF
+S A$debug_scene$276 Def0000D1
+S A$debug_scene$258 Def0000C3
+S A$debug_scene$249 Def0000B5
+S C$debug_scene.c$93$1_0$170 Def000128
+S C$debug_scene.c$84$1_0$170 Def000101
+S C$debug_scene.c$75$1_0$161 Def0000C7
+S C$debug_scene.c$71$3_0$163 Def0000AD
+S C$debug_scene.c$66$1_0$161 Def000087
+S C$debug_scene.c$48$1_0$161 Def000043
+S A$debug_scene$475 Def00018B
+S A$debug_scene$466 Def00017F
+S A$debug_scene$457 Def000175
+S A$debug_scene$385 Def000136
+S A$debug_scene$367 Def000126
+S A$debug_scene$295 Def0000E7
+S A$debug_scene$277 Def0000D4
+S A$debug_scene$268 Def0000C7
+S A$debug_scene$196 Def000071
+S C$debug_scene.c$85$1_0$170 Def000101
+S C$debug_scene.c$76$1_0$161 Def0000CC
+S C$debug_scene.c$67$1_0$161 Def00009B
+S C$debug_scene.c$58$1_0$161 Def00005D
+S C$debug_scene.c$49$1_0$161 Def000048
+S A$debug_scene$485 Def000196
+S A$debug_scene$476 Def00018D
+S A$debug_scene$467 Def000180
+S A$debug_scene$458 Def000176
+S A$debug_scene$386 Def000139
+S A$debug_scene$359 Def00011E
+S A$debug_scene$296 Def0000E9
+S A$debug_scene$287 Def0000E0
+S A$debug_scene$269 Def0000CA
+S A$debug_scene$197 Def000074
+S A$debug_scene$188 Def000066
+S A$debug_scene$486 Def000199
+S A$debug_scene$477 Def00018E
+S A$debug_scene$459 Def000177
+S A$debug_scene$387 Def00013B
+S A$debug_scene$297 Def0000EB
+S A$debug_scene$279 Def0000D6
+S A$debug_scene$198 Def000075
+S A$debug_scene$189 Def000069
+S C$debug_scene.c$91$3_0$173 Def000122
+S C$debug_scene.c$87$1_0$170 Def000107
+S C$debug_scene.c$37$1_0$157 Def000008
+S A$debug_scene$487 Def00019A
+S A$debug_scene$478 Def00018F
+S A$debug_scene$379 Def000130
+S A$debug_scene$289 Def0000E3
+S A$debug_scene$199 Def000077
+S C$debug_scene.c$38$1_0$157 Def00000E
+S A$debug_scene$497 Def0001A1
+S A$debug_scene$488 Def00019C
+S A$debug_scene$479 Def000190
+S A$debug_scene$398 Def000141
+S XG$handleDebugUpdate$0$0 Def000168
+S A$debug_scene$489 Def00019E
+S A$debug_scene$399 Def000143
+S C$debug_scene.c$94$2_0$174 Def000130
+S C$debug_scene.c$88$2_0$171 Def000117
+S _drawDebugScene Def000169
+S XG$debugSceneTeardown$0$0 Def00000E
+S C$debug_scene.c$95$3_0$175 Def000136
+S C$debug_scene.c$89$3_0$172 Def00011E
+S A$debug_scene$90 Def00000A
+S A$debug_scene$81 Def000003
+S _initializeDebugScene Def000025
+S A$debug_scene$91 Def00000C
+S A$debug_scene$82 Def000004
+S A$debug_scene$83 Def000005
+S C$debug_scene.c$97$3_0$176 Def00013D
+S A$debug_scene$84 Def000006
+S A$debug_scene$85 Def000007
+S A$debug_scene$79 Def000000
+S A$debug_scene$89 Def000008
+S XG$drawDebugScene$0$0 Def0001A1
+S A$debug_scene$99 Def00000E
+S XG$initializeDebugScene$0$0 Def0000F3
+S Fdebug_scene$__str_2$0_0$0 Def0000F4
+S Fdebug_scene$__str_3$0_0$0 Def0000FA
+S Fdebug_scene$__str_4$0_0$0 Def0000FF
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 07 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 01 00 00 AF 02 03 AF 02 F0 00 00 00 E6
+R 00 00 07 00 02 04 0B 00 0B 0C 12 00
+T 0B 00 00 FD E0 00 00 00 C9
+R 00 00 07 00 0B 05 12 00
+T 0F 00 00
+R 00 00 07 00
+T 0F 00 00 4D 55 53 49 43 00 00 00 00 00 0A 46 4F
+R 00 00 07 00
+T 1C 00 00 4E 54 53 00 00 00 00 00 14
+R 00 00 07 00
+T 25 00 00
+R 00 00 07 00
+T 25 00 00 21 00 00 36 00 11 00 00 D5 21 14 12 E5
+R 00 00 07 00 02 04 04 00 02 09 0C 00
+T 32 00 00 AF 0F F5 AF CD 00 00 E8 06 1E 00 00 00
+R 00 00 07 00 02 08 15 00 0B 0D 0D 00
+T 3D 00 00 21 00 00 CD 00 00 21 00 00 36 00 21
+R 00 00 07 00 02 04 01 00 02 07 10 00 02 0A 13 00
+T 49 00 00 00 00 36 60 CD 00 00 21 00 00 36 01 21
+R 00 00 07 00 02 03 14 00 02 08 07 00 02 0B 13 00
+T 56 00 00 00 00 36 C4 CD 00 00 21 0C 12 E5 AF 5F
+R 00 00 07 00 02 03 14 00 02 08 07 00
+T 63 00 00 CD 00 00 11 F4 00 D5 1E 01 3E 0D CD
+R 00 00 07 00 02 04 0E 00 00 07 07 00
+T 6F 00 00 00 00 11 FA 00 D5 1E 02 3E 0D CD 00 00
+R 00 00 07 00 02 03 05 00 00 06 07 00 02 0E 05 00
+T 7C 00 00 11 FF 00 D5 1E 03 3E 0D CD 00 00 11
+R 00 00 07 00 00 04 07 00 02 0C 05 00
+T 88 00 00 00 00 21 00 00 4E 06 00 3E 0A F5 33 D5
+R 00 00 07 00 02 03 03 00 02 06 08 00
+T 95 00 00 C5 CD 00 00 E8 05 11 00 00 D5 1E 03 3E
+R 00 00 07 00 02 05 00 00 02 0A 03 00
+T A2 00 00 0E CD 00 00 0E 00
+R 00 00 07 00 02 05 05 00
+T A8 00 00
+R 00 00 07 00
+T A8 00 00 79 D6 02 30 1A 06 00 69 60 29 29 09 29
+R 00 00 07 00
+T B5 00 00 09 11 0F 00 19 59 1C C5 E5 3E 02 CD
+R 00 00 07 00 00 05 07 00
+T C1 00 00 00 00 C1 0C 18 E1
+R 00 00 07 00 02 03 05 00
+T C7 00 00
+R 00 00 07 00
+T C7 00 00 21 00 00 36 00 21 00 00 36 00 21 02 00
+R 00 00 07 00 02 04 08 00 02 09 11 00 02 0E 0B 00
+T D4 00 00 36 C4 FA 00 00 3C 87 87 87 C6 11 4F 21
+R 00 00 07 00 02 06 08 00
+T E1 00 00 00 00 71 23 36 0A F0 00 00 00 E6 FB E0
+R 00 00 07 00 02 03 0B 00 0B 0A 12 00
+T EC 00 00 00 00 00 F0 00 00 00 F6 02 E0 00 00 00
+R 00 00 07 00 0B 03 12 00 0B 07 12 00 0B 0D 12 00
+T F3 00 00 C9
+R 00 00 07 00
+T F4 00 00
+R 00 00 07 00
+T F4 00 00 44 45 42 55 47 00
+R 00 00 07 00
+T FA 00 00
+R 00 00 07 00
+T FA 00 00 52 4F 4F 4D 00
+R 00 00 07 00
+T FF 00 00
+R 00 00 07 00
+T FF 00 00 43 00
+R 00 00 07 00
+T 01 01 00
+R 00 00 07 00
+T 01 01 00 FA 00 00 EA 00 00 21 00 00 4E 21
+R 00 00 07 00 02 04 08 00 02 07 11 00 02 0A 0F 00
+T 0C 01 00 00 00 46 CB 51 28 15 CB 50 20 11 21
+R 00 00 07 00 02 03 02 00
+T 18 01 00 00 00 7E B7 20 04 36 01 18 1F
+R 00 00 07 00 02 03 08 00
+T 22 01 00
+R 00 00 07 00
+T 22 01 00 21 00 00 35 18 19
+R 00 00 07 00 02 04 08 00
+T 28 01 00
+R 00 00 07 00
+T 28 01 00 CB 59 28 15 CB 58 20 11 FA 00 00 3D 20
+R 00 00 07 00 02 0C 08 00
+T 35 01 00 07 21 00 00 36 00 18 04
+R 00 00 07 00 02 05 08 00
+T 3D 01 00
+R 00 00 07 00
+T 3D 01 00 21 00 00 34
+R 00 00 07 00 02 04 08 00
+T 41 01 00
+R 00 00 07 00
+T 41 01 00 CB 61 28 04 CB 60 28 06
+R 00 00 07 00
+T 49 01 00
+R 00 00 07 00
+T 49 01 00 CB 79 C8 CB 78 C0
+R 00 00 07 00
+T 4F 01 00
+R 00 00 07 00
+T 4F 01 00 21 00 00 4E 06 00 69 60 29 29 09 29 09
+R 00 00 07 00 02 04 08 00
+T 5C 01 00 01 0F 00 09 01 0A 00 09 7E EA 00 00 C9
+R 00 00 07 00 00 04 07 00 02 0D 09 00
+T 69 01 00
+R 00 00 07 00
+T 69 01 00 FA 00 00 21 00 00 96 C8 FA 00 00 3C 87
+R 00 00 07 00 02 04 08 00 02 07 11 00 02 0C 08 00
+T 76 01 00 87 87 C6 11 4F 21 00 00 71 23 36 0A 11
+R 00 00 07 00 02 09 0B 00
+T 83 01 00 00 00 21 00 00 4E 06 00 3E 0A F5 33 D5
+R 00 00 07 00 02 03 03 00 02 06 08 00
+T 90 01 00 C5 CD 00 00 E8 05 11 00 00 D5 1E 03 3E
+R 00 00 07 00 02 05 00 00 02 0A 03 00
+T 9D 01 00 0E CD 00 00 C9
+R 00 00 07 00 02 05 05 00

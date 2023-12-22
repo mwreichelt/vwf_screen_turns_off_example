@@ -1,0 +1,40 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 C$text_font_info.c$6$0_0$119                                =  000000 GR
+  7 Ftext_font_info$__str_0$0_0$0                               =  000008 GR
+  7 Ftext_font_info$__str_1$0_0$0                               =  00006E GR
+  7 G$__func_text_font_info$0$0                                 =  000000 GR
+  7 G$tsCoCaGBv2_alphabet$0_0$0                                 =  000004 GR
+  7 G$tsCoCaGBv2_desc$0_0$0                                     =  000000 GR
+    ___bank_text_font_info                                      =  0000FF G
+  7 ___func_text_font_info                                         000000 GR
+  7 __str_0                                                        000008 R
+  7 __str_1                                                        00006E R
+  7 _tsCoCaGBv2_alphabet                                           000004 GR
+  7 _tsCoCaGBv2_desc                                               000000 GR
+    b___func_text_font_info                                     =  0000FF L
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_255                                  size     D5   flags    0
+   8 _INITIALIZER                               size      0   flags    0
+   9 _CABS                                      size      0   flags    8
+

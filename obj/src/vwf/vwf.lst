@@ -1,0 +1,1013 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module vwf
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _vwf_print_render
+                                     12 	.globl _vwf_print_reset
+                                     13 	.globl _vwf_swap_tiles
+                                     14 	.globl _vwf_set_banked_data
+                                     15 	.globl _vwf_get_bkg_addr
+                                     16 	.globl _vwf_get_win_addr
+                                     17 	.globl _vwf_read_banked_ubyte
+                                     18 	.globl _vwf_memcpy
+                                     19 	.globl _vwf_print_shift_char
+                                     20 	.globl _set_bkg_1bpp_data
+                                     21 	.globl _set_vram_byte
+                                     22 	.globl _vwf_render_base_address
+                                     23 	.globl _vwf_mode
+                                     24 	.globl _vwf_inverse_map
+                                     25 	.globl _vwf_current_offset
+                                     26 	.globl _vwf_current_font_bank
+                                     27 	.globl _vwf_current_font_desc
+                                     28 	.globl _vwf_current_tile
+                                     29 	.globl _vwf_current_rotate
+                                     30 	.globl _vwf_current_mask
+                                     31 	.globl _vwf_tile_data
+                                     32 	.globl _vwf_fonts
+                                     33 	.globl _vwf_set_destination
+                                     34 	.globl _vwf_draw_text
+                                     35 	.globl _vwf_load_font
+                                     36 	.globl _vwf_activate_font
+                                     37 	.globl _vwf_next_tile
+                                     38 ;--------------------------------------------------------
+                                     39 ; special function registers
+                                     40 ;--------------------------------------------------------
+                                     41 ;--------------------------------------------------------
+                                     42 ; ram data
+                                     43 ;--------------------------------------------------------
+                                     44 	.area _DATA
+                           000000    45 G$vwf_fonts$0_0$0==.
+      000000                         46 _vwf_fonts::
+      000000                         47 	.ds 12
+                           00000C    48 G$vwf_tile_data$0_0$0==.
+      00000C                         49 _vwf_tile_data::
+      00000C                         50 	.ds 16
+                           00001C    51 G$vwf_current_mask$0_0$0==.
+      00001C                         52 _vwf_current_mask::
+      00001C                         53 	.ds 1
+                           00001D    54 G$vwf_current_rotate$0_0$0==.
+      00001D                         55 _vwf_current_rotate::
+      00001D                         56 	.ds 1
+                           00001E    57 G$vwf_current_tile$0_0$0==.
+      00001E                         58 _vwf_current_tile::
+      00001E                         59 	.ds 1
+                           00001F    60 G$vwf_current_font_desc$0_0$0==.
+      00001F                         61 _vwf_current_font_desc::
+      00001F                         62 	.ds 7
+                           000026    63 G$vwf_current_font_bank$0_0$0==.
+      000026                         64 _vwf_current_font_bank::
+      000026                         65 	.ds 1
+                           000027    66 Lvwf.vwf_draw_text$ui_dest_base$1_0$129==.
+      000027                         67 _vwf_draw_text_ui_dest_base_65536_129:
+      000027                         68 	.ds 2
+                           000029    69 Lvwf.vwf_draw_text$ui_dest_ptr$1_0$129==.
+      000029                         70 _vwf_draw_text_ui_dest_ptr_65536_129:
+      000029                         71 	.ds 2
+                           00002B    72 Lvwf.vwf_draw_text$ui_text_ptr$1_0$129==.
+      00002B                         73 _vwf_draw_text_ui_text_ptr_65536_129:
+      00002B                         74 	.ds 2
+                                     75 ;--------------------------------------------------------
+                                     76 ; ram data
+                                     77 ;--------------------------------------------------------
+                                     78 	.area _INITIALIZED
+                           000000    79 G$vwf_current_offset$0_0$0==.
+      000000                         80 _vwf_current_offset::
+      000000                         81 	.ds 1
+                           000001    82 G$vwf_inverse_map$0_0$0==.
+      000001                         83 _vwf_inverse_map::
+      000001                         84 	.ds 1
+                           000002    85 G$vwf_mode$0_0$0==.
+      000002                         86 _vwf_mode::
+      000002                         87 	.ds 1
+                           000003    88 G$vwf_render_base_address$0_0$0==.
+      000003                         89 _vwf_render_base_address::
+      000003                         90 	.ds 2
+                                     91 ;--------------------------------------------------------
+                                     92 ; absolute external ram data
+                                     93 ;--------------------------------------------------------
+                                     94 	.area _DABS (ABS)
+                                     95 ;--------------------------------------------------------
+                                     96 ; global & static initialisations
+                                     97 ;--------------------------------------------------------
+                                     98 	.area _HOME
+                                     99 	.area _GSINIT
+                                    100 	.area _GSFINAL
+                                    101 	.area _GSINIT
+                                    102 ;--------------------------------------------------------
+                                    103 ; Home
+                                    104 ;--------------------------------------------------------
+                                    105 	.area _HOME
+                                    106 	.area _HOME
+                                    107 ;--------------------------------------------------------
+                                    108 ; code
+                                    109 ;--------------------------------------------------------
+                                    110 	.area _CODE
+                           000000   111 	G$vwf_set_destination$0$0	= .
+                                    112 	.globl	G$vwf_set_destination$0$0
+                           000000   113 	C$vwf.c$43$0_0$119	= .
+                                    114 	.globl	C$vwf.c$43$0_0$119
+                                    115 ;src/vwf/vwf.c:43: void vwf_set_destination(vwf_reder_dest_e destination) {
+                                    116 ;	---------------------------------
+                                    117 ; Function vwf_set_destination
+                                    118 ; ---------------------------------
+      000000                        119 _vwf_set_destination::
+                           000000   120 	C$vwf.c$44$1_0$119	= .
+                                    121 	.globl	C$vwf.c$44$1_0$119
+                                    122 ;src/vwf/vwf.c:44: vwf_render_base_address = (destination == VWF_RENDER_BKG) ? vwf_get_bkg_addr() : vwf_get_win_addr();
+      000000 B7               [ 4]  123 	or	a, a
+      000001 20 05            [12]  124 	jr	NZ, 00103$
+      000003 CDr00r00         [24]  125 	call	_vwf_get_bkg_addr
+      000006 18 03            [12]  126 	jr	00104$
+      000008                        127 00103$:
+      000008 CDr00r00         [24]  128 	call	_vwf_get_win_addr
+      00000B                        129 00104$:
+      00000B 21r03r00         [12]  130 	ld	hl, #_vwf_render_base_address
+      00000E 7B               [ 4]  131 	ld	a, e
+      00000F 22               [ 8]  132 	ld	(hl+), a
+      000010 72               [ 8]  133 	ld	(hl), d
+                           000011   134 	C$vwf.c$45$1_0$119	= .
+                                    135 	.globl	C$vwf.c$45$1_0$119
+                                    136 ;src/vwf/vwf.c:45: }
+                           000011   137 	C$vwf.c$45$1_0$119	= .
+                                    138 	.globl	C$vwf.c$45$1_0$119
+                           000011   139 	XG$vwf_set_destination$0$0	= .
+                                    140 	.globl	XG$vwf_set_destination$0$0
+      000011 C9               [16]  141 	ret
+                           000012   142 	G$vwf_print_reset$0$0	= .
+                                    143 	.globl	G$vwf_print_reset$0$0
+                           000012   144 	C$vwf.c$47$1_0$121	= .
+                                    145 	.globl	C$vwf.c$47$1_0$121
+                                    146 ;src/vwf/vwf.c:47: void vwf_print_reset(uint8_t tile) {
+                                    147 ;	---------------------------------
+                                    148 ; Function vwf_print_reset
+                                    149 ; ---------------------------------
+      000012                        150 _vwf_print_reset::
+      000012 EAr1Er00         [16]  151 	ld	(#_vwf_current_tile),a
+                           000015   152 	C$vwf.c$49$1_0$121	= .
+                                    153 	.globl	C$vwf.c$49$1_0$121
+                                    154 ;src/vwf/vwf.c:49: vwf_current_offset = 0;
+      000015 21r00r00         [12]  155 	ld	hl, #_vwf_current_offset
+      000018 36 00            [12]  156 	ld	(hl), #0x00
+                           00001A   157 	C$vwf.c$50$1_0$121	= .
+                                    158 	.globl	C$vwf.c$50$1_0$121
+                                    159 ;src/vwf/vwf.c:50: vwf_swap_tiles(); 
+      00001A CDr00r00         [24]  160 	call	_vwf_swap_tiles
+                           00001D   161 	C$vwf.c$51$1_0$121	= .
+                                    162 	.globl	C$vwf.c$51$1_0$121
+                                    163 ;src/vwf/vwf.c:51: vwf_swap_tiles(); 
+                           00001D   164 	C$vwf.c$52$1_0$121	= .
+                                    165 	.globl	C$vwf.c$52$1_0$121
+                                    166 ;src/vwf/vwf.c:52: }
+                           00001D   167 	C$vwf.c$52$1_0$121	= .
+                                    168 	.globl	C$vwf.c$52$1_0$121
+                           00001D   169 	XG$vwf_print_reset$0$0	= .
+                                    170 	.globl	XG$vwf_print_reset$0$0
+      00001D C3r00r00         [16]  171 	jp	_vwf_swap_tiles
+                           000020   172 	G$vwf_print_render$0$0	= .
+                                    173 	.globl	G$vwf_print_render$0$0
+                           000020   174 	C$vwf.c$54$1_0$123	= .
+                                    175 	.globl	C$vwf.c$54$1_0$123
+                                    176 ;src/vwf/vwf.c:54: uint8_t vwf_print_render(const unsigned char ch) {
+                                    177 ;	---------------------------------
+                                    178 ; Function vwf_print_render
+                                    179 ; ---------------------------------
+      000020                        180 _vwf_print_render::
+      000020 E8 FD            [16]  181 	add	sp, #-3
+      000022 4F               [ 4]  182 	ld	c, a
+                           000023   183 	C$vwf.c$55$1_0$123	= .
+                                    184 	.globl	C$vwf.c$55$1_0$123
+                                    185 ;src/vwf/vwf.c:55: uint8_t letter = vwf_read_banked_ubyte(vwf_current_font_desc.recode_table + (ch & ((vwf_current_font_desc.attr & RECODE_7BIT) ? 0x7fu : 0xffu)), vwf_current_font_bank);
+      000023 21r20r00         [12]  186 	ld	hl, #_vwf_current_font_desc + 1
+      000026 2A               [ 8]  187 	ld	a, (hl+)
+      000027 46               [ 8]  188 	ld	b, (hl)
+      000028 21r1Fr00         [12]  189 	ld	hl, #_vwf_current_font_desc
+                                    190 ;	spillPairReg hl
+      00002B CB 46            [12]  191 	bit	0, (hl)
+      00002D 28 05            [12]  192 	jr	Z, 00110$
+      00002F 11 7F 00         [12]  193 	ld	de, #0x007f
+      000032 18 03            [12]  194 	jr	00111$
+      000034                        195 00110$:
+      000034 11 FF 00         [12]  196 	ld	de, #0x00ff
+      000037                        197 00111$:
+      000037 69               [ 4]  198 	ld	l, c
+                                    199 ;	spillPairReg hl
+                                    200 ;	spillPairReg hl
+      000038 26 00            [ 8]  201 	ld	h, #0x00
+                                    202 ;	spillPairReg hl
+                                    203 ;	spillPairReg hl
+      00003A F5               [16]  204 	push	af
+      00003B 7D               [ 4]  205 	ld	a, l
+      00003C A3               [ 4]  206 	and	a, e
+      00003D 5F               [ 4]  207 	ld	e, a
+      00003E 7C               [ 4]  208 	ld	a, h
+      00003F A2               [ 4]  209 	and	a, d
+      000040 57               [ 4]  210 	ld	d, a
+      000041 F1               [12]  211 	pop	af
+      000042 83               [ 4]  212 	add	a, e
+      000043 4F               [ 4]  213 	ld	c, a
+      000044 78               [ 4]  214 	ld	a, b
+      000045 8A               [ 4]  215 	adc	a, d
+      000046 21r26r00         [12]  216 	ld	hl, #_vwf_current_font_bank
+      000049 66               [ 8]  217 	ld	h, (hl)
+                                    218 ;	spillPairReg hl
+                                    219 ;	spillPairReg hl
+      00004A E5               [16]  220 	push	hl
+      00004B 33               [ 8]  221 	inc	sp
+      00004C 47               [ 4]  222 	ld	b, a
+      00004D C5               [16]  223 	push	bc
+      00004E CDr00r00         [24]  224 	call	_vwf_read_banked_ubyte
+      000051 E8 03            [16]  225 	add	sp, #3
+      000053 F8 00            [12]  226 	ldhl	sp,	#0
+      000055 73               [ 8]  227 	ld	(hl), e
+                           000056   228 	C$vwf.c$56$1_0$123	= .
+                                    229 	.globl	C$vwf.c$56$1_0$123
+                                    230 ;src/vwf/vwf.c:56: const uint8_t * bitmap = vwf_current_font_desc.bitmaps + (uint16_t)letter * 8;
+      000056 21r24r00         [12]  231 	ld	hl, #_vwf_current_font_desc + 5
+      000059 2A               [ 8]  232 	ld	a, (hl+)
+      00005A 4F               [ 4]  233 	ld	c, a
+      00005B 46               [ 8]  234 	ld	b, (hl)
+      00005C F8 00            [12]  235 	ldhl	sp,	#0
+      00005E 6E               [ 8]  236 	ld	l, (hl)
+      00005F 26 00            [ 8]  237 	ld	h, #0x00
+      000061 29               [ 8]  238 	add	hl, hl
+      000062 29               [ 8]  239 	add	hl, hl
+      000063 29               [ 8]  240 	add	hl, hl
+      000064 09               [ 8]  241 	add	hl, bc
+      000065 4D               [ 4]  242 	ld	c, l
+      000066 7C               [ 4]  243 	ld	a, h
+      000067 F8 01            [12]  244 	ldhl	sp,	#1
+      000069 71               [ 8]  245 	ld	(hl), c
+      00006A 23               [ 8]  246 	inc	hl
+      00006B 77               [ 8]  247 	ld	(hl), a
+                           00006C   248 	C$vwf.c$57$1_0$123	= .
+                                    249 	.globl	C$vwf.c$57$1_0$123
+                                    250 ;src/vwf/vwf.c:57: if (vwf_current_font_desc.attr & FONT_VWF) {
+      00006C FAr1Fr00         [16]  251 	ld	a, (#_vwf_current_font_desc + 0)
+      00006F CB 4F            [ 8]  252 	bit	1, a
+      000071 CAr5Fr01         [16]  253 	jp	Z,00106$
+                           000074   254 	C$vwf.c$58$2_0$124	= .
+                                    255 	.globl	C$vwf.c$58$2_0$124
+                                    256 ;src/vwf/vwf.c:58: uint8_t width = vwf_read_banked_ubyte(vwf_current_font_desc.widths + letter, vwf_current_font_bank);
+      000074 21r22r00         [12]  257 	ld	hl, #_vwf_current_font_desc + 3
+      000077 2A               [ 8]  258 	ld	a, (hl+)
+      000078 4F               [ 4]  259 	ld	c, a
+      000079 46               [ 8]  260 	ld	b, (hl)
+      00007A F8 00            [12]  261 	ldhl	sp,	#0
+      00007C 6E               [ 8]  262 	ld	l, (hl)
+      00007D 26 00            [ 8]  263 	ld	h, #0x00
+      00007F 09               [ 8]  264 	add	hl, bc
+      000080 4D               [ 4]  265 	ld	c, l
+      000081 44               [ 4]  266 	ld	b, h
+      000082 FAr26r00         [16]  267 	ld	a, (#_vwf_current_font_bank)
+      000085 F5               [16]  268 	push	af
+      000086 33               [ 8]  269 	inc	sp
+      000087 C5               [16]  270 	push	bc
+      000088 CDr00r00         [24]  271 	call	_vwf_read_banked_ubyte
+      00008B E8 03            [16]  272 	add	sp, #3
+                           00008D   273 	C$vwf.c$59$2_0$124	= .
+                                    274 	.globl	C$vwf.c$59$2_0$124
+                                    275 ;src/vwf/vwf.c:59: uint8_t dx = (8u - vwf_current_offset);
+      00008D 3E 08            [ 8]  276 	ld	a, #0x08
+      00008F 21r00r00         [12]  277 	ld	hl, #_vwf_current_offset
+      000092 96               [ 8]  278 	sub	a, (hl)
+      000093 F8 00            [12]  279 	ldhl	sp,	#0
+                           000095   280 	C$vwf.c$60$2_0$124	= .
+                                    281 	.globl	C$vwf.c$60$2_0$124
+                                    282 ;src/vwf/vwf.c:60: vwf_current_mask = (0xffu << dx) | (0xffu >> (vwf_current_offset + width));
+      000095 77               [ 8]  283 	ld	(hl), a
+      000096 F5               [16]  284 	push	af
+      000097 06 FF            [ 8]  285 	ld	b, #0xff
+      000099 F1               [12]  286 	pop	af
+      00009A 3C               [ 4]  287 	inc	a
+      00009B 18 02            [12]  288 	jr	00142$
+      00009D                        289 00141$:
+      00009D CB 20            [ 8]  290 	sla	b
+      00009F                        291 00142$:
+      00009F 3D               [ 4]  292 	dec	a
+      0000A0 20 FB            [12]  293 	jr	NZ,00141$
+      0000A2 21r00r00         [12]  294 	ld	hl, #_vwf_current_offset
+      0000A5 4E               [ 8]  295 	ld	c, (hl)
+      0000A6 79               [ 4]  296 	ld	a, c
+      0000A7 83               [ 4]  297 	add	a, e
+      0000A8 57               [ 4]  298 	ld	d, a
+      0000A9 21 FF 00         [12]  299 	ld	hl, #0x00ff
+      0000AC 14               [ 4]  300 	inc	d
+      0000AD 18 04            [12]  301 	jr	00144$
+      0000AF                        302 00143$:
+      0000AF CB 3C            [ 8]  303 	srl	h
+      0000B1 CB 1D            [ 8]  304 	rr	l
+      0000B3                        305 00144$:
+      0000B3 15               [ 4]  306 	dec	d
+      0000B4 20 F9            [12]  307 	jr	NZ, 00143$
+      0000B6 7D               [ 4]  308 	ld	a, l
+      0000B7 B0               [ 4]  309 	or	a, b
+      0000B8 EAr1Cr00         [16]  310 	ld	(#_vwf_current_mask),a
+                           0000BB   311 	C$vwf.c$62$2_0$124	= .
+                                    312 	.globl	C$vwf.c$62$2_0$124
+                                    313 ;src/vwf/vwf.c:62: vwf_current_rotate = vwf_current_offset;
+      0000BB 21r1Dr00         [12]  314 	ld	hl, #_vwf_current_rotate
+      0000BE 71               [ 8]  315 	ld	(hl), c
+                           0000BF   316 	C$vwf.c$63$1_0$123	= .
+                                    317 	.globl	C$vwf.c$63$1_0$123
+                                    318 ;src/vwf/vwf.c:63: vwf_print_shift_char(vwf_tile_data, bitmap, vwf_current_font_bank);
+      0000BF 01r0Cr00         [12]  319 	ld	bc, #_vwf_tile_data+0
+      0000C2 C5               [16]  320 	push	bc
+      0000C3 D5               [16]  321 	push	de
+      0000C4 FAr26r00         [16]  322 	ld	a, (#_vwf_current_font_bank)
+      0000C7 F5               [16]  323 	push	af
+      0000C8 33               [ 8]  324 	inc	sp
+      0000C9 F8 06            [12]  325 	ldhl	sp,	#6
+      0000CB 2A               [ 8]  326 	ld	a, (hl+)
+      0000CC 66               [ 8]  327 	ld	h, (hl)
+                                    328 ;	spillPairReg hl
+                                    329 ;	spillPairReg hl
+      0000CD 6F               [ 4]  330 	ld	l, a
+                                    331 ;	spillPairReg hl
+                                    332 ;	spillPairReg hl
+      0000CE E5               [16]  333 	push	hl
+      0000CF 21r0Cr00         [12]  334 	ld	hl, #_vwf_tile_data
+      0000D2 E5               [16]  335 	push	hl
+      0000D3 CDr00r00         [24]  336 	call	_vwf_print_shift_char
+      0000D6 E8 05            [16]  337 	add	sp, #5
+      0000D8 D1               [12]  338 	pop	de
+      0000D9 C1               [12]  339 	pop	bc
+                           0000DA   340 	C$vwf.c$64$2_0$124	= .
+                                    341 	.globl	C$vwf.c$64$2_0$124
+                                    342 ;src/vwf/vwf.c:64: if ((uint8_t)(vwf_current_offset + width) > 8u) {
+      0000DA FAr00r00         [16]  343 	ld	a, (#_vwf_current_offset)
+      0000DD 83               [ 4]  344 	add	a, e
+      0000DE 57               [ 4]  345 	ld	d, a
+      0000DF 3E 08            [ 8]  346 	ld	a, #0x08
+      0000E1 92               [ 4]  347 	sub	a, d
+      0000E2 30 36            [12]  348 	jr	NC, 00102$
+                           0000E4   349 	C$vwf.c$65$3_0$125	= .
+                                    350 	.globl	C$vwf.c$65$3_0$125
+                                    351 ;src/vwf/vwf.c:65: vwf_current_rotate = dx | 0x80u;
+      0000E4 F8 00            [12]  352 	ldhl	sp,	#0
+      0000E6 7E               [ 8]  353 	ld	a, (hl)
+      0000E7 F6 80            [ 8]  354 	or	a, #0x80
+      0000E9 EAr1Dr00         [16]  355 	ld	(#_vwf_current_rotate),a
+                           0000EC   356 	C$vwf.c$66$3_0$125	= .
+                                    357 	.globl	C$vwf.c$66$3_0$125
+                                    358 ;src/vwf/vwf.c:66: vwf_current_mask = 0xffu >> (width - dx);
+      0000EC 7B               [ 4]  359 	ld	a, e
+      0000ED F8 00            [12]  360 	ldhl	sp,	#0
+      0000EF 96               [ 8]  361 	sub	a, (hl)
+      0000F0 57               [ 4]  362 	ld	d, a
+      0000F1 21 FF 00         [12]  363 	ld	hl, #0x00ff
+      0000F4 14               [ 4]  364 	inc	d
+      0000F5 18 04            [12]  365 	jr	00146$
+      0000F7                        366 00145$:
+      0000F7 CB 3C            [ 8]  367 	srl	h
+      0000F9 CB 1D            [ 8]  368 	rr	l
+      0000FB                        369 00146$:
+      0000FB 15               [ 4]  370 	dec	d
+      0000FC 20 F9            [12]  371 	jr	NZ, 00145$
+      0000FE 7D               [ 4]  372 	ld	a, l
+      0000FF EAr1Cr00         [16]  373 	ld	(_vwf_current_mask), a
+                           000102   374 	C$vwf.c$67$3_0$125	= .
+                                    375 	.globl	C$vwf.c$67$3_0$125
+                                    376 ;src/vwf/vwf.c:67: vwf_print_shift_char(vwf_tile_data + DEVICE_TILE_SIZE, bitmap, vwf_current_font_bank);
+      000102 C5               [16]  377 	push	bc
+      000103 D5               [16]  378 	push	de
+      000104 FAr26r00         [16]  379 	ld	a, (#_vwf_current_font_bank)
+      000107 F5               [16]  380 	push	af
+      000108 33               [ 8]  381 	inc	sp
+      000109 F8 06            [12]  382 	ldhl	sp,	#6
+      00010B 2A               [ 8]  383 	ld	a, (hl+)
+      00010C 66               [ 8]  384 	ld	h, (hl)
+                                    385 ;	spillPairReg hl
+                                    386 ;	spillPairReg hl
+      00010D 6F               [ 4]  387 	ld	l, a
+                                    388 ;	spillPairReg hl
+                                    389 ;	spillPairReg hl
+      00010E E5               [16]  390 	push	hl
+      00010F 21r14r00         [12]  391 	ld	hl, #(_vwf_tile_data + 8)
+      000112 E5               [16]  392 	push	hl
+      000113 CDr00r00         [24]  393 	call	_vwf_print_shift_char
+      000116 E8 05            [16]  394 	add	sp, #5
+      000118 D1               [12]  395 	pop	de
+      000119 C1               [12]  396 	pop	bc
+      00011A                        397 00102$:
+                           00011A   398 	C$vwf.c$69$2_0$124	= .
+                                    399 	.globl	C$vwf.c$69$2_0$124
+                                    400 ;src/vwf/vwf.c:69: vwf_current_offset += width;
+      00011A 7B               [ 4]  401 	ld	a, e
+      00011B 21r00r00         [12]  402 	ld	hl, #_vwf_current_offset
+      00011E 86               [ 8]  403 	add	a, (hl)
+      00011F 77               [ 8]  404 	ld	(hl), a
+                           000120   405 	C$vwf.c$71$2_0$124	= .
+                                    406 	.globl	C$vwf.c$71$2_0$124
+                                    407 ;src/vwf/vwf.c:71: if (vwf_current_offset > 7u) {
+      000120 3E 07            [ 8]  408 	ld	a, #0x07
+      000122 96               [ 8]  409 	sub	a, (hl)
+      000123 30 28            [12]  410 	jr	NC, 00104$
+                           000125   411 	C$vwf.c$72$3_0$126	= .
+                                    412 	.globl	C$vwf.c$72$3_0$126
+                                    413 ;src/vwf/vwf.c:72: vwf_current_offset -= 8u;
+      000125 7E               [ 8]  414 	ld	a, (hl)
+      000126 C6 F8            [ 8]  415 	add	a, #0xf8
+                           000128   416 	C$vwf.c$73$3_0$126	= .
+                                    417 	.globl	C$vwf.c$73$3_0$126
+                                    418 ;src/vwf/vwf.c:73: set_bkg_1bpp_data(vwf_current_tile, (vwf_current_offset) ? 2 : 1, vwf_tile_data);
+      000128 77               [ 8]  419 	ld	(hl), a
+      000129 B7               [ 4]  420 	or	a, a
+      00012A 28 05            [12]  421 	jr	Z, 00112$
+      00012C 11 02 00         [12]  422 	ld	de, #0x0002
+      00012F 18 03            [12]  423 	jr	00113$
+      000131                        424 00112$:
+      000131 11 01 00         [12]  425 	ld	de, #0x0001
+      000134                        426 00113$:
+      000134 7B               [ 4]  427 	ld	a, e
+      000135 C5               [16]  428 	push	bc
+      000136 F5               [16]  429 	push	af
+      000137 33               [ 8]  430 	inc	sp
+      000138 FAr1Er00         [16]  431 	ld	a, (#_vwf_current_tile)
+      00013B F5               [16]  432 	push	af
+      00013C 33               [ 8]  433 	inc	sp
+      00013D CDr00r00         [24]  434 	call	_set_bkg_1bpp_data
+      000140 E8 04            [16]  435 	add	sp, #4
+                           000142   436 	C$vwf.c$74$3_0$126	= .
+                                    437 	.globl	C$vwf.c$74$3_0$126
+                                    438 ;src/vwf/vwf.c:74: vwf_current_tile++;
+      000142 21r1Er00         [12]  439 	ld	hl, #_vwf_current_tile
+      000145 34               [12]  440 	inc	(hl)
+                           000146   441 	C$vwf.c$75$3_0$126	= .
+                                    442 	.globl	C$vwf.c$75$3_0$126
+                                    443 ;src/vwf/vwf.c:75: vwf_swap_tiles();
+      000146 CDr00r00         [24]  444 	call	_vwf_swap_tiles
+                           000149   445 	C$vwf.c$76$3_0$126	= .
+                                    446 	.globl	C$vwf.c$76$3_0$126
+                                    447 ;src/vwf/vwf.c:76: return TRUE;
+      000149 3E 01            [ 8]  448 	ld	a, #0x01
+      00014B 18 34            [12]  449 	jr	00108$
+      00014D                        450 00104$:
+                           00014D   451 	C$vwf.c$78$2_0$124	= .
+                                    452 	.globl	C$vwf.c$78$2_0$124
+                                    453 ;src/vwf/vwf.c:78: set_bkg_1bpp_data(vwf_current_tile, 1, vwf_tile_data);
+      00014D C5               [16]  454 	push	bc
+      00014E 3E 01            [ 8]  455 	ld	a, #0x01
+      000150 F5               [16]  456 	push	af
+      000151 33               [ 8]  457 	inc	sp
+      000152 FAr1Er00         [16]  458 	ld	a, (#_vwf_current_tile)
+      000155 F5               [16]  459 	push	af
+      000156 33               [ 8]  460 	inc	sp
+      000157 CDr00r00         [24]  461 	call	_set_bkg_1bpp_data
+      00015A E8 04            [16]  462 	add	sp, #4
+                           00015C   463 	C$vwf.c$79$2_0$124	= .
+                                    464 	.globl	C$vwf.c$79$2_0$124
+                                    465 ;src/vwf/vwf.c:79: return FALSE;
+      00015C AF               [ 4]  466 	xor	a, a
+      00015D 18 22            [12]  467 	jr	00108$
+      00015F                        468 00106$:
+                           00015F   469 	C$vwf.c$81$2_0$127	= .
+                                    470 	.globl	C$vwf.c$81$2_0$127
+                                    471 ;src/vwf/vwf.c:81: vwf_set_banked_data(vwf_current_tile++, 1, bitmap, vwf_current_font_bank);
+      00015F 21r1Er00         [12]  472 	ld	hl, #_vwf_current_tile
+      000162 46               [ 8]  473 	ld	b, (hl)
+      000163 34               [12]  474 	inc	(hl)
+      000164 FAr26r00         [16]  475 	ld	a, (#_vwf_current_font_bank)
+      000167 F5               [16]  476 	push	af
+      000168 33               [ 8]  477 	inc	sp
+      000169 F8 02            [12]  478 	ldhl	sp,	#2
+      00016B 2A               [ 8]  479 	ld	a, (hl+)
+      00016C 5F               [ 4]  480 	ld	e, a
+      00016D 56               [ 8]  481 	ld	d, (hl)
+      00016E D5               [16]  482 	push	de
+      00016F 3E 01            [ 8]  483 	ld	a, #0x01
+      000171 F5               [16]  484 	push	af
+      000172 33               [ 8]  485 	inc	sp
+      000173 C5               [16]  486 	push	bc
+      000174 33               [ 8]  487 	inc	sp
+      000175 CDr00r00         [24]  488 	call	_vwf_set_banked_data
+      000178 E8 05            [16]  489 	add	sp, #5
+                           00017A   490 	C$vwf.c$82$2_0$127	= .
+                                    491 	.globl	C$vwf.c$82$2_0$127
+                                    492 ;src/vwf/vwf.c:82: vwf_current_offset = 0;
+      00017A 21r00r00         [12]  493 	ld	hl, #_vwf_current_offset
+      00017D 36 00            [12]  494 	ld	(hl), #0x00
+                           00017F   495 	C$vwf.c$83$2_0$127	= .
+                                    496 	.globl	C$vwf.c$83$2_0$127
+                                    497 ;src/vwf/vwf.c:83: return TRUE;
+      00017F 3E 01            [ 8]  498 	ld	a, #0x01
+      000181                        499 00108$:
+                           000181   500 	C$vwf.c$85$1_0$123	= .
+                                    501 	.globl	C$vwf.c$85$1_0$123
+                                    502 ;src/vwf/vwf.c:85: }
+      000181 E8 03            [16]  503 	add	sp, #3
+                           000183   504 	C$vwf.c$85$1_0$123	= .
+                                    505 	.globl	C$vwf.c$85$1_0$123
+                           000183   506 	XG$vwf_print_render$0$0	= .
+                                    507 	.globl	XG$vwf_print_render$0$0
+      000183 C9               [16]  508 	ret
+                           000184   509 	G$vwf_draw_text$0$0	= .
+                                    510 	.globl	G$vwf_draw_text$0$0
+                           000184   511 	C$vwf.c$87$1_0$129	= .
+                                    512 	.globl	C$vwf.c$87$1_0$129
+                                    513 ;src/vwf/vwf.c:87: uint8_t vwf_draw_text(uint8_t x, uint8_t y, uint8_t base_tile, const unsigned char * str) {
+                                    514 ;	---------------------------------
+                                    515 ; Function vwf_draw_text
+                                    516 ; ---------------------------------
+      000184                        517 _vwf_draw_text::
+      000184 57               [ 4]  518 	ld	d, a
+                           000185   519 	C$vwf.c$90$1_0$129	= .
+                                    520 	.globl	C$vwf.c$90$1_0$129
+                                    521 ;src/vwf/vwf.c:90: ui_dest_ptr = ui_dest_base = vwf_render_base_address + (y + DEVICE_SCREEN_Y_OFFSET) * (DEVICE_SCREEN_BUFFER_WIDTH * DEVICE_SCREEN_MAP_ENTRY_SIZE) + ((x + DEVICE_SCREEN_X_OFFSET) * DEVICE_SCREEN_MAP_ENTRY_SIZE);
+      000185 6B               [ 4]  522 	ld	l, e
+                                    523 ;	spillPairReg hl
+                                    524 ;	spillPairReg hl
+      000186 26 00            [ 8]  525 	ld	h, #0x00
+                                    526 ;	spillPairReg hl
+                                    527 ;	spillPairReg hl
+      000188 29               [ 8]  528 	add	hl, hl
+      000189 29               [ 8]  529 	add	hl, hl
+      00018A 29               [ 8]  530 	add	hl, hl
+      00018B 29               [ 8]  531 	add	hl, hl
+      00018C 29               [ 8]  532 	add	hl, hl
+      00018D 4D               [ 4]  533 	ld	c, l
+      00018E 44               [ 4]  534 	ld	b, h
+      00018F 79               [ 4]  535 	ld	a, c
+      000190 21r03r00         [12]  536 	ld	hl, #_vwf_render_base_address
+      000193 86               [ 8]  537 	add	a, (hl)
+      000194 23               [ 8]  538 	inc	hl
+      000195 4F               [ 4]  539 	ld	c, a
+      000196 78               [ 4]  540 	ld	a, b
+      000197 8E               [ 8]  541 	adc	a, (hl)
+      000198 47               [ 4]  542 	ld	b, a
+      000199 6A               [ 4]  543 	ld	l, d
+                                    544 ;	spillPairReg hl
+                                    545 ;	spillPairReg hl
+      00019A 26 00            [ 8]  546 	ld	h, #0x00
+                                    547 ;	spillPairReg hl
+                                    548 ;	spillPairReg hl
+      00019C 09               [ 8]  549 	add	hl, bc
+      00019D 4D               [ 4]  550 	ld	c, l
+      00019E 7C               [ 4]  551 	ld	a, h
+      00019F 21r27r00         [12]  552 	ld	hl, #_vwf_draw_text_ui_dest_base_65536_129
+      0001A2 71               [ 8]  553 	ld	(hl), c
+      0001A3 23               [ 8]  554 	inc	hl
+      0001A4 77               [ 8]  555 	ld	(hl), a
+      0001A5 21r29r00         [12]  556 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      0001A8 71               [ 8]  557 	ld	(hl), c
+      0001A9 23               [ 8]  558 	inc	hl
+      0001AA 77               [ 8]  559 	ld	(hl), a
+                           0001AB   560 	C$vwf.c$91$1_0$129	= .
+                                    561 	.globl	C$vwf.c$91$1_0$129
+                                    562 ;src/vwf/vwf.c:91: ui_text_ptr = str;
+      0001AB F8 03            [12]  563 	ldhl	sp,	#3
+      0001AD 7E               [ 8]  564 	ld	a, (hl)
+      0001AE EAr2Br00         [16]  565 	ld	(#_vwf_draw_text_ui_text_ptr_65536_129),a
+      0001B1 F8 04            [12]  566 	ldhl	sp,	#4
+      0001B3 7E               [ 8]  567 	ld	a, (hl)
+      0001B4 EAr2Cr00         [16]  568 	ld	(#_vwf_draw_text_ui_text_ptr_65536_129 + 1),a
+                           0001B7   569 	C$vwf.c$93$1_0$129	= .
+                                    570 	.globl	C$vwf.c$93$1_0$129
+                                    571 ;src/vwf/vwf.c:93: vwf_print_reset(base_tile);
+      0001B7 F8 02            [12]  572 	ldhl	sp,	#2
+      0001B9 7E               [ 8]  573 	ld	a, (hl)
+      0001BA CDr12r00         [24]  574 	call	_vwf_print_reset
+                           0001BD   575 	C$vwf.c$94$1_0$129	= .
+                                    576 	.globl	C$vwf.c$94$1_0$129
+                                    577 ;src/vwf/vwf.c:94: while (*ui_text_ptr) {
+      0001BD                        578 00118$:
+      0001BD 21r2Br00         [12]  579 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      0001C0 6E               [ 8]  580 	ld	l, (hl)
+                                    581 ;	spillPairReg hl
+                                    582 ;	spillPairReg hl
+      0001C1 FAr2Cr00         [16]  583 	ld	a, (_vwf_draw_text_ui_text_ptr_65536_129 + 1)
+      0001C4 67               [ 4]  584 	ld	h, a
+                                    585 ;	spillPairReg hl
+                                    586 ;	spillPairReg hl
+      0001C5 4E               [ 8]  587 	ld	c, (hl)
+      0001C6 79               [ 4]  588 	ld	a, c
+      0001C7 B7               [ 4]  589 	or	a, a
+      0001C8 CArCFr02         [16]  590 	jp	Z, 00120$
+                           0001CB   591 	C$vwf.c$97$1_0$129	= .
+                                    592 	.globl	C$vwf.c$97$1_0$129
+                                    593 ;src/vwf/vwf.c:97: vwf_activate_font(*++ui_text_ptr);
+      0001CB 21r2Br00         [12]  594 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      0001CE 2A               [ 8]  595 	ld	a, (hl+)
+      0001CF 5F               [ 4]  596 	ld	e, a
+      0001D0 56               [ 8]  597 	ld	d, (hl)
+      0001D1 13               [ 8]  598 	inc	de
+                           0001D2   599 	C$vwf.c$95$2_0$130	= .
+                                    600 	.globl	C$vwf.c$95$2_0$130
+                                    601 ;src/vwf/vwf.c:95: switch (*ui_text_ptr) {
+      0001D2 79               [ 4]  602 	ld	a, c
+      0001D3 3D               [ 4]  603 	dec	a
+      0001D4 28 15            [12]  604 	jr	Z, 00101$
+                           0001D6   605 	C$vwf.c$101$1_0$129	= .
+                                    606 	.globl	C$vwf.c$101$1_0$129
+                                    607 ;src/vwf/vwf.c:101: if (vwf_current_offset) vwf_print_reset(vwf_current_tile + 1u);
+      0001D6 21r1Er00         [12]  608 	ld	hl, #_vwf_current_tile
+      0001D9 46               [ 8]  609 	ld	b, (hl)
+      0001DA 04               [ 4]  610 	inc	b
+                           0001DB   611 	C$vwf.c$95$2_0$130	= .
+                                    612 	.globl	C$vwf.c$95$2_0$130
+                                    613 ;src/vwf/vwf.c:95: switch (*ui_text_ptr) {
+      0001DB 79               [ 4]  614 	ld	a,c
+      0001DC FE 02            [ 8]  615 	cp	a,#0x02
+      0001DE 28 1E            [12]  616 	jr	Z, 00102$
+      0001E0 FE 03            [ 8]  617 	cp	a,#0x03
+      0001E2 28 68            [12]  618 	jr	Z, 00105$
+      0001E4 D6 0A            [ 8]  619 	sub	a, #0x0a
+      0001E6 28 74            [12]  620 	jr	Z, 00106$
+      0001E8 C3r7Fr02         [16]  621 	jp	00109$
+                           0001EB   622 	C$vwf.c$96$3_0$131	= .
+                                    623 	.globl	C$vwf.c$96$3_0$131
+                                    624 ;src/vwf/vwf.c:96: case 0x01:
+      0001EB                        625 00101$:
+                           0001EB   626 	C$vwf.c$97$3_0$131	= .
+                                    627 	.globl	C$vwf.c$97$3_0$131
+                                    628 ;src/vwf/vwf.c:97: vwf_activate_font(*++ui_text_ptr);
+      0001EB 21r2Br00         [12]  629 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      0001EE 7B               [ 4]  630 	ld	a, e
+      0001EF 22               [ 8]  631 	ld	(hl+), a
+      0001F0 7A               [ 4]  632 	ld	a, d
+      0001F1 32               [ 8]  633 	ld	(hl-), a
+      0001F2 6E               [ 8]  634 	ld	l, (hl)
+                                    635 ;	spillPairReg hl
+                                    636 ;	spillPairReg hl
+      0001F3 FAr2Cr00         [16]  637 	ld	a, (_vwf_draw_text_ui_text_ptr_65536_129 + 1)
+      0001F6 67               [ 4]  638 	ld	h, a
+                                    639 ;	spillPairReg hl
+                                    640 ;	spillPairReg hl
+      0001F7 7E               [ 8]  641 	ld	a, (hl)
+      0001F8 CDr01r03         [24]  642 	call	_vwf_activate_font
+                           0001FB   643 	C$vwf.c$98$3_0$131	= .
+                                    644 	.globl	C$vwf.c$98$3_0$131
+                                    645 ;src/vwf/vwf.c:98: break;
+      0001FB C3rC3r02         [16]  646 	jp	00117$
+                           0001FE   647 	C$vwf.c$99$3_0$131	= .
+                                    648 	.globl	C$vwf.c$99$3_0$131
+                                    649 ;src/vwf/vwf.c:99: case 0x02:
+      0001FE                        650 00102$:
+                           0001FE   651 	C$vwf.c$100$3_0$131	= .
+                                    652 	.globl	C$vwf.c$100$3_0$131
+                                    653 ;src/vwf/vwf.c:100: ui_dest_ptr = ui_dest_base = vwf_render_base_address + (*++ui_text_ptr + DEVICE_SCREEN_Y_OFFSET) * (DEVICE_SCREEN_BUFFER_WIDTH * DEVICE_SCREEN_MAP_ENTRY_SIZE) + ((*++ui_text_ptr + DEVICE_SCREEN_X_OFFSET) * DEVICE_SCREEN_MAP_ENTRY_SIZE);
+      0001FE 21r2Br00         [12]  654 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      000201 7B               [ 4]  655 	ld	a, e
+      000202 22               [ 8]  656 	ld	(hl+), a
+      000203 7A               [ 4]  657 	ld	a, d
+      000204 32               [ 8]  658 	ld	(hl-), a
+      000205 6E               [ 8]  659 	ld	l, (hl)
+                                    660 ;	spillPairReg hl
+                                    661 ;	spillPairReg hl
+      000206 FAr2Cr00         [16]  662 	ld	a, (_vwf_draw_text_ui_text_ptr_65536_129 + 1)
+      000209 67               [ 4]  663 	ld	h, a
+                                    664 ;	spillPairReg hl
+                                    665 ;	spillPairReg hl
+      00020A 6E               [ 8]  666 	ld	l, (hl)
+                                    667 ;	spillPairReg hl
+      00020B 26 00            [ 8]  668 	ld	h, #0x00
+                                    669 ;	spillPairReg hl
+                                    670 ;	spillPairReg hl
+      00020D 29               [ 8]  671 	add	hl, hl
+      00020E 29               [ 8]  672 	add	hl, hl
+      00020F 29               [ 8]  673 	add	hl, hl
+      000210 29               [ 8]  674 	add	hl, hl
+      000211 29               [ 8]  675 	add	hl, hl
+      000212 7D               [ 4]  676 	ld	a, l
+      000213 54               [ 4]  677 	ld	d, h
+      000214 21r03r00         [12]  678 	ld	hl, #_vwf_render_base_address
+      000217 86               [ 8]  679 	add	a, (hl)
+      000218 23               [ 8]  680 	inc	hl
+      000219 5F               [ 4]  681 	ld	e, a
+      00021A 7A               [ 4]  682 	ld	a, d
+      00021B 8E               [ 8]  683 	adc	a, (hl)
+      00021C 57               [ 4]  684 	ld	d, a
+      00021D 21r2Br00         [12]  685 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      000220 34               [12]  686 	inc	(hl)
+      000221 20 02            [12]  687 	jr	NZ, 00187$
+      000223 23               [ 8]  688 	inc	hl
+      000224 34               [12]  689 	inc	(hl)
+      000225                        690 00187$:
+      000225 21r2Br00         [12]  691 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      000228 6E               [ 8]  692 	ld	l, (hl)
+                                    693 ;	spillPairReg hl
+                                    694 ;	spillPairReg hl
+      000229 FAr2Cr00         [16]  695 	ld	a, (_vwf_draw_text_ui_text_ptr_65536_129 + 1)
+      00022C 67               [ 4]  696 	ld	h, a
+                                    697 ;	spillPairReg hl
+                                    698 ;	spillPairReg hl
+      00022D 6E               [ 8]  699 	ld	l, (hl)
+                                    700 ;	spillPairReg hl
+      00022E 26 00            [ 8]  701 	ld	h, #0x00
+                                    702 ;	spillPairReg hl
+                                    703 ;	spillPairReg hl
+      000230 19               [ 8]  704 	add	hl, de
+      000231 5D               [ 4]  705 	ld	e, l
+      000232 54               [ 4]  706 	ld	d, h
+      000233 21r27r00         [12]  707 	ld	hl, #_vwf_draw_text_ui_dest_base_65536_129
+      000236 7B               [ 4]  708 	ld	a, e
+      000237 22               [ 8]  709 	ld	(hl+), a
+      000238 72               [ 8]  710 	ld	(hl), d
+      000239 21r29r00         [12]  711 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      00023C 7B               [ 4]  712 	ld	a, e
+      00023D 22               [ 8]  713 	ld	(hl+), a
+      00023E 72               [ 8]  714 	ld	(hl), d
+                           00023F   715 	C$vwf.c$101$3_0$131	= .
+                                    716 	.globl	C$vwf.c$101$3_0$131
+                                    717 ;src/vwf/vwf.c:101: if (vwf_current_offset) vwf_print_reset(vwf_current_tile + 1u);
+      00023F FAr00r00         [16]  718 	ld	a, (#_vwf_current_offset)
+      000242 B7               [ 4]  719 	or	a, a
+      000243 CArC3r02         [16]  720 	jp	Z, 00117$
+      000246 78               [ 4]  721 	ld	a, b
+      000247 CDr12r00         [24]  722 	call	_vwf_print_reset
+                           00024A   723 	C$vwf.c$102$3_0$131	= .
+                                    724 	.globl	C$vwf.c$102$3_0$131
+                                    725 ;src/vwf/vwf.c:102: break; 
+      00024A 18 77            [12]  726 	jr	00117$
+                           00024C   727 	C$vwf.c$103$3_0$131	= .
+                                    728 	.globl	C$vwf.c$103$3_0$131
+                                    729 ;src/vwf/vwf.c:103: case 0x03:
+      00024C                        730 00105$:
+                           00024C   731 	C$vwf.c$104$3_0$131	= .
+                                    732 	.globl	C$vwf.c$104$3_0$131
+                                    733 ;src/vwf/vwf.c:104: vwf_inverse_map = *++ui_text_ptr;
+      00024C 21r2Br00         [12]  734 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      00024F 7B               [ 4]  735 	ld	a, e
+      000250 22               [ 8]  736 	ld	(hl+), a
+      000251 7A               [ 4]  737 	ld	a, d
+      000252 32               [ 8]  738 	ld	(hl-), a
+      000253 2A               [ 8]  739 	ld	a, (hl+)
+      000254 4F               [ 4]  740 	ld	c, a
+      000255 46               [ 8]  741 	ld	b, (hl)
+      000256 0A               [ 8]  742 	ld	a, (bc)
+      000257 EAr01r00         [16]  743 	ld	(#_vwf_inverse_map),a
+                           00025A   744 	C$vwf.c$105$3_0$131	= .
+                                    745 	.globl	C$vwf.c$105$3_0$131
+                                    746 ;src/vwf/vwf.c:105: break;
+      00025A 18 67            [12]  747 	jr	00117$
+                           00025C   748 	C$vwf.c$106$3_0$131	= .
+                                    749 	.globl	C$vwf.c$106$3_0$131
+                                    750 ;src/vwf/vwf.c:106: case '\n':
+      00025C                        751 00106$:
+                           00025C   752 	C$vwf.c$107$3_0$131	= .
+                                    753 	.globl	C$vwf.c$107$3_0$131
+                                    754 ;src/vwf/vwf.c:107: ui_dest_ptr = ui_dest_base += (DEVICE_SCREEN_BUFFER_WIDTH * DEVICE_SCREEN_MAP_ENTRY_SIZE);
+      00025C 21r27r00         [12]  755 	ld	hl, #_vwf_draw_text_ui_dest_base_65536_129
+      00025F 2A               [ 8]  756 	ld	a, (hl+)
+      000260 C6 20            [ 8]  757 	add	a, #0x20
+      000262 4F               [ 4]  758 	ld	c, a
+      000263 7E               [ 8]  759 	ld	a, (hl)
+      000264 CE 00            [ 8]  760 	adc	a, #0x00
+      000266 5F               [ 4]  761 	ld	e, a
+      000267 21r29r00         [12]  762 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      00026A 79               [ 4]  763 	ld	a, c
+      00026B 22               [ 8]  764 	ld	(hl+), a
+      00026C 73               [ 8]  765 	ld	(hl), e
+      00026D 21r27r00         [12]  766 	ld	hl, #_vwf_draw_text_ui_dest_base_65536_129
+      000270 79               [ 4]  767 	ld	a, c
+      000271 22               [ 8]  768 	ld	(hl+), a
+      000272 73               [ 8]  769 	ld	(hl), e
+                           000273   770 	C$vwf.c$108$3_0$131	= .
+                                    771 	.globl	C$vwf.c$108$3_0$131
+                                    772 ;src/vwf/vwf.c:108: if (vwf_current_offset) vwf_print_reset(vwf_current_tile + 1u);
+      000273 FAr00r00         [16]  773 	ld	a, (#_vwf_current_offset)
+      000276 B7               [ 4]  774 	or	a, a
+      000277 28 4A            [12]  775 	jr	Z, 00117$
+      000279 78               [ 4]  776 	ld	a, b
+      00027A CDr12r00         [24]  777 	call	_vwf_print_reset
+                           00027D   778 	C$vwf.c$109$3_0$131	= .
+                                    779 	.globl	C$vwf.c$109$3_0$131
+                                    780 ;src/vwf/vwf.c:109: break; 
+      00027D 18 44            [12]  781 	jr	00117$
+                           00027F   782 	C$vwf.c$110$3_0$131	= .
+                                    783 	.globl	C$vwf.c$110$3_0$131
+                                    784 ;src/vwf/vwf.c:110: default:
+      00027F                        785 00109$:
+                           00027F   786 	C$vwf.c$111$3_0$131	= .
+                                    787 	.globl	C$vwf.c$111$3_0$131
+                                    788 ;src/vwf/vwf.c:111: if (vwf_print_render(*ui_text_ptr)) {
+      00027F 79               [ 4]  789 	ld	a, c
+      000280 CDr20r00         [24]  790 	call	_vwf_print_render
+      000283 B7               [ 4]  791 	or	a, a
+      000284 28 20            [12]  792 	jr	Z, 00113$
+                           000286   793 	C$vwf.c$112$4_0$132	= .
+                                    794 	.globl	C$vwf.c$112$4_0$132
+                                    795 ;src/vwf/vwf.c:112: if (vwf_mode & VWF_MODE_PRINT) set_vram_byte(ui_dest_ptr, vwf_current_tile - 1);
+      000286 FAr02r00         [16]  796 	ld	a, (#_vwf_mode)
+      000289 0F               [ 4]  797 	rrca
+      00028A 30 12            [12]  798 	jr	NC, 00111$
+      00028C FAr1Er00         [16]  799 	ld	a, (#_vwf_current_tile)
+      00028F 3D               [ 4]  800 	dec	a
+      000290 F5               [16]  801 	push	af
+      000291 33               [ 8]  802 	inc	sp
+      000292 21r29r00         [12]  803 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      000295 2A               [ 8]  804 	ld	a, (hl+)
+      000296 5F               [ 4]  805 	ld	e, a
+      000297 56               [ 8]  806 	ld	d, (hl)
+      000298 D5               [16]  807 	push	de
+      000299 CDr00r00         [24]  808 	call	_set_vram_byte
+      00029C E8 03            [16]  809 	add	sp, #3
+      00029E                        810 00111$:
+                           00029E   811 	C$vwf.c$113$4_0$132	= .
+                                    812 	.globl	C$vwf.c$113$4_0$132
+                                    813 ;src/vwf/vwf.c:113: ui_dest_ptr += DEVICE_SCREEN_MAP_ENTRY_SIZE;
+      00029E 21r29r00         [12]  814 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      0002A1 34               [12]  815 	inc	(hl)
+      0002A2 20 02            [12]  816 	jr	NZ, 00189$
+      0002A4 23               [ 8]  817 	inc	hl
+      0002A5 34               [12]  818 	inc	(hl)
+      0002A6                        819 00189$:
+      0002A6                        820 00113$:
+                           0002A6   821 	C$vwf.c$115$3_0$131	= .
+                                    822 	.globl	C$vwf.c$115$3_0$131
+                                    823 ;src/vwf/vwf.c:115: if ((vwf_current_offset) && (vwf_mode & VWF_MODE_PRINT)) set_vram_byte(ui_dest_ptr, vwf_current_tile);
+      0002A6 FAr00r00         [16]  824 	ld	a, (#_vwf_current_offset)
+      0002A9 B7               [ 4]  825 	or	a, a
+      0002AA 28 17            [12]  826 	jr	Z, 00117$
+      0002AC FAr02r00         [16]  827 	ld	a, (#_vwf_mode)
+      0002AF 0F               [ 4]  828 	rrca
+      0002B0 30 11            [12]  829 	jr	NC, 00117$
+      0002B2 FAr1Er00         [16]  830 	ld	a, (#_vwf_current_tile)
+      0002B5 F5               [16]  831 	push	af
+      0002B6 33               [ 8]  832 	inc	sp
+      0002B7 21r29r00         [12]  833 	ld	hl, #_vwf_draw_text_ui_dest_ptr_65536_129
+      0002BA 2A               [ 8]  834 	ld	a, (hl+)
+      0002BB 5F               [ 4]  835 	ld	e, a
+      0002BC 56               [ 8]  836 	ld	d, (hl)
+      0002BD D5               [16]  837 	push	de
+      0002BE CDr00r00         [24]  838 	call	_set_vram_byte
+      0002C1 E8 03            [16]  839 	add	sp, #3
+                           0002C3   840 	C$vwf.c$117$2_0$130	= .
+                                    841 	.globl	C$vwf.c$117$2_0$130
+                                    842 ;src/vwf/vwf.c:117: }
+      0002C3                        843 00117$:
+                           0002C3   844 	C$vwf.c$118$2_0$130	= .
+                                    845 	.globl	C$vwf.c$118$2_0$130
+                                    846 ;src/vwf/vwf.c:118: ui_text_ptr++;
+      0002C3 21r2Br00         [12]  847 	ld	hl, #_vwf_draw_text_ui_text_ptr_65536_129
+      0002C6 34               [12]  848 	inc	(hl)
+      0002C7 C2rBDr01         [16]  849 	jp	NZ,00118$
+      0002CA 23               [ 8]  850 	inc	hl
+      0002CB 34               [12]  851 	inc	(hl)
+      0002CC C3rBDr01         [16]  852 	jp	00118$
+      0002CF                        853 00120$:
+                           0002CF   854 	C$vwf.c$120$1_0$129	= .
+                                    855 	.globl	C$vwf.c$120$1_0$129
+                                    856 ;src/vwf/vwf.c:120: return vwf_next_tile() - base_tile;
+      0002CF CDr2Cr03         [24]  857 	call	_vwf_next_tile
+      0002D2 F8 02            [12]  858 	ldhl	sp,	#2
+      0002D4 96               [ 8]  859 	sub	a, (hl)
+                           0002D5   860 	C$vwf.c$121$1_0$129	= .
+                                    861 	.globl	C$vwf.c$121$1_0$129
+                                    862 ;src/vwf/vwf.c:121: }
+      0002D5 E1               [12]  863 	pop	hl
+      0002D6 E8 03            [16]  864 	add	sp, #3
+      0002D8 E9               [ 4]  865 	jp	(hl)
+                           0002D9   866 	G$vwf_load_font$0$0	= .
+                                    867 	.globl	G$vwf_load_font$0$0
+                           0002D9   868 	C$vwf.c$123$1_0$134	= .
+                                    869 	.globl	C$vwf.c$123$1_0$134
+                                    870 ;src/vwf/vwf.c:123: void vwf_load_font(uint8_t idx, const void * font, uint8_t bank) {
+                                    871 ;	---------------------------------
+                                    872 ; Function vwf_load_font
+                                    873 ; ---------------------------------
+      0002D9                        874 _vwf_load_font::
+      0002D9 3B               [ 8]  875 	dec	sp
+      0002DA 3B               [ 8]  876 	dec	sp
+      0002DB 4F               [ 4]  877 	ld	c, a
+      0002DC 33               [ 8]  878 	inc	sp
+      0002DD 33               [ 8]  879 	inc	sp
+      0002DE D5               [16]  880 	push	de
+                           0002DF   881 	C$vwf.c$124$1_0$134	= .
+                                    882 	.globl	C$vwf.c$124$1_0$134
+                                    883 ;src/vwf/vwf.c:124: vwf_fonts[idx].bank = bank;
+      0002DF 06 00            [ 8]  884 	ld	b, #0x00
+      0002E1 69               [ 4]  885 	ld	l, c
+      0002E2 60               [ 4]  886 	ld	h, b
+      0002E3 29               [ 8]  887 	add	hl, hl
+      0002E4 09               [ 8]  888 	add	hl, bc
+      0002E5 3Er00            [ 8]  889 	ld	a, #<(_vwf_fonts)
+      0002E7 85               [ 4]  890 	add	a, l
+      0002E8 5F               [ 4]  891 	ld	e, a
+      0002E9 3Es00            [ 8]  892 	ld	a, #>(_vwf_fonts)
+      0002EB 8C               [ 4]  893 	adc	a, h
+      0002EC 57               [ 4]  894 	ld	d, a
+      0002ED F8 04            [12]  895 	ldhl	sp,	#4
+      0002EF 7E               [ 8]  896 	ld	a, (hl)
+      0002F0 12               [ 8]  897 	ld	(de), a
+                           0002F1   898 	C$vwf.c$125$1_0$134	= .
+                                    899 	.globl	C$vwf.c$125$1_0$134
+                                    900 ;src/vwf/vwf.c:125: vwf_fonts[idx].ptr = (void *)font;
+      0002F1 13               [ 8]  901 	inc	de
+      0002F2 F8 00            [12]  902 	ldhl	sp,	#0
+      0002F4 2A               [ 8]  903 	ld	a, (hl+)
+      0002F5 12               [ 8]  904 	ld	(de), a
+      0002F6 13               [ 8]  905 	inc	de
+      0002F7 7E               [ 8]  906 	ld	a, (hl)
+      0002F8 12               [ 8]  907 	ld	(de), a
+                           0002F9   908 	C$vwf.c$126$1_0$134	= .
+                                    909 	.globl	C$vwf.c$126$1_0$134
+                                    910 ;src/vwf/vwf.c:126: vwf_activate_font(idx); 
+      0002F9 79               [ 4]  911 	ld	a, c
+                           0002FA   912 	C$vwf.c$127$1_0$134	= .
+                                    913 	.globl	C$vwf.c$127$1_0$134
+                                    914 ;src/vwf/vwf.c:127: }
+      0002FA CDr01r03         [24]  915 	call	_vwf_activate_font
+      0002FD E1               [12]  916 	pop	hl
+      0002FE E1               [12]  917 	pop	hl
+      0002FF 33               [ 8]  918 	inc	sp
+      000300 E9               [ 4]  919 	jp	(hl)
+                           000301   920 	G$vwf_activate_font$0$0	= .
+                                    921 	.globl	G$vwf_activate_font$0$0
+                           000301   922 	C$vwf.c$129$1_0$136	= .
+                                    923 	.globl	C$vwf.c$129$1_0$136
+                                    924 ;src/vwf/vwf.c:129: void vwf_activate_font(uint8_t idx) {
+                                    925 ;	---------------------------------
+                                    926 ; Function vwf_activate_font
+                                    927 ; ---------------------------------
+      000301                        928 _vwf_activate_font::
+      000301 4F               [ 4]  929 	ld	c, a
+                           000302   930 	C$vwf.c$130$1_0$136	= .
+                                    931 	.globl	C$vwf.c$130$1_0$136
+                                    932 ;src/vwf/vwf.c:130: vwf_current_font_bank = vwf_fonts[idx].bank;
+      000302 06 00            [ 8]  933 	ld	b, #0x00
+      000304 69               [ 4]  934 	ld	l, c
+      000305 60               [ 4]  935 	ld	h, b
+      000306 29               [ 8]  936 	add	hl, hl
+      000307 09               [ 8]  937 	add	hl, bc
+      000308 01r00r00         [12]  938 	ld	bc,#_vwf_fonts
+      00030B 09               [ 8]  939 	add	hl,bc
+      00030C 4D               [ 4]  940 	ld	c, l
+      00030D 44               [ 4]  941 	ld	b, h
+      00030E 0A               [ 8]  942 	ld	a, (bc)
+      00030F EAr26r00         [16]  943 	ld	(#_vwf_current_font_bank),a
+                           000312   944 	C$vwf.c$131$1_0$136	= .
+                                    945 	.globl	C$vwf.c$131$1_0$136
+                                    946 ;src/vwf/vwf.c:131: vwf_memcpy(&vwf_current_font_desc, vwf_fonts[idx].ptr, sizeof(font_desc_t), vwf_current_font_bank);    
+      000312 69               [ 4]  947 	ld	l, c
+      000313 60               [ 4]  948 	ld	h, b
+      000314 23               [ 8]  949 	inc	hl
+      000315 2A               [ 8]  950 	ld	a, (hl+)
+      000316 4F               [ 4]  951 	ld	c, a
+      000317 46               [ 8]  952 	ld	b, (hl)
+      000318 FAr26r00         [16]  953 	ld	a, (#_vwf_current_font_bank)
+      00031B F5               [16]  954 	push	af
+      00031C 33               [ 8]  955 	inc	sp
+      00031D 11 07 00         [12]  956 	ld	de, #0x0007
+      000320 D5               [16]  957 	push	de
+      000321 C5               [16]  958 	push	bc
+      000322 11r1Fr00         [12]  959 	ld	de, #_vwf_current_font_desc
+      000325 D5               [16]  960 	push	de
+      000326 CDr00r00         [24]  961 	call	_vwf_memcpy
+      000329 E8 07            [16]  962 	add	sp, #7
+                           00032B   963 	C$vwf.c$132$1_0$136	= .
+                                    964 	.globl	C$vwf.c$132$1_0$136
+                                    965 ;src/vwf/vwf.c:132: }
+                           00032B   966 	C$vwf.c$132$1_0$136	= .
+                                    967 	.globl	C$vwf.c$132$1_0$136
+                           00032B   968 	XG$vwf_activate_font$0$0	= .
+                                    969 	.globl	XG$vwf_activate_font$0$0
+      00032B C9               [16]  970 	ret
+                           00032C   971 	G$vwf_next_tile$0$0	= .
+                                    972 	.globl	G$vwf_next_tile$0$0
+                           00032C   973 	C$vwf.c$134$1_0$137	= .
+                                    974 	.globl	C$vwf.c$134$1_0$137
+                                    975 ;src/vwf/vwf.c:134: uint8_t vwf_next_tile() {
+                                    976 ;	---------------------------------
+                                    977 ; Function vwf_next_tile
+                                    978 ; ---------------------------------
+      00032C                        979 _vwf_next_tile::
+                           00032C   980 	C$vwf.c$135$1_0$137	= .
+                                    981 	.globl	C$vwf.c$135$1_0$137
+                                    982 ;src/vwf/vwf.c:135: return (vwf_current_offset) ? vwf_current_tile + 1u : vwf_current_tile;
+      00032C FAr00r00         [16]  983 	ld	a, (#_vwf_current_offset)
+      00032F B7               [ 4]  984 	or	a, a
+      000330 28 05            [12]  985 	jr	Z, 00103$
+      000332 FAr1Er00         [16]  986 	ld	a, (#_vwf_current_tile)
+      000335 3C               [ 4]  987 	inc	a
+      000336 C9               [16]  988 	ret
+      000337                        989 00103$:
+      000337 FAr1Er00         [16]  990 	ld	a, (#_vwf_current_tile)
+                           00033A   991 	C$vwf.c$136$1_0$137	= .
+                                    992 	.globl	C$vwf.c$136$1_0$137
+                                    993 ;src/vwf/vwf.c:136: }
+                           00033A   994 	C$vwf.c$136$1_0$137	= .
+                                    995 	.globl	C$vwf.c$136$1_0$137
+                           00033A   996 	XG$vwf_next_tile$0$0	= .
+                                    997 	.globl	XG$vwf_next_tile$0$0
+      00033A C9               [16]  998 	ret
+                                    999 	.area _CODE
+                                   1000 	.area _INITIALIZER
+                           000000  1001 Fvwf$__xinit_vwf_current_offset$0_0$0 == .
+      000000                       1002 __xinit__vwf_current_offset:
+      000000 00                    1003 	.db #0x00	; 0
+                           000001  1004 Fvwf$__xinit_vwf_inverse_map$0_0$0 == .
+      000001                       1005 __xinit__vwf_inverse_map:
+      000001 00                    1006 	.db #0x00	; 0
+                           000002  1007 Fvwf$__xinit_vwf_mode$0_0$0 == .
+      000002                       1008 __xinit__vwf_mode:
+      000002 01                    1009 	.db #0x01	; 1
+                           000003  1010 Fvwf$__xinit_vwf_render_base_address$0_0$0 == .
+      000003                       1011 __xinit__vwf_render_base_address:
+      000003 00 98                 1012 	.dw #0x9800
+                                   1013 	.area _CABS (ABS)

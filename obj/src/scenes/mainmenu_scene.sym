@@ -1,0 +1,337 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  7 A$mainmenu_scene$102                                           000024 GR
+  7 A$mainmenu_scene$106                                           000027 GR
+  7 A$mainmenu_scene$107                                           00002A GR
+  7 A$mainmenu_scene$108                                           00002B GR
+  7 A$mainmenu_scene$109                                           00002E GR
+  7 A$mainmenu_scene$110                                           00002F GR
+  7 A$mainmenu_scene$111                                           000030 GR
+  7 A$mainmenu_scene$112                                           000031 GR
+  7 A$mainmenu_scene$113                                           000032 GR
+  7 A$mainmenu_scene$114                                           000035 GR
+  7 A$mainmenu_scene$118                                           000037 GR
+  7 A$mainmenu_scene$119                                           00003A GR
+  7 A$mainmenu_scene$120                                           00003B GR
+  7 A$mainmenu_scene$121                                           00003D GR
+  7 A$mainmenu_scene$122                                           00003F GR
+  7 A$mainmenu_scene$126                                           000042 GR
+  7 A$mainmenu_scene$127                                           000045 GR
+  7 A$mainmenu_scene$128                                           000046 GR
+  7 A$mainmenu_scene$129                                           000049 GR
+  7 A$mainmenu_scene$130                                           00004A GR
+  7 A$mainmenu_scene$131                                           00004D GR
+  7 A$mainmenu_scene$132                                           00004E GR
+  7 A$mainmenu_scene$133                                           000051 GR
+  7 A$mainmenu_scene$137                                           000053 GR
+  7 A$mainmenu_scene$138                                           000056 GR
+  7 A$mainmenu_scene$139                                           000057 GR
+  7 A$mainmenu_scene$140                                           00005A GR
+  7 A$mainmenu_scene$141                                           00005B GR
+  7 A$mainmenu_scene$142                                           00005E GR
+  7 A$mainmenu_scene$143                                           00005F GR
+  7 A$mainmenu_scene$144                                           000062 GR
+  7 A$mainmenu_scene$148                                           000064 GR
+  7 A$mainmenu_scene$149                                           000067 GR
+  7 A$mainmenu_scene$150                                           000068 GR
+  7 A$mainmenu_scene$151                                           00006B GR
+  7 A$mainmenu_scene$152                                           00006C GR
+  7 A$mainmenu_scene$153                                           00006F GR
+  7 A$mainmenu_scene$154                                           000070 GR
+  7 A$mainmenu_scene$155                                           000073 GR
+  7 A$mainmenu_scene$159                                           000075 GR
+  7 A$mainmenu_scene$160                                           000078 GR
+  7 A$mainmenu_scene$164                                           00007A GR
+  7 A$mainmenu_scene$165                                           00007D GR
+  7 A$mainmenu_scene$167                                           00007F GR
+  7 A$mainmenu_scene$168                                           000082 GR
+  7 A$mainmenu_scene$170                                           000084 GR
+  7 A$mainmenu_scene$172                                           000087 GR
+  7 A$mainmenu_scene$173                                           000089 GR
+  7 A$mainmenu_scene$174                                           00008A GR
+  7 A$mainmenu_scene$178                                           00008C GR
+  7 A$mainmenu_scene$179                                           00008E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$mainmenu_scene$180                                           000090 GR
+  7 A$mainmenu_scene$184                                           000092 GR
+  7 A$mainmenu_scene$185                                           000094 GR
+  7 A$mainmenu_scene$186                                           000096 GR
+  7 A$mainmenu_scene$194                                           000098 GR
+  7 A$mainmenu_scene$219                                           0000B4 GR
+  7 A$mainmenu_scene$220                                           0000B7 GR
+  7 A$mainmenu_scene$224                                           0000BA GR
+  7 A$mainmenu_scene$225                                           0000BD GR
+  7 A$mainmenu_scene$226                                           0000BE GR
+  7 A$mainmenu_scene$227                                           0000C1 GR
+  7 A$mainmenu_scene$228                                           0000C2 GR
+  7 A$mainmenu_scene$229                                           0000C4 GR
+  7 A$mainmenu_scene$230                                           0000C6 GR
+  7 A$mainmenu_scene$231                                           0000C8 GR
+  7 A$mainmenu_scene$235                                           0000CA GR
+  7 A$mainmenu_scene$236                                           0000CD GR
+  7 A$mainmenu_scene$237                                           0000CE GR
+  7 A$mainmenu_scene$238                                           0000CF GR
+  7 A$mainmenu_scene$242                                           0000D1 GR
+  7 A$mainmenu_scene$243                                           0000D2 GR
+  7 A$mainmenu_scene$248                                           0000D4 GR
+  7 A$mainmenu_scene$249                                           0000D7 GR
+  7 A$mainmenu_scene$254                                           0000D9 GR
+  7 A$mainmenu_scene$255                                           0000DB GR
+  7 A$mainmenu_scene$256                                           0000DD GR
+  7 A$mainmenu_scene$257                                           0000DF GR
+  7 A$mainmenu_scene$261                                           0000E1 GR
+  7 A$mainmenu_scene$262                                           0000E4 GR
+  7 A$mainmenu_scene$263                                           0000E6 GR
+  7 A$mainmenu_scene$267                                           0000E8 GR
+  7 A$mainmenu_scene$268                                           0000EB GR
+  7 A$mainmenu_scene$269                                           0000EC GR
+  7 A$mainmenu_scene$274                                           0000EE GR
+  7 A$mainmenu_scene$275                                           0000F1 GR
+  7 A$mainmenu_scene$280                                           0000F3 GR
+  7 A$mainmenu_scene$281                                           0000F5 GR
+  7 A$mainmenu_scene$282                                           0000F7 GR
+  7 A$mainmenu_scene$283                                           0000F9 GR
+  7 A$mainmenu_scene$288                                           0000FB GR
+  7 A$mainmenu_scene$289                                           0000FD GR
+  7 A$mainmenu_scene$290                                           0000FE GR
+  7 A$mainmenu_scene$291                                           000100 GR
+  7 A$mainmenu_scene$296                                           000101 GR
+  7 A$mainmenu_scene$297                                           000104 GR
+  7 A$mainmenu_scene$305                                           000106 GR
+  7 A$mainmenu_scene$318                                           000107 GR
+  7 A$mainmenu_scene$319                                           00010A GR
+  7 A$mainmenu_scene$320                                           00010D GR
+  7 A$mainmenu_scene$321                                           00010E GR
+  7 A$mainmenu_scene$325                                           000110 GR
+  7 A$mainmenu_scene$326                                           000113 GR
+  7 A$mainmenu_scene$327                                           000114 GR
+  7 A$mainmenu_scene$328                                           000116 GR
+  7 A$mainmenu_scene$329                                           000119 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$mainmenu_scene$330                                           00011A GR
+  7 A$mainmenu_scene$331                                           00011C GR
+  7 A$mainmenu_scene$332                                           00011F GR
+  7 A$mainmenu_scene$333                                           000121 GR
+  7 A$mainmenu_scene$339                                           000123 GR
+  7 A$mainmenu_scene$341                                           000126 GR
+  7 A$mainmenu_scene$342                                           000128 GR
+  7 A$mainmenu_scene$343                                           000129 GR
+  7 A$mainmenu_scene$347                                           00012B GR
+  7 A$mainmenu_scene$353                                           00012D GR
+  7 A$mainmenu_scene$355                                           000130 GR
+  7 A$mainmenu_scene$356                                           000132 GR
+  7 A$mainmenu_scene$357                                           000133 GR
+  7 A$mainmenu_scene$361                                           000135 GR
+  7 A$mainmenu_scene$367                                           000137 GR
+  7 A$mainmenu_scene$369                                           00013A GR
+  7 A$mainmenu_scene$370                                           00013C GR
+  7 A$mainmenu_scene$371                                           00013D GR
+  7 A$mainmenu_scene$379                                           00013F GR
+  7 A$mainmenu_scene$380                                           000142 GR
+  7 A$mainmenu_scene$381                                           000144 GR
+  7 A$mainmenu_scene$385                                           000146 GR
+  7 A$mainmenu_scene$386                                           000148 GR
+  7 A$mainmenu_scene$387                                           000149 GR
+  7 A$mainmenu_scene$388                                           00014A GR
+  7 A$mainmenu_scene$389                                           00014B GR
+  7 A$mainmenu_scene$390                                           00014C GR
+  7 A$mainmenu_scene$391                                           00014D GR
+  7 A$mainmenu_scene$392                                           000150 GR
+  7 A$mainmenu_scene$396                                           000152 GR
+  7 A$mainmenu_scene$397                                           000155 GR
+  7 A$mainmenu_scene$398                                           000157 GR
+  7 A$mainmenu_scene$399                                           000158 GR
+  7 A$mainmenu_scene$400                                           000159 GR
+  7 A$mainmenu_scene$401                                           00015A GR
+  7 A$mainmenu_scene$402                                           00015B GR
+  7 A$mainmenu_scene$403                                           00015C GR
+  7 A$mainmenu_scene$404                                           00015F GR
+  7 A$mainmenu_scene$405                                           000161 GR
+  7 A$mainmenu_scene$410                                           000162 GR
+  7 A$mainmenu_scene$411                                           000165 GR
+  7 A$mainmenu_scene$412                                           000168 GR
+  7 A$mainmenu_scene$413                                           000169 GR
+  7 A$mainmenu_scene$414                                           00016B GR
+  7 A$mainmenu_scene$415                                           00016D GR
+  7 A$mainmenu_scene$416                                           00016E GR
+  7 A$mainmenu_scene$417                                           00016F GR
+  7 A$mainmenu_scene$418                                           000170 GR
+  7 A$mainmenu_scene$419                                           000171 GR
+  7 A$mainmenu_scene$420                                           000174 GR
+  7 A$mainmenu_scene$424                                           000176 GR
+  7 A$mainmenu_scene$425                                           000179 GR
+  7 A$mainmenu_scene$426                                           00017A GR
+  7 A$mainmenu_scene$427                                           00017D GR
+  7 A$mainmenu_scene$428                                           00017E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 A$mainmenu_scene$429                                           00017F GR
+  7 A$mainmenu_scene$430                                           000180 GR
+  7 A$mainmenu_scene$431                                           000181 GR
+  7 A$mainmenu_scene$432                                           000184 GR
+  7 A$mainmenu_scene$440                                           000186 GR
+  7 A$mainmenu_scene$451                                           000187 GR
+  7 A$mainmenu_scene$453                                           00018A GR
+  7 A$mainmenu_scene$454                                           00018B GR
+  7 A$mainmenu_scene$455                                           00018C GR
+  7 A$mainmenu_scene$456                                           00018D GR
+  7 A$mainmenu_scene$457                                           00018E GR
+  7 A$mainmenu_scene$461                                           00018F GR
+  7 A$mainmenu_scene$462                                           000191 GR
+  7 A$mainmenu_scene$463                                           000193 GR
+  7 A$mainmenu_scene$471                                           000195 GR
+  7 A$mainmenu_scene$67                                            000000 GR
+  7 A$mainmenu_scene$68                                            000003 GR
+  7 A$mainmenu_scene$72                                            000005 GR
+  7 A$mainmenu_scene$73                                            000007 GR
+  7 A$mainmenu_scene$74                                            00000A GR
+  7 A$mainmenu_scene$78                                            00000D GR
+  7 A$mainmenu_scene$79                                            000010 GR
+  7 A$mainmenu_scene$83                                            000012 GR
+  7 A$mainmenu_scene$84                                            000015 GR
+  7 A$mainmenu_scene$88                                            000017 GR
+  7 A$mainmenu_scene$92                                            00001A GR
+  7 A$mainmenu_scene$93                                            00001D GR
+  7 A$mainmenu_scene$97                                            00001F GR
+  7 A$mainmenu_scene$98                                            000022 GR
+  7 C$mainmenu_scene.c$100$1_0$160                              =  00013F GR
+  7 C$mainmenu_scene.c$101$2_0$163                              =  000146 GR
+  7 C$mainmenu_scene.c$102$2_0$163                              =  000152 GR
+  7 C$mainmenu_scene.c$104$2_0$164                              =  000162 GR
+  7 C$mainmenu_scene.c$105$2_0$164                              =  000176 GR
+  7 C$mainmenu_scene.c$108$1_0$160                              =  000186 GR
+  7 C$mainmenu_scene.c$110$1_0$174                              =  000187 GR
+  7 C$mainmenu_scene.c$113$1_0$174                              =  00018F GR
+  7 C$mainmenu_scene.c$114$1_0$174                              =  000195 GR
+  7 C$mainmenu_scene.c$116$1_0$178                              =  000196 GR
+  7 C$mainmenu_scene.c$21$0_0$145                               =  000000 GR
+  7 C$mainmenu_scene.c$23$1_0$145                               =  000000 GR
+  7 C$mainmenu_scene.c$25$1_0$145                               =  000005 GR
+  7 C$mainmenu_scene.c$27$1_0$145                               =  00000D GR
+  7 C$mainmenu_scene.c$28$1_0$145                               =  000012 GR
+  7 C$mainmenu_scene.c$29$1_0$145                               =  000017 GR
+  7 C$mainmenu_scene.c$31$1_0$145                               =  00001A GR
+  7 C$mainmenu_scene.c$32$1_0$145                               =  00001F GR
+  7 C$mainmenu_scene.c$33$1_0$145                               =  000024 GR
+  7 C$mainmenu_scene.c$36$1_0$145                               =  000027 GR
+  7 C$mainmenu_scene.c$37$1_0$145                               =  000037 GR
+  7 C$mainmenu_scene.c$39$1_0$145                               =  000042 GR
+  7 C$mainmenu_scene.c$40$1_0$145                               =  000053 GR
+  7 C$mainmenu_scene.c$41$1_0$145                               =  000064 GR
+  7 C$mainmenu_scene.c$44$1_0$145                               =  000075 GR
+  7 C$mainmenu_scene.c$45$1_0$145                               =  00007A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 C$mainmenu_scene.c$49$1_0$145                               =  00008C GR
+  7 C$mainmenu_scene.c$50$1_0$145                               =  000092 GR
+  7 C$mainmenu_scene.c$51$1_0$145                               =  000098 GR
+  7 C$mainmenu_scene.c$53$1_0$152                               =  0000B4 GR
+  7 C$mainmenu_scene.c$55$1_0$152                               =  0000B4 GR
+  7 C$mainmenu_scene.c$56$1_0$152                               =  0000BA GR
+  7 C$mainmenu_scene.c$57$2_0$153                               =  0000CA GR
+  7 C$mainmenu_scene.c$58$3_0$154                               =  0000D1 GR
+  7 C$mainmenu_scene.c$60$3_0$155                               =  0000D4 GR
+  7 C$mainmenu_scene.c$63$1_0$152                               =  0000D9 GR
+  7 C$mainmenu_scene.c$64$2_0$156                               =  0000E1 GR
+  7 C$mainmenu_scene.c$65$3_0$157                               =  0000E8 GR
+  7 C$mainmenu_scene.c$67$3_0$158                               =  0000EE GR
+  7 C$mainmenu_scene.c$72$1_0$152                               =  0000F3 GR
+  7 C$mainmenu_scene.c$73$1_0$152                               =  0000FB GR
+  7 C$mainmenu_scene.c$77$2_0$159                               =  000101 GR
+  7 C$mainmenu_scene.c$80$1_0$152                               =  000106 GR
+  7 C$mainmenu_scene.c$82$1_0$160                               =  000107 GR
+  7 C$mainmenu_scene.c$84$1_0$160                               =  000107 GR
+  7 C$mainmenu_scene.c$85$2_0$161                               =  000110 GR
+  7 C$mainmenu_scene.c$87$3_0$162                               =  000123 GR
+  7 C$mainmenu_scene.c$89$3_0$162                               =  00012B GR
+  7 C$mainmenu_scene.c$90$3_0$162                               =  00012D GR
+  7 C$mainmenu_scene.c$92$3_0$162                               =  000135 GR
+  7 C$mainmenu_scene.c$93$3_0$162                               =  000137 GR
+  7 C$mainmenu_scene.c$96$1_0$160                               =  00013F GR
+  7 Fmainmenu_scene$__str_0$0_0$0                               =  000099 GR
+  7 Fmainmenu_scene$__str_1$0_0$0                               =  0000A2 GR
+  7 Fmainmenu_scene$__str_2$0_0$0                               =  0000AB GR
+  7 G$__func_mainmenu_scene_bank$0$0                            =  000196 GR
+  7 G$drawMainmenuScene$0$0                                     =  000107 GR
+  7 G$handleMainmenuUpdate$0$0                                  =  0000B4 GR
+  7 G$initializeMainmenuScene$0$0                               =  000000 GR
+  7 G$mainmenuSceneTeardown$0$0                                 =  000187 GR
+  7 XG$drawMainmenuScene$0$0                                    =  000186 GR
+  7 XG$handleMainmenuUpdate$0$0                                 =  000106 GR
+  7 XG$initializeMainmenuScene$0$0                              =  000098 GR
+  7 XG$mainmenuSceneTeardown$0$0                                =  000195 GR
+    _ANIMATION_TICK                                                ****** GX
+    _BLANK_SCREEN_MAP                                              ****** GX
+    _CURSOR_INDEX                                                  ****** GX
+    _CURSOR_INDEX_PREV                                             ****** GX
+    _GAME_STATE                                                    ****** GX
+    _ITOA_STRING                                                   ****** GX
+    _JOYPAD_CURRENT                                                ****** GX
+    _JOYPAD_PREVIOUS                                               ****** GX
+    _LCDC_REG                                                      ****** GX
+    _RENDER_TARGET                                                 ****** GX
+    _TEMP_VAR_A                                                    ****** GX
+    _TEMP_VAR_B                                                    ****** GX
+    ___bank_mainmenu_scene_bank                                 =  0000FF G
+  7 ___func_mainmenu_scene_bank                                    000196 GR
+    ___sdcc_bcall_ehl                                              ****** GX
+  7 ___str_0                                                       000099 R
+  7 ___str_1                                                       0000A2 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  7 ___str_2                                                       0000AB R
+  7 _drawMainmenuScene                                             000107 GR
+    _drawWindowBorder                                              ****** GX
+  7 _handleMainmenuUpdate                                          0000B4 GR
+  7 _initializeMainmenuScene                                       000000 GR
+    _loadFontGraphicsData                                          ****** GX
+    _loadUIGraphics                                                ****** GX
+  7 _mainmenuSceneTeardown                                         000187 GR
+    _set_bkg_tile_xy                                               ****** GX
+    _set_bkg_tiles                                                 ****** GX
+    _shadow_OAM                                                    ****** GX
+    _uitoa                                                         ****** GX
+    b___func_mainmenu_scene_bank                                =  0000FF L
+    b_loadFontGraphicsData                                         ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _CODE_255                                  size    196   flags    0
+   8 _INITIALIZER                               size      0   flags    0
+   9 _CABS                                      size      0   flags    8
+
