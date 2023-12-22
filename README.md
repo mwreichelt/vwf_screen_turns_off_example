@@ -27,4 +27,4 @@ When selecting the "Fonts" debug option, my program prints a very long string wi
 * GBDK2020 
 * Toxa's VGM2SFX library
 * hUGEDriver 1.0b9
-* Font_condensed https://edo999.itch.io/condensed-fonts
+* Condensed fonts set by edo999 (edo999.itch.io).
